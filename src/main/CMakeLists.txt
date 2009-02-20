@@ -1,5 +1,5 @@
 set(ABINIT_LIBS
-    #21drive
+    21drive
     21paral_md
     21rdm
     18seqpar

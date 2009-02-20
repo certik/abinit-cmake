@@ -31,6 +31,7 @@ add_subdirectory(17suscep)
 add_subdirectory(18seqpar)
 add_subdirectory(21rdm)
 add_subdirectory(21paral_md)
+add_subdirectory(21drive)
 
 add_subdirectory(lib01cg)
 add_subdirectory(lib01hidempi)
