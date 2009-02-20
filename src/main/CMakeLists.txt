@@ -5,6 +5,7 @@ set(ABINIT_LIBS
     13iovars 13ionetcdf 14poisson 14wfs 14wvl_wfs 14iowfdenpot 15rsprc
     15recursion 15common 15gw 16geomoptim 16response 17suscep 18seqpar 21rdm
     21paral_md
+    lib01cg lib01hidempi lib01fftnew lib00numeric
     )
 include_directories(../defs)
 add_executable(abinis abinit.F90)
