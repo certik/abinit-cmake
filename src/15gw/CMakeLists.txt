@@ -86,7 +86,7 @@ set(SRC
     setup_kmesh.F90
     setup_qmesh.F90
     setup_little_group.F90
-    #setup_ppmodel.F90
+    setup_ppmodel.F90
     setup_sigma.F90
     sizefft.F90
     symmetrize_afm_chi0.F90
