@@ -9,4 +9,5 @@ set(SRC
     )
 
 include_directories(../defs)
-add_library(test ${SRC})
+add_library(00basis ${SRC})
+add_dependencies(00basis defs)
