@@ -6,3 +6,5 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 set(CMAKE_Fortran_COMPILER gfortran)
 
 add_subdirectory(src)
+
+#add_executable(abinis defs)

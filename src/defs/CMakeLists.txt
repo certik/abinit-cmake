@@ -80,4 +80,4 @@ set(SRC
     m_special_funcs.F90
     )
 
-add_executable(test ${SRC})
+add_library(defs STATIC ${SRC})
