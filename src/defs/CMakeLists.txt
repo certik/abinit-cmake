@@ -80,12 +80,9 @@ set(SRC
     m_special_funcs.F90
     )
 
-#set(SRC
-#    defs_infos.F90
-#    m_pseudo.F90
-#    )
-#configure_file(defs_infos.F90.in defs_infos.F90)
-
+# create the defs_infos.F90 by copying defs_infos.F90.in
+# later we should also substitute the correct variables in it using
+# configure_file(), but for some reason that doesn't work.
 add_custom_command(
     OUTPUT defs_infos.F90
     COMMAND cp defs_infos.F90.in defs_infos.F90
@@ -93,4 +90,3 @@ add_custom_command(
     )
 
 add_library(defs STATIC ${SRC})
-#add_dependencies(defs defs_infos.F90)
