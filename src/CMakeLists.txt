@@ -29,7 +29,7 @@ add_subdirectory(16geomoptim)
 add_subdirectory(16response)
 add_subdirectory(17suscep)
 add_subdirectory(18seqpar)
-#add_subdirectory(21rdm)
+add_subdirectory(21rdm)
 #add_subdirectory(21paral_mds)
 
 # don't build main yet, until we manage to build all the dirs
