@@ -8,4 +8,5 @@ set(SRC
     wrtout_myproc.F90
     )
 
-add_executable(test ${SRC})
+include_directories(../defs)
+add_library(test ${SRC})
