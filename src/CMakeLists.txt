@@ -32,5 +32,10 @@ add_subdirectory(18seqpar)
 add_subdirectory(21rdm)
 add_subdirectory(21paral_md)
 
+add_subdirectory(lib01cg)
+add_subdirectory(lib01hidempi)
+add_subdirectory(lib01fftnew)
+add_subdirectory(lib00numeric)
+
 # don't build main yet, until we manage to build all the dirs
-add_subdirectory(main)
+#add_subdirectory(main)
