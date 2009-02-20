@@ -42,4 +42,7 @@ set(ABINIT_LIBS
 include_directories(../defs)
 add_executable(abinis abinit.F90)
 add_dependencies(abinis ${ABINIT_LIBS})
-target_link_libraries(abinis ${ABINIT_LIBS} lapack)
+
+find_package(LAPACK REQUIRED)
+
+target_link_libraries(abinis ${ABINIT_LIBS} ${LAPACK_LIBRARIES})
