@@ -1,0 +1,42 @@
+set(SRC
+    cont22cso.F90
+    cont22so.F90
+    cont24.F90
+    cont33cso.F90
+    cont33so.F90
+    cont35.F90
+    cont22.F90
+    cont3.F90
+    cont13.F90
+    cprj_utils.F90
+    ctocprj.F90
+    ddkten.F90
+    getcprj.F90
+    metcon.F90
+    metcon_so.F90
+    metric_so.F90
+    metstr.F90
+    mkffkg.F90
+    mkffkg3.F90
+    mkffnl.F90
+    mkkpg.F90
+    nonlop.F90
+    nonlop_pl.F90
+    nonlop_ylm.F90
+    opernl2.F90
+    opernl3.F90
+    opernl4a.F90
+    opernl4b.F90
+    opernla_ylm.F90
+    opernlb_ylm.F90
+    opernlc_ylm.F90
+    opernld_ylm.F90
+    ph1d3d.F90
+    scalewf_nonlop.F90
+    strsocv.F90
+    trace2.F90
+)
+
+include_directories(../defs)
+add_library(13nonlocal ${SRC})
+add_dependencies(13nonlocal defs)
