@@ -7,3 +7,5 @@ set(SRC
     timein.F90
     wrtout_myproc.F90
     )
+
+add_executable(test ${SRC})
