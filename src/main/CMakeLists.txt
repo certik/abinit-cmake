@@ -10,7 +10,7 @@ set(ABINIT_LIBS
     15common
     15recursion
     15rsprc
-    #14occeig
+    14occeig
     14iowfdenpot
     14wvl_wfs
     14wfs
