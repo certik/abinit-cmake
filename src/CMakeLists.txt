@@ -39,5 +39,4 @@ add_subdirectory(lib01hidempi)
 add_subdirectory(lib01fftnew)
 add_subdirectory(lib00numeric)
 
-# don't build main yet, until we manage to build all the dirs
 add_subdirectory(main)
