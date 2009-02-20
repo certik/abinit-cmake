@@ -12,7 +12,6 @@ set(SRC
     occeig.F90
     pareigocc.F90
     partial_dos_fractions.F90
-    printbxsf.F90
     prtxcfermsurf.F90
     printbxsf.F90
     recip_ylm.F90
