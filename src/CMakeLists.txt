@@ -33,4 +33,4 @@ add_subdirectory(21rdm)
 add_subdirectory(21paral_md)
 
 # don't build main yet, until we manage to build all the dirs
-#add_subdirectory(main)
+add_subdirectory(main)
