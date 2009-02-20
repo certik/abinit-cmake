@@ -80,4 +80,17 @@ set(SRC
     m_special_funcs.F90
     )
 
+#set(SRC
+#    defs_infos.F90
+#    m_pseudo.F90
+#    )
+#configure_file(defs_infos.F90.in defs_infos.F90)
+
+add_custom_command(
+    OUTPUT defs_infos.F90
+    COMMAND cp defs_infos.F90.in defs_infos.F90
+    DEPENDS defs_infos.F90.in
+    )
+
 add_library(defs STATIC ${SRC})
+#add_dependencies(defs defs_infos.F90)
