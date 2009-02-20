@@ -1,0 +1,51 @@
+set(SRC
+    der_int.F90
+    gg1cc.F90
+    gp1cc.F90
+    gpp1cc.F90
+    pspatm.F90
+    pspcor.F90
+    pspini.F90
+    psp1cc.F90
+    psp1in.F90
+    psp1lo.F90
+    psp1nl.F90
+    psp2in.F90
+    psp2lo.F90
+    psp2nl.F90
+    psp2params.F90
+    psp3in.F90
+    psp3nl.F90
+    psp4cc.F90
+    psp5in.F90
+    psp5lo.F90
+    psp5nl.F90
+    psp6in.F90
+    psp6cc.F90
+    psp6ccpos.F90
+    psp6cc_drh.F90
+    psp7cg.F90
+    psp7in.F90
+    psp7lo.F90
+    psp7nl.F90
+    psp8cc.F90
+    psp8in.F90
+    psp8lo.F90
+    psp8nl.F90
+    psp9in.F90
+    psp10in.F90
+    psp10nl.F90
+    psxml2ab.F90
+    sbf8.F90
+    sincos.F90
+    smoothvlocal.F90
+    solvbes.F90
+    shapebes.F90
+    radii_ps.F90
+    vander.F90
+    cc_derivatives.F90
+)
+
+include_directories(../defs)
+add_library(13psp ${SRC})
+add_dependencies(13psp defs)
