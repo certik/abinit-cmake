@@ -1,0 +1,56 @@
+set(SRC
+    bldgrp.F90
+    bldgrpaf.F90
+    bonds_lgth_angles.F90
+    chkdilatmx.F90
+    chkgrp.F90
+    chkorthsy.F90
+    chkprimit.F90
+    gensymshub.F90
+    gensymshub4.F90
+    gensymspgr.F90
+    getptgroupma.F90
+    getspinrot.F90
+    gridgcart.F90
+    holocell.F90
+    metric.F90
+    mkrdim.F90
+    operat.F90
+    prtspgroup.F90
+    ptgmadata.F90
+    smallprim.F90
+    spgdata.F90
+    strconv.F90
+    strainsym.F90
+    stresssym.F90
+    sym2cart.F90
+    symanal.F90
+    symatm.F90
+    symaxes.F90
+    symbrav.F90
+    symchk.F90
+    symdet.F90
+    symfind.F90
+    symlist_bcc.F90
+    symlist_fcc.F90
+    symlist_others.F90
+    symlist_prim.F90
+    symmultsg.F90
+    symplanes.F90
+    symrelrot.F90
+    symsgcube.F90
+    symsghexa.F90
+    symsgmono.F90
+    symsgortho.F90
+    symsgtetra.F90
+    symspgr.F90
+    symzat.F90
+    wvl_setboxgeometry.F90
+    xredxcart.F90
+    normv.F90
+    vdotw.F90
+)
+
+include_directories(../defs)
+add_library(12geometry ${SRC})
+add_dependencies(12geometry defs)
