@@ -1,0 +1,11 @@
+filename		amd-pathscale_chum.ac
+CC			sudo /opt/pathscale/bin/pathcc
+FC			sudo /opt/pathscale/bin/pathf90
+#
+enable_mpi		yes
+# for OpenMPI
+with_mpi_prefix		/usr/local/openmpi-pathscale
+# for MIPCH-2 
+#with_mpi_prefix		/usr/local/mpich2-pathscale
+#
+enable_64bit_flags	yes

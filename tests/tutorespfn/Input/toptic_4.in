@@ -1,0 +1,13 @@
+toptic_3o_DS4_1WF7
+toptic_3o_DS5_1WF8
+toptic_3o_DS6_1WF9
+toptic_3o_DS3_WFK
+0.002         ! Value of the smearing factor, in Hartree
+0.0003  0.3   ! Difference between frequency values (in Hartree), and maximum frequency ( 1 Ha is about 27.211 eV)
+0.000         ! Scissor shift if needed, in Hartree
+0.002         ! Tolerance on closeness of singularities (in Hartree)
+1             ! Number of components of linear optic tensor to be computed
+11            ! Linear coefficients to be computed (x=1, y=2, z=3)
+0             ! Number of components of nonlinear optic tensor to be computed
+              ! Non-linear coefficients to be computed
+

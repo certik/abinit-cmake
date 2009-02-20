@@ -1,0 +1,72 @@
+# Oxygen molecule, treated with fixed occupation numbers, 
+# with LDA.
+# This is to demonstrate a subtlety of the analysis of
+# finite differences : the effect of the symmetrization.
+# In dataset 1-3, one computes the total energy and forces,
+# with automatic computation of symmetries, including
+# symmetrization of the forces
+# In dataset 4, RF is computed, and the agreement with 
+# finite-differences of datasets 1 and 3 is quite bad: 1.5% error
+# However, the agreement with the finite differences
+# of forces in datasets 5 and 6, where the symmetrization
+# of forces is not done is perfect. And this is the correct
+# behaviour.
+# Explanation : forces in the geometry of datasets 1,3,5 and 6 
+# are not really symmetric, because of the underlying XC grid !!
+
+ ndtset 6
+
+
+#GS, use symmetries
+ xred1  0.0 0.0  0.11545    0.0 0.0 -0.1155
+
+ xred2  0.0 0.0  0.1155     0.0 0.0 -0.1155
+ getwfk2 1
+
+ xred3  0.0 0.0  0.11555    0.0 0.0 -0.1155
+ getwfk3 2
+
+#Specific for RF
+ xred4  0.0 0.0  0.1155     0.0 0.0 -0.1155
+  rfphon4  1
+ rfatpol4  1 1
+   rfdir4  0 0 1
+    nqpt4  1
+     qpt4  0.0 0.0 0.0
+  getwfk4  2
+  tolvrs4  1.0d-7
+
+#GS, do not use symmetries
+ xred5  0.0 0.0  0.11545    0.0 0.0 -0.1155
+ nsym5  1
+ getwfk5 1
+
+ xred6  0.0 0.0  0.11555    0.0 0.0 -0.1155
+ nsym6  1
+ getwfk6 3
+
+
+#Common data
+
+ diemac 1.0d0
+ diemix 1/3
+ ecut 13.00
+ getwfk -1
+ ixc 1
+ kpt   3*0.0
+ natom  2 
+ nband 8 
+ nkpt 1
+ nstep 30
+ ntypat  1
+ occopt 0     
+ occ 5*2 2*1 1*0
+ acell  6.500  6.500  9.000
+ rprim 1 0 0  0 1 0  0 0 1
+ tolvrs 1.d-16
+ tsmear 0.02
+ typat  1 1
+ wtk  1
+ znucl  8.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

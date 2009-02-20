@@ -1,0 +1,1 @@
+FCFLAGS_OPT="-O2 -march=pentium3 -mmmx -msse"

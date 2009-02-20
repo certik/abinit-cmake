@@ -1,0 +1,8 @@
+filename		fujitsu-fujitsu_eliza.ac
+CC			cc
+CXX			c++
+FC			frt
+with_fc_libs		-lssl2vp
+with_mpi_prefix		/usr/lang/mpi2
+enable_netcdf		no
+enable_etsf_io		no

@@ -1,0 +1,51 @@
+# N2 system. 
+# Excited state computation, using LDA/TDLDA
+# with different XC kernels
+
+ ndtset    4
+
+#DATASET 1  SCF
+   iscf1   5
+  nband1   5
+ prtden1   1
+ getden1   0
+ getwfk1   0
+ tolwfr1   1.0d-15
+
+#DATASET 2 TDDFT
+#Common to all except GS calculations
+ getden    1
+ tolwfr    1.0d-9
+   iscf   -1
+ getwfk    1
+  nband    12
+
+#DATASET 3  SCF with another ixc
+   iscf3   5
+  nband3   5
+ prtden3   1
+ getwfk3   1
+ tolwfr3   1.0d-15
+    ixc3   7
+
+#DATASET 4 TDDFT
+ getden4   3
+ getwfk4   3
+    ixc4   7
+
+#Common
+ acell 6  2*5 Angstrom
+ boxcenter 3*0.0d0
+ diemac 1.0d0   diemix 0.5d0
+ ecut 25
+ ixc  1
+
+ mffmem 0
+ natom  2 
+ nbdbuf 0
+
+ nstep 25
+ ntypat  1
+ typat  1 1
+ xcart -0.54885  0 0  0.54885 0 0 Angstrom   ! Distance 1.0977 Angstrom
+ znucl  7

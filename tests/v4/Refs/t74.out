@@ -1,0 +1,60 @@
+
+.Version 5.6.3  of ANADDB 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ ANADDB comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Thu  6 Nov 2008.
+  
+
+================================================================================
+
+ -outvars9: echo values of input variables ----------------------
+
+ Flags :
+     polflag         1
+ Relaxation at fixed polarization :
+
+================================================================================
+
+ read the DDB information and perform some checks
+
+-begin at tcpu      0.019  and twall      0.019 sec
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  0.0000000  5.3082654  5.3082654  G(1)= -0.0941927  0.0941927  0.0941927
+ R(2)=  5.3082654  0.0000000  5.3082654  G(2)=  0.0941927 -0.0941927  0.0941927
+ R(3)=  5.3082654  5.3082654  0.0000000  G(3)=  0.0941927  0.0941927 -0.0941927
+ Unit cell volume ucvol=  2.9914923E+02 bohr^3
+ Angles (23,13,12)=  6.00000000E+01  6.00000000E+01  6.00000000E+01 degrees
+ Now the whole DDB is in central memory
+
+ Polarization in cartesian coordinates (a.u.):
+ (the sum of the electronic and ionic Berry phase has been fold into [-1, 1])
+     Electronic berry phase:        0.125283105E-03   0.125283105E-03   0.125283105E-03
+     Expectation value (PAW only):  0.000000000E+00   0.000000000E+00   0.000000000E+00
+     Ionic:                        -0.266168099E-01  -0.266168099E-01  -0.266168099E-01
+     Total:                        -0.264915268E-01  -0.264915268E-01  -0.264915268E-01
+
+ Polarization in cartesian coordinates (C/m^2):
+ (the sum of the electronic and ionic Berry phase has been fold into [-1, 1])
+     Electronic berry phase:        0.716804295E-02   0.716804294E-02   0.716804294E-02
+     Expectation value (PAW only):  0.000000000E+00   0.000000000E+00   0.000000000E+00
+     Ionic:                        -0.152287443E+01  -0.152287443E+01  -0.152287443E+01
+     Total:                        -0.151570639E+01  -0.151570639E+01  -0.151570639E+01
+
+================================================================================
+
++Total cpu time      0.020  and wall time      0.021 sec
+
+ anaddb : the run completed succesfully.

@@ -1,0 +1,91 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Config file for the libraries of ABINIT
+#
+# Note: The following statements have to be readable by Python scripts
+#
+
+# Library attributes
+ABI_LIB_NIL = 0    # No attribute
+ABI_LIB_F77 = 1    # Library sources are Fortran 77 files
+ABI_LIB_C89 = 2    # Library sources are C files
+ABI_LIB_NPP = 4    # Sources should not be preprocessed
+ABI_LIB_MPI = 8    # Library has a MPI-parallel version
+ABI_LIB_INC = 16   # Library exports at least one module or header
+ABI_LIB_RUL = 32   # Library should be avoided by abirules
+
+# Library names, sorted by dependency order
+abinit_corelibs = [
+   "defs",
+   "lib00macroav",
+   "lib00numeric",
+   "lib01fftnew",
+   "lib01cg",
+   "lib01hidempi",
+   "00basis",
+   "01manage_mpi",
+   "11util","11contract",
+   "12spacepar","12parser","12geometry","12ffts","12nlstrain",
+   "13xml","13xc","13recipspace","13paw","13iovars","13nonlocal","13psp",
+   "13ionetcdf","13io_mpi",
+   "14poisson",
+   "14wfs","14wvl_wfs","14iowfdenpot","14bader","14occeig",
+   "15common","15gw","15recursion","15rsprc",
+   "16response","16geomoptim",
+   "17suscep","17lwf","17ddb",
+   "18seqpar",
+   "19cut3d",
+   "21paral_md","21drive","21rdm"]
+
+# Library descriptions
+corelibs_specs = {
+   "defs":ABI_LIB_INC|ABI_LIB_RUL,
+   "lib00macroav":ABI_LIB_F77|ABI_LIB_NPP|ABI_LIB_RUL,
+   "lib00numeric":ABI_LIB_RUL,
+   "lib01fftnew":ABI_LIB_MPI|ABI_LIB_RUL,
+   "lib01hidempi":ABI_LIB_MPI|ABI_LIB_RUL,
+   "01manage_mpi":ABI_LIB_MPI|ABI_LIB_RUL,
+   "12ffts":ABI_LIB_RUL,
+   "13io_mpi":ABI_LIB_MPI|ABI_LIB_RUL,
+   "14poisson":ABI_LIB_MPI|ABI_LIB_RUL,
+   "15rsprc":ABI_LIB_INC,
+   "18seqpar":ABI_LIB_MPI|ABI_LIB_RUL,
+   "21paral_md":ABI_LIB_MPI|ABI_LIB_RUL}
+
+# Library dependencies on plug-ins
+corelibs_deps = {
+   "defs":["xmlf90","bigdft"],
+   "11util":["netcdf"],
+   "12geometry":["bigdft"],
+   "13io_mpi":["netcdf","etsf_io"],
+   "13ionetcdf":["netcdf","etsf_io","bigdft"],
+   "13ioetsf":["netcdf"],
+   "13iovars":["netcdf","etsf_io","bigdft"],
+   "13nonlocal":["netcdf"],
+   "13psp":["xmlf90","bigdft"],
+   "13xc":["etsf_xc"],
+   "14bader":["bigdft"],
+   "14iowfdenpot":["netcdf","etsf_io","bigdft"],
+   "14occeig":["bigdft"],
+   "14poisson":["bigdft"],
+   "14wvl_wfs":["bigdft", "netcdf", "etsf_io"],
+   "15common":["netcdf","bigdft"],
+   "15gw":["bigdft"],
+   "15rsprc":["bigdft"],
+   "16response":["netcdf","bigdft"],
+   "17ddb":["bigdft"],
+   "17suscep":["netcdf","bigdft"],
+   "18seqpar":["netcdf","xmlf90","bigdft","etsf_io"],
+   "19cut3d":["netcdf","etsf_io","bigdft"],
+   "21paral_md":["bigdft"],
+   "21rdm":["bigdft"],
+   "21drive":["netcdf","bigdft","etsf_io"]}

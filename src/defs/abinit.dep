@@ -1,0 +1,236 @@
+#Dependencies (inside the directory) of the directory ./src/defs
+#
+#COPYRIGHT
+#Copyright (C) 2008 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_aimfields.$(MODEXT) \
+	defs_aimprom.$(MODEXT) \
+	defs_basis.$(MODEXT) \
+	defs_berry.$(MODEXT) \
+	defs_datatypes.$(MODEXT) \
+	defs_dyson.$(MODEXT) \
+	defs_elphon.$(MODEXT) \
+	defs_fftdata.$(MODEXT) \
+	defs_infos.$(MODEXT) \
+	defs_interfaces.$(MODEXT) \
+	defs_parameters.$(MODEXT) \
+	defs_scalapack.$(MODEXT) \
+	defs_suscep.$(MODEXT) \
+	defs_time.$(MODEXT) \
+	defs_wannier90.$(MODEXT) \
+	defs_wvltypes.$(MODEXT) \
+	defs_xc.$(MODEXT) \
+	defs_xderive.$(MODEXT) \
+	defs_xfuncmpi.$(MODEXT) \
+	frskerker1.$(MODEXT) \
+	frskerker2.$(MODEXT) \
+	ftfvw1.$(MODEXT) \
+	ftfvw2.$(MODEXT) \
+	interfaces_00basis.$(MODEXT) \
+	interfaces_01manage_mpi.$(MODEXT) \
+	interfaces_11contract.$(MODEXT) \
+	interfaces_11util.$(MODEXT) \
+	interfaces_12ffts.$(MODEXT) \
+	interfaces_12geometry.$(MODEXT) \
+	interfaces_12nlstrain.$(MODEXT) \
+	interfaces_12parser.$(MODEXT) \
+	interfaces_12spacepar.$(MODEXT) \
+	interfaces_13io_mpi.$(MODEXT) \
+	interfaces_13ionetcdf.$(MODEXT) \
+	interfaces_13iovars.$(MODEXT) \
+	interfaces_13nonlocal.$(MODEXT) \
+	interfaces_13paw.$(MODEXT) \
+	interfaces_13psp.$(MODEXT) \
+	interfaces_13recipspace.$(MODEXT) \
+	interfaces_13xc.$(MODEXT) \
+	interfaces_13xml.$(MODEXT) \
+	interfaces_14bader.$(MODEXT) \
+	interfaces_14iowfdenpot.$(MODEXT) \
+	interfaces_14occeig.$(MODEXT) \
+	interfaces_14poisson.$(MODEXT) \
+	interfaces_14wfs.$(MODEXT) \
+	interfaces_14wvl_wfs.$(MODEXT) \
+	interfaces_15common.$(MODEXT) \
+	interfaces_15gw.$(MODEXT) \
+	interfaces_15recursion.$(MODEXT) \
+	interfaces_15rsprc.$(MODEXT) \
+	interfaces_16geomoptim.$(MODEXT) \
+	interfaces_16response.$(MODEXT) \
+	interfaces_17ddb.$(MODEXT) \
+	interfaces_17lwf.$(MODEXT) \
+	interfaces_17suscep.$(MODEXT) \
+	interfaces_18seqpar.$(MODEXT) \
+	interfaces_19cut3d.$(MODEXT) \
+	interfaces_21drive.$(MODEXT) \
+	interfaces_21paral_md.$(MODEXT) \
+	interfaces_21rdm.$(MODEXT) \
+	interfaces_bigdft.$(MODEXT) \
+	interfaces_etsf_io.$(MODEXT) \
+	interfaces_etsf_xc.$(MODEXT) \
+	interfaces_fox.$(MODEXT) \
+	interfaces_lib00macroav.$(MODEXT) \
+	interfaces_lib00numeric.$(MODEXT) \
+	interfaces_lib01cg.$(MODEXT) \
+	interfaces_lib01fftnew.$(MODEXT) \
+	interfaces_lib01hidempi.$(MODEXT) \
+	interfaces_linalg.$(MODEXT) \
+	interfaces_netcdf.$(MODEXT) \
+	interfaces_plugins.$(MODEXT) \
+	interfaces_prereqs.$(MODEXT) \
+	interfaces_wannier90.$(MODEXT) \
+	interfaces_xmlf90.$(MODEXT) \
+	m_errors.$(MODEXT) \
+	m_fstrings.$(MODEXT) \
+	m_gwdefs.$(MODEXT) \
+	m_io_tools.$(MODEXT) \
+	m_numeric_tools.$(MODEXT) \
+	m_pseudo.$(MODEXT) \
+	m_pseudo_types.$(MODEXT) \
+	m_special_funcs.$(MODEXT) 
+
+defs_aimfields.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_aimprom.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_berry.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+defs_datatypes.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_dyson.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+defs_elphon.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_infos.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_interfaces.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+defs_parameters.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_scalapack.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_suscep.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_time.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_wannier90.$(OBJEXT): defs_datatypes.$(OBJEXT) 
+
+defs_wvltypes.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_xc.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+defs_xderive.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+defs_xfuncmpi.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+frskerker1.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) interfaces_11util.$(OBJEXT) interfaces_12spacepar.$(OBJEXT) interfaces_13recipspace.$(OBJEXT) interfaces_lib01cg.$(OBJEXT) 
+
+frskerker2.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) interfaces_11util.$(OBJEXT) interfaces_12spacepar.$(OBJEXT) interfaces_13recipspace.$(OBJEXT) interfaces_lib01cg.$(OBJEXT) 
+
+ftfvw1.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) interfaces_12ffts.$(OBJEXT) interfaces_12spacepar.$(OBJEXT) interfaces_13recipspace.$(OBJEXT) interfaces_13xc.$(OBJEXT) 
+
+ftfvw2.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) interfaces_11util.$(OBJEXT) interfaces_12ffts.$(OBJEXT) interfaces_12spacepar.$(OBJEXT) interfaces_13recipspace.$(OBJEXT) interfaces_13xc.$(OBJEXT) interfaces_lib01cg.$(OBJEXT) 
+
+interfaces_00basis.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_01manage_mpi.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_scalapack.$(OBJEXT) 
+
+interfaces_11contract.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_11util.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_12ffts.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_12geometry.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_12nlstrain.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_12parser.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_12spacepar.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13io_mpi.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13ionetcdf.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_wvltypes.$(OBJEXT) 
+
+interfaces_13iovars.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13nonlocal.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13paw.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13psp.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) m_pseudo_types.$(OBJEXT) 
+
+interfaces_13recipspace.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13xc.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_13xml.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_14bader.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_14iowfdenpot.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_14occeig.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_14poisson.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_14wfs.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_14wvl_wfs.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_wvltypes.$(OBJEXT) 
+
+interfaces_15common.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_wvltypes.$(OBJEXT) 
+
+interfaces_15gw.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_15recursion.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_15rsprc.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_16geomoptim.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_16response.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_17ddb.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_elphon.$(OBJEXT) 
+
+interfaces_17lwf.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_17suscep.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_18seqpar.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_wvltypes.$(OBJEXT) 
+
+interfaces_19cut3d.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_21drive.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_wvltypes.$(OBJEXT) 
+
+interfaces_21paral_md.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_21rdm.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_lib00numeric.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+interfaces_lib01cg.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+interfaces_lib01fftnew.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) defs_fftdata.$(OBJEXT) 
+
+interfaces_lib01hidempi.$(OBJEXT): defs_basis.$(OBJEXT) defs_datatypes.$(OBJEXT) 
+
+m_errors.$(OBJEXT): defs_basis.$(OBJEXT) interfaces_01manage_mpi.$(OBJEXT) 
+
+m_fstrings.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+m_gwdefs.$(OBJEXT): defs_basis.$(OBJEXT) interfaces_01manage_mpi.$(OBJEXT) 
+
+m_io_tools.$(OBJEXT): defs_basis.$(OBJEXT) m_errors.$(OBJEXT) m_fstrings.$(OBJEXT) 
+
+m_numeric_tools.$(OBJEXT): defs_basis.$(OBJEXT) interfaces_01manage_mpi.$(OBJEXT) interfaces_lib00numeric.$(OBJEXT) m_errors.$(OBJEXT) 
+
+m_pseudo.$(OBJEXT): m_pseudo_types.$(OBJEXT) 
+
+m_special_funcs.$(OBJEXT): defs_basis.$(OBJEXT) interfaces_01manage_mpi.$(OBJEXT) interfaces_11util.$(OBJEXT) m_errors.$(OBJEXT) 

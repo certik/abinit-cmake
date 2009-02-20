@@ -1,0 +1,8 @@
+Abinit            # Which code have you used to get the input data?
+Potential         # Which is the input data used to compute the band offset?
+t44_VHXC          # Name of the file where the input data is stored
+2                 # Number of convolutions required to calculate the macro. ave.
+4.4               # First length for the filter function in macroscopic average
+4.45              # Second length 
+0                 # Total charge  (not needed)
+spline            # Type of interpolation

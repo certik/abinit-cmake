@@ -1,0 +1,63 @@
+t38o_DS2_WFK
+1      ! binary
+0          # Analysis of the wavefunction
+1      ! kpoint
+1      ! band
+2.6    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+1      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+1      ! band
+3.0    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+2      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+3      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+4      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+5      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+1      ! kpoint
+6      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+2      ! kpoint
+4      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+2      ! kpoint
+5      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+3      ! kpoint
+4      ! band
+2.8    ! radius of the sphere
+0      ! exit
+1      ! continue
+3      ! kpoint
+5      ! band
+2.8    ! radius of the sphere
+0      ! exit
+0      ! final exit

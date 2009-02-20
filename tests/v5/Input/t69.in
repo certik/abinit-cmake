@@ -1,0 +1,121 @@
+# beta-SiC
+#
+
+ndtset      6
+
+# DATASET 1 : density + KSS
+kssform1    1
+nbandkss1  20
+
+# DATASET 2 : SCR
+symchi2     1
+optdriver2  3
+awtr2       1 
+nband2     20
+ecuteps2    5.
+#ecutwfn2    8.
+npwwfn2     411
+inclvkb2    2
+getkss2    -1
+gwcomp2     0
+
+# DATASET 3 : SIG
+optdriver3  4
+symsigma3   1
+nband3     20
+ecutsigx3   8.
+#ecutwfn3    8.
+npwwfn3     411
+getkss3    -2
+getscr3    -1
+gwcomp3     0
+nkptgw3     2
+kptgw3      0. 0. 0.     0.5 0.5 0.
+bdgw3       2 4          5 5   
+
+# DATASET 4 : SIG
+optdriver4  4
+symsigma4   1
+nband4     20
+ecutsigx4   8.
+ecutwfn4    8.
+getkss4    -3
+getscr4    -2
+gwcomp4     1                # Switching on the closure trick
+gwencomp4   1.2
+nkptgw4     2
+kptgw4      0. 0. 0.     0.5 0.5 0.
+bdgw4       2 4          5 5   
+
+# DATASET 5 : SCR
+symchi5     1
+optdriver5  3
+awtr5       1 
+nband5     20
+ecuteps5    5.
+#ecutwfn5    12.  # Use all the G vectors in the KSS file to reduce problems in the
+npwwfn5     411   # "delta part" which requires G1-G2 for each G1 and G2 in chi0
+inclvkb5    2
+getkss5    -4
+gwcomp5     1                # Switching on the closure trick
+gwencomp5   1.2 
+
+# DATASET 6 : SIG
+symsigma6   1
+optdriver6  4
+nband6     20
+ecutsigx6   8.
+#ecutwfn6    12.
+npwwfn6     411
+getkss6    -5
+getscr6    -1
+gwcomp6     1                # Switching on the closure trick
+gwencomp6   1.2
+nkptgw6     2
+kptgw6      0. 0. 0.     0.5 0.5 0.
+bdgw6       2 4          5 5   
+
+
+
+#### Common to all datasets ####
+#
+# printing options
+prtden  0
+prtwf   0
+prtvol  1
+enunit  1
+
+# atomic types
+natom    2
+ntypat   2
+znucl    14  6
+typat    1   2
+
+# k-points parameters
+kptopt   1
+ngkpt    4 4 4
+shiftk   0. 0. 0.
+istwfk   8*1
+
+# cut-off
+ecut    12.
+
+# SCF parameters
+iscf    7
+toldfe  1.d-7
+nstep   50
+
+#geometry
+acell  3*8.155
+rprim  0.  0.5 0.5
+       0.5 0.  0.5
+       0.5 0.5 0.
+
+# atomic positions
+xred
+   0.0000   0.0000  0.0000
+   0.2500   0.2500  0.2500
+
+# XC potential
+ixc     7
+

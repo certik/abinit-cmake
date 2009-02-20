@@ -1,0 +1,24 @@
+!ithis is the continuing calculation of t67 in abaddb 
+!for GaAs in hypothetical wurzite (hexagonal) structure
+!the flags
+dieflag 4  
+elaflag  4  !the flag for the elastic constant
+piezoflag 7 
+instrflag 1  !the flag for the internal strain tensor
+
+!the effective charge part
+asr 1
+chneut  1
+
+! Wavevector list number 1
+
+nph1l 1 !number of phonons in list 1
+qph1l  0.0 0.0 0.0 1.0 !the Gamma point
+
+! Wave vector list no. 2
+
+nph2l 1  !number of phonons in list 2
+qph2l 0.0 0.0 1.0 0.0  ! why here the normalization factor is 0
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  symdynmat 0

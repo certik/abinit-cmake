@@ -1,0 +1,81 @@
+# BCC Nb : computation of phonon frequencies at 
+# one quarter of the Gamma-H line 
+
+ ndtset 30
+
+#Input that is common to most datasets, but not all
+  getwfk 1
+  kptopt 3
+    nqpt 1
+ rfatpol 1 1
+   rfdir 1 1 1
+  rfphon 1
+  tolvrs 1.0d-9
+
+#Dataset 1 : SCF 
+
+ getwfk1  0
+ kptopt1  1
+   nqpt1  0
+ rfphon1  0
+ tolvrs1  1.0d-15
+ 
+#Different RF calculations
+    qpt2  0.0d0  0.0d0  0.0d0
+    qpt3 -0.5d0  0.5d0  0.5d0
+    qpt4  0.25d0 0.25d0 0.25d0
+    qpt5  0.5d0  0.0d0  0.0d0
+    qpt6 -0.25d0 0.25d0 0.25d0
+    qpt7  0.25d0 0.0d0  0.0d0
+    qpt8  0.25d0 0.25d0 0.0d0
+    qpt9  0.5d0  0.5d0  0.25d0
+    qpt10 -0.125d0  0.125d0  0.125d0
+    qpt11 -0.375d0  0.375d0  0.375d0
+    qpt12 -0.125d0  0.125d0  0.375d0
+    qpt13  0.125d0  0.125d0  0.125d0
+    qpt14 -0.125d0  0.375d0  0.375d0
+    qpt15  0.125d0  0.125d0  0.375d0
+    qpt16  0.125d0 0.0d0  0.0d0
+    qpt17  0.d0    0.125d0  0.125d0
+    qpt18 -0.125d0 0.25d0  0.125d0
+    qpt19 -0.125d0 0.25d0  0.25d0
+    qpt20 -0.25d0 0.375d0  0.25d0
+    qpt21 -0.25d0 0.375d0  0.375d0
+    qpt22 -0.375d0 0.5d0  0.375d0
+    qpt23  0.125d0 0.0d0  0.25d0
+    qpt24  0.000d0 0.0d0  0.375d0
+    qpt25  0.000d0 0.125d0  0.375d0
+    qpt26 -0.125d0 0.250d0  0.375d0
+    qpt27 -0.125d0 0.125d0  0.500d0
+    qpt28  0.250d0 0.125d0  0.125d0
+    qpt29  0.125d0 0.250d0  0.25d0
+    qpt30  0.000d0 0.375d0  0.25d0
+
+
+ ecut 17.0 
+
+ acell 3*6.12 
+
+ enunit 2  
+ natom  1 
+ nband 6
+
+ nstep 30
+ ntypat  1
+ occopt 6
+ rprim  -.5  .5  .5  
+         .5 -.5  .5  
+         .5  .5 -.5
+
+ kptrlatt  8   0   8 
+           0   8   8
+          -8  -8   0
+ nshiftk 1
+ shiftk 0.5 0.5 0.5
+
+ tsmear 0.015
+
+ typat  1 
+ xred  0.0 0.0 0.0
+ znucl 41.0
+

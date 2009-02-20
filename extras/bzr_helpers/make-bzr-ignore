@@ -1,0 +1,150 @@
+#!/bin/sh
+
+# Make-Bzr-Ignore
+# Creates a ".bzrignore" file in an ABINIT source tree
+#
+# Copyright (C) 2007-2008 ABINIT Group (Yann Pouillon).
+# Originally written by Yann Pouillon.
+#
+
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+
+#
+# TUNE AT YOUR OWN RISKS!
+#
+
+test -e .bzrignore && exit 0
+
+cat >.bzrignore <<EOF
+Makefile.am
+Makefile.in
+Makefile
+do-not-edit-*
+logfile
+tmp
+tmp-*
+ui_*.py
+*.la
+*.lo
+*.mod
+*.orig
+*.rej
+/.abilint
+/abilint.log
+/abilint.out
+/aclocal.m4
+/autom4te.cache
+/stamp-h1
+/configure
+/config.dump
+/config.dump.in
+/config.h
+/config.h.in
+/config.log
+/config.mk
+/config.py
+/config.sh
+/config.status
+/confstat.*
+/config/gnu/abinit-info.sh
+/config/gnu/config.guess
+/config/gnu/config.sub
+/config/gnu/depcomp
+/config/gnu/install-sh
+/config/gnu/ltmain.sh
+/config/gnu/missing
+/config/gnu/mkinstalldirs
+/config/local/*
+/config/wrappers/wrap-fc
+/doc/*/*.aux
+/doc/*/*.dvi
+/doc/*/*.log
+/doc/*/*.toc
+/doc/config/build-examples/*.ac
+/doc/macroave/macroave.ps
+/doc/macroave/macroave.toc
+/doc/versioning/bzr-intro-p1.html
+/doc/versioning/bzr-intro-p2.html
+/doc/versioning/bzr-intro-p3.html
+/doc/versioning/bzr-quickref.aux
+/doc/versioning/bzr-quickref.log
+/doc/versioning/vcs-comparison.html
+/prereqs/linalg/blas
+/prereqs/linalg/lapack
+/prereqs/*/package-ready
+/prereqs/*/tmp
+/prereqs/*/*-stamp
+/plugins/bigdft/bigdft-1.0
+/plugins/etsf_io/etsf_io
+/plugins/etsf_io/etsf_io-1.0.1
+/plugins/etsf_xc/libxc-0.9
+/plugins/etsf_xc/libxc-0.9.tar.gz
+/plugins/etsf_xc/string_f-2006
+/plugins/etsf_xc/string_f-2006.tar.gz
+/plugins/fox/FoX-4.0.1
+/plugins/light/light
+/plugins/netcdf/ncdump
+/plugins/netcdf/ncgen
+/plugins/netcdf/ncvalues.h
+/plugins/netcdf/netcdf-3.6.2
+/plugins/netcdf/netcdf.h
+/plugins/netcdf/netcdf.hh
+/plugins/netcdf/netcdf.inc
+/plugins/netcdf/netcdfcpp.h
+/plugins/etsf_xc/string_f-2006
+/plugins/etsf_xc/string_f.h
+/plugins/wannier90/libwannier.a
+/plugins/wannier90/wannier90-1.1
+/plugins/wannier90/wannier90.x
+/plugins/xmlf90/xmlf90-1.2g
+/plugins/xmlf90/build.mk
+/plugins/*/package-ready
+/plugins/*/tmp
+/plugins/*/*-stamp
+/sleepy.ac
+/src/abilint.log
+/src/abirules.log
+/src/defs/defs_infos.F90
+/src/defs/interfaces_*.F90
+/src/00basis/.deps
+/src/13iovars/is_input_variable.F90
+/src/main/abinip
+/src/main/abinis
+/src/main/abinitgw
+/src/main/abinetcdf
+/src/main/aim
+/src/main/anaddb
+/src/main/anascr
+/src/main/conducti
+/src/main/cut3d
+/src/main/lwf
+/src/main/macroave
+/src/main/mrgddb
+/src/main/mrggkk
+/src/main/mrgscr
+/src/main/newsp
+/src/main/optic
+/src/main/band2eps
+/src/main/anaddb_ref
+/src/nightly/.deps
+/tests/tests.env
+/tests/paral/cluster[124]
+/tests/paral/cluster10
+/util/wrappers/abinit.py
+/vms/crea_descrip_mms
+/vms/vms_prepare_input
+EOF

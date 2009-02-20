@@ -1,0 +1,13 @@
+filename		powerpc-ibm_dirac.ac
+CPP			/usr/ccs/lib/cpp
+CC			/usr/vac/bin/xlc
+with_c_optflags		-O3 -q64 -qstrict
+CXX			/usr/vacpp/bin/xlC
+FC			xlf95
+with_fc_optflags	-O3 -bmaxdata:2700000000 -qarch=auto -qtune=auto -qstrict -qsuppress=1520-003 -qspill=2000 -qcharlen=16000 -bloadmap:loadmap
+enable_mpi		manual
+enable_netcdf		no
+enable_etsf_io		no
+with_mpi_fc		xlf95
+with_mpi_fcflags	-I/usr/lpp/ppe.poe/include 
+with_mpi_fc_libs	-lmpi -lppe

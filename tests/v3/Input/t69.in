@@ -1,0 +1,41 @@
+# Test the use of two dtset with CML
+
+ ndtset 2
+
+# Dataset 1 : C diamond, with one vacancy
+ cmlfile1  t69a.in_CML.xml
+  nband1  130
+   ecut1  10
+ diemix1  1/3
+    kpt1  1 1 1  
+ kptnrm1  4
+ ortalg1 -2
+ toldfe1  1.0d-6
+
+# Dataset 2 : Si slab + H2O
+ cmlfile2  t69b.in_CML.xml
+  nband2  152
+   ecut2  0.8
+ diemix2  1.0d0
+    kpt2  3*0.0   
+ kptnrm2  1
+ ortalg2  4
+ tolwfr2  1.0d-16
+
+# Common
+
+ diemac 1.0d0
+ diemix 1/3
+ enunit 2  
+ intxc 1
+ nkpt  1
+ nline 1   
+ nnsclo 1
+ nstep 1
+ ntypat  4
+ occopt  1  
+ prtvol 10
+ wtk 1.0d0
+ znucl 6 1 8 14
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

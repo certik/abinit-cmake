@@ -1,0 +1,19 @@
+!!****d* ABINIT/00basis
+!! NAME
+!! 00basis
+!!
+!! DESCRIPTION
+!! This directory contains very low level routines,
+!! including some machine-dependent routines
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2008 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! leave_myproc.F90
+!!
+!!***

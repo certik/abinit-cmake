@@ -1,0 +1,9 @@
+filename		powerpc-ibm_max.ac
+CC			gcc-3.3
+CXX			g++-3.3
+FC			xlf
+with_mpi_prefix		/usr/local/mpich-1.2.7
+fcflags_opt_main	-O0
+fcflags_opt_17ddb	-O0
+enable_netcdf		no
+enable_etsf_io		no

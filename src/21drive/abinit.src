@@ -1,0 +1,40 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 21drive library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "afterscfloop.F90",
+ "brdmin.F90",
+ "delocint.F90",
+ "diisrelax.F90",
+ "driver.F90",
+ "elpolariz.F90",
+ "gstate.F90",
+ "isotemp.F90",
+ "loop3dte.F90",
+ "moldyn.F90",
+ "move.F90",
+ "nonlinear.F90",
+ "outscfcv.F90",
+ "scfcv.F90",
+ "screening.F90",
+ "sigma.F90",
+ "testfi.F90",
+ "timana.F90",
+ "wannier.F90"]

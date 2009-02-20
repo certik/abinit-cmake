@@ -1,0 +1,35 @@
+# Silicon diatomic molecule for test calculations
+# Exp bond=4.244 bohr; freq=511 cm^-1 (?) = 15.3e12 Hz.
+# Binggeli reports that large box (18 on side) needed to get physical answers.
+# Allow relaxation using damped MD.  Make time step about 1/4 period.
+# Viscosity "vis" is wild guess.
+ acell 12 8 8
+ amu 28
+ diemac 1.0d0
+ diemix 0.333333333333d0
+ dtion 675.
+ ecut 7.0
+ enunit 2
+ ionmov  1   
+ intxc  1
+ iprcch 1
+ irdwfk  1
+ iscf 3 
+ kpt   3*0
+ natom  2 nband 5 3
+ nkpt 1
+ nline 3    nsppol 2
+ nstep 20 
+ nsym 1
+ ntime 10 ntypat  1
+ occ 8*1
+ occopt 2
+ prtvol 10
+ rprim 1 0 0  0 1 0  0 0 1
+ timopt -1
+ tolmxf 1.0d-4
+ tolwfr 1.0d-13
+ typat  2*1 vis 300 
+ wtk  1
+ xcart -2.122 0 0 2.122 0 0
+ znucl  14.0

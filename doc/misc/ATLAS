@@ -1,0 +1,8 @@
+(From Mikami-san, 20020529)
+From the WIEN mailing list (Stefaan Cottenier).
+Regarding ATLAS (Automatically Tuned Linear Algebra Software)
+http://netlib2.cs.utk.edu.atlas/ (Netlib site)
+http://math-atlas.sourceforge.net (Sourceforge site)
+
+"How do I configure ATLAS for PGI compilers?"
+http://www.pgroup.com/faq/compile.htm#compile1k

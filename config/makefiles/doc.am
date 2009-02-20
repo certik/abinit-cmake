@@ -1,0 +1,19 @@
+# Help
+help:
+	@cat $(top_srcdir)/doc/help_make/help_make_doc
+
+# ---------------------------------------------------------------------------- #
+
+pdf-docs:
+	cd build && $(MAKE) -f build-docs.mk distclean all_targets && \
+	  $(MAKE) -f build-docs.mk clean
+	cd macroave && $(MAKE) -f macroave-docs.mk distclean all_targets && \
+	  $(MAKE) -f macroave-docs.mk clean
+	cd presentation && $(MAKE) -f presentation-docs.mk distclean all_targets && \
+	  $(MAKE) -f presentation-docs.mk clean
+	cd theory && $(MAKE) -f theory-docs.mk distclean all_targets && \
+	  $(MAKE) -f theory-docs.mk clean
+	cd users && $(MAKE) -f users-docs.mk distclean all_targets && \
+	  $(MAKE) -f users-docs.mk clean
+	cd versioning && $(MAKE) -f versioning-docs.mk distclean all_targets && \
+	  $(MAKE) -f versioning-docs.mk clean

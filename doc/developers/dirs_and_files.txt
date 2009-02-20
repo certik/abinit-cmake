@@ -1,0 +1,782 @@
+Directories and files
+=====================
+
+WARNING : This file should still be somehow updated for v5.1.
+Information might not be complete or exact.
+
+Introduction
+------------
+
+This file provides a description of the organisation of the abinit
+package, in terms of subdirectories and their content.
+
+The main directory of the abinit package is referred
+to as *~abinit* hereafter, independently of its absolute location.
+As an example, in Louvain-la-Neuve, there is one in
+*/home2/pcpm/gonze/ABINIT/ABINITv5.1.2/abinit-5.1.2 on the machine called
+Deccint.
+From the Web site, a file *abinit-5.1.2.tar.gz*
+can be dumped and, following the installation notes,
+a *~abinit* directory will be created for this version.
+
+See the files *~abinit/doc/tutorial/welcome.html* and
+*~abinit/doc/users/new_user_guide.html* for an introduction
+to the abinit package. Instructions to install the code, make the
+executable and run some tests can be found in the *~abinit/doc/install_notes*
+directory.
+
+In the present 5.1 version of the ABINIT package, there are about 200
+subdirectories in *~abinit*, grouped by purpose:
+
+ * A. [config/](#config): the build system of ABINIT 5.
+ * B. [doc/](#doc): documentation.
+ * C. [src/\*](#srcs): core source of ABINIT.
+ * D. [lib/\*](#libs): source code of various libraries.
+ * E. [tests/\*](#tests): tests cases, tutorial input/output, and pseudopotentials.
+ * F. [utils/](#utils): utilities for users, developers, and maintainers.
+ * G. [extras/](#extras): goodies.
+
+*~abinit* also contains:
+
+ - a *README* and an *INSTALL* file;
+ - the makemake script, front-end of the build system;
+
+We will now describe the content and use of each of the other directories.
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="config">A. config/</a></h2>
+
+[FIXME]
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="doc">B. doc/</a></h2>
+
+[FIXME]
+
+This subdirectory contains all the files that describe
+information related to the ABINIT package. There are
+several HTML files, accessible directly from the Web,
+the other ones being plain-text (currently being updated to
+support the *markdown* format).
+
+
+### B.1 doc/users ###
+
+Here is the place any user of ABINIT should look for documentation in.
+In particular, we would like to attract your attention to the
+following help files:
+
+ - *new_user_guide.html*: a guide for the new user.
+ - *abinis_help.html*: main code (sequential use).
+ - *aim_help.html*: AIM utility of the abinit package
+   (Bader Atom-In-Molecule charge density analysis).
+ - *anaddb_help.html*: for the "Analysis of Derivative DataBases" utility.
+ - *mrgddb_help.html*: for the "Merge of Derivative DataBases" utility.
+ - *respfn_help.html*: a complementary help file for the response features
+   of the core part of ABINIT.
+ - *cut3d_help.html*: for the "Cut3D" (cut in three dimensions) utility.
+
+Other HTML files:
+
+ - *acknowledgments.html*: suggested acknowledgments and references
+   to be inserted in scientific papers the results have been obtained
+   thanks to ABINIT.
+ - *bibliography.html*: a list of papers that provide the theoretical
+   framework the code is built upon.
+
+Some of the other (non-HTML) files are worth to mention (in alphabetical
+order, and forgetting about possible version numbers or dates):
+
+ - *band2eps_help*: the help file for band2eps (utility to produce
+   encapsulated postscript graph of phonon band structures).
+ - *cut3d_help*: the help file for cut3d (the analyser of 3D-files,
+   like *_DEN* or *_POT* files)
+ - *ddbs_upgrade.txt*: how to upgrade DDBs produced prior to ABINIT.
+ - *gwmanual.txt*: a rough guide to the GW part of ABINIT.
+ - *newsp_help.txt*: a brief help file for newsp, the wavefunction translator.
+ - *paral_use.txt*: describes how to use the parallel version of abinit.
+ - *tuning.txt*: describes how to reduce the memory needs of the code, and
+   describes briefly the most time-consuming routines of the code.
+
+
+### B.2 doc/tutorial ###
+
+ - *welcome.html*: welcome to the new user.
+
+
+### B.3 doc/input_variables ###
+
+ - many other HTML files describe the input variables (*varbas.html*,
+   *vardev.html*, ..., *varrlx.html*), or constitute an index to these
+   input variables (*keyhr.html*).
+
+
+### B.4 doc/developers ###
+
+Some of the other (non-HTML) files are worth to mention (in alphabetical
+order, and forgetting about possible version numbers or dates):
+
+ - *context*: the context of development of the ABINIT project.
+ - *contributors.txt*: the list of contributors to the ABINIT project.
+ - *dirs_and_files*: the present file.
+ - *planning.txt*: describe the evolution of the ABINIT project.
+ - *contributing.html*: a description of the procedures followed for the
+   development of the ABINIT package through collaboration of different
+   groups of persons, based at different places around the world.
+ - *FFT_in_parallel.txt*: a work document for the FFT parallellisation.
+ - *rules_coding.txt*: the rules for Fortran90 coding, adopted by the
+   ABINIT group.
+ - *programmer_guide.txt*: a guide for the programmer.
+ - *rules_paral.txt*: the rules followed for the parallelization within ABINIT.
+ - *use_cpp.txt*: how to use *cpp* in the ABINIT context.
+ - *checklist.txt*: a few things to remember, when you plan to give a
+      contribution.
+
+
+### B.5 doc/help_make ###
+
+ - *make_help*: a brief help file for the make in the *~abinit* directory,
+   also called automatically when *make* is issued without option.
+ - *make_targz_help*: a brief help file for the make in the *~abinit*
+   directory, when binaries (tar.gz) must be generated.
+ - *make_dev_help*: a brief help file for the make in the *~abinit* directory,
+  for more specific developer tasks.
+
+
+### B.6 Other subdirectories ###
+
+In addition to these files, several subdirectories are
+based in the *doc/* directory:
+
+ - *features*: a directory that contains the cumulative lists of features,
+   for different version of ABINIT.
+ - *install_notes*: for different versions of the code,
+   the procedure to be followed to install them (compilation
+   and execution of tests). These files are written in HTML,
+   and available on the web site at [ABINIT](http://www.abinit.org/).
+ - *macroave*: documentation about the *macroave* utility of the
+   ABINIT package.
+ - *psp_infos*: information on different pseudopotentials that can be
+   used with the ABINIT package. Presently, it contains:
+
+    * *psp1.info*: describes the format 1 of pseudopotentials.
+    * *psp1.data*: data about the Troullier-Martins pseudopotentials
+      available on the site.
+    * *psp3.info*: describes the way to use a HGH pseudopotential file.
+    * *psp45.info*: describes the way to modify a psp file generated by the
+      '92 code of M. Teter, or other even older files.
+    * *psp5spinorbitinfo*: the use of spin-orbit for format 5 psps.
+    * *psp6.info*: describes the way to use a fhi pseudopotential file.
+
+ - *release_notes*: a directory that contains the release notes
+   for different versions of ABINIT.
+ - *tutorial*: the ABINIT tutorial, to be coupled with the content of the
+   *~abinit/tests/tutorial directory.
+ - *theory*: information about the implementations inside ABINIT,
+   see the *README* file for details.
+ - *presentation*: the source of the presentation of ABINIT, available on
+   the web site, or as a poster.
+ - *misc*: a directory that contains miscellaneous information,
+   not directly linked to ABINIT, but which might interest ABINIT users.
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="srcs">C. The src/* directories</a></h2>
+
+
+These directories contain the source of the routines in the ABINIT
+package, as well as their lists (*object_list* files).
+They also contain, when the executable have been produced,
+the following optional files:
+
+ - the object files (_\*.o_ for sequential version - _\*.par_ for
+   MPI-parallel version in the case of *src/00basis* and *src/08seqpar*);
+ - the archive file (_\*.a_);
+ - other temporary files (_tmp\*_ , or _diff\*_).
+
+The optional files can be removed automatically by the command
+*make clean_"shortname"* in the *~abinit* directory, where
+"shortname" is the short name of the directory, that is, the character
+string after the number in the full name.
+For example, the short name of ***src/00basis*** is ***basis*** while the short
+name of ***src/18seqpar*** is ***seqpar***.
+
+The digit in the long name has the meaning of a level in the link
+procedure. Routines in the level 0 (in the directory *src/00basis*)
+do not use any other-level routine, except some of the definitions
+in *src/defs*, and possibly library routines found in the *lib/\** directories.
+The routines of level 1 use only routines of level 0 and
+library routines.
+There are many directories of level 2, and the routines they contain
+do not make use of routines of other directories of level 2,
+only of level 1 and 0 . The level ordering continues until
+level 11, with *src/11drive*, which contains drivers and is only called
+by the main programs contained in the *src/main* directory.
+
+There are about 30 *src/\** directories, so it is rather
+difficult to memorize in which directory one can find
+one particular file.
+Note that the name of all subroutines are different
+from each other in these src/\* directories. This means
+that, in order to edit a particular routine, one ought
+not know in which directory it is located! Suppose
+that you want to modify the routine *kpgsph.F90* using
+the *vi* editor. The easiest way is to simply issue *vi \*/kpgsph.F90*
+and modify the file.
+Just type *ls \*/kpgsph.F90* if you really need to know in which directory
+the file is located.
+
+
+### C.0a. src/defs ###
+
+This directory contains:
+
+ - the *defs_basis* module, with
+   the definitions of global parameters of the ABINIT package;
+ - other *defs_\** modules.
+
+By definitions, one means:
+
+ - constants that define data types (e.g. *dp* , is used in *real(dp)*);
+ - numerical constants (e.g. *zero* , *one*, *half*, *pi*, ...);
+ - physical constants (e.g. *Ha_eV=27.2113961_dp*! 1 Hartree, in eV).
+
+The other *defs_\** modules presently contain the definitions of derived
+datatypes.
+
+
+### C.0b. src/00basis ###
+
+This directory contains:
+
+ - a few subroutines that define basic procedures for standard I/Os,
+   timing, exiting;
+ - machine-dependent routines.
+
+Some of these routines have two versions: one sequential, and
+one MPI-parallel.
+
+### C.0c. src/01managempi ###
+
+This directory contains small routines that are used to manage MPI
+in the ABINIT package.
+Some of these routines have two versions: one sequential, and
+one MPI-parallel.
+
+
+### C.0d src/libfftnew ###
+
+This subdirectory contains the source and object files related
+to routines from the FFT package of Stefan Goedecker (2002 version),
+These routines are written in F90, but do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### C.0e. src/05cg ###
+
+This directory contains routines that are used to perform
+conjugate gradient optimization.
+These routines do not call any other libraries in the src directory.
+
+
+### C.1a. src/11contract ###
+
+This directory contains small utility routines that are used in different
+places in the ABINIT package.
+They implement the "design-by-contract" software engineering technique:
+placed at the beginning of calling routines, they allow to check
+the validity of provided arguments; still the production version
+is preprocessed such as to remove them for sake of speed.		
+
+
+### C.1b. src/11util ###
+
+This directory contains small utility routines that are
+used in different places in the ABINIT package.
+These utility can be related to the treatment of characters,
+to basic mathematical operations, or to basic chemistry and
+physics data.
+
+
+### C.2a. src/12ffts ###
+
+This directory contains level-2 routines related
+to Fast Fourier Transform within the ABINIT package.
+Most come from the Corning version of Stefan Goedecker's package,
+written in F77 in 1994, and have been translated to F90 and ABINIT's style.
+The two entry points to ABINIT FFTs are *fourwf.F90* and *fourdp.F90*.
+The indexing of planewaves on the FFT grid is also done by routines
+in this directory: *boundy.F90*, *indfft.F90* and kgindex.F90.
+The more recent 2002 version of Stefan Goedecker's FFTs are contained
+in *lib/fftnew*.
+
+
+### C.2b. src/12geometry ###
+
+This directory contains level-2 routines that are related to the
+treatment of the unit cell, the atomic positions inside
+the unit cell (reduced coordinates or cartesian coordinates),
+and the symmetry operations related
+to the cell and atoms. In particular, the symmetry
+recognition (*symanal.F90*, *symspgr.F90*),
+the Bravais lattice recognition (*symbrav.F90*),
+as well as the space group database (*symgroup.F90*)
+can be found here.
+
+
+### C.2d. src/12parser ###
+
+This directory contains level-2 routines used
+to parse the main abinit input file. The entry points to
+this library are the routines *instrng.F90* and *intagm.F90*.
+
+
+### C.2e. src/12psp ###
+
+This directory contains level-2 routines used
+to treat the input of pseudopotentials. The main entry point to
+this library is the routine *pspini.F90*.
+
+
+### C.2f. src/12spacepar ###
+
+This directory contains level-2 routines used
+to treat operations in reciprocal or real space that
+need to be parallelized in this space.
+These are mostly basic numerical routines, in the
+spirit of BLAS, but adapted to wavefunctions or
+density and potentials, in which one has to take
+into account, on one side, the *nspinor*, *isrtwfk*, *nspden*
+or *cplex* characteristics, and, on the other side,
+the specific spread of the components in G- or R- space.
+
+
+### C.3a. src/13iovars ###
+
+This directory contains level-3 routines used
+to treat the input and output of ABINIT variables.
+The main entry point to
+this library are the routines
+*invars0.F90*, invars2.F90* (input of variables),
+*chkinp.F90* (checking of variables), and
+*outvars.F90* (echo of variables).
+Some other routines related to the I/O of ABINIT variables
+are MPI-parallel, and can be found in the *src/08seqpar* directory.
+
+
+### C.3b. src/13recipspace ###
+
+This directory contains level-3 routines used
+to define and treat quantities in the reciprocal
+space, like the k-point set, the plane-wave set and
+the definition of the FFT grid.
+These are mostly utility routines, used in different parts
+of ABINIT, except the k-point generator (*getkgrid.F90*),
+and the k-point grid tester (*testkgrid.F90*).
+
+
+### C.3c. src/13xc ###
+
+This directory contains level-3 routines used
+to treat the exchange-correlation energy. The main entry point to
+this library is the routine *rhohxc.F90*.
+
+
+### C.3d. src/03paw ###
+
+This directory contains level-3 routines related to the
+Projector Augmented Wave methodology.
+
+
+### C.3e. src/13xml ###
+
+This directory contains level-3 routines related to the
+eXtended Markup Language features of ABINIT.
+
+
+### C.3f. src/13nonlocal ###
+
+This directory contains level-3 routines used
+to apply the non-local operator. The main entry point to
+this library is the routine *nonlocal.F90* , although *ph1d3d.F90*
+is also called by other routines.
+
+
+### C.4a. src/14iowfdenpot ###
+
+This directory contains level-4 routines used
+to treat the input/output of wavefunction files,
+density files and potential files.
+They are mostly utility routines, used in different parts
+of ABINIT, connected to the header I/O, or the
+reading of some part of files. The density and potential
+file I/O is treated by *ioarr.F90*.
+
+
+### C.4b. src/14wfs ###
+
+This directory contains level-4 routines used
+to treat wavefunctions. The main entry points to
+this library are the routines:
+
+ - *getghc.F90*: apply the Hamiltonian to one wavefunction,
+   use the routines in src/12ffts and src/13nonlocal;
+ - *projbd.F90* and *orthon.F90*: project and orthonormalize
+   the wavefunctions;
+ - *wfconv.F90*: convert one wavefunction with some parameters to
+   another wavefunction with some other parameters (like PW sphere,
+   spin or spin-orbit characteristics).
+
+
+### C.4c. src/14bader ###
+
+This directory contains level-4 routines used in the main program *aim*
+(Bader analysis).
+
+
+### C.5a. src/15common ###
+
+This directory contains level-5 routines used to optimize wavefunctions,
+density and/or the atomic geometry, that are lower-level than
+the MPI-parallelized routines (should be described in more details,
+but might be further split).
+
+
+### C.5b. src/15gw ###
+
+This directory contains level-5 routines for GW calculations.
+
+
+### C.6. src/16response ###
+
+This directory contains level-6 routines used
+to treat responses to perturbations within ABINIT,
+that are lower-level than the MPI-parallelized
+routines (should be described in more details, but might be
+further split).
+
+
+### C.7a. src/17ddb ###
+
+This directory contains all remaining level-7 routines used
+within the main programs *anaddb* and *mrgddb* of ABINIT.
+
+
+### C.7b. src/17lwf ###
+
+This directory contains routines used within the main program
+*lwf* (under development).
+Until now, only level-2 routines are actually used,
+but this might change in the future ...
+
+
+### C.7c. src/17suscep ###
+
+This directory contains level-7 routines used
+to treat the susceptibility within ABINIT,
+that are lower-level than the MPI-parallelized
+routines. Also treated, and the associated
+GW computation of bandstructures, and Adiabatic-Connection
+Fluctuation-Dissipation (ACFD) energy. These routines
+are called by the following routines: *suscep.F90*, *suscep_dyn.F90*,
+*suscep_stat.F90*.
+
+
+### C.8. src/18seqpar ###
+
+This directory contains level-8 routines that
+have two versions, one sequential, and one MPI-parallel.
+So, they must be handled in a special way.
+The unique source present in this directory
+for each routine is preprocessed, and gives
+two different binaries. These are gathered in two different
+archive files.
+
+
+### C.9. src/19cut3d ###
+
+This directory contains level-9 routines used
+in the main program *cut3d*.
+
+
+### C.11. src/21drive ###
+
+This directory contains level-11 routines that
+are called by the main programs *abinis/abinip* and *newsp*,
+and drive the computation until the MPI-parallel level is reached.
+
+
+### C.top. src/main ###
+
+This directory contains the Fortran programs top routines,
+presently *abinit.F90*, *newsp.F90*, *mrgddb.F90*, *anaddb.F90*, *lwf.F90*,
+*conducti.F90*, *aim.F90*, *cut3d.F90*, *mrggkk.F90*, *macroave.F90*,
+and *optic.F90*.
+
+It may contain the executables too, after they have been produced
+(abinis and abinip for the sequential and parallel versions of abinit,
+aim, newsp, mrgddb, mrggkk, anaddb, conducti, band2eps, lwf, macroave,
+optic and cut3d).
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="libs">D. The lib/* directories</a></h2>
+
+
+### D.1. lib/blas ###
+
+This subdirectory contains the source files of the BLAS library.
+Usually, each machine has its own BLAS library routines, so that
+the executable does not use the present files, but those
+provided by the vendor. However, it proved useful for the
+generation of a portable binary executable on the Intel/Linux
+platform to have these files.
+These routines are written in F77, and do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.2. lib/lapack ###
+
+This subdirectory contains the source and object files related
+to the Lapack library. One of the most important Lapack
+routine for ABINIT is zhpev.F90 (matrix diagonalisation),
+that uses a whole set of Lapack routines.
+These routines are written in F77, and do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.3. lib/numeric ###
+
+This subdirectory contains the source and object files related
+to routines from Numerical Recipes, and some other utility
+routines. In the present status of ABINIT, sorting routines,
+determinant routines, a random number generator, and
+cubic spline fitting routines are from this library.
+These routines are written in F77, and do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.4. lib/numericf90 ###
+
+[FIXME]
+
+
+### D.5. lib/light ###
+
+This subdirectory contains the source and object files related
+to a "light" Molecular Dynamics code. It is used for the
+parareel algorithm.
+These routines are written in F90, and do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.6. lib/macroav ###
+
+This subdirectory contains the source and object files
+related to routines used in the "macroave" utility of the ABINIT
+package.
+These routines are written in F77, and do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.7. lib/xmlf90 ###
+
+This subdirectory contains the package *XMLF90 v1.2g*,
+written by A. Garcia (see
+[http://lcdx00.wm.lc.ehu.es/ag/xml/](http://lcdx00.wm.lc.ehu.es/ag/xml)).
+In ABINITv4.4, it is not yet used, nor compiled.
+However, the availability of this package paves the way for future
+developments.
+These routines do not follow the ABINIT coding rules
+(*~abinit/doc/developers/rules_coding*).
+
+
+### D.8. lib/netcdf ###
+
+This subdirectory contains the *NetCDF v3.6.0-p1* package.
+It is available at
+[http://www.unidata.ucar.edu/packages/netcdf/](http://www.unidata.ucar.edu/packages/netcdf/).
+In ABINITv4.4, it is compiled, tested by a small executable (*abinetcdf*),
+and used optionally in *abinis*.
+The NETCDF flag must be used at compile time.
+These routines do not follow the ABINIT
+coding rules (*~abinit/doc/developers/rules_coding*).
+
+
+### D.9. lib/etsf_io ###
+
+This subdirectory contains a version of the ETSF/Nanoquanta
+I/O library, developed by Yann Pouillon.
+
+
+### D.10. lib/etsf_xc ###
+
+This subdirectory contains a tuned version of the ETSF/Nanoquanta
+Exchange-Correlation library, developed by M. Marques and coworkers,
+which is part of the [Octopus](http://www.tddft.org/programs/octopus/) package.
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="tests">E. The tests/*, Tutorial, and Psps_for_tests directories</a></h2>
+
+
+### E.1. tests/fast ###
+
+This subdirectory contains an early set of tests of the code,
+aimed at testing whether the code is coherent in time (successive versions),
+and exercising many parts of the code.
+However, they do not examine its accuracy on physical problems, mainly because
+the number of plane waves used is too small, and some tests are not run to
+convergence.
+See the file *~abinit/tests/fast/README* for a detailed description
+of this suite of tests.
+
+The directory contains the following files:
+
+ - all the input files needed
+ - the configuration file for the tests: RunTests.cnf , to be used
+   by the script RunTests, in the main ABINIT directory
+ - the *README* file
+ - Deibm , a script for changing the format of floating numbers
+   in output files produced by ibm machines before making a diff .
+
+The *~abinit/tests/fast* subdirectory also contains the following directories:
+
+ - ibmtest: the output files obtained with the plane_wave code, version
+   950809. These output can be used as references,
+   to be sure that the numerical results of abinis are valid.
+ - directories that contain the results obtained on different machines, in
+   recent times.
+
+
+### E.2. tests/v1 ###
+
+This directory contains tests built in the same spirit as those
+in the *tests/fast* directory, that exercise features
+not present in the earliest test versions of the code,
+but which were implemented in version 1 of ABINIT
+(like the treatment of metals, the GGA, or the new pseudopotentials).
+Please read the *README* file of this directory.
+
+
+### E.3. tests/v2 ###
+
+This directory contains tests built in the same spirit as those
+in the *tests/fast* directory, but that exercise features
+implemented in version 2 of ABINIT, including many response function features.
+Please read the *README* file of this directory.
+
+
+### E.4. tests/v3 ###
+
+This directory contains tests built in the same spirit as those
+in the *tests/fast* directory, but that exercise features
+implemented in version 3 of ABINIT.
+Please read the *README* file of this directory.
+
+
+### E.5. tests/v4 ###
+
+This directory contains tests built in the same spirit as those
+in the *tests/fast* directory, but that exercise features
+implemented in version 4 of ABINIT.
+Please read the *README* file of this directory.
+
+
+### E.6. tests/v4 ###
+
+This directory contains tests built in the same spirit as those
+in the *tests/fast* directory, but that exercise features
+implemented in version 5 of ABINIT.
+Please read the *README* file of this directory.
+
+
+### E.7. tests/physics ###
+
+This directory contains tests that last much longer
+that those in the *tests/fast* or tests/v\* directories.
+Please read the *README* file of this directory.
+
+
+### E.8. tests/in ###
+
+This subdirectory contains the input files needed for the
+built-in tests, as well as the temporaries that will be produced by the code
+when running. Please read the *README* file of this directory.
+
+
+### E.9. tests/cpu ###
+
+This subdirectory contains the scripts and input files
+needed for testing the cpu time, either on progressively finer
+real space grids, or on progressively bigger unit cells.
+Please read the *README* file of this directory.
+
+
+### E.10. tests/paral ###
+
+This directory contains tests related to the parallel version
+of the code. A single script is used to make the code execute
+on rather different configurations. Used on the IBM\_PCPM Power2
+cluster (Hilbert and Fermi), it runs under lam; used on the
+DEC\_PCPM cluster, it runs under mpich; it can also be run on Cray T3E,
+SGI Origin, or Fujitsu machines.
+Tests of configurations from 1 to 10 nodes are done,
+for a few different input files.
+
+
+### E.11. tests/tutorial ###
+
+This directory contains the input and output files of the ABINIT tutorial,
+runnable as automatic tests.
+
+
+### E.12. tests/Psps\_for\_tests ###
+
+This directory contains all the pseudopotentials used in the
+different test directories, as well as all the HGH
+pseudopotentials.
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="utils">F. Utilities</a></h2>
+
+
+This directory holds different scripts used during the development of ABINIT.
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+<h2><a name="extras">G. Extras</a></h2>
+
+
+[FIXME]
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+Copyright
+---------
+
+Copyright &copy; 1998-2008 ABINIT Group (DCA,XG,YP)
+
+This file is distributed under the terms of the
+GNU General Public License, see *~abinit/COPYING*
+or [http://www.gnu.org/copyleft/gpl.txt](http://www.gnu.org/copyleft/gpl.txt).
+For the initials of contributors, see *~abinit/doc/developers/contributors.txt*.

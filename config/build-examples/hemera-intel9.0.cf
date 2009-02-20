@@ -1,0 +1,8 @@
+filename		i686-intel9.0_hemera.ac
+CC			icc
+CXX			icpc
+FC			ifort
+enable_mpi		yes
+with_mpi_prefix		/usr/local/mpich-1.2.7-intel
+enable_netcdf		no
+enable_etsf_io		no

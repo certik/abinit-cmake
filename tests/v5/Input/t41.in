@@ -1,0 +1,29 @@
+# Aluminum molecule, geometry optimization
+# Compare tolrff and toldff
+
+ ndtset 2
+ toldff1  5.d-6
+ tolrff2  0.02
+
+ ionmov 3
+ tolmxf 5.d-5
+
+#Common data
+ acell 11 11 16
+ diemac 1.0d0
+ diemix 0.333333333333d0
+ ecut 2.5
+ ixc   1
+ natom  2 
+ nband 5
+ nbdbuf 0
+ nstep 40
+ ntime 15
+ ntypat  1
+ occopt 4
+ tsmear 0.08
+ typat  1 1
+ xred   0.0 0.0 -0.18   0.0 0.0 0.18
+ znucl 13.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

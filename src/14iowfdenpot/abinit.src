@@ -1,0 +1,39 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 4iowfdenpot library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "calcdensph.F90",
+ "fappnd.F90",
+ "hdr_check.F90",
+ "hdr_clean.F90",
+ "hdr_init.F90",
+ "hdr_update.F90",
+ "initwf.F90",
+ "ioarr.F90",
+ "mk_hdr_check_fmt.F90",
+ "out1dm.F90",
+ "outwant.F90",
+ "randac.F90",
+ "rdnpw.F90",
+ "rdkss.F90",
+ "read_wfrspa.F90",
+ "testlda.F90",
+ "WffReadEigK.F90",
+ "WffReadSkipK.F90"]

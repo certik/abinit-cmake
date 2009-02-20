@@ -1,0 +1,40 @@
+==============================================================================
+Basic keywords (and their aliases) to use for tests:
+
+tests   (=tests_in)       Run built-in tests
+tests_cpu (=Tcpu)         Test the speed
+tests_fast (=Tfast)       Basic tests, fast
+tests_paral (=Tparal)     Test parallel features of ABINIT
+tests_physics (=Tphysics) Long tests (in development, refs are not up-to-date)
+tests_tutorial (=Ttutorial)     Run tutorial (non-response-function) calculations
+tests_tutorespfn (=Ttutorespfn) Run tutorial (response-function) calculations
+tests_vX (=TvX)           Test features introduced in ABINITvX (X=1,2, ... 5)
+ example :
+tests_v1 (=Tv1)           Test features introduced in ABINITv1
+tests_bigdft (=Tbigdft)   Test BigDFT features, if enabled 
+tests_netcdf (=Tnetcdf)   Test NetCDF support, if enabled
+tests_etsf_io (=Tetsf_io) Test Etsf_IO features, if enabled 
+tests_xmlf90 (=Txmlf90)   Test XMLF90 support, if enabled
+tests_wannier90 (Twannier90)    Test Wannier90 support, if enabled
+
+Except for built-in and paral tests, each series accepts the two optional arguments
+`start' and `stop', which specify the range of tests to be performed. For
+instance:
+    make tests_v1 start=10 stop=14
+will perform tests #10 to #14 from the `v1' series. To run one test only,
+just use either start or stop, not both.
+
+Parallel tests can be performed on some pre-defined machines only. You have
+to specify the machine name using the `paral_host' variable, as well as
+the run mode (`seq' or `seqpar') through the `paral_mode' variable, e.g.:
+    make tests_paral paral_host=chum-g95 paral_mode=seqpar 
+In all cases, the results of the tests are stored in a directory named
+`<series>/,,<hostname>_<date>'.
+examples of paral_host : compaq_es40, fock, max, chpit, lemaitre, chum(-compilo)
+with compilo= g95, pgi, gcc42, gcc43, pathscale, ifort, intel, open64, sun
+
+If you want to run separately parallel tests, you cannot rely on make 
+at present. Use the script */drive-parallel-tests.sh . E.g. :
+(sh */drive-parallel-tests.sh chum-g95 A) >& ,log &
+
+==============================================================================

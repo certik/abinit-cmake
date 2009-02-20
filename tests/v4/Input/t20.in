@@ -1,0 +1,50 @@
+# Rocksalt CaO bandstructure at symmetry points with
+# PURELY EXPERIMENTAL self-interaction-corrected psp's
+
+  ndtset  2
+
+# Dataset 1 : self-consistent ground state calculation
+
+ kptopt1  1
+  ngkpt1  2 2 2
+nshiftk1  4
+ prtden1  1
+ shiftk1  0.5 0.5 0.5
+          0.5 0.0 0.0
+          0.0 0.5 0.0
+          0.0 0.0 0.5
+ tolvrs1  1.0d-8
+
+# Dataset 2 : the band structure
+
+   iscf2  -2
+ getden2  -1
+  nband2  8
+
+ kptopt2  0
+   nkpt2  3
+    kpt2    0.0  0.0  0.0   # Gamma point
+            0.0  0.5  0.5   # X point
+            0.5  0.0  0.0   # L point
+
+ tolwfr2  1.0d-8
+ enunit2  1       # Will output the eigenenergies in eV 
+
+# common input data
+
+   acell  3*9.09
+  diemac  10.0
+    ecut  40.0
+  ecutsm  0.0
+    iscf  5
+   natom  2
+  nloalg  2
+   nstep  50
+  ntypat  2
+   rprim  0.0  0.5  0.5
+          0.5  0.0  0.5
+          0.5  0.5  0.0
+   typat  1 2
+    xred  0.0  0.0  0.0
+          0.5  0.5  0.5
+  znucl   20  8

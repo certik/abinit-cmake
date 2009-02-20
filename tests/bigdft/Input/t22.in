@@ -1,0 +1,40 @@
+#
+#  H2O molecule in a big box. Try to use Damiens Poisson cutoff
+#
+
+acell 3*10 # not that big a box
+natom 3
+ntypat 2
+znucl 1 8
+typat 1 1 2
+# eventually add 1/2 box size to center molecule
+xangst
+0.610145  0.730174 0.
+0.610145 -0.730174 0.
+0. 0. 0.
+
+nstep 100
+#tolwfr 1.0e-20
+tolrff 1.e-3
+nband 30
+nbdbuf 5
+ecut 40.
+kptopt 1
+ngkpt 1 1 1
+nshiftk 1
+shiftk 0 0 0
+
+# molecule relaxation
+#ntime 10
+#ionmov 2
+#optcell 0
+#tolmxf 1.0e-7
+
+# poisson solver set for 0 boundary conditions (isolated system!)
+icoulomb 1
+
+# etsfio stuff
+#prtvxc 1
+#accesswff 3
+istwfk 1
+

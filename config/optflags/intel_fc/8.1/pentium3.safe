@@ -1,0 +1,1 @@
+FCFLAGS_OPT="-O2 -arch pn3 -tune pn3 -tpp6 -xK"

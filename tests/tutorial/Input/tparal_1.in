@@ -1,0 +1,38 @@
+#
+# Lead crystal
+#
+
+# Simulation parameters
+ecut  30.0
+acell 10.0 10.0 10.0
+rprim
+    0.0  0.5  0.5
+    0.5  0.0  0.5
+    0.5  0.5  0.0
+
+# K-points
+ngkpt 8 8 8
+kptopt  1
+nshiftk 4
+shiftk
+   0.5 0.5 0.5
+   0.5 0.0 0.0
+   0.0 0.5 0.0
+   0.0 0.0 0.5
+occopt 7
+tsmear 0.01
+
+# System description
+ntypat 1
+znucl  82
+natom  1
+typat  1 
+xred
+  0.000   0.000   0.000
+nband  4
+
+# SCF procedure
+nstep   3
+tolvrs  1.0d-10
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,89 @@
+# Silicon structure
+     acell     10.263  10.263  10.263
+     rprim      0.00   0.50   0.50
+                0.50   0.00   0.50
+                0.50   0.50   0.00
+     natom      2
+      xred      0.00   0.00   0.00
+                0.25   0.25   0.25
+    ntypat      1
+     typat      1      1
+     znucl     14.00
+ symmorphi      0
+# Parameters common to all runs
+      ecut      6.00
+    kptopt      1
+     ngkpt      4      4      4
+     nstep    100
+    enunit      2
+
+    ndtset      5
+# Self-consistent run to get the density
+      iscf1     5
+    toldfe1     1.00d-6
+   nshiftk1     1
+    shiftk1     0.00   0.00   0.00
+    istwfk1     8*1
+
+  nbandkss1     30
+    npwkss1     89
+
+# Calculation of the static dielectric matrix
+# Dummy calculation to cheap on abinit! HF does not need screening!
+ optdriver2     3
+ gwcalctyp2    25
+    getkss2     1
+
+     nband2     5
+    npweps2     9 
+    npwwfn2     9
+
+# Calculation of the HF corrections - iteration 1
+ optdriver3     4
+ gwcalctyp3    25
+    getkss3     1
+    getscr3     2
+    getqps3    -1
+     nband3    12
+   npwsigx3    89 
+    npwwfn3    89 
+# Calculation of the HF corrections - iteration 2
+ optdriver4     4
+ gwcalctyp4    25
+    getkss4     1
+    getscr4     2
+    getqps4    -1
+     nband4    12
+   npwsigx4    89 
+    npwwfn4    89 
+# Calculation of the HF corrections - iteration 3
+ optdriver5     4
+ gwcalctyp5    25
+    getkss5     1
+    getscr5     2
+    getqps5    -1
+     nband5    12
+   npwsigx5    89 
+    npwwfn5    89 
+
+#Common to all HF calculations
+     nkptgw     8
+      kptgw     
+              0.00000000E+00  0.00000000E+00  0.00000000E+00
+              2.50000000E-01  0.00000000E+00  0.00000000E+00
+              5.00000000E-01  0.00000000E+00  0.00000000E+00
+              2.50000000E-01  2.50000000E-01  0.00000000E+00
+              5.00000000E-01  2.50000000E-01  0.00000000E+00
+             -2.50000000E-01  2.50000000E-01  0.00000000E+00
+              5.00000000E-01  5.00000000E-01  0.00000000E+00
+             -2.50000000E-01  5.00000000E-01  2.50000000E-01
+       bdgw   
+              1 12
+              1 12
+              1 12
+              1 12
+              1 12
+              1 12
+              1 12
+              1 12
+

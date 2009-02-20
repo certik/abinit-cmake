@@ -1,0 +1,30 @@
+==============================================================================
+
+Additional keywords for developers 
+
+robodoc      makes compressed tar file with ROBODOC-processed sources
+infos_html   makes the tar.gz file for the Web site
+run_abilint  run abilint - gives warning for erroneous placement of F90 files
+check_list   echoes the check list
+theory       compiles the *.tex in doc/theory, and produces *.pdf.gz
+             (note : two compilations are done, to resolve the references)
+presentation compiles the *.tex in doc/presentation, and produces *.pdf.gz
+             (note : two compilations are done, to resolve the references)
+dist         prepares a tar.gz package with all sources + prepared makefiles
+                (same as after makemake)
+split_dist   prepares five tar.gz packages with all sources + prepared makefiles
+              that can be dowloaded separately
+binary_package  prepares a tgz package with sources/makefile/binaries/...
+             (does not work yet : use the two next lines instead)
+bin_seq      prepares a binary package, with only sequential executables
+bin_seqpar   prepares two binary packages, one with only sequential 
+              executables, and one with both seq and paral executables
+
+==============================================================================
+
+Admitted platform names (Unix or MacOSX) : compaq_ev67, ibm_pw5, macosx,
+ itanium2_ifc, amd_ifort9, amd_ifort10, amd_g95, amd_pathscale, amd_open64,
+ amd_gfort43, amd_gfort42, amd_pgi723, amd_sunstudio, intel_ifort9.
+Example : amd_ifort9_seqpar-5.6.3.tar.gz
+
+==============================================================================

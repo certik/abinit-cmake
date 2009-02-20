@@ -1,0 +1,38 @@
+t58o_WFK   # WF file
+1          # Unformatted file
+0          # Analysis of the wavefunction
+2          # 2nd k point
+3          # 3rd band
+2          # 2nd spin polarisation
+1          # Perform angular momentum decomposition
+2          # Only real wf
+t59        # Root for the output name
+0          # This is to leave
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

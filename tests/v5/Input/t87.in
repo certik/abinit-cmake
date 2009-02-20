@@ -1,0 +1,13 @@
+t87o           # Name of output file
+0              # binary (0) or ascii (1) output
+t85o_DS1_WFK   # GS wavefunction file
+9  0 0         # number of 1WF files, of GKK files, and of perturbations in the GKK files
+t85o_DS2_1WF1  # names of the 1WF then the (eventual) GKK files
+t85o_DS2_1WF2
+t85o_DS2_1WF3
+t85o_DS3_1WF1
+t85o_DS3_1WF2
+t85o_DS3_1WF3
+t85o_DS4_1WF1
+t85o_DS4_1WF2
+t85o_DS4_1WF3

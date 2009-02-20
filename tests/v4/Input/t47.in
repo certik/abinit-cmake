@@ -1,0 +1,57 @@
+
+# Silicon crystal. Preparation to Wannier function generation
+
+  ndtset 4
+#=========== DATA SET 1 =======================
+  kptopt1   1
+  toldfe1   1.0d-8
+  iscf1   3
+  nstep1 40
+  nband1  4
+#=========== DATA SET 2 =======================
+  getwfk2 -1
+  getden2  -1
+  nstep2 40
+  iscf2  -2
+  tolwfr2 1.0d-12
+  kptopt2   3
+  nband2  4
+#=========== DATA SET 3 =======================
+  getwfk3   0
+  kptopt3   1
+  toldfe3   1.0d-8
+  iscf3   3
+  nstep3 40
+  nband3  8
+  occopt3  3
+  tsmear3  0.0015 
+
+#=========== DATA SET 4 =======================
+  getwfk4 -1
+  getden4  -1
+  nstep4 40
+  iscf4  -2
+  tolwfr4 1.0d-12
+  kptopt4   3
+  nband4  8
+  occopt4  3
+  tsmear4  0.0015
+
+#================= COMMON  INPUTS ========================================
+kptrlatt   3  0  0      0  3  0      0  0  3     ! Should at least be 5 0 0  0 5 0  0 0 5 for correct results
+nshiftk 1
+shiftk   0.0 0.0 0.0
+
+ecut 4.0
+acell   5.102262565000  5.102262565000  5.102262565000
+rprim 0.0  1.0  1.0   1.0  0.0  1.0   1.0  1.0  0.0
+ntypat 1
+znucl 14
+prtden 1
+natom 2
+typat 1 1  
+xred 0.0 0.0 0.0    0.25 0.25 0.25   
+ixc 3
+diemix 0.4
+diemac 9.0
+#=========================================================================

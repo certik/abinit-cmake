@@ -1,0 +1,2 @@
+CXXFLAGS_OPT="-xO4 -fround=nearest -xtarget=pentium3 -xarch=sse -xlibmil -xlibmopt -xvector=lib -xipo"
+CXX_LDFLAGS_OPT="-xvector=lib -xipo"

@@ -1,0 +1,26 @@
+!!****d* ABINIT/Lib_XMLf90
+!! NAME
+!!  Lib_XMLf90
+!!
+!! DESCRIPTION
+!!  This subdirectory contains the package 'xmlf90' v1.2g,
+!!  written by A. Garcia (http://lcdx00.wm.lc.ehu.es/ag/xml).
+!!
+!!  In ABINITv4.3, it is not yet used, nor compiled.
+!!  However, the availability of this package paves the way for future
+!!  developments.
+!!
+!!  These routines do not follow the ABINIT coding rules
+!!  (~abinit/doc/developers/rules_coding).
+!! 
+!! COPYRIGHT
+!!  Copyright (C) 1998-2008 ABINIT group (TD)
+!!  This file is distributed under the terms of the
+!!  GNU General Public License, see ~abinit/COPYING
+!!  or http://www.gnu.org/copyleft/gpl.txt .
+!!  For the initials of contributors, see
+!!  ~abinit/doc/developers/contributors.
+!!
+!! CHILDREN
+!!
+!!***

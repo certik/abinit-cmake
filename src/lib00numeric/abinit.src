@@ -1,0 +1,43 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the numeric library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "ass_leg_pol.F90",
+ "coeffs_gausslegint.F90",
+ "dzgedi.F90",
+ "dzgefa.F90",
+ "intrpl.F90",
+ "interp.F90",
+ "j0y0.F90",
+ "j1y1.F90",
+ "jacobi.F90",
+ "k0.F90",
+ "k1.F90",
+ "ludcmp.F90",
+ "polyn_coeff.F90",
+ "smooth.F90",
+ "sort_int.F90",
+ "sort_dp.F90",
+ "splfit.F90",
+ "spline.F90",
+ "splint.F90",
+ "uniformrandom.F90",
+ "zgedi.F90",
+ "zgefa.F90"]

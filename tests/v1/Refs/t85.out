@@ -1,0 +1,446 @@
+
+.Version 5.6.3  of ABINIT 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Thu  6 Nov 2008.
+  
+- input  file    -> /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/v1/Input/t85.in
+- output file    -> t85.out
+- root for input  files -> t85i
+- root for output files -> t85o
+
+
+ Symmetries : space group Pm (#  6); Bravais mP (primitive monocl.)
+================================================================================
+ Values of the parameters that define the memory need of the present run
+   intxc =         1  ionmov =         2    iscf =         5 xclevel =         1
+  lmnmax =         2   lnmax =         2   mband =         4  mffmem =         1
+P  mgfft =        24   mkmem =         1 mpssoang=         3     mpw =       258
+  mqgrid =      3001   natom =         5    nfft =     13824    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         2  n1xccc =      2501  ntypat =         2  occopt =         1
+================================================================================
+P This job should need less than                       4.126 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.018 Mbytes ; DEN or POT disk file :      0.107 Mbytes.
+================================================================================
+
+ -outvars: echo values of preprocessed input variables --------
+     acell    8.0000000000E+00  8.0000000000E+00  8.0000000000E+00 Bohr
+       amu    2.80855000E+01  1.00794000E+00
+      ecut    8.00000000E+00 Hartree
+    iatfix      1    4    5
+   iatfixy      2    3
+   iatfixz      2    3
+     intxc         1
+    ionmov         2
+      iscf         5
+    isecur        -2
+    istwfk      2
+P    mkmem         1
+    natfix         3
+   natfixy         2
+   natfixz         2
+     natom         5
+     nband         4
+     ngfft        24      24      24
+      nkpt         1
+     nline         5
+     nstep        25
+      nsym         2
+     ntime         3
+    ntypat         2
+       occ    2.000000  2.000000  2.000000  2.000000
+   spgroup         6
+    symrel    1  0  0   0  1  0   0  0  1       1  0  0   0 -1  0   0  0  1
+    toldff    5.00000000E-06
+    tolmxf    1.00000000E-04
+     typat    1  2  2  2  2
+    xangst    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              1.4287784632E+00  0.0000000000E+00  0.0000000000E+00
+             -9.0489302669E-01  0.0000000000E+00  1.3229430215E+00
+             -7.9376581288E-01  1.0583544172E+00  6.8793037117E-01
+             -7.9376581288E-01 -1.0583544172E+00  6.8793037117E-01
+     xcart    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              2.7000000000E+00  0.0000000000E+00  0.0000000000E+00
+             -1.7100000000E+00  0.0000000000E+00  2.5000000000E+00
+             -1.5000000000E+00  2.0000000000E+00  1.3000000000E+00
+             -1.5000000000E+00 -2.0000000000E+00  1.3000000000E+00
+      xred    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              3.3750000000E-01  0.0000000000E+00  0.0000000000E+00
+             -2.1375000000E-01  0.0000000000E+00  3.1250000000E-01
+             -1.8750000000E-01  2.5000000000E-01  1.6250000000E-01
+             -1.8750000000E-01 -2.5000000000E-01  1.6250000000E-01
+     znucl     14.00000    1.00000
+
+================================================================================
+
+ chkinp: Checking input parameters for consistency.
+
+================================================================================
+== DATASET  1 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  8.0000000  0.0000000  0.0000000  G(1)=  0.1250000  0.0000000  0.0000000
+ R(2)=  0.0000000  8.0000000  0.0000000  G(2)=  0.0000000  0.1250000  0.0000000
+ R(3)=  0.0000000  0.0000000  8.0000000  G(3)=  0.0000000  0.0000000  0.1250000
+ Unit cell volume ucvol=  5.1200000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  24  24  24
+         ecut(hartree)=      8.000   => boxcut(ratio)=   2.35619
+
+ getcut : COMMENT -
+  Note that boxcut > 2.2 ; recall that boxcut=Gcut(box)/Gcut(sphere) = 2
+  is sufficient for exact treatment of convolution.
+  Such a large boxcut is a waste : you could raise ecut
+  e.g. ecut=   11.103305 Hartrees makes boxcut=2
+
+
+--- Pseudopotential description ------------------------------------------------
+- pspini: atom type   1  psp file is /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/14si.pspnc
+- pspatm: opening atomic psp file    /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/14si.pspnc
+  Troullier-Martins psp for element  Si        Thu Oct 27 17:31:21 EDT 1994
+  14.00000   4.00000    940714                znucl, zion, pspdat
+    1    1    2    2      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+    0   5.907  14.692    1   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1   2.617   4.181    1   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    2   0.000   0.000    0   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1.80626423934776    0.22824404341771    1.17378968127746   rchrg,fchrg,qchrg
+ pspatm: epsatm=    1.43386982
+         --- l  ekb(1:nproj) -->
+             0    3.287949
+             1    1.849886
+ pspatm: atomic psp has been read  and splines computed
+
+- pspini: atom type   2  psp file is /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/1h.pspnc
+- pspatm: opening atomic psp file    /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/1h.pspnc
+  Troullier-Martins psp for element  H         Thu Oct 27 17:28:54 EDT 1994
+   1.00000   1.00000    940714                znucl, zion, pspdat
+    1    1    0    0      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+    0   7.740  11.990    0   1.5855604        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    0.00000000000000    0.00000000000000    0.00000000000000   rchrg,fchrg,qchrg
+ Note: local psp for atom with Z=  1.0
+ pspatm: epsatm=    0.04198703
+         --- l  ekb(1:nproj) -->
+ pspatm: atomic psp has been read  and splines computed
+
+   1.28145435E+01                                ecore*ucvol(ha*bohr**3)
+--------------------------------------------------------------------------------
+
+P newkpt: treating      4 bands with npw=     258 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are     515.000     515.000
+
+================================================================================
+
+ BROYDEN STEP NUMBER   0  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -6.4097617792476    -6.410E+00 9.228E-04 3.649E+01 3.715E-02 3.715E-02
+ ETOT  2  -6.4351970124220    -2.544E-02 1.068E-07 4.850E+00 3.904E-02 3.660E-03
+ ETOT  3  -6.4375935745222    -2.397E-03 2.177E-05 5.291E+00 1.121E-02 9.317E-03
+ ETOT  4  -6.4392610658346    -1.667E-03 2.922E-05 1.705E+00 5.536E-03 5.362E-03
+ ETOT  5  -6.4400540080332    -7.929E-04 7.377E-06 6.251E-01 4.878E-03 1.015E-03
+ ETOT  6  -6.4401277350599    -7.373E-05 7.411E-07 2.301E-01 3.893E-04 9.873E-04
+ ETOT  7  -6.4401605410581    -3.281E-05 1.129E-07 3.385E-02 9.837E-04 2.652E-04
+ ETOT  8  -6.4401623006221    -1.760E-06 1.768E-08 2.837E-02 3.095E-05 2.437E-04
+ ETOT  9  -6.4401658997291    -3.599E-06 3.796E-08 9.546E-03 1.461E-04 9.761E-05
+ ETOT 10  -6.4401674602999    -1.561E-06 5.190E-09 2.523E-04 1.657E-04 1.348E-04
+ ETOT 11  -6.4401674899350    -2.964E-08 9.485E-11 2.326E-05 4.440E-05 1.792E-04
+ ETOT 12  -6.4401674937445    -3.810E-09 1.863E-11 2.464E-05 8.455E-06 1.708E-04
+ ETOT 13  -6.4401674937914    -4.692E-11 9.119E-13 2.639E-05 2.709E-06 1.680E-04
+ ETOT 14  -6.4401674984406    -4.649E-09 1.487E-11 8.334E-06 2.895E-06 1.691E-04
+
+ At SCF step   14, forces are converged :
+  for the second time, max diff in force=  2.895E-06 < toldff=  5.000E-06
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.15323056E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.31344290E-04  sigma(3 1)= -1.24928104E-04
+  sigma(3 3)= -3.30115650E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.70000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ -1.71000000000000E+00  0.00000000000000E+00  2.50000000000000E+00
+ -1.50000000000000E+00  2.00000000000000E+00  1.30000000000000E+00
+ -1.50000000000000E+00 -2.00000000000000E+00  1.30000000000000E+00
+ Cartesian forces (hart/bohr); max,rms= 1.69107E-04 1.19630E-04 (free atoms)
+ -7.59318603853188E-03 -0.00000000000000E+00 -1.33760498761335E-02
+  1.69106872066505E-04 -0.00000000000000E+00  3.46650589404917E-02
+  5.07617826061581E-06 -0.00000000000000E+00 -6.11117497665536E-03
+  3.70950149410238E-03  5.27941908348457E-03 -7.58891704385139E-03
+  3.70950149410238E-03 -5.27941908348457E-03 -7.58891704385139E-03
+
+ At the end of Broyden step  0, total energy= -6.44016749844065E+00 Ha.
+
+
+ BROYDEN STEP NUMBER   1  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -6.4401675240375    -6.440E+00 8.801E-15 1.255E-06 2.727E-05 1.418E-04
+ ETOT  2  -6.4401675251385    -1.101E-09 5.212E-16 5.598E-08 1.073E-05 1.311E-04
+ ETOT  3  -6.4401675251710    -3.248E-11 6.442E-13 1.086E-08 1.614E-06 1.295E-04
+ ETOT  4  -6.4401675251733    -2.292E-12 1.139E-14 5.967E-09 5.270E-07 1.290E-04
+
+ At SCF step    4, forces are converged :
+  for the second time, max diff in force=  5.270E-07 < toldff=  5.000E-06
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.15190369E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.31301898E-04  sigma(3 1)= -1.24937741E-04
+  sigma(3 3)= -3.30046944E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.70016910687207E+00  0.00000000000000E+00  0.00000000000000E+00
+ -1.70999492382174E+00  0.00000000000000E+00  2.50000000000000E+00
+ -1.50000000000000E+00  2.00000000000000E+00  1.30000000000000E+00
+ -1.50000000000000E+00 -2.00000000000000E+00  1.30000000000000E+00
+ Cartesian forces (hart/bohr); max,rms= 1.28969E-04 9.12442E-05 (free atoms)
+ -7.55738697197239E-03 -0.00000000000000E+00 -1.33627517454786E-02
+  1.28969484166109E-04 -0.00000000000000E+00  3.46551067369148E-02
+  4.22935099851543E-06 -0.00000000000000E+00 -6.11546369673450E-03
+  3.71209406840388E-03  5.27846693391208E-03 -7.58844564735084E-03
+  3.71209406840388E-03 -5.27846693391208E-03 -7.58844564735084E-03
+
+ At the end of Broyden step  1, total energy= -6.44016752517329E+00 Ha.
+
+
+ BROYDEN STEP NUMBER   2  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -6.4401675455834    -6.440E+00 1.023E-13 1.675E-05 7.414E-05 5.483E-05
+ ETOT  2  -6.4401675603088    -1.473E-08 6.936E-15 8.874E-07 4.990E-05 1.387E-05
+ ETOT  3  -6.4401675606518    -3.430E-10 2.962E-12 8.496E-07 6.641E-06 1.762E-05
+ ETOT  4  -6.4401675612115    -5.598E-10 8.417E-12 2.006E-07 4.611E-06 1.373E-05
+ ETOT  5  -6.4401675613124    -1.008E-10 9.458E-13 7.741E-08 2.435E-06 1.263E-05
+
+ At SCF step    5, forces are converged :
+  for the second time, max diff in force=  2.435E-06 < toldff=  5.000E-06
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.14791148E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.31263043E-04  sigma(3 1)= -1.24896931E-04
+  sigma(3 3)= -3.30012097E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.70071264002301E+00  0.00000000000000E+00  0.00000000000000E+00
+ -1.70997709954587E+00  0.00000000000000E+00  2.50000000000000E+00
+ -1.50000000000000E+00  2.00000000000000E+00  1.30000000000000E+00
+ -1.50000000000000E+00 -2.00000000000000E+00  1.30000000000000E+00
+ Cartesian forces (hart/bohr); max,rms= 1.26298E-05 9.48591E-06 (free atoms)
+ -7.42555700039993E-03 -0.00000000000000E+00 -1.33622524087997E-02
+  4.52263772863483E-06 -0.00000000000000E+00  3.46509094851882E-02
+ -1.26297613159835E-05 -0.00000000000000E+00 -6.11270636179704E-03
+  3.71683206199364E-03  5.27807990030930E-03 -7.58797535729571E-03
+  3.71683206199364E-03 -5.27807990030930E-03 -7.58797535729571E-03
+
+ At the end of Broyden step  2, total energy= -6.44016756131237E+00 Ha.
+
+
+ At Broyd/MD step   2, gradients are converged :
+  max grad (force/stress) = 1.2630E-05 < tolmxf= 1.0000E-04 ha/bohr (free atoms)
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   4.9379E-13; max=  9.4585E-13
+   0.0000  0.0000  0.0000    1  9.45846E-13 kpt; spin; max resid(k); each band:
+ 9.46E-13 7.86E-13 3.11E-15 2.40E-13
+ reduced coordinates (array xred) for    5 atoms
+       0.000000000000      0.000000000000      0.000000000000
+       0.337589080003      0.000000000000      0.000000000000
+      -0.213747137443      0.000000000000      0.312500000000
+      -0.187500000000      0.250000000000      0.162500000000
+      -0.187500000000     -0.250000000000      0.162500000000
+ rms dE/dt=  8.4418E-02; max dE/dt=  1.0690E-01; dE/dt below (all hartree)
+    1       0.059404859604      0.000000000000      0.106897546182
+    2      -0.000035777501      0.000000000000     -0.277207748970
+    3       0.000101441691      0.000000000000      0.048901177806
+    4      -0.029734252895     -0.042224639202      0.060703329770
+    5      -0.029734252895      0.042224639202      0.060703329770
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.00000000000000
+    2      1.42915557605111     0.00000000000000     0.00000000000000
+    3     -0.90488090829051     0.00000000000000     1.32294302147500
+    4     -0.79376581288500     1.05835441718000     0.68793037116700
+    5     -0.79376581288500    -1.05835441718000     0.68793037116700
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00742555700040    -0.00000000000000    -0.01336225240880
+    2      0.00000452263773    -0.00000000000000     0.03465090948519
+    3     -0.00001262976132    -0.00000000000000    -0.00611270636180
+    4      0.00371683206199     0.00527807990031    -0.00758797535730
+    5      0.00371683206199    -0.00527807990031    -0.00758797535730
+ frms,max,avg= 9.4859138E-06 1.2629761E-05  -5.045E-08  0.000E+00  5.914E-08 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.38183746131203    -0.00000000000000    -0.68711458775575
+    2      0.00023256336308    -0.00000000000000     1.78182125721540
+    3     -0.00064944838449    -0.00000000000000    -0.31432797281184
+    4      0.19112717316672     0.27140975816732    -0.39018934832390
+    5      0.19112717316672    -0.27140975816732    -0.39018934832390
+ frms,max,avg= 4.8778526E-04 6.4944838E-04  -2.594E-06  0.000E+00  3.041E-06 e/A
+ length scales=  8.000000000000  8.000000000000  8.000000000000 bohr
+              =  4.233417668720  4.233417668720  4.233417668720 angstroms
+ prteigrs : about to open file t85o_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.01751   Average Vxc (hartree)=  -0.23528
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  4, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.42229  -0.21114  -0.13903  -0.01751
+ Total charge density [el/Bohr^3]
+,     Maximum=    2.1894E-01  at reduced coord.    0.2917    0.0000    0.0000
+,Next maximum=    2.0819E-01  at reduced coord.    0.3333    0.0000    0.0000
+,     Minimum=    6.9278E-05  at reduced coord.    0.4167    0.5000    0.4167
+,Next minimum=    7.0558E-05  at reduced coord.    0.4167    0.5000    0.4583
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  3.81506119628139E+00
+    Hartree energy  =  2.13424579571219E+00
+    XC energy       = -3.08939398395567E+00
+    Ewald energy    = -3.04343957843658E+00
+    PspCore energy  =  2.50284053246253E-02
+    Loc. psp. energy= -7.22892378172482E+00
+    NL   psp  energy=  9.47254385486492E-01
+    >>>>>>>>> Etotal= -6.44016756131237E+00
+
+ Other information on the energy :
+    Total energy(eV)= -1.75245871633591E+02 ; Band energy (Ha)=  -1.5799591824E+00
+--------------------------------------------------------------------------------
+ rms coord change=  2.3012E-05   atom, delta coord (reduced):
+     1        0.000000000000      0.000000000000      0.000000000000
+     2        0.000089080003      0.000000000000      0.000000000000
+     3        0.000002862557      0.000000000000      0.000000000000
+     4        0.000000000000      0.000000000000      0.000000000000
+     5        0.000000000000      0.000000000000      0.000000000000
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.14791148E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.31263043E-04  sigma(3 1)= -1.24896931E-04
+  sigma(3 3)= -3.30012097E-04  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.6109E+00 GPa]
+- sigma(1 1)= -3.37727161E+00  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -9.74609356E+00  sigma(3 1)= -3.67459395E+00
+- sigma(3 3)= -9.70928946E+00  sigma(2 1)=  0.00000000E+00
+
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+     acell    8.0000000000E+00  8.0000000000E+00  8.0000000000E+00 Bohr
+       amu    2.80855000E+01  1.00794000E+00
+      ecut    8.00000000E+00 Hartree
+    etotal   -6.4401675613E+00
+     fcart   -7.4255570004E-03 -0.0000000000E+00 -1.3362252409E-02
+              4.5226377286E-06 -0.0000000000E+00  3.4650909485E-02
+             -1.2629761316E-05 -0.0000000000E+00 -6.1127063618E-03
+              3.7168320620E-03  5.2780799003E-03 -7.5879753573E-03
+              3.7168320620E-03 -5.2780799003E-03 -7.5879753573E-03
+    iatfix      1    4    5
+   iatfixy      2    3
+   iatfixz      2    3
+     intxc         1
+    ionmov         2
+      iscf         5
+    isecur        -2
+    istwfk      2
+P    mkmem         1
+    natfix         3
+   natfixy         2
+   natfixz         2
+     natom         5
+     nband         4
+     ngfft        24      24      24
+      nkpt         1
+     nline         5
+     nstep        25
+      nsym         2
+     ntime         3
+    ntypat         2
+       occ    2.000000  2.000000  2.000000  2.000000
+   spgroup         6
+    strten   -1.1479114827E-04 -3.3126304261E-04 -3.3001209671E-04
+              0.0000000000E+00 -1.2489693073E-04  0.0000000000E+00
+    symrel    1  0  0   0  1  0   0  0  1       1  0  0   0 -1  0   0  0  1
+    toldff    5.00000000E-06
+    tolmxf    1.00000000E-04
+     typat    1  2  2  2  2
+    xangst    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              1.4291555761E+00  0.0000000000E+00  0.0000000000E+00
+             -9.0488090829E-01  0.0000000000E+00  1.3229430215E+00
+             -7.9376581288E-01  1.0583544172E+00  6.8793037117E-01
+             -7.9376581288E-01 -1.0583544172E+00  6.8793037117E-01
+     xcart    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              2.7007126400E+00  0.0000000000E+00  0.0000000000E+00
+             -1.7099770995E+00  0.0000000000E+00  2.5000000000E+00
+             -1.5000000000E+00  2.0000000000E+00  1.3000000000E+00
+             -1.5000000000E+00 -2.0000000000E+00  1.3000000000E+00
+      xred    0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+              3.3758908000E-01  0.0000000000E+00  0.0000000000E+00
+             -2.1374713744E-01  0.0000000000E+00  3.1250000000E-01
+             -1.8750000000E-01  2.5000000000E-01  1.6250000000E-01
+             -1.8750000000E-01 -2.5000000000E-01  1.6250000000E-01
+     znucl     14.00000    1.00000
+
+================================================================================
+
+- Total cpu        time (s,m,h):          1.7        0.03      0.000
+- Total wall clock time (s,m,h):          1.7        0.03      0.000
+
+- For major independent code sections, cpu and wall times (sec),
+- as well as % of the total time and number of calls 
+
+- routine                 cpu     %       wall     %      number of calls 
+-                                                          (-1=no count)
+- timing timab           0.359  20.6      0.359  20.6             11
+- pspini                 0.279  16.0      0.280  16.1              1
+- fourwf(pot)            0.241  13.9      0.244  14.0            637
+- forces                 0.116   6.7      0.120   6.9             23
+- invars2                0.107   6.2      0.107   6.1              1
+- fourdp                 0.104   6.0      0.099   5.7            222
+- xc:pot/=fourdp         0.079   4.5      0.080   4.6             26
+- symrhg(no FFT)         0.073   4.2      0.072   4.1             23
+- mkcore                 0.036   2.1      0.033   1.9             29
+- abinit(2)              0.032   1.8      0.032   1.8              1
+- nonlop(apply)          0.030   1.7      0.028   1.6            637
+- stress                 0.028   1.6      0.028   1.6              3
+- ewald                  0.025   1.4      0.026   1.5              3
+- fourwf(den)            0.018   1.0      0.025   1.4             92
+- ewald2                 0.015   0.9      0.015   0.9              3
+- status                 0.013   0.7      0.007   0.4            782
+- projbd                 0.013   0.7      0.011   0.6           1042
+- getghc-other           0.011   0.6      0.016   0.9             -1
+- vtowfk(ssdiag)         0.008   0.5      0.010   0.6             -1
+- 51   others            0.036   2.1      0.018   1.0
+
+- subtotal               1.623  93.3      1.610  92.5
+
+================================================================================
+
+ Calculation completed.
+.Delivered    5 WARNINGs and   5 COMMENTs to log file.
++Overall time at end (sec) : cpu=          1.7  wall=          1.7

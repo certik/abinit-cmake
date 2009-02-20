@@ -1,0 +1,2 @@
+CFLAGS_OPT="-xO3 -fround=nearest -xtarget=pentium4 -xarch=sse2 -xvector=simd"
+CC_LDFLAGS_OPT="-xvector=simd"

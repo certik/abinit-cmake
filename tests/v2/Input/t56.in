@@ -1,0 +1,28 @@
+# Chromium atom, in a box, treated like a metal, with nsppol=1 and ldA 
+# The FHI pseudopotential includes a core charge, 
+# inducing non-linear XC core correction
+# Many parameters are too small for converged calculation.
+
+ acell 3*9.001
+ diemac 2.0d0
+ diemix 0.1d0
+ ecut 30
+ ixc 1
+ kpt   3*0.0
+ natom  1 
+ nband 6 
+ nkpt 1
+#nstep 7
+ nstep 20
+
+ nsppol 1
+ ntypat  1
+ occopt 7
+#toldfe 1.d-6
+ tolvrs 1.d-5
+ typat  1 
+ wtk 1.0
+ xred 0.0 0.0 0.0
+ znucl  24.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

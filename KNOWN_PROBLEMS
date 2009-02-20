@@ -1,0 +1,995 @@
+
+Known problems
+
+This file contains the list of known problems
+at the time a version of ABINIT is released.
+Note that bugs discovered later than the
+release are NOT described here...
+(In particular, at the time of release, a particular
+ version is not tested already on ALL platforms,
+ only on a subset of 5, usually).
+
+The present release 5.6.5 is suitable for production runs on platforms running Linux, with Intel or AMD procs and Linux OS.
+
+0. List of platforms
+1. Batteries of tests
+2. List of known problems
+
+================================================================
+0. Platforms
+
+For version 5.6.5, list closed on 20090215
+after installation and successful tests for: 	
+
+seq and paral     Opteron/Linux with Intel Fortran  9.1 compiler (~ABINIT/doc/config/build-examples/amd-intel9.1_chum.ac)
+seq and paral     Opteron/Linux with Intel Fortran 10.1 compiler (~ABINIT/doc/config/build-examples/amd-intel10.1_chum.ac)
+seq and paral     Opteron/Linux with PGI 7.2.3 compiler          (~ABINIT/doc/config/build-examples/amd-pgi7.2-3_chum.ac)
+seq and paral     Opteron/Linux with GNU Fortran 4.2 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.2_chum.ac)
+seq and paral     Opteron/Linux with GNU Fortran 4.3 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.3_chum.ac)
+seq and paral     Opteron/Linux with g95 compiler                (~ABINIT/doc/config/build-examples/amd-g95_chum.ac)
+seq and paral     Opteron/Linux with Pathscale compiler          (~ABINIT/doc/config/build-examples/amd-pathscale_chum.ac)
+seq and paral     Opteron/Linux with Open64 compiler             (~ABINIT/doc/config/build-examples/amd-open64_chum.ac)
+seq and paral     Opteron/Linux with Sun Studio 1.2 compiler     (~ABINIT/doc/config/build-examples/amd-sunstudio12_chum.ac)
+                  Compaq/Dec EV67 OSF                            (~ABINIT/doc/config/build-examples/alphaev67-compaq_deccint.ac)
+                  IBM Power 5                                    (~ABINIT/doc/config/build-examples/powerpc64-ibm_fock.ac)
+                  Xeon with Intel compiler (GREEN)
+                  Mac OSX with gfortran compiler                 (~ABINIT/doc/config/build-examples/macosx-gfortran_gandalf.ac)
+
+
+For the time being, the MPI installation on chum with g95 compiler has some problems.
+
+Versions of compilers known to be too buggy for ABINIT
+gfortran 4.1.2    (=> use gfortran 4.2 or 4.3 instead)
+intel10.0         (=> use intel9.1 or 10.1 instead)
+
+Platforms temporary out of the pool
+(instabilities of chpit at present)   Itanium2 machine with IFC compiler (~ABINIT/doc/config/build-examples/ia64-intel8.1_chpit.ac)
+(problems of memory with max)    Mac OS X, xlf compiler (~ABINIT/doc/config/build-examples/powerpc-ibm_max.ac)
+(problems of memory with Dirac)  IBM Power 4 (~ABINIT/doc/config/build-examples/powerpc-ibm_dirac.ac)
+
+Platforms definitely out of the pool 
+SGI Octane IRIX (Spinoza) - 081111 v5.6.3
+IBM Power 4 (Dirac) - 081111 v5.6.3
+
+
+=============================================================
+1. Batteries of tests
+
+Compilation of Netcdf and corresponding testing were tried. 
+It should work correctly with AMD/Intel based machines under Linux with this ABINITv5.6.5
+"Check" refers to a successful "make check" inside lib/netcdf/netcdf-3.6.3
+"Test" refers to a successful "make tests_netcdf" inside the test directory
+
+Build   Check   Test
+(was OK in 5.6.3)    Opteron/Linux with Intel Fortran  9.1 compiler (~ABINIT/doc/config/build-examples/amd-intel9.1_chum.ac)
+(was OK in 5.6.4)    Opteron/Linux with Intel Fortran 10.1 compiler (~ABINIT/doc/config/build-examples/amd-intel10.1_chum.ac)
+(was OK in 5.6.3)    Opteron/Linux with PGI 7.2.3 compiler          (~ABINIT/doc/config/build-examples/amd-pgi7.2-3_chum.ac)
+(was OK in 5.6.4)    Opteron/Linux with GNU Fortran 4.2 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.2_chum.ac)
+(was OK in 5.6.4)    Opteron/Linux with GNU Fortran 4.3 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.3_chum.ac)
+(was OK in 5.6.4)    Opteron/Linux with g95 compiler                (~ABINIT/doc/config/build-examples/amd-g95_chum.ac)
+(was OK in 5.6.3)    Opteron/Linux with Pathscale compiler          (~ABINIT/doc/config/build-examples/amd-pathscale_chum.ac)
+(was OK in 5.6.3)    Opteron/Linux with Open64 compiler             (~ABINIT/doc/config/build-examples/amd-open64_chum.ac)
+(was OK in 5.6.4)    Opteron/Linux with Sun Studio 1.2 compiler     (~ABINIT/doc/config/build-examples/amd-sunstudio12_chum.ac)
+                     Compaq/Dec EV67 OSF                            (~ABINIT/doc/config/build-examples/alphaev67-compaq_deccint.ac)
+                     IBM Power 5                                    (~ABINIT/doc/config/build-examples/powerpc64-ibm_fock.ac)
+                     Xeon with Intel compiler (GREEN)
+                     Mac OSX with gfortran compiler                 (~ABINIT/doc/config/build-examples/macosx-gfortran_gandalf.ac)
+
+
+
+When NetCDF was OK, compilation of ETSFIO and corresponding testing were tried. 
+
+Build   Test
+(was OK in 5.6.3) Opteron/Linux with Intel Fortran  9.1 compiler (~ABINIT/doc/config/build-examples/amd-intel9.1_chum.ac)
+(was OK in 5.6.4) Opteron/Linux with Intel Fortran 10.1 compiler (~ABINIT/doc/config/build-examples/amd-intel10.1_chum.ac)
+(was OK in 5.6.3) Opteron/Linux with PGI 7.2.3 compiler          (~ABINIT/doc/config/build-examples/amd-pgi7.2-3_chum.ac)
+(was OK in 5.6.4) Opteron/Linux with GNU Fortran 4.2 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.2_chum.ac)
+(was OK in 5.6.4) Opteron/Linux with GNU Fortran 4.3 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.3_chum.ac)
+(was OK in 5.6.4) Opteron/Linux with g95 compiler                (~ABINIT/doc/config/build-examples/amd-g95_chum.ac)
+(was OK in 5.6.3) Opteron/Linux with Pathscale compiler          (~ABINIT/doc/config/build-examples/amd-pathscale_chum.ac)
+(was OK in 5.6.3) Opteron/Linux with Open64 compiler             (~ABINIT/doc/config/build-examples/amd-open64_chum.ac)
+(was OK in 5.6.4) Opteron/Linux with Sun Studio 1.2 compiler     (~ABINIT/doc/config/build-examples/amd-sunstudio12_chum.ac)
+                  Compaq/Dec EV67 OSF                            (~ABINIT/doc/config/build-examples/alphaev67-compaq_deccint.ac)
+                  IBM Power 5                                    (~ABINIT/doc/config/build-examples/powerpc64-ibm_fock.ac)
+                  Xeon with Intel compiler (GREEN)
+                  Mac OSX with gfortran compiler                 (~ABINIT/doc/config/build-examples/macosx-gfortran_gandalf.ac)
+
+
+Compilation of BigDFT, and corresponding testing were tried. 
+Bigdft is OK for production with this ABINITv5.6,
+
+Bigdft  Tests
+OK      OK        Opteron/Linux with Intel Fortran  9.1 compiler (~ABINIT/doc/config/build-examples/amd-intel9.1_chum.ac)
+OK      OK        Opteron/Linux with Intel Fortran 10.1 compiler (~ABINIT/doc/config/build-examples/amd-intel10.1_chum.ac)
+OK      OK        Opteron/Linux with PGI 7.2.3 compiler          (~ABINIT/doc/config/build-examples/amd-pgi7.2-3_chum.ac)
+OK      OK        Opteron/Linux with GNU Fortran 4.2 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.2_chum.ac)
+OK      OK        Opteron/Linux with GNU Fortran 4.3 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.3_chum.ac)
+OK      OK        Opteron/Linux with g95 compiler                (~ABINIT/doc/config/build-examples/amd-g95_chum.ac)
+OK      OK        Opteron/Linux with Pathscale compiler          (~ABINIT/doc/config/build-examples/amd-pathscale_chum.ac)
+OK      OK        Opteron/Linux with Open64 compiler             (~ABINIT/doc/config/build-examples/amd-open64_chum.ac)
+OK      OK        Opteron/Linux with Sun Studio 1.2 compiler     (~ABINIT/doc/config/build-examples/amd-sunstudio12_chum.ac)
+                  Compaq/Dec EV67 OSF                            (~ABINIT/doc/config/build-examples/alphaev67-compaq_deccint.ac)
+                  IBM Power 5                                    (~ABINIT/doc/config/build-examples/powerpc64-ibm_fock.ac)
+                  Xeon with Intel compiler (GREEN)
+                  Mac OSX with gfortran compiler                 (~ABINIT/doc/config/build-examples/macosx-gfortran_gandalf.ac)
+
+
+Compilation of Wannier90 works, and is OK for production with this ABINITv5.6.
+
+Build   Tests 
+OK      OK        Opteron/Linux with Intel Fortran  9.1 compiler (~ABINIT/doc/config/build-examples/amd-intel9.1_chum.ac)
+OK      OK        Opteron/Linux with Intel Fortran 10.1 compiler (~ABINIT/doc/config/build-examples/amd-intel10.1_chum.ac)
+OK      OK        Opteron/Linux with PGI 7.2.3 compiler          (~ABINIT/doc/config/build-examples/amd-pgi7.2-3_chum.ac)
+OK      OK        Opteron/Linux with GNU Fortran 4.2 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.2_chum.ac)
+OK      OK        Opteron/Linux with GNU Fortran 4.3 compiler    (~ABINIT/doc/config/build-examples/amd-gfortran4.3_chum.ac)
+OK      OK        Opteron/Linux with g95 compiler                (~ABINIT/doc/config/build-examples/amd-g95_chum.ac)
+OK      OK        Opteron/Linux with Pathscale compiler          (~ABINIT/doc/config/build-examples/amd-pathscale_chum.ac)
+OK      OK        Opteron/Linux with Open64 compiler             (~ABINIT/doc/config/build-examples/amd-open64_chum.ac)
+OK      OK        Opteron/Linux with Sun Studio 1.2 compiler     (~ABINIT/doc/config/build-examples/amd-sunstudio12_chum.ac)
+                  Compaq/Dec EV67 OSF                            (~ABINIT/doc/config/build-examples/alphaev67-compaq_deccint.ac)
+                  IBM Power 5                                    (~ABINIT/doc/config/build-examples/powerpc64-ibm_fock.ac)
+                  Xeon with Intel compiler (GREEN)
+                  Mac OSX with gfortran compiler                 (~ABINIT/doc/config/build-examples/macosx-gfortran_gandalf.ac)
+
+Compilation of LibXC  was not tested, and should NOT be attempted by non-expert users with this ABINITv5.6
+Compilation of Fox  was not tested, and should NOT be attempted by non-expert users with this ABINITv5.6
+
+Speed was not tested. 
+
+
+===============================================
+2. List of known problems
+
+All the problems are listed cumulatively.
+Those specific to version 5.6 are found at the end of this file
+
+The type of the problem is identified as follows :
+
+NUMERICAL ERROR : the physical result is incorrect,
+ but the job does not crash. Moreover,
+ the use of the input variables is legitimate.
+ This is a very dangerous type of problem. 
+ There are two subclasses :
+ - INTERNALLY INCOHERENT
+  (the bug can be seen because two sets of
+   input variables should give the same results
+   and do not) 
+ - INTRINSIC
+  (the bug does not cause incoherency, it can
+   only be seen when comparing results with 
+   those of another code or with experimental results)
+ The latter one is the most dangerous, of course ...
+
+CRASH : the code does not produce the result, because
+ it stops unduly.
+
+SLOWING DOWN : the physical result is correct,
+ but the code does not go as fast as it should.
+ For example, the reading of a restart file might 
+ not be correct, or the SCF convergence 
+ might not be as fast as it should.
+
+OTHER : some information (not numerical results)
+might be erroneous ...
+
+In each class of problem, one can identify
+MACHINE-DEPENDENT problems (on some platform, this
+problem does not occur, not on others) as well as 
+GENERAL problems.
+
+Some of the problems listed below
+have been reported by user, but have not yet been
+examined for confirmation, in which case they are 
+labelled "TO BE CONFIRMED". 
+
+=================================================
+
+P2. (XG, 001223 + later) 
+OTHER  (TO BE DONE)
+GENERAL
+The memory needs are not yet evaluated correctly
+for the spin-orbit case and non-collinear magnetism
+case.
+
+P8. (GMR, November 2000)
+SLOWING DOWN
+GENERAL
+restartxf for optcell/=0 might have a bug,
+despite Test_v1#80
+Identified in March 2001 by GMR : only happens when
+restarting from a different, non-zero, optcell.
+Should be corrected, but documented, now.
+
+P9. (Massimilio Stengel, October 2000) 
+CRASH
+MACHINE-DEPENDENT : Compaq/DEC
+Problem with non-linear XC correction, it seems
+
+P15. (XG, 010103) 
+OTHER
+GENERAL
+Should enforce coding rule related to length of file
+
+P117. (Laurent Pizzagalli, 010622)
+CRASH
+Observed on PC AMD, atomic relaxation (ionmov==7),
+no cell optimisation, stops in xfpack complaining
+about ndim. See mail 010622.
+
+P118. (XG, 010710)
+OTHER
+GENERAL (d/dk by finite differences)
+Test_v3 #5 . Sensitivity to phase choice.
+
+P121. (GMR, 010801)
+NUMERICAL RESULT
+MACHINE_DEPENDENT (Compaq ES40, Turing)
+The use of fourdp , with fftalg 200 or 1xx
+gives complex conjugate results. This was seen
+in the process of merging the GW code with ABINIT.
+To be examined in detail.
+
+P204. (XG, 011020)
+OTHER (TO BE DONE)
+MACHINE_DEPENDENT
+Test_v3#14 : the output file is machine-dependent,
+because the spin-phase of spin-degenerate wavefunctions
+has not been fixed...
+Or, is there something more fundamental ??
+
+P205. (XG, 011020)
+SLOWING DOWN
+MACHINE_DEPENDENT ??
+On a Intel/Linux PIII 900 MHz, with PGI
+compiler, slowing down in getghc,
+due to the use of datastructures...
+For example, 18% of the total time
+in Test_v3/t10.out ... Argh ...
+even more in Test_v2/t30.out ...
+
+P220. (XG, 020114)
+OTHER
+GENERAL
+Refs files in Test_physics should be updated.
+
+P230. (MTijssens, 020306)
+TIMING PROBLEM
+MACHINE-DEPENDENT (P6, with IFC compiler v5.0)
+The wall clock timing of one routine can be completely
+wrong. Seems to come from the date_and_time
+intrinsics, called by timein.f .
+Previously, it was even causing
+crash, in the headwr.f routine.
+
+P250. (LSi, 020521)
+CRASH
+MACHINE-DEPENDENT (DOS/Windows)
+Access violation Test_v2#7,26,30,90,92,96
+and Tutorial#55,56
+
+P302. (XG, 020305; DDKlug, 020313)
+NUMERICAL ERROR
+MACHINE_DEPENDENT (IBM 44P; SGI)
+RF GGA : Test_v3#8,16,18,60,61,62,66
+Problem with Response Function GGA tests.
+The accuracy of the RF GGA Test_v3#16
+is very bad on these machines : the acoustic
+modes have large frequencies...
+
+P331. (XG, 020528)
+SLOWING DOWN
+MACHINE_DEPENDENT (MACOSX)
+Test_v2 #53 and 54
+The computation of the dielectric matrix
+is numerically incorrect. Fortunately, this
+dielectric matrix is only used to precondition the
+SCF cycle.
+
+P332. (XG,020528)
+OTHER
+MACHINE_DEPENDENT (MACOSX)
+Test_v3 #31 and 32
+The Fermi energy is not printed out correctly.
+ 
+P349. (XG021016)
+OTHER
+LIKELY GENERAL
+Test_v3 #77. This test is not yet portable : accuracy
+of fldiff was already tuned, but still problems
+of portability.
+
+P350. (XG030225)
+OTHER
+GENERAL
+psp*cc.f the fifth derivative is not computed.
+
+P402. (XG021227)
+NUMERICAL ERROR
+LIKELY GENERAL
+Lattice Wannier Function only
+Test_v3#96 and 97 are still undergoing changes
+
+P404. (XG030103)
+NUMERICAL ERROR
+LIKELY GENERAL
+fftalg 401 works, but gives a slightly
+different answer than usual for Tfast#10.
+To test this, replace the default value in indefo.f
+
+P405. (XG030106)
+CONVERGENCE PROBLEM
+LIKELY GENERAL
+Test_v3#15 : with very well non-SCF converged wavefunction (nnsclo=2),
+the total energy at intermediate steps is lower than the
+final energy !
+
+P406. (XG030106)
+CONVERGENCE PROBLEM
+LIKELY GENERAL
+Test_v3#85 : set iscf to 5 in the RF, one sees a very bad convergence...
+
+P407. (XG030108)
+NUMERICAL ACCURACY
+INTEL with IFC compiler, EV67 under OSF, EV56 under Linux
+Test_v3#14,77,85 with diffs compared to refs, that are a bit too large.
+
+P411. (XG030515)
+PORTABILITY PROBLEM
+INTEL with IFC compiler, EV67 under OSF, EV56 under Linux
+Test_v4#40 differences compared to refs are a bit large
+Test_v4#42 sign of some eigenvectors might not be portable
+
+P416. (XG030522)
+CRASH
+Seen on Intel/PC with PGI compiler, in parallel
+Test_v1#75,80  do not work
+Problem to read XFhistory part of a wavefunction file.
+
+P41.9. (XG030719)
+PORTABILITY PROBLEM
+GENERAL
+Test_v4#37 is not portable : the spin decomposition of the
+spinor wavefunctions is not gauge invariant. This
+test has been disabled.
+
+P42.7. (DH030929)
+OTHER
+Should examine the d2sym3.f routine, giving extra
+zeros in the output file. See mail
+from DHamman, on 2003-9-29.
+
+P43.3. (XG040218)
+PORTABILITY of AUTOMATIC TESTS
+On P6 with INTEL compiler, DEC EV67, DEC EV56
+Test_v4#54,67,68,71,75,77,78 and
+Tutorial#61-69 : 
+Accuracy criterion to be adjusted,
+or portability improved.
+
+P43.12. (DRH040227)
+NUMERICAL ERRORS
+On a PC with IFC compiler version 5.0.1
+Test_v4#77
+Erroneous polarization
+
+P44.2. (DHamann20040527)
+NUMERICAL INACCURACY
+For the treatment of pseudopotentials with pspcod=6 (FHI),
+the non-linear XC core charge is not treated consistently
+in psp6cc.f and in the rest of the code.
+See Don's mail to the developers of 20040527 
+See also input variable optnlxccc .
+
+P44.12 (MM20040901)
+PORTABILITY / NUMERICAL ERROR
+IFC v7.0
+From Mikami-san
+Test_v4#62 : completely erroneous ?!
+
+P45.5. (XG050220)
+OTHER : PARALLEL TESTING
+Test_v4#90 (CASINO output) crash in parallel (test_paral on grumpy).
+
+P45.6. (XG050225) 
+NUMERICAL PROBLEM (with ionmov=12)
+Test_v4#97 has one strange output
+
+P45.8. (XG050227)
+SCRIPT PROBLEM
+Too much errors observed when using the script parents : should change the rules
+or the script
+
+P45.14. (XG050619)
+Libxc from Miguel is still to be tested.
+
+P45.16. (N. Choudhury 050107)
+In case of a very high symmetry unit cell, with atoms
+placed such that the space group is of low symmetry, there
+is a problem to recognize the space group.
+This is illustrated by Test_v4#98.
+
+P45.17 (B. Andriyevsky 050405)
+Problem of normalisation of the epsilon'' from 
+the "conducti" code ?!
+A factor of pi (3.1416) might be missing.
+See his mail of 5 April 2005 to the forum.
+See also other mails exchanged on the forum.
+
+P45.18 (D Hamann 050510)
+NUMERICAL ERROR
+With finite-difference ddk calculation
+See his mail of 10 May, 2005.
+(Excerpt : ... 
+
+The problem is that 4.4.4 and 4.5.2 WILL run drf.in and produce incorrect
+results, all related to the dataset 3 finite-differend ddk calculation.
+The results are only somewhat incorrect, not obvious garbage. Here is a
+small sample, Born charges from "2nd-order matrix" in the .out files:
+
+Correct (from erf.out):
+   1    1   1    4   -4.1367712586    0.0000000000
+   1    1   2    4   -0.0863319602    0.0000000000
+   1    1   3    4    0.0706059161    0.0000000000
+
+Incorrect (from drf.out):
+   1    1   1    4   -3.4782061716    0.0000000000
+   1    1   2    4   -0.0832639192    0.0000000000
+   1    1   3    4    0.0560776887    0.0000000000
+
+
+Putting in some istwfk printing, I found that setting berryopt/=0 now forces
+istwfk=1 for dataset 3.  The problem apparently is that dataset 2 has some
+istwfk>1, and apparently dataset 3 is getting incorrect WFK's from dataset 2
+and using them.  Why it doesn't re-converge them first isn't clear.
+
+Setting istwfk=1 in dataset 2 (erf.in) fixes the problem and gets correct
+results.  (My hack also had the effect of setting istwfk=1 in dataset 2 as
+well as 3.)
+
+Curiously, removing the dataset 2 calculation altogether and feeding the
+kptopt1=1 WFK's from dataset 1 directly to the finite-difference ddk
+calculation (nrf.in) also fixes the problem, despite the fact that dataset 1
+has some istwfk>1.
+
+Clearly something bad is going on in WFK readin, but only in certain cases.
+I've never looked at this part of the code, and I'm afraid I can't divert
+any more time now towards tracking this down.
+
+
+
+P46.1. (XG050701)
+PORTABILITY PROBLEM
+Test tutorial Finite electric field 
+alas_relaxdion.in (the last one)
+does not work on my PC : it stops before the end.
+
+P46.6. (XG050716)
+MISC.
+Variables nqptdm and qptdm should be substituted with nqpt and qpt.
+
+P46.7. (XG050716)
+PORTABILITY
+DEC EV67 (Deccint)
+afterscfloop.F90 only compiles with -O1 .
+dyfnl3.F90 only compiles with -O1 .
+
+P46.8. (XG050716 - modified XG050723)
+PORTABILITY
+Itanium 2 (Chpit)
+Test_v4#30, initialisation differs widely from other machines ?!
+
+P46.21. (XG051017)
+Memory leaks
+Using the g95 compiler with debugging option,
+makefile_macros.g95_sleepy_debug  (-g)
+Identified remaining memory leaks in
+Test_v2#01 : hdr not cleaned (init in hdr_init routine)
+Test_v3#30 : hdr not cleaned (init in hdr_io routine)
+Test_v4#50 : in sortph.F90 
+
+P50.1 (XG051130)
+OTHER : PARALLEL CASE
+in tests on sleepy with PGI compiler, make tests_abinip has the following problems :
+tutorial#ffield_6 numerical result is wrong
+tutorial#gw_7 The diff analysis cannot be done : the number of lines to be analysed differ.
+v1#75 and 80 did not read (x,f)history 
+v2#81,82 Berry phase with positive berryopt is not parallelized
+v3#03,04,05 Berry phase with positive berryopt is not parallelized
+v4#78 Fermi energy is wrong (finite electric field calculation)
+v4#90 outqmc parallelism is not presently supported
+
+
+P50.5 (XG051206)
+(PORTABILITY)
+Deccint alphaev67
+tutorial#nlo_2
+The numerical accuracy is quite bad (sixth digit).
+
+P50.7 (XG051209)
+NQXC and XMLF90 libraries 
+In order to work properly, these libraries 
+need the AC_FC_WRAPPERS  line to be uncommented
+in configure.ac . However, in that case, the config
+does not work for the PGI compiler.
+
+P50.16 (XG061215)
+DOC
+Many documentation files should be updated still ...
+Although most of the files put on the Web (.html) are OK.
+In particular :
+doc/developers/dirs_and_files is to be updated
+
+
+P51.4 (XG060222)
+(PORTABILITY)
+On deccint (Compaq alpha EV67)
+Problem with the Optic utility.
+On deccint test_v4#57 is rather inaccurate
+
+
+P51.22 (MGiantomassi060627)
+The new value of rprimd is not stored in _WFK file .
+So, restart cannot benefit from modifications of acell.
+See his mail of June 27, 2006. See also P8.
+
+
+P53.1 (YP061218)
+ETSF XC library
+There is a memory leak in the calls to the ETSF XC library, which causes
+ABINIT to crash.
+
+
+P53.8 (XG070117)
+bdgw should be made spin-dependent ...
+
+
+P53.9 (XG070120)
+abirules.pl has still troubles with some routines ...
+Was not applied to v5.3.2
+Should improve abirules in v5.4 , test with v5.3.3 or v5.3.4
+Do not treat correctly complex(dpc), e.g. ylmcd.F90
+
+
+P53.10 (XG070121)
+During the application of the abirules script (patch-40 to patch-56
+in the abinit-devel--merge--5.3 branch),
+the numerical values obtained from test v5#04 has changed (1e-7).
+There might be a complex(dpc) changed to complex ?!
+
+
+P53.11 (XG070121)
+Still have to get rid off old iscf value for tutorial and tutorespfn automatic 
+testing, as well as updating tutorial html files.
+Later, get rid off old iscf value in other automatic tests.
+
+P53.16 (XG070223)
+PORTABILITY  / CRASH
+All PAW tests, on PC /PGI 4.0 
+Need to compile 13paw with -O0, then everything is OK ...
+
+P53.18 (XG070211)
+PORTABILITY / NUMERICAL ACCURACY
+Test_v5#21 on IBM 44P (Power 3 - Dirac)
+Too large variability of the results
+
+P53.19 (XG070211)
+PORTABILITY / NUMERICAL ACCURACY
+Test_v4#87&88 on IBM 44P (Power 3 - Dirac)
+Completely wrong numerical results. Should be easy to debug.
+Note that these tests also lead to somewhat off results for gfortran compiler.
+
+P53.21 (XG070211)
+PARALLEL TESTS
+Test_paral#N does not work under Mac OSX.
+
+P53.22 (XG070302)
+PARALLELISM : EFFICIENCY
+outkss.F90 actually works k point by k point, sequentially ...
+In the k point and spin loop, one should write locally
+vkb,vkbd, en and wfg , without communication, then
+transmit them in a separate spin and k point loop.
+The k point loop only starts at 1020 , the write start at line 1506.
+
+P53.24 (XG070305)
+PARALLELISM : on IBM 44P (Dirac)
+Compilation seems to work, but testing 
+fails for reasons related to reading of tests.env file
+on one side, and command to be issued to run the
+parallel case...
+
+P53.27 (XG070401, modified XG070601)
+NUMERICAL ERROR
+GW parallelism over bands
+Using two or four procs does not give the same macroscopic
+dielectric constant as with one proc., at the level of the fourth digit .
+
+P53.28 (XG070401)
+Build system
+make multi    does not work on Lemaitre (Opteron SMP) because 
+ netcdf should be compiled before parallel lib
+
+P53.29 (XG070401)
+Build system
+make multi    does not work on Fock (IBM Power 5) 
+
+P54.1 (XG070407)
+NUMERICAL ERROR
+With jellium slab, forces differed between PC + PGI4.0 or IFC
+See test v5#56
+However, in atmdata.F90, the znucl 0 has been defined,
+and everything is now the same between the two platforms.
+Still, should investigate what is the correct answer ...
+
+P54.7 (XG070601 - actually, much earlier than that, but not documented)
+CRASH : finite electric field with atomic displacements
+Test ffield_7 does not work on my PC, and has been disabled .
+The corresponding section of the ffield lesson of the tutorial has been commented ... 
+
+P54.15 (XG070617)
+Compilation of NETCDF failed on Lemaitre.
+(was never OK, unlike thought previously)
+
+configure: finding C compiler
+checking for C compiler default output file name... 
+configure: error: C compiler cannot create executables
+See `config.log' for more details.
+
+
+P54.16 (XG070617)
+Compaq/HP/DEC  ES40 need low optimization
+for too many directories
+
+P54.18 (XG070825)
+Other
+The computation of born Effective charges and dielectric tensor
+under finite electric field should not be activated
+with rfuser , but by the usual rfelfd=2, used with berryopt=4 .
+See Tv5#23 .
+Also, content of the doc file (now doc/input_variables/README_EFIELD_BEC_DIEL)
+should be mentioned in the description of the variable rfelfd=2 .
+
+P54.19 (XG070830)
+Other
+The decomposition of the total energy is not printed out in the case of RF under
+electric field. Cases v4#80 and v5#23
+
+P54.20 (XG070830)
+NUMERICAL ERROR, CRASH - unfortunately perhaps due to the machine
+On Itanium2 (Chpit), non reproducible Crash or Numerical errors :
+for v5.4.3, seen in tutorial#12, 23, 47, gw1_1, gw1_7, spin_3 ;
+v1#68, 89 ; v2#33, 84 ; v3#70 ; v4#30,31 .
+
+P54.21 (XG070830)
+NUMERICAL ERROR
+On Deccint Compaq/DEC EV67 OSF and Tux Compaq/DEC EV56
+Tutorial#47 too inaccurate
+
+P54.22 (XG070831)
+OTHER
+The fldiff analysis on Max (Mac OSX) does not see
+that 0.xyz and .xyz are identical .
+(Likely corrected by LSindic in v5.5  !)
+
+P54.23 (XG070831)
+CRASH - PARALLEL GW
+On SGI R14000 Spinoza
+Test O do not work
+
+
+P55.05 (XG071020)
+Netcdf : compilation problem with PGI (for sleepy)
+
+make[5]: Leaving directory `/home/gonze/ABINIT/ABINITv5.5/trunk/abinit-5.5.tpri26_pgi/lib/netcdf/netcdf-3.6.2/f90'
+Making all in fortran
+make[5]: Entering directory `/home/gonze/ABINIT/ABINITv5.5/trunk/abinit-5.5.tpri26_pgi/lib/netcdf/netcdf-3.6.2/fortran'
+make  all-am
+make[6]: Entering directory `/home/gonze/ABINIT/ABINITv5.5/trunk/abinit-5.5.tpri26_pgi/lib/netcdf/netcdf-3.6.2/fortran'
+depbase=`echo fort-attio.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`; \
+        if /bin/sh ../libtool --tag=CC --mode=compile gcc -m64 -DHAVE_CONFIG_H -I. -I. -I.. -I.    -I../libsrc     -MT fort-attio.lo -MD -MP -MF "$depbase.Tpo" -c -o fort-attio.lo fort-attio.c; \
+        then mv -f "$depbase.Tpo" "$depbase.Plo"; else rm -f "$depbase.Tpo"; exit 1; fi
+libtool: compile:  gcc -m64 -DHAVE_CONFIG_H -I. -I. -I.. -I. -I../libsrc -MT fort-attio.lo -MD -MP -MF .deps/fort-attio.Tpo -c fort-attio.c -o fort-attio.o
+In file included from ncfortran.h:12,
+                 from fort-attio.c:7:
+cfortran.h:138:3: error: #error "cfortran.h: 
+Can't find your environment among:    
+- MIPS cc and f77 2.0. (e.g. Silicon Graphics, DECstations, ...)         
+- IBM AIX XL C and FORTRAN Compiler/6000 Version 01.01.0000.0000         
+- VAX   VMS CC 3.1 and FORTRAN 5.4.                                      
+- Alpha VMS DEC C 1.3 and DEC FORTRAN 6.0.                               
+- Alpha OSF DEC C and DEC Fortran for OSF/1 AXP Version 1.2              
+- Apollo DomainOS 10.2 (sys5.3) with f77 10.7 and cc 6.7.                
+- CRAY                                                                   
+- NEC SX-4 SUPER-UX                                                      
+- CONVEX                                                                 
+- Sun                                                                    
+- PowerStation Fortran with Visual C++                                   
+- HP9000s300/s700/s800 Latest test with: HP-UX A.08.07 A 9000/730        
+- LynxOS: cc or gcc with f2c.                                            
+- VAXUltrix: vcc,cc or gcc with f2c. gcc or cc with f77.                 
+-            f77 with vcc works; but missing link magic for f77 I/O.     
+-            NO fort. None of gcc, cc or vcc generate required names.    
+- f2c    : Use #define    f2cFortran, or cc -Df2cFortran                 
+- NAG f90: Use #define NAGf90Fortran, or cc -DNAGf90Fortran              
+- Absoft UNIX F77: Use #define AbsoftUNIXFortran or cc -DAbsoftUNIXFortran     
+- Absoft Pro Fortran: Use #define AbsoftProFortran     
+- Portland Group Fortran: Use #define pgiFortran     
+- PathScale Fortran: Use #define PATHSCALE_COMPILER"
+
+
+P55.06 (XG071020)
+Portability of the build system
+On max, make dist does not work ...
+[max:devel-private] gonze% make dist
+make: *** No rule to make target `config/gnu/ltmain.sh', needed by `distdir'.  Stop.
+
+
+P55.07 (XG071020)
+Netcdf : problem with Gfort compiler. Same problem with EV56 (Tux)
+The compilation is OK, but the tests are not. Issuing
+make check
+inside the netcdf-3.6.2 directory gives, at the end :
+
+/usr/bin/gfortran -DHAVE_CONFIG_H -I. -I. -I.. -I../fortran      -I../libsrc -I../f90  -c -o util.o util.F
+depbase=`echo fortlib.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`; \
+        if gcc -m64 -DHAVE_CONFIG_H -I. -I. -I.. -I../fortran      -MT fortlib.o -MD -MP -MF "$depbase.Tpo" -c -o fortlib.o fortlib.c; \
+        then mv -f "$depbase.Tpo" "$depbase.Po"; else rm -f "$depbase.Tpo"; exit 1; fi
+/bin/sh ../libtool --tag=F77 --mode=link /usr/bin/gfortran   -I../libsrc -I../f90    -o nf_test  test_get.o test_put.o nf_error.o nf_test.o test_read.o test_write.o util.o fortlib.o   ../libsrc/libnetcdf.la
+libtool: link: /usr/bin/gfortran -I../libsrc -I../f90 -o nf_test test_get.o test_put.o nf_error.o nf_test.o test_read.o test_write.o util.o fortlib.o  ../libsrc/.libs/libnetcdf.a
+test_get.o: In function `test_nf_get_var1_text_':
+test_get.F:(.text+0x23): undefined reference to `nf_open_'
+
+
+P55.08 (XG071020)
+NetCDF : problem with EV67 (Deccint) platform
+Compilation fail
+
+source='dumplib.c' object='dumplib.o' libtool=no  DEPDIR=.deps depmode=tru64 /bin/bash ../depcomp  cc -DHAVE_CONFIG_H -I. -I. -I.. -I../fortran  -I../libsrc -I../libsrc    -O3 -arch host -tune host  -c -o dumplib.o dumplib.c
+/bin/bash ../libtool --tag=CC --mode=link cc  -O3 -arch host -tune host     -o ncdump  ncdump.o vardata.o  dumplib.o -lm  ../libsrc/libnetcdf.la
+libtool: link: cc -O3 -arch host -tune host -o ncdump ncdump.o vardata.o dumplib.o  -lm ../libsrc/.libs/libnetcdf.a
+Making all in nf_test
+Making all in cxx
+source='netcdf.cpp' object='netcdf.lo' libtool=yes  DEPDIR=.deps depmode=tru64 /bin/bash ../depcomp  /bin/bash ../libtool --tag=CXX --mode=compile cxx -DHAVE_CONFIG_H  -I. -I. -I.. -I../fortran  -DDEBUG   -I../libsrc    -O3 -arch host -tune host  -c -o netcdf.lo netcdf.cpp
+libtool: compile:  cxx -DHAVE_CONFIG_H -I. -I. -I.. -I../fortran -DDEBUG -I../libsrc -O3 -arch host -tune host -c -MD netcdf.cpp -o netcdf.o
+cxx: Error: /usr/lib/cmplrs/cxx/V6.3-008/include/cxx/sstream, line 58: #error
+          directive: "cannot include sstream -- define __USE_STD_IOSTREAM to
+          override default - see section 7.1.2 of the C++ Using Guide"
+#error "cannot include sstream -- define __USE_STD_IOSTREAM to override default - see section 7.1.2 of the C++ Using Guide"
+-^
+cxx: Error: ncvalues.h, line 247: namespace "std" has no member "ostream"
+    virtual std::ostream& print(std::ostream&) const = 0;
+-----------------^
+
+P55.09 (XG071020)
+NetCDF : problem with SGI (Spinoza) platform
+Install fail, after compilation
+
+netcdf-3.6.2 has been built.
+        cd netcdf-3.6.2 && make install
+Making install in f90
+        test -z "/scratch/gonze/ABINIT/ABINITv5.5/abinit-5.5.x/lib/netcdf/tmp/share/man/man3" || /scratch/gonze/ABINIT/ABINITv5.5/abinit-5
+.5.x/lib/netcdf/netcdf-3.6.2/install-sh -d "/scratch/gonze/ABINIT/ABINITv5.5/abinit-5.5.x/lib/netcdf/tmp/share/man/man3"
+ /opt/gaussian/g98/bsd/install -c -m 644 './netcdf_f90.3' '/scratch/gonze/ABINIT/ABINITv5.5/abinit-5.5.x/lib/netcdf/tmp/share/man/man3/net
+cdf_f90.3'
+chmod +rx bsd/bldg98 bsd/clearipc bsd/extract-ghelp bsd/fixlib bsd/subg98
+Cannot access bsd/bldg98: No such file or directory
+Cannot access bsd/clearipc: No such file or directory
+Cannot access bsd/extract-ghelp: No such file or directory
+Cannot access bsd/fixlib: No such file or directory
+
+
+P55.10 (XG071020)
+NetCDF : problem with IBM PW5 (Fock) platform
+Check fails (build is successful)
+
+make[2]: Entering directory `/scratch/gonze/ABINIT/ABINITv5.5/abinit-5.5.x/lib/netcdf/netcdf-3.6.2/nf_test'
+/scratch/gonze/ABINIT/ABINITv5.5/abinit-5.5.x/config/wrappers/wrap-fc -DHAVE_CONFIG_H -I. -I. -I.. -I../fortran   -DIBMR2Fortran   -I../libsrc -I../f90 -qsuffix=cpp=F:f=f -qfixed -O3 -qmaxmem=65536 -qspill=2000 -qarch=auto -qtune=auto -qcache=auto -qstrict -qsuppress=1520-022:1520-031 -c -o test_get.o test_get.F
+ABINIT WRAPPER BEGIN
+/lib/cpp -P -std=c89    -DHAVE_CONFIG_H -DIBMR2Fortran  -I. -I. -I.. -I../fortran -I../libsrc -I../f90 test_get.F > test_get_cpp.f
+/usr/local/mpich/bin/mpif90 -q64  -I. -I. -I.. -I../fortran -I../libsrc -I../f90 -qsuffix=cpp=F:f=f -qfixed -O3 -qmaxmem=65536 -qspill=2000 -qarch=auto -qtune=auto -qcache=auto -qstrict -qsuppress=1520-022:1520-031 -c -o test_get.o test_get_cpp.f
+"test_get_cpp.f", line 1498.8: 1516-052 (S) The statement label 1 is referenced but not defined in this scope.
+"test_get_cpp.f", line 1501.12: 1516-052 (S) The statement label 2 is referenced but not defined in this scope.
+
+
+
+P55.22 (XG071109)
+Numerical errors, finite electric field
+for phonons
+Test v4 # 80
+Non variational and variational expressions give different numbers ...
+See line 1215 of t80.out, compare with line 1342 and line 1344.
+Also, lines 2944-2946 should not be printed, as well as
+lines 2954-2956, 2964-2966, etc ...
+
+
+P55.25 (XG071121)
+Automatic test v5#13 (PAW Berry phase)
+On PC + ifort
+Seg fault
+This test has been disabled
+
+
+P55.26 (XG071123)
+Numerical error
+Automatic test v5#24 (Electric field response with spin-orbit)
+On PC + g95 , large numerical error   (tolerance has been set to a large value)
+
+
+P55.27 (XG071209)
+Build system
+With the modifications of the build system for v5.5.2,
+the build example (hostname.ac) files do not work 
+for the following platform (perhaps due to the fact
+that the system is not correctly installed on these platforms) :
+- Decci (COMPAQ/HP Dec alpha EV67) under OSF, even sequential
+- SGI R14000 (Spinoza) : cannot build with bigdft library activated
+- SGI R14000 (Spinoza) : does not work in parallel
+
+
+P55.28 (XG071209)
+Portability
+On IBM Power 5 (Fock)
+Test v3#46 (DOS)
+Crash
+
+
+P55.29 (XG071209)
+Portability
+On IBM Power 5 (Fock)
+Test v3#88 and 89 (Mrgsrc)
+Problem of manipulation of files ?!
+
+
+P55.30 (XG071209)
+Portability
+On SGI R14000 (Spinoza)
+Test v4#84,85
+Tutorial GW2, tests 2 to 4
+GW with and without plasmon pole
+Crash
+
+
+P55.31 (XG071209)
+Portability, parallelism
+On IBM Power 5 (Fock)
+Test paral H crash with 2 and 4 procs
+
+
+P55.34 (XG080301)
+Numerical problems
+Parallel over band, FFT and k points
+Test R : there are significant differences
+between tR0.out and tR4.out .
+(no problem for physical results, e.g. the energy difference 
+during the convergence is less than 0.1mHa, but not much smaller).
+
+
+P55.35 (XG080302)
+Incorrect recognition of space group
+In tests/tutorespfn, ffield_4, changing
+the lattice parameter, by increasing it or
+decreasing it leads to different space groups
+(#1 or #8), while both should be identical !
+See tests/tutorespfn/Refs/tffield_4.out
+
+
+P56.01 (closed)
+
+P56.02 (MG080511)
+PGI compiler (v6) reports an internal compiler error (Error in lowering)
+while trying to compile both screening.F90 and sigma.F90.
+There's a bug in PGIv6 related to the treatment of optional arguments.
+To work around the problem, the calls to cchi0 and cchi0q0 have been protected in screening.F90
+by means of preprocessing options. As a result GW band parallelism and awtr=1 option are not available.
+The compilation of sigma.F90 is entirely skipped since patching testlda.F90 does not solve the problem.
+
+
+P56.03 (XG080802)
+PAW with lobpcg algorithm (and band/FFT parallelism), and istwf 0.
+Test W0 : interestingly, it runs correctly in parallel...
+The use of iprcel 45 for dataset 4 has been disabled. 
+ dielmt : 15 largest eigenvalues of the hermitian RPA dielectric matrix
+  1-5  : NaN         NaN         NaN         NaN         NaN 
+  6-10 : NaN         NaN         NaN         NaN         NaN 
+  11-15: NaN         NaN         NaN         NaN         NaN
+
+
+P56.04 (closed)
+
+
+P56.05 (closed)
+
+
+P56.06 (closed)
+
+
+P56.07 (closed)
+
+
+P56.08 (XG080828)
+PAW with lobpcg algorithm (and band/FFT parallelism), and istwf 0.
+Test W : numerical results for dataset 5, 6 and 7 are wrong, it seems...
+They should be identical to test R and are not.
+Also, test W is not portable.
+It was disabled for v5.6.0
+
+
+P56.09 (XG080828)
+Executing the following sequence :
+*/*/makemake
+configure
+make
+*/*/makemake
+generates an erroneous src/defs/interfaces_netcdf.F90
+where the interface module for netcdf is duplicated. This is not accepted
+by the ifort compiler, on sleepy.
+
+
+P56.10 (XG080901)
+The following references have not yet been updated :
+paral for 10 procs
+etsf_xc
+physics
+cpu
+
+P56.11 (XG080902)
+The following input variables are not documented :
+bandpp
+exchmix
+getsuscep
+icutcoul
+irdsuscep
+prepgkk
+prtspcur
+rcut
+recefermi
+recnpath
+recrcut
+recnrec
+recptrott
+rectesteg
+rectolden
+rfmgfd
+vcutgeo
+
+P56.12 (XG080902)
+The following input variables are not tested :
+bandpp
+exchmix
+getsuscep
+irdsuscep
+pawusecp
+prtspcur
+rfmgfd
+vcutgeo
+
+P56.13 (closed)
+
+P56.14 (XG080902)
+Misplaced routines, detected by abilint.
+See mail of TDeutsch August 21, 2008.
+
+P56.15 (closed)
+
+P56.16 (closed)
+
+P56.17 (XG080913)
+Wannier90 test procedure is not yet complete :
+only the .out are tested.
+
+P56.18 (closed)
+
+P56.19 (closed)
+
+P56.20 (closed)
+
+P56.21 (closed)
+
+P56.22 (XG081202)
+PAW + Spin-orbit is still problematic.
+In the non-spin-polarized case (Kramers degeneracy) nspden=1 with spin-orbit gives different
+results than nspden=4. Also, the forces are not correct.
+See test v5#17
+
+P56.23 (XG081203)
+The Etsf_io support of density files from PAW is not yet working.
+The test etsf_io #10 has been disabled.

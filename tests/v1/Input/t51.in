@@ -1,0 +1,45 @@
+# Aluminum diatomic molecule for tests of dielectric matrix.
+# Note : use a shifted geometry, in order to have non-symmorphic
+# rotations.
+
+ acell 18 11 11
+ diecut 1.4
+ diegap 0.1d0
+ dielam 0.0d0
+ diemac 1.0d0
+ diemix 0.2d0
+ ecut 2.0
+ enunit 2 
+ intxc 1
+ iprcel 28
+ iscf 2
+#
+ istatr 9
+ ixc 0
+ kpt   0.25  0.25  0.25
+ natom  2   
+ nband 20
+ nkpt 1
+ nstep  30
+ nsym 4
+ ntypat  1
+ occopt 1
+ prtvol 10
+ rprim 1 0 0  0 1 0  0 0 1
+ symrel  1 0 0   0  1  0    0  0  1 
+         1 0 0   0  1  0    0  0 -1 
+         1 0 0   0 -1  0    0  0  1 
+         1 0 0   0 -1  0    0  0 -1 
+
+ tnons 3*0.0d0  9*0.0d0 
+         0.3333333333333333d0  0.0d0 0.0d0
+         0.3333333333333333d0  0.0d0 0.0d0
+         0.3333333333333333d0  0.0d0 0.0d0
+         0.3333333333333333d0  0.0d0 0.0d0
+
+ toldfe 1.0d-12
+ typat  1 1
+ wtk  1  3*1
+ xcart   0.0  0.0 0.0 
+         6.0  0.0 0.0
+ znucl  13.0

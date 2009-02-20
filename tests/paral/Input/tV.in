@@ -1,0 +1,140 @@
+# Molecule Na_2
+#
+
+ndtset      6
+####################################
+#  DATASET 1: DFT SCF 
+####################################
+iscf1         7
+toldfe1       1.d-6
+prtden1       1
+####################################
+#  DATASET 2: KSS creation
+####################################
+getden2      -1
+prtden2       1
+kssform2      3
+nbandkss2    12
+nband2       15
+nbdbuf2       3
+iscf2        -3
+tolwfr2       1.d-10
+####################################
+#  DATASET 3: screening
+####################################
+getkss3       2
+optdriver3    3
+gwcalctyp3   28
+awtr3         1
+gwpara3       2
+gwcomp3       1
+gwencomp3     0.10
+gwmem3       00
+
+nband3       12
+ecuteps3      0.20
+ecutwfn3      4.
+ppmfrq3      0.5
+inclvkb3      0
+
+icutcoul3     0
+rcut3        10.5
+####################################
+#  DATASET 4: sigma
+####################################
+getkss4       2
+getscr4       3
+optdriver4    4
+gwcalctyp4   28
+awtr4         1
+gwpara4       2
+gwcomp4       1
+gwencomp4     0.10
+gwmem4       00
+
+nband4       12
+ecuteps4      0.20
+ecutwfn4      6.
+ecutsigx4     6.
+
+icutcoul4     0
+rcut4        10.5
+
+nkptgw4       1
+kptgw4        0. 0. 0.
+bdgw4         1 10
+###################################
+#  DATASET 5: screening
+####################################
+getkss5       2
+getqps5       4
+optdriver5    3
+gwcalctyp5   18
+awtr5         1
+gwpara5       2
+gwcomp5       1
+gwencomp5     0.10
+gwmem5       00
+
+nband5       12
+ecuteps5      0.20
+ecutwfn5      4.
+ppmfrq5      0.5
+inclvkb5      0
+
+icutcoul5     0
+rcut5        10.5
+####################################
+#  DATASET 6: sigma
+####################################
+getkss6       2
+getscr6       5
+getqps6       4
+optdriver6    4
+gwcalctyp6   18
+awtr6         1
+gwpara6       2
+gwcomp6       1
+gwencomp6     0.10
+gwmem6       00
+
+nband6       12
+ecuteps6      0.20
+ecutwfn6      6.
+ecutsigx6     6.
+
+icutcoul6     0
+rcut6        10.5
+
+nkptgw6       1
+kptgw6        0. 0. 0.
+bdgw6         1 10
+####################################
+# Common data
+####################################
+
+enunit  1
+prtwf   0
+
+ntypat  1
+znucl  11
+typat   1 1
+
+ecut    6.
+
+kptopt  1
+ngkpt   1 1 1
+shiftk  0.  0.  0.
+istwfk  1
+
+natom   2
+
+acell   3*30.
+rprim   0. 0.5 0.5   0.5 0. 0.5  0.5 0.5 0.
+
+xcart   3.00 0. 0. -3.00 0. 0.
+
+ixc      7
+
+nstep   50
+

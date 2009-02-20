@@ -1,0 +1,1229 @@
+
+.Version 5.6.3  of ABINIT 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Thu  6 Nov 2008.
+  
+- input  file    -> /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/v1/Input/t68.in
+- output file    -> t68.out
+- root for input  files -> t68i
+- root for output files -> t68o
+
+
+ DATASET    1 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  1.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    2 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  2.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    3 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  3.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    4 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  4.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    5 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  5.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    6 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  6.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    7 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  7.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+
+ DATASET    8 : space group Pm m m (# 47); Bravais oP (primitive ortho.)
+================================================================================
+ Values of the parameters that define the memory need for DATASET  8.
+   intxc =         1  ionmov =         0    iscf =         5 xclevel =         1
+  lmnmax =         1   lnmax =         1   mband =         6  mffmem =         1
+P  mgfft =        40   mkmem =         1 mpssoang=         2     mpw =      1880
+  mqgrid =      3001   natom =         2    nfft =     36000    nkpt =         1
+  nloalg =         4  nspden =         1 nspinor =         1  nsppol =         1
+    nsym =         8  n1xccc =      2501  ntypat =         1  occopt =         7
+================================================================================
+P This job should need less than                      10.292 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.174 Mbytes ; DEN or POT disk file :      0.277 Mbytes.
+================================================================================
+
+ -outvars: echo values of preprocessed input variables --------
+     acell    7.0000000000E+00  7.0000000000E+00  9.0000000000E+00 Bohr
+       amu    1.40067400E+01
+    densty1   4.00000000E-01
+    densty2   5.50000000E-01
+    densty3   6.00000000E-01
+    densty4   6.10000000E-01
+    densty5   6.50000000E-01
+    densty6   8.00000000E-01
+    densty7   1.00000000E+00
+    densty8   1.20000000E+00
+    diemac    1.00000000E+00
+    diemix    5.00000000E-01
+      ecut    2.00000000E+01 Hartree
+    enunit         2
+     intxc         1
+      iscf         5
+    jdtset      1    2    3    4    5    6    7    8
+       kpt    2.50000000E-01  2.50000000E-01  2.50000000E-01
+P    mkmem         1
+     natom         2
+     nband         6
+    ndtset         8
+     ngfft        30      30      40
+      nkpt         1
+     nstep         1
+      nsym         8
+    ntypat         1
+       occ    2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+    occopt         7
+   spgroup        47
+    symrel    1  0  0   0  1  0   0  0  1      -1  0  0   0  1  0   0  0  1
+              1  0  0   0 -1  0   0  0  1       1  0  0   0  1  0   0  0 -1
+             -1  0  0   0 -1  0   0  0  1      -1  0  0   0  1  0   0  0 -1
+              1  0  0   0 -1  0   0  0 -1      -1  0  0   0 -1  0   0  0 -1
+    toldfe    1.00000000E-06 Hartree
+     typat    1  1
+    xangst    0.0000000000E+00  0.0000000000E+00  5.5000000000E-01
+              0.0000000000E+00  0.0000000000E+00 -5.5000000000E-01
+     xcart    0.0000000000E+00  0.0000000000E+00  1.0393493731E+00
+              0.0000000000E+00  0.0000000000E+00 -1.0393493731E+00
+      xred    0.0000000000E+00  0.0000000000E+00  1.1548326368E-01
+              0.0000000000E+00  0.0000000000E+00 -1.1548326368E-01
+     znucl      7.00000
+
+================================================================================
+
+ chkinp: Checking input parameters for consistency, jdtset= 1.
+
+ chkinp: Checking input parameters for consistency, jdtset= 2.
+
+ chkinp: Checking input parameters for consistency, jdtset= 3.
+
+ chkinp: Checking input parameters for consistency, jdtset= 4.
+
+ chkinp: Checking input parameters for consistency, jdtset= 5.
+
+ chkinp: Checking input parameters for consistency, jdtset= 6.
+
+ chkinp: Checking input parameters for consistency, jdtset= 7.
+
+ chkinp: Checking input parameters for consistency, jdtset= 8.
+
+================================================================================
+== DATASET  1 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+
+--- Pseudopotential description ------------------------------------------------
+- pspini: atom type   1  psp file is /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/7n.pspnc
+- pspatm: opening atomic psp file    /home/gonze/ABINIT/ABINITv5.6.3/test_gcc43/5.6.3-private/tests/Psps_for_tests/7n.pspnc
+  Troullier-Martins psp for element  N         Thu Oct 27 17:29:45 EDT 1994
+   7.00000   5.00000    940714                znucl, zion, pspdat
+    1    1    1    1      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+    0   9.676  16.205    1   1.4975844        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1  17.792  24.348    0   1.4975844        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    0.67622446232424    2.19275283188720    0.59171052714445   rchrg,fchrg,qchrg
+ pspatm: epsatm=    1.31070843
+         --- l  ekb(1:nproj) -->
+             0    5.141679
+ pspatm: atomic psp has been read  and splines computed
+
+   2.62141686E+01                                ecore*ucvol(ha*bohr**3)
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -16.854190093298    -1.685E+01 2.330E-03 8.731E+03 1.885E+00 1.885E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  9.86431274E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  9.85072089E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -2.80857187E-03  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  1.685E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   1.6815E-03; max=  2.3301E-03
+   0.2500  0.2500  0.2500    1  2.33007E-03 kpt; spin; max resid(k); each band:
+ 1.01E-03 1.03E-03 2.03E-03 1.75E-03 1.94E-03 2.33E-03
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  9.7952E+00; max dE/dt=  1.6966E+01; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000    -16.965830209226
+    2       0.000000000000      0.000000000000     16.965830209226
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00000000000000    -0.00000000000000     1.88509224546960
+    2     -0.00000000000000     0.00000000000000    -1.88509224546960
+ frms,max,avg= 1.0883585E+00 1.8850922E+00   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00000000000000    -0.00000000000000    96.93533256971048
+    2     -0.00000000000000     0.00000000000000   -96.93533256971048
+ frms,max,avg= 5.5965640E+01 9.6935333E+01   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS1_EIG
+ Fermi (or HOMO) energy (hartree) =   0.25651   Average Vxc (hartree)=  -0.29845
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -0.21233   0.04741   0.11668   0.15094   0.22851   0.28449
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   1.99981   1.67777   0.32242
+ Fermi (or HOMO) energy (eV) =   6.97988   Average Vxc (eV)=  -8.12122
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -5.77778   1.29003   3.17515   4.10741   6.21800   7.74145
+ Total charge density [el/Bohr^3]
+,     Maximum=    3.0545E-01  at reduced coord.    0.0000    0.0000    0.0000
+,Next maximum=    3.0127E-01  at reduced coord.    0.0000    0.0000    0.9750
+,     Minimum=    6.3936E-03  at reduced coord.    0.5000    0.5000    0.1000
+,Next minimum=    6.3936E-03  at reduced coord.    0.5000    0.5000    0.9000
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  5.24594981323056E+00
+    Hartree energy  =  2.80390723142416E+00
+    XC energy       = -4.15615607154154E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -1.61630777581218E+01
+    NL   psp  energy=  1.39215685247487E+00
+    >>>>> Internal E= -1.68265106572555E+01
+
+    -kT*entropy     = -2.76794360425357E-02
+    >>>>>>>>> Etotal= -1.68541900932980E+01
+
+ Other information on the energy :
+    Total energy(eV)= -4.58625836278142E+02 ; Band energy (Ha)=   6.8049528575E-01
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  9.86431274E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  9.85072089E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -2.80857187E-03  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -1.6580E+02 GPa]
+- sigma(1 1)=  2.90218052E+02  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)=  2.89818166E+02  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -8.26310233E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  2 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -20.719716999992    -2.072E+01 1.039E-02 1.206E+02 1.281E-01 1.281E-01
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.78731099E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.71414327E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  9.11637624E-04  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  2.072E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   5.9765E-03; max=  1.0386E-02
+   0.2500  0.2500  0.2500    1  1.03860E-02 kpt; spin; max resid(k); each band:
+ 2.68E-03 3.06E-03 2.91E-03 6.51E-03 1.04E-02 1.03E-02
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  6.6555E-01; max dE/dt=  1.1528E+00; dE/dt below (all hartree)
+    1       0.000000000000     -0.000000000000     -1.152769831306
+    2       0.000000000000      0.000000000000      1.152769831306
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00000000000000     0.00000000000000     0.12808553681180
+    2     -0.00000000000000    -0.00000000000000    -0.12808553681180
+ frms,max,avg= 7.3950219E-02 1.2808554E-01   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00000000000000     0.00000000000000     6.58642256794624
+    2     -0.00000000000000    -0.00000000000000    -6.58642256794624
+ frms,max,avg= 3.8026728E+00 6.5864226E+00   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.00713   Average Vxc (hartree)=  -0.21397
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -0.76456  -0.28199  -0.19206  -0.18627  -0.16483   0.15051
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   2.00000   0.00000
+ Fermi (or HOMO) energy (eV) =  -0.19405   Average Vxc (eV)=  -5.82253
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -20.80469  -7.67345  -5.22632  -5.06869  -4.48523   4.09550
+ Total charge density [el/Bohr^3]
+,     Maximum=    7.2815E-01  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    7.2815E-01  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    1.0818E-04  at reduced coord.    0.5000    0.5000    0.5000
+,Next minimum=    1.1041E-04  at reduced coord.    0.5000    0.5000    0.4750
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.22777349972431E+01
+    Hartree energy  =  9.90595695385526E+00
+    XC energy       = -5.75381283157225E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -3.38599991339601E+01
+    NL   psp  energy=  2.65969374728909E+00
+    >>>>> Internal E= -2.07197169918666E+01
+
+    -kT*entropy     = -8.12579949402994E-09
+    >>>>>>>>> Etotal= -2.07197169999924E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.63812172757361E+02 ; Band energy (Ha)=  -3.1794324077E+00
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.78731099E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.71414327E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  9.11637624E-04  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -4.3279E+01 GPa]
+- sigma(1 1)=  5.25844960E+01  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)=  5.04318278E+01  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)=  2.68213004E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  3 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -20.741094481729    -2.074E+01 4.677E-02 5.709E+01 1.115E-01 1.115E-01
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.49372098E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -8.67522337E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  5.93753985E-04  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  2.074E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   1.1776E-02; max=  4.6769E-02
+   0.2500  0.2500  0.2500    1  4.67691E-02 kpt; spin; max resid(k); each band:
+ 2.74E-03 3.81E-03 2.90E-03 8.08E-03 6.36E-03 4.68E-02
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  5.7948E-01; max dE/dt=  1.0037E+00; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000      1.003690347208
+    2       0.000000000000      0.000000000000     -1.003690347208
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1      0.00000000000000     0.00000000000000    -0.11152114968979
+    2      0.00000000000000    -0.00000000000000     0.11152114968979
+ frms,max,avg= 6.4386766E-02 1.1152115E-01   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1      0.00000000000000     0.00000000000000    -5.73464760661769
+    2      0.00000000000000    -0.00000000000000     5.73464760661769
+ frms,max,avg= 3.3109003E+00 5.7346476E+00   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.13332   Average Vxc (hartree)=  -0.19507
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -0.97213  -0.41044  -0.33195  -0.32791  -0.30957   0.04285
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   2.00000   0.00000
+ Fermi (or HOMO) energy (eV) =  -3.62783   Average Vxc (eV)=  -5.30818
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -26.45300 -11.16855  -9.03288  -8.92294  -8.42381   1.16606
+ Total charge density [el/Bohr^3]
+,     Maximum=    7.9652E-01  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    7.9652E-01  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    5.6659E-05  at reduced coord.    0.5000    0.5000    0.5000
+,Next minimum=    5.8200E-05  at reduced coord.    0.5000    0.5000    0.4750
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.39356426479936E+01
+    Hartree energy  =  1.14184077170297E+01
+    XC energy       = -6.08879858730278E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -3.71286495391089E+01
+    NL   psp  energy=  3.07159400455116E+00
+    >>>>> Internal E= -2.07410944815589E+01
+
+    -kT*entropy     = -1.70073932263264E-10
+    >>>>>>>>> Etotal= -2.07410944817290E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.64393883618855E+02 ; Band energy (Ha)=  -4.7040001169E+00
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.49372098E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -8.67522337E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  5.93753985E-04  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1015E+01 GPa]
+- sigma(1 1)= -2.49893857E+01  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -2.55233840E+01  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)=  1.74688424E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  4 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -20.721697734362    -2.072E+01 5.059E-02 1.013E+02 1.527E-01 1.527E-01
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.34002517E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.34869543E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.98022282E-04  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  2.072E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   1.2379E-02; max=  5.0586E-02
+   0.2500  0.2500  0.2500    1  5.05857E-02 kpt; spin; max resid(k); each band:
+ 2.82E-03 3.87E-03 2.86E-03 7.99E-03 6.16E-03 5.06E-02
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  7.9324E-01; max dE/dt=  1.3739E+00; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000      1.373924690156
+    2       0.000000000000      0.000000000000     -1.373924690156
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00000000000000    -0.00000000000000    -0.15265829890625
+    2     -0.00000000000000    -0.00000000000000     0.15265829890625
+ frms,max,avg= 8.8137310E-02 1.5265830E-01   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00000000000000    -0.00000000000000    -7.85000469317446
+    2     -0.00000000000000    -0.00000000000000     7.85000469317446
+ frms,max,avg= 4.5322023E+00 7.8500047E+00   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.15887   Average Vxc (hartree)=  -0.19129
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -1.01397  -0.43622  -0.36082  -0.35719  -0.33810   0.02030
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   2.00000   0.00000
+ Fermi (or HOMO) energy (eV) =  -4.32300   Average Vxc (eV)=  -5.20533
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -27.59158 -11.87007  -9.81847  -9.71975  -9.20017   0.55253
+ Total charge density [el/Bohr^3]
+,     Maximum=    8.0842E-01  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    8.0842E-01  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    4.0609E-05  at reduced coord.    0.5000    0.5000    0.5000
+,Next minimum=    4.2081E-05  at reduced coord.    0.5000    0.5000    0.4750
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.42285743532291E+01
+    Hartree energy  =  1.16869216074587E+01
+    XC energy       = -6.14787035921940E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -3.76929854999211E+01
+    NL   psp  energy=  3.15295288889993E+00
+    >>>>> Internal E= -2.07216977342746E+01
+
+    -kT*entropy     = -8.73279601499724E-11
+    >>>>>>>>> Etotal= -2.07216977343619E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.63866071280614E+02 ; Band energy (Ha)=  -5.0126106372E+00
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.34002517E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.34869543E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.98022282E-04  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.1484E+01 GPa]
+- sigma(1 1)= -3.94248951E+01  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -3.96799829E+01  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)=  1.46523189E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  5 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -20.593039899071    -2.059E+01 6.732E-02 4.114E+02 3.029E-01 3.029E-01
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.18726306E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.17373082E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  7.47422353E-05  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  2.059E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   1.5207E-02; max=  6.7320E-02
+   0.2500  0.2500  0.2500    1  6.73204E-02 kpt; spin; max resid(k); each band:
+ 3.31E-03 4.14E-03 2.82E-03 7.94E-03 5.72E-03 6.73E-02
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  1.5739E+00; max dE/dt=  2.7260E+00; dE/dt below (all hartree)
+    1      -0.000000000000      0.000000000000      2.726002817403
+    2      -0.000000000000      0.000000000000     -2.726002817403
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1      0.00000000000000    -0.00000000000000    -0.30288920193365
+    2      0.00000000000000    -0.00000000000000     0.30288920193365
+ frms,max,avg= 1.7487316E-01 3.0288920E-01   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1      0.00000000000000    -0.00000000000000   -15.57518768207441
+    2      0.00000000000000    -0.00000000000000    15.57518768207441
+ frms,max,avg= 8.9923388E+00 1.5575188E+01   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.26605   Average Vxc (hartree)=  -0.17749
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -1.18096  -0.53881  -0.47802  -0.47550  -0.44975  -0.08237
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   2.00000   0.00000
+ Fermi (or HOMO) energy (eV) =  -7.23970   Average Vxc (eV)=  -4.82965
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -32.13554 -14.66176 -13.00761 -12.93904 -12.23822  -2.24134
+ Total charge density [el/Bohr^3]
+,     Maximum=    8.5136E-01  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    8.5136E-01  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    1.1862E-05  at reduced coord.    0.5000    0.5000    0.5000
+,Next minimum=    1.2832E-05  at reduced coord.    0.5000    0.5000    0.4750
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.52980392034637E+01
+    Hartree energy  =  1.26504971036378E+01
+    XC energy       = -6.35962175321560E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -3.96983689758377E+01
+    NL   psp  energy=  3.46570524763356E+00
+    >>>>> Internal E= -2.05930398990399E+01
+
+    -kT*entropy     = -3.13637571682753E-11
+    >>>>>>>>> Etotal= -2.05930398990713E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.60365113537924E+02 ; Band energy (Ha)=  -6.2460746018E+00
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.18726306E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -3.17373082E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  7.47422353E-05  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.1649E+01 GPa]
+- sigma(1 1)= -9.37725010E+01  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -9.33743686E+01  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)=  2.19899211E+00  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  6 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -19.883022687245    -1.988E+01 9.344E-02 2.690E+03 7.359E-01 7.359E-01
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.24726063E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -8.25440759E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -1.50226993E-03  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  1.988E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   2.2192E-02; max=  9.3444E-02
+   0.2500  0.2500  0.2500    1  9.34443E-02 kpt; spin; max resid(k); each band:
+ 1.05E-02 5.48E-03 5.19E-03 8.58E-03 9.93E-03 9.34E-02
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  3.8240E+00; max dE/dt=  6.6234E+00; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000      6.623367981888
+    2       0.000000000000      0.000000000000     -6.623367981888
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1      0.00000000000000    -0.00000000000000    -0.73592977576535
+    2      0.00000000000000    -0.00000000000000     0.73592977576535
+ frms,max,avg= 4.2488925E-01 7.3592978E-01   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1      0.00000000000000    -0.00000000000000   -37.84302743444563
+    2      0.00000000000000    -0.00000000000000    37.84302743444563
+ frms,max,avg= 2.1848682E+01 3.7843027E+01   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.67019   Average Vxc (hartree)=  -0.14871
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -1.77099  -0.91301  -0.91139  -0.90515  -0.83015  -0.51022
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   2.00000   0.00000
+ Fermi (or HOMO) energy (eV) = -18.23670   Average Vxc (eV)=  -4.04651
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -48.19114 -24.84429 -24.80020 -24.63035 -22.58964 -13.88377
+ Total charge density [el/Bohr^3]
+,     Maximum=    9.6626E-01  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    9.6626E-01  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    3.3573E-06  at reduced coord.    0.5000    0.1333    0.5000
+,Next minimum=    3.3573E-06  at reduced coord.    0.5000    0.8667    0.5000
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.79291231405894E+01
+    Hartree energy  =  1.49786097740598E+01
+    XC energy       = -6.86348960634902E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -4.44177989792533E+01
+    NL   psp  energy=  4.43982371354238E+00
+    >>>>> Internal E= -1.98830226821325E+01
+
+    -kT*entropy     = -5.11251379305664E-09
+    >>>>>>>>> Etotal= -1.98830226872450E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.41044562639712E+02 ; Band energy (Ha)=  -1.0661391409E+01
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.24726063E-03  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -8.25440759E-03  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -1.50226993E-03  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.7656E+02 GPa]
+- sigma(1 1)= -2.42642744E+02  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -2.42853015E+02  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -4.41982999E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  7 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -18.959343834467    -1.896E+01 2.290E-01 7.066E+03 1.226E+00 1.226E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.24938872E-02  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.23877763E-02  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -3.08538869E-03  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  1.896E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   5.7085E-02; max=  2.2899E-01
+   0.2500  0.2500  0.2500    1  2.28986E-01 kpt; spin; max resid(k); each band:
+ 1.31E-02 1.39E-02 1.65E-02 2.53E-02 4.48E-02 2.29E-01
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  6.3729E+00; max dE/dt=  1.1038E+01; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000     11.038130307780
+    2       0.000000000000      0.000000000000    -11.038130307780
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00000000000000    -0.00000000000000    -1.22645892308663
+    2     -0.00000000000000    -0.00000000000000     1.22645892308663
+ frms,max,avg= 7.0809639E-01 1.2264589E+00   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00000000000000    -0.00000000000000   -63.06704824562853
+    2     -0.00000000000000    -0.00000000000000    63.06704824562853
+ frms,max,avg= 3.6411777E+01 6.3067048E+01   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS7_EIG
+ Fermi (or HOMO) energy (hartree) =  -1.11269   Average Vxc (hartree)=  -0.13608
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -2.41203  -1.41288  -1.40459  -1.32478  -1.23894  -0.98645
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   1.99999   0.00001
+ Fermi (or HOMO) energy (eV) = -30.27796   Average Vxc (eV)=  -3.70291
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -65.63469 -38.44643 -38.22081 -36.04904 -33.71334 -26.84259
+ Total charge density [el/Bohr^3]
+,     Maximum=    1.0658E+00  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    1.0658E+00  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    9.4818E-06  at reduced coord.    0.0333    0.5000    0.5000
+,Next minimum=    9.4818E-06  at reduced coord.    0.9667    0.5000    0.5000
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  1.98098072252272E+01
+    Hartree energy  =  1.66961293770405E+01
+    XC energy       = -7.21190887333483E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -4.76639900125864E+01
+    NL   psp  energy=  5.35991130336873E+00
+    >>>>> Internal E= -1.89593417050066E+01
+
+    -kT*entropy     = -2.12946091427702E-06
+    >>>>>>>>> Etotal= -1.89593438344675E+01
+
+ Other information on the energy :
+    Total energy(eV)= -5.15909982813419E+02 ; Band energy (Ha)=  -1.5586438895E+01
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.24938872E-02  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.23877763E-02  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -3.08538869E-03  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.7427E+02 GPa]
+- sigma(1 1)= -3.67582791E+02  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -3.64460900E+02  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -9.07752539E+01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  8 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  7.0000000  0.0000000  0.0000000  G(1)=  0.1428571  0.0000000  0.0000000
+ R(2)=  0.0000000  7.0000000  0.0000000  G(2)=  0.0000000  0.1428571  0.0000000
+ R(3)=  0.0000000  0.0000000  9.0000000  G(3)=  0.0000000  0.0000000  0.1111111
+ Unit cell volume ucvol=  4.4100000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  30  40
+         ecut(hartree)=     20.000   => boxcut(ratio)=   2.12884
+--------------------------------------------------------------------------------
+
+P newkpt: treating      6 bands with npw=    1880 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are    1880.000    1880.000
+
+================================================================================
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+ ETOT  1  -18.315763948960    -1.832E+01 2.281E-01 1.159E+04 1.543E+00 1.543E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.48394234E-02  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.47818251E-02  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -4.16984912E-03  sigma(2 1)=  0.00000000E+00
+
+
+ scprqt:  WARNING -
+  nstep=    1 was not enough SCF cycles to converge;
+  maximum energy difference=  1.832E+01 exceeds toldfe=  1.000E-06
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   7.1667E-02; max=  2.2811E-01
+   0.2500  0.2500  0.2500    1  2.28113E-01 kpt; spin; max resid(k); each band:
+ 2.05E-02 1.90E-02 5.87E-02 4.49E-02 5.88E-02 2.28E-01
+ reduced coordinates (array xred) for    2 atoms
+       0.000000000000      0.000000000000      0.115483263676
+       0.000000000000      0.000000000000     -0.115483263676
+ rms dE/dt=  8.0171E+00; max dE/dt=  1.3886E+01; dE/dt below (all hartree)
+    1       0.000000000000      0.000000000000     13.886028433103
+    2       0.000000000000      0.000000000000    -13.886028433103
+
+ cartesian coordinates (angstrom) at end:
+    1      0.00000000000000     0.00000000000000     0.55000000000000
+    2      0.00000000000000     0.00000000000000    -0.55000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1      0.00000000000000    -0.00000000000000    -1.54289204812260
+    2      0.00000000000000    -0.00000000000000     1.54289204812260
+ frms,max,avg= 8.9078914E-01 1.5428920E+00   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1      0.00000000000000    -0.00000000000000   -79.33869239734099
+    2      0.00000000000000    -0.00000000000000    79.33869239734099
+ frms,max,avg= 4.5806215E+01 7.9338692E+01   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.000000000000  7.000000000000  9.000000000000 bohr
+              =  3.704240460130  3.704240460130  4.762594877310 angstroms
+ prteigrs : about to open file t68o_DS8_EIG
+ Fermi (or HOMO) energy (hartree) =  -1.45012   Average Vxc (hartree)=  -0.12421
+ Eigenvalues (hartree) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+  -2.87747  -1.79319  -1.79101  -1.65295  -1.55059  -1.34966
+      occupation numbers for kpt#   1
+   2.00000   2.00000   2.00000   2.00000   1.99962   0.00038
+ Fermi (or HOMO) energy (eV) = -39.45984   Average Vxc (eV)=  -3.37996
+ Eigenvalues (   eV  ) for nkpt=   1  k points:
+ kpt#   1, nband=  6, wtk=  1.00000, kpt=  0.2500  0.2500  0.2500 (reduced coord)
+ -78.29994 -48.79510 -48.73575 -44.97909 -42.19362 -36.72607
+ Total charge density [el/Bohr^3]
+,     Maximum=    1.1225E+00  at reduced coord.    0.0000    0.0000    0.9750
+,Next maximum=    1.1225E+00  at reduced coord.    0.0000    0.0000    0.0250
+,     Minimum=    3.4963E-06  at reduced coord.    0.4000    0.5000    0.3250
+,Next minimum=    3.4963E-06  at reduced coord.    0.6000    0.5000    0.3250
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  2.07629056953617E+01
+    Hartree energy  =  1.76602349579100E+01
+    XC energy       = -7.40023798260371E+00
+    Ewald energy    = -6.00873328385204E+00
+    PspCore energy  =  5.94425591303342E-02
+    Loc. psp. energy= -4.93669336603476E+01
+    NL   psp  energy=  5.97763997249303E+00
+    >>>>> Internal E= -1.83156817419083E+01
+
+    -kT*entropy     = -8.22070518775572E-05
+    >>>>>>>>> Etotal= -1.83157639489601E+01
+
+ Other information on the energy :
+    Total energy(eV)= -4.98397283504304E+02 ; Band energy (Ha)=  -1.9330325268E+01
+--------------------------------------------------------------------------------
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.48394234E-02  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.47818251E-02  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -4.16984912E-03  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.3139E+02 GPa]
+- sigma(1 1)= -4.36590837E+02  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -4.34896236E+02  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -1.22681176E+02  sigma(2 1)=  0.00000000E+00
+
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+     acell    7.0000000000E+00  7.0000000000E+00  9.0000000000E+00 Bohr
+       amu    1.40067400E+01
+    densty1   4.00000000E-01
+    densty2   5.50000000E-01
+    densty3   6.00000000E-01
+    densty4   6.10000000E-01
+    densty5   6.50000000E-01
+    densty6   8.00000000E-01
+    densty7   1.00000000E+00
+    densty8   1.20000000E+00
+    diemac    1.00000000E+00
+    diemix    5.00000000E-01
+      ecut    2.00000000E+01 Hartree
+    enunit         2
+    etotal1  -1.6854190093E+01
+    etotal2  -2.0719717000E+01
+    etotal3  -2.0741094482E+01
+    etotal4  -2.0721697734E+01
+    etotal5  -2.0593039899E+01
+    etotal6  -1.9883022687E+01
+    etotal7  -1.8959343834E+01
+    etotal8  -1.8315763949E+01
+     fcart1  -0.0000000000E+00 -1.1269441503E-31  1.8850922455E+00
+             -0.0000000000E+00  1.1269441503E-31 -1.8850922455E+00
+     fcart2  -0.0000000000E+00  2.2538883006E-31  1.2808553681E-01
+             -0.0000000000E+00 -2.2538883006E-31 -1.2808553681E-01
+     fcart3   0.0000000000E+00  1.1269441503E-31 -1.1152114969E-01
+              0.0000000000E+00 -1.1269441503E-31  1.1152114969E-01
+     fcart4  -0.0000000000E+00 -0.0000000000E+00 -1.5265829891E-01
+             -0.0000000000E+00 -0.0000000000E+00  1.5265829891E-01
+     fcart5   0.0000000000E+00 -0.0000000000E+00 -3.0288920193E-01
+              0.0000000000E+00 -0.0000000000E+00  3.0288920193E-01
+     fcart6   0.0000000000E+00 -0.0000000000E+00 -7.3592977577E-01
+              0.0000000000E+00 -0.0000000000E+00  7.3592977577E-01
+     fcart7  -0.0000000000E+00 -0.0000000000E+00 -1.2264589231E+00
+             -0.0000000000E+00 -0.0000000000E+00  1.2264589231E+00
+     fcart8   0.0000000000E+00 -0.0000000000E+00 -1.5428920481E+00
+              0.0000000000E+00 -0.0000000000E+00  1.5428920481E+00
+     intxc         1
+      iscf         5
+    jdtset      1    2    3    4    5    6    7    8
+       kpt    2.50000000E-01  2.50000000E-01  2.50000000E-01
+P    mkmem         1
+     natom         2
+     nband         6
+    ndtset         8
+     ngfft        30      30      40
+      nkpt         1
+     nstep         1
+      nsym         8
+    ntypat         1
+       occ1   2.000000  2.000000  1.999999  1.999810  1.677771  0.322419
+       occ2   2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+       occ3   2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+       occ4   2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+       occ5   2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+       occ6   2.000000  2.000000  2.000000  2.000000  2.000000  0.000000
+       occ7   2.000000  2.000000  2.000000  2.000000  1.999992  0.000008
+       occ8   2.000000  2.000000  2.000000  2.000000  1.999618  0.000382
+    occopt         7
+   spgroup        47
+    strten1   9.8643127396E-03  9.8507208915E-03 -2.8085718677E-03
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten2   1.7873109925E-03  1.7141432744E-03  9.1163762416E-04
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten3  -8.4937209752E-04 -8.6752233699E-04  5.9375398468E-04
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten4  -1.3400251737E-03 -1.3486954327E-03  4.9802228198E-04
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten5  -3.1872630638E-03 -3.1737308154E-03  7.4742235342E-05
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten6  -8.2472606282E-03 -8.2544075940E-03 -1.5022699336E-03
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten7  -1.2493887207E-02 -1.2387776290E-02 -3.0853886856E-03
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    strten8  -1.4839423417E-02 -1.4781825107E-02 -4.1698491168E-03
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    symrel    1  0  0   0  1  0   0  0  1      -1  0  0   0  1  0   0  0  1
+              1  0  0   0 -1  0   0  0  1       1  0  0   0  1  0   0  0 -1
+             -1  0  0   0 -1  0   0  0  1      -1  0  0   0  1  0   0  0 -1
+              1  0  0   0 -1  0   0  0 -1      -1  0  0   0 -1  0   0  0 -1
+    toldfe    1.00000000E-06 Hartree
+     typat    1  1
+    xangst    0.0000000000E+00  0.0000000000E+00  5.5000000000E-01
+              0.0000000000E+00  0.0000000000E+00 -5.5000000000E-01
+     xcart    0.0000000000E+00  0.0000000000E+00  1.0393493731E+00
+              0.0000000000E+00  0.0000000000E+00 -1.0393493731E+00
+      xred    0.0000000000E+00  0.0000000000E+00  1.1548326368E-01
+              0.0000000000E+00  0.0000000000E+00 -1.1548326368E-01
+     znucl      7.00000
+
+================================================================================
+
+- Total cpu        time (s,m,h):          3.5        0.06      0.001
+- Total wall clock time (s,m,h):          3.5        0.06      0.001
+
+- For major independent code sections, cpu and wall times (sec),
+- as well as % of the total time and number of calls 
+
+- routine                 cpu     %       wall     %      number of calls 
+-                                                          (-1=no count)
+- fourwf(pot)            0.976  27.8      0.982  27.9            480
+- invars2                0.654  18.6      0.653  18.6              8
+- timing timab           0.346   9.8      0.347   9.9             11
+- abinit(2)              0.190   5.4      0.191   5.4              1
+- fourdp                 0.148   4.2      0.150   4.3            112
+- xc:pot/=fourdp         0.140   4.0      0.136   3.9             16
+- pspini                 0.128   3.6      0.128   3.6              8
+- projbd                 0.075   2.1      0.072   2.0            768
+- stress                 0.072   2.0      0.073   2.1              8
+- symrhg(no FFT)         0.063   1.8      0.063   1.8              8
+- setsym                 0.060   1.7      0.060   1.7              8
+- forces                 0.055   1.6      0.055   1.6              8
+- fourwf(den)            0.052   1.5      0.050   1.4             45
+- nonlop(apply)          0.040   1.1      0.038   1.1            480
+- ewald                  0.035   1.0      0.039   1.1              8
+- ewald2                 0.025   0.7      0.030   0.9              8
+- mkcore                 0.024   0.7      0.025   0.7             24
+- getghc-other           0.020   0.6      0.017   0.5             -1
+- vtowfk(ssdiag)         0.018   0.5      0.021   0.6             -1
+- 51   others            0.066   1.9      0.060   1.7
+
+- subtotal               3.187  90.6      3.190  90.7
+
+================================================================================
+
+ Calculation completed.
+.Delivered   10 WARNINGs and   8 COMMENTs to log file.
++Overall time at end (sec) : cpu=          3.5  wall=          3.5

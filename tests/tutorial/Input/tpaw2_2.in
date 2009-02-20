@@ -1,0 +1,38 @@
+# Nickel ferromagnetic fcc structure for testing ecut convergence
+
+   ndtset 7
+   acell: 3*3.5125 angstrom
+   acell+  3*0.0025 angstrom
+
+     ecut 15.
+pawecutdg 40.
+
+  nstep   50
+ tolvrs   1.0d-9
+ occopt   7
+ tsmear   0.0075
+
+ ntypat   1
+  rprim   0.0 1/2 1/2
+          1/2 0.0 1/2
+          1/2 1/2 0.0
+  natom   1
+  typat   1
+   xred   0.0  0.0  0.0
+  znucl   28
+  nband   12
+
+  nsppol  2
+  spinat  0. 0. 4.
+ 
+ kptopt   1
+  ngkpt   8 8 8
+nshiftk   4
+ shiftk   1/2 1/2 1/2
+          1/2 0.0 0.0
+          0.0 1/2 0.0
+          0.0 0.0 1/2
+ 
+ getwfk -1
+ prteig 0 prtden 0
+ optforces 2

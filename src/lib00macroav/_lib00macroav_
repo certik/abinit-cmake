@@ -1,0 +1,15 @@
+!!****d* ABINIT/_lib00macroav_
+!!
+!! NAME
+!!  _lib00macroav_
+!!
+!! DESCRIPTIONS
+!!  Routines used by macroav
+!!
+!! COPYRIGHT
+!! Copyright (C) 2007-2008 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!!
+!!***

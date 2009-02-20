@@ -1,0 +1,497 @@
+#
+# Default configuration parameters obtained from Autoconf
+#
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Package information
+#
+
+PACKAGE           = @PACKAGE@
+VERSION           = @VERSION@
+PACKAGE_NAME      = @PACKAGE_NAME@
+PACKAGE_VERSION   = @PACKAGE_VERSION@
+PACKAGE_STRING    = @PACKAGE_STRING@
+PACKAGE_TARNAME   = @PACKAGE_TARNAME@
+PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
+
+# Version
+ABINIT_VERSION       = @ABINIT_VERSION@
+ABINIT_VERSION_BASE  = @ABINIT_VERSION_BASE@
+ABINIT_VERSION_MAJOR = @ABINIT_VERSION_MAJOR@
+ABINIT_VERSION_MINOR = @ABINIT_VERSION_MINOR@
+ABINIT_VERSION_MICRO = @ABINIT_VERSION_MICRO@
+ABINIT_VERSION_BUILD = @ABINIT_VERSION_BUILD@
+
+# Binary package
+ABINIT_TARGET         = @ABINIT_TARGET@
+ABINIT_BINARY_PACKAGE = @ABINIT_BINARY_PACKAGE@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# System information
+#
+
+# Utilities
+SHELL   = @BOURNE_SHELL@
+SED     = @SED@
+PERL    = @PERL@
+PYTHON  = @PYTHON@
+LN_S    = @LN_S@
+EGREP   = @EGREP@
+MKDIR_P = @MKDIR_P@
+
+# Architecture
+target          = @target@
+abi_cpu_model   = @abi_cpu_model@
+abi_cpu_64bits  = @abi_cpu_64bits@
+
+# Directory locations
+abinit_builddir = @abinit_builddir@
+abinit_srcdir   = @abinit_srcdir@
+abinit_tardir   = @abinit_tardir@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Installation
+#
+
+abinit_prefix = @abinit_prefix@
+abinit_bindir = @abinit_bindir@
+abinit_datdir = @abinit_datdir@
+abinit_docdir = @abinit_docdir@
+abinit_incdir = @abinit_incdir@
+abinit_libdir = @abinit_libdir@
+abinit_mandir = @abinit_mandir@
+abinit_rundir = @abinit_rundir@
+abinit_wwwdir = @abinit_wwwdir@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Libraries and linking
+#
+
+AR             = @AR@
+ARFLAGS_64BITS = @ARFLAGS_64BITS@
+RANLIB         = @RANLIB@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Preprocessing options
+#
+
+with_cpp_optflags = @with_cpp_optflags@
+
+CPP               = @CPP@
+TRUE_CPP          = @TRUE_CPP@
+TRUE_CPPFLAGS     = @TRUE_CPPFLAGS@
+CPPFLAGS          = @CPPFLAGS@
+CPPFLAGS_OPT      = @CPPFLAGS_OPT@
+CPPFLAGS_EXTRA    = @CPPFLAGS_EXTRA@
+
+DEFS              = @DEFS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# C compilation
+#
+
+with_cc_optflags    = @with_cc_optflags@
+with_cc_ld_optflags = @with_cc_ld_optflags@
+with_cc_ld_optlibs  = @with_cc_ld_optlibs@
+
+cc_type             = @cc_type@
+cc_version          = @cc_version@
+
+CC                  = @CC@
+CFLAGS              = @CFLAGS@
+CFLAGS_64BITS       = @CFLAGS_64BITS@
+CFLAGS_OPT          = @CFLAGS_OPT@
+CC_LDFLAGS_OPT      = @CC_LDFLAGS_OPT@
+CFLAGS_EXTRA        = @CFLAGS_EXTRA@
+CC_LDFLAGS_EXTRA    = @CC_LDFLAGS_EXTRA@
+
+CC_LIBS             = @CC_LIBS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# C++ compilation
+#
+
+with_cxx_optflags    = @with_cxx_optflags@
+with_cxx_ld_optflags = @with_cxx_ld_optflags@
+with_cxx_ld_optlibs  = @with_cxx_ld_optlibs@
+
+cxx_type             = @cxx_type@
+cxx_version          = @cxx_version@
+
+CXX                  = @CXX@
+CXXFLAGS             = @CXXFLAGS@
+CXXFLAGS_64BITS      = @CXXFLAGS_64BITS@
+CXXFLAGS_OPT         = @CXXFLAGS_OPT@
+CXX_LDFLAGS_OPT      = @CXX_LDFLAGS_OPT@
+CXXFLAGS_EXTRA       = @CXXFLAGS_EXTRA@
+CXX_LDFLAGS_EXTRA    = @CXX_LDFLAGS_EXTRA@
+
+CXX_LIBS             = @CXX_LIBS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Fortran compilation
+#
+
+enable_fc_wrapper   = @enable_fc_wrapper@
+with_fc_optflags    = @with_fc_optflags@
+with_fc_ld_optflags = @with_fc_ld_optflags@
+with_fc_ld_optlibs  = @with_fc_ld_optlibs@
+
+fc_type             = @fc_type@
+fc_version          = @fc_version@
+fc_wrap             = @fc_wrap@
+
+FC                  = @FC@
+FCFLAGS             = @FCFLAGS@
+FCFLAGS_64BITS      = @FCFLAGS_64BITS@
+FCFLAGS_OPT         = @FCFLAGS_OPT@
+FCFLAGS_EXTRA       = @FCFLAGS_EXTRA@
+FC_LDFLAGS          = @FC_LDFLAGS@
+FC_LDFLAGS_OPT      = @FC_LDFLAGS_OPT@
+FC_LDFLAGS_EXTRA    = @FC_LDFLAGS_EXTRA@
+
+FCFLAGS_FIXEDFORM   = @FCFLAGS_FIXEDFORM@
+FCFLAGS_FREEFORM    = @FCFLAGS_FREEFORM@
+
+FC_LIBS             = @FC_LIBS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# MPI support
+#
+
+enable_mpi           = @enable_mpi@
+enable_mpi_io        = @enable_mpi_io@
+enable_mpi_trace     = @enable_mpi_trace@
+with_mpi_prefix      = @with_mpi_prefix@
+with_mpi_runner      = @with_mpi_runner@
+with_mpi_cppflags    = @with_mpi_cppflags@
+with_mpi_cflags      = @with_mpi_cflags@
+with_mpi_cc_ldflags  = @with_mpi_cc_ldflags@
+with_mpi_cc_libs     = @with_mpi_cc_libs@
+with_mpi_cxxflags    = @with_mpi_cxxflags@
+with_mpi_cxx_ldflags = @with_mpi_cxx_ldflags@
+with_mpi_cxx_libs    = @with_mpi_cxx_libs@
+with_mpi_fcflags     = @with_mpi_fcflags@
+with_mpi_fc_ldflags  = @with_mpi_fc_ldflags@
+with_mpi_fc_libs     = @with_mpi_fc_libs@
+
+mpi_usable           = @mpi_usable@
+mpi_type             = @mpi_type@
+mpi_level            = @mpi_level@
+
+MPI_CPPFLAGS         = @MPI_CPPFLAGS@
+
+MPI_CFLAGS           = @MPI_CFLAGS@
+MPI_CC_LDFLAGS       = @MPI_CC_LDFLAGS@
+MPI_CC_LIBS          = @MPI_CC_LIBS@
+
+MPI_CXXFLAGS         = @MPI_CXXFLAGS@
+MPI_CXX_LDFLAGS      = @MPI_CXX_LDFLAGS@
+MPI_CXX_LIBS         = @MPI_CXX_LIBS@
+
+MPI_FCFLAGS          = @MPI_FCFLAGS@
+MPI_FC_LDFLAGS       = @MPI_FC_LDFLAGS@
+MPI_FC_LIBS          = @MPI_FC_LIBS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Documentation
+#
+
+# Text-to-HTML processors
+MARKDOWN = @MARKDOWN@
+MDFLAGS  = @MDFLAGS@
+
+# LaTeX
+LATEX    = @LATEX@
+LTXFLAGS = @LTXFLAGS@
+DVI2PDF  = @DVI2PDF@
+PDFFLAGS = @PDFFLAGS@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Miscellaneous command-line options
+#
+
+enable_config_file    = @enable_config_file@
+with_config_file      = @with_config_file@
+
+enable_64bit_flags    = @enable_64bit_flags@
+enable_bindings       = @enable_bindings@
+enable_cclock         = @enable_cclock@
+enable_debug          = @enable_debug@
+enable_error_handlers = @enable_error_handlers@
+enable_fc_wrapper     = @enable_fc_wrapper@
+enable_gw_dpc         = @enable_gw_dpc@
+enable_stdin          = @enable_stdin@
+enable_tricks         = @enable_tricks@
+
+with_gnu_ld           = @with_gnu_ld@
+
+# ---------------------------------------------------------------------------- #
+# External prerequisites                                                       #
+# ---------------------------------------------------------------------------- #
+
+#
+# FFTW support
+#
+
+enable_fftw         = @enable_fftw@
+enable_fftw_threads = @enable_fftw_threads@
+with_fftw_libs      = @with_fftw_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Linear algebra support
+#
+
+linalg_pkg_name      = @linalg_pkg_name@
+linalg_pkg_string    = @linalg_pkg_string@
+
+with_linalg_includes = @with_linalg_includes@
+with_linalg_libs     = @with_linalg_libs@
+
+build_linalg         = @build_linalg@
+
+# Linear algebra build flags
+CPPFLAGS_LINALG      = @CPPFLAGS_LINALG@
+CFLAGS_LINALG        = @CFLAGS_LINALG@
+CXXFLAGS_LINALG      = @CXXFLAGS_LINALG@
+FCFLAGS_LINALG       = @FCFLAGS_LINALG@
+
+# Linear algebra use flags
+lib_linalg_includes  = @lib_linalg_includes@
+lib_linalg_libs      = @lib_linalg_libs@
+
+# ---------------------------------------------------------------------------- #
+# Plug-ins                                                                     #
+# ---------------------------------------------------------------------------- #
+
+#
+# Generic options
+#
+
+with_plugins_prefix = @with_plugins_prefix@
+with_plugins_srcdir = @with_plugins_srcdir@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# BigDFT support
+#
+
+bigdft_pkg_name      = @bigdft_pkg_name@
+bigdft_pkg_string    = @bigdft_pkg_string@
+
+enable_bigdft        = @enable_bigdft@
+with_bigdft_includes = @with_bigdft_includes@
+with_bigdft_libs     = @with_bigdft_libs@
+
+build_bigdft         = @build_bigdft@
+
+CPPFLAGS_BIGDFT      = @CPPFLAGS_BIGDFT@
+CFLAGS_BIGDFT        = @CFLAGS_BIGDFT@
+CXXFLAGS_BIGDFT      = @CXXFLAGS_BIGDFT@
+FCFLAGS_BIGDFT       = @FCFLAGS_BIGDFT@
+
+# BigDFT use flags
+lib_bigdft_includes  = @lib_bigdft_includes@
+lib_bigdft_libs      = @lib_bigdft_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# ETSF I/O support
+#
+
+etsf_io_pkg_name      = @etsf_io_pkg_name@
+etsf_io_pkg_string    = @etsf_io_pkg_string@
+
+enable_etsf_io        = @enable_etsf_io@
+with_etsf_io_includes = @with_etsf_io_includes@
+with_etsf_io_libs     = @with_etsf_io_libs@
+
+build_etsf_io         = @build_etsf_io@
+
+# ETSF I/O build flags
+CPPFLAGS_ETSF_IO      = @CPPFLAGS_ETSF_IO@
+CFLAGS_ETSF_IO        = @CFLAGS_ETSF_IO@
+CXXFLAGS_ETSF_IO      = @CXXFLAGS_ETSF_IO@
+FCFLAGS_ETSF_IO       = @FCFLAGS_ETSF_IO@
+
+# ETSF I/O use flags
+lib_etsf_io_includes  = @lib_etsf_io_includes@
+lib_etsf_io_libs      = @lib_etsf_io_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# ETSF XC support
+#
+
+etsf_xc_pkg_name      = @etsf_xc_pkg_name@
+etsf_xc_pkg_string    = @etsf_xc_pkg_string@
+
+enable_etsf_xc        = @enable_etsf_xc@
+with_etsf_xc_includes = @with_etsf_xc_includes@
+with_etsf_xc_libs     = @with_etsf_xc_libs@
+
+build_etsf_xc         = @build_etsf_xc@
+
+# ETSF XC build flags
+CPPFLAGS_ETSF_XC      = @CPPFLAGS_ETSF_XC@
+CFLAGS_ETSF_XC        = @CFLAGS_ETSF_XC@
+CXXFLAGS_ETSF_XC      = @CXXFLAGS_ETSF_XC@
+FCFLAGS_ETSF_XC       = @FCFLAGS_ETSF_XC@
+
+# ETSF XC use flags
+lib_etsf_xc_includes  = @lib_etsf_xc_includes@
+lib_etsf_xc_libs      = @lib_etsf_xc_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# FoX support
+#
+
+fox_pkg_name      = @fox_pkg_name@
+fox_pkg_string    = @fox_pkg_string@
+
+enable_fox        = @enable_fox@
+with_fox_includes = @with_fox_includes@
+with_fox_libs     = @with_fox_libs@
+
+build_fox         = @build_fox@
+
+# FOX build flags
+CPPFLAGS_FOX      = @CPPFLAGS_FOX@
+CFLAGS_FOX        = @CFLAGS_FOX@
+CXXFLAGS_FOX      = @CXXFLAGS_FOX@
+FCFLAGS_FOX       = @FCFLAGS_FOX@
+
+# FOX use flags
+lib_fox_includes  = @lib_fox_includes@
+lib_fox_libs      = @lib_fox_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Light support
+#
+
+light_pkg_name      = @light_pkg_name@
+light_pkg_string    = @light_pkg_string@
+
+enable_light        = @enable_light@
+with_light_includes = @with_light_includes@
+with_light_libs     = @with_light_libs@
+
+build_light         = @build_light@
+
+# Light build flags
+CPPFLAGS_LIGHT      = @CPPFLAGS_LIGHT@
+CFLAGS_LIGHT        = @CFLAGS_LIGHT@
+CXXFLAGS_LIGHT      = @CXXFLAGS_LIGHT@
+FCFLAGS_LIGHT       = @FCFLAGS_LIGHT@
+
+# Light use flags
+lib_light_includes  = @lib_light_includes@
+lib_light_libs      = @lib_light_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# NetCDF support
+#
+
+netcdf_pkg_name      = @netcdf_pkg_name@
+netcdf_pkg_string    = @netcdf_pkg_string@
+
+enable_netcdf        = @enable_netcdf@
+with_netcdf_includes = @with_netcdf_includes@
+with_netcdf_libs     = @with_netcdf_libs@
+
+build_netcdf         = @build_netcdf@
+
+# NetCDF build flags
+CONFIGOPT_NETCDF     = @CONFIGOPT_NETCDF@
+CPPFLAGS_NETCDF      = @CPPFLAGS_NETCDF@
+CFLAGS_NETCDF        = @CFLAGS_NETCDF@
+CXXFLAGS_NETCDF      = @CXXFLAGS_NETCDF@
+FCFLAGS_NETCDF       = @FCFLAGS_NETCDF@
+
+# NetCDF use flags
+lib_netcdf_includes  = @lib_netcdf_includes@
+lib_netcdf_libs      = @lib_netcdf_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Wannier90 Support
+#
+
+wannier90_pkg_name      = @wannier90_pkg_name@
+wannier90_pkg_string    = @wannier90_pkg_string@
+
+enable_wannier90        = @enable_wannier90@
+with_wannier90_includes = @with_wannier90_includes@
+with_wannier90_libs     = @with_wannier90_libs@
+
+build_wannier90         = @build_wannier90@
+
+# Wannier90 build flags
+CPPFLAGS_WANNIER90      = @CPPFLAGS_WANNIER90@
+CFLAGS_WANNIER90        = @CFLAGS_WANNIER90@
+CXXFLAGS_WANNIER90      = @CXXFLAGS_WANNIER90@
+FCFLAGS_WANNIER90       = @FCFLAGS_WANNIER90@
+FCLIBS_WANNIER90        = @FCLIBS_WANNIER90@
+
+# wannier90 use flags
+lib_wannier90_includes  = @lib_wannier90_includes@
+lib_wannier90_libs      = @lib_wannier90_libs@
+
+# ---------------------------------------------------------------------------- #
+
+#
+# XMLF90 support
+#
+
+xmlf90_pkg_name      = @xmlf90_pkg_name@
+xmlf90_pkg_string    = @xmlf90_pkg_string@
+
+enable_xmlf90        = @enable_xmlf90@
+with_xmlf90_includes = @with_xmlf90_includes@
+with_xmlf90_libs     = @with_xmlf90_libs@
+
+build_xmlf90         = @build_xmlf90@
+
+# XMLF90 build flags
+CPPFLAGS_XMLF90      = @CPPFLAGS_XMLF90@
+CFLAGS_XMLF90        = @CFLAGS_XMLF90@
+CXXFLAGS_XMLF90      = @CXXFLAGS_XMLF90@
+FCFLAGS_XMLF90       = @FCFLAGS_XMLF90@
+
+# XMLF90 use flags
+lib_xmlf90_includes  = @lib_xmlf90_includes@
+lib_xmlf90_libs      = @lib_xmlf90_libs@

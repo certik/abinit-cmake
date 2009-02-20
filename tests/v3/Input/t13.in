@@ -1,0 +1,72 @@
+# Rhombohedral Bi treated as a semiconductor   
+# Test the conversion of wavefunctions, in the
+# spinor case.
+
+ ndtset 5
+
+#Dataset 1 : GS with spin-orbit
+ iscf1    5
+ getden1  0
+ getwfk1  0
+ tolvrs1  1.0d-16
+ tolwfr1  0.0
+ prtden1  1
+ kptopt1  1
+ nstep1   20
+
+#Read one wavefunction, check that it is converged
+ iscf2    -2
+ getwfk2  1
+ nkpt2    1
+ kpt2     0.25d0  0.25d0  -0.25d0
+ nstep2   20
+
+#Generate different wavefunctions from 
+#the wf of dataset 2
+ nkpt3    6
+ kpt3     0.25d0   0.25d0  -0.25d0
+          0.25d0  -0.25d0   0.25d0
+         -0.25d0   0.25d0   0.25d0
+          0.25d0  -0.25d0  -0.25d0
+         -0.25d0   0.25d0  -0.25d0
+         -0.25d0  -0.25d0   0.25d0
+
+#Restrict the number of symmetry operations,
+#and use them to get a restrcted set of k points
+ nsym4    1
+ symrel4  1 0 0   0 1 0   0 0 1
+ nkpt4    1
+ kpt4    -0.25d0  -0.25d0   0.25d0 ! Use time-reversal symmetry
+
+#Restrict the number of symmetry operations,
+#to the trigonal group, and get the 6 k points
+ nsym5    3
+ symrel5  1 0 0   0 1 0   0 0 1
+          0 1 0   0 0 1   1 0 0
+          0 0 1   1 0 0   0 1 0
+ nkpt5    6
+ kpt5     0.25d0   0.25d0  -0.25d0
+          0.25d0  -0.25d0   0.25d0
+         -0.25d0   0.25d0   0.25d0
+          0.25d0  -0.25d0  -0.25d0
+         -0.25d0   0.25d0  -0.25d0
+         -0.25d0  -0.25d0   0.25d0
+
+#Common data
+ acell 3*9.0d0
+ angdeg 3*57.25d0
+ ecut  2.0d0
+ getden 1
+ getwfk 2
+ iscf  -2
+ natom  2 
+ nband  10
+ ngkpt 2 2 2
+ nspinor  2
+ nstep  1
+ ntypat  1
+ tolwfr 1.0d-16
+ typat  1 1
+ xred      3*0.231d0
+           3*-0.231d0
+ znucl 83.d0

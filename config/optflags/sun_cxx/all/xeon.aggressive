@@ -1,0 +1,1 @@
+CXXFLAGS_OPT="-xO5 -fround=nearest -xarch=sse2 -xchip=native -xcache=native -xvector=lib"

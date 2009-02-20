@@ -1,0 +1,8 @@
+filename		alphaev56-compaq_tux.ac
+CC			gcc
+CXX			g++
+FC			f90
+with_fc_optflags	-O4 -arch host -tune host
+with_mpi_prefix		/usr/local/mpich-1.2.6
+enable_netcdf		no
+enable_etsf_io		no

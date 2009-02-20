@@ -1,0 +1,32 @@
+#
+# Au_2 dimer 
+#
+
+nband   12
+iscf    5
+nstep   6
+tolvrs  1.0d-7
+wfoptalg  1
+nbdblock  2
+timopt    2
+
+# System
+acell  18.0 18.0 18.0
+angdeg 60.0 60.0 60.0
+ecut   26.0
+natom  2
+ntypat 1
+znucl  79
+typat  1 1
+xangst
+   0.0 0.0 -1.3550
+   0.0 0.0  1.3550
+
+# Common parameters
+ixc    1
+nkpt   1
+kpt    0.0 0.0 0.0
+wtk    1.0
+occopt 1
+diemac 1.0
+diemix 0.5

@@ -1,0 +1,1 @@
+FCFLAGS_OPT="-xO2 -fround=nearest -xtarget=native"

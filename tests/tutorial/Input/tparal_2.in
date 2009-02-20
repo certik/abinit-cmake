@@ -1,0 +1,34 @@
+# FCC Fe (ferromagnetic for fun) with four atoms per cell
+# Distorted with a A1 phonon, so as to keep the symmetry ...
+# Only one k point in the IBZ
+# Test the parallelism over the spins 
+
+  kptopt  1
+  tolvrs  1.0d-13
+   ngkpt  2 2 2    
+
+ ecut 30
+ acell 3*7.00  
+
+ ixc    1
+ natom  4 
+ nband 40
+ nline 5
+ nsppol 2
+ spinat 0.0 0.0 3.0
+        0.0 0.0 3.0
+        0.0 0.0 3.0
+        0.0 0.0 3.0
+ nstep 5
+ ntypat  1
+ occopt 7
+ shiftk 0.5 0.5 0.5
+ typat  4*1
+ xred  0.01 0.01 0.01
+       0.49 0.49 0.01
+       0.49 0.01 0.49
+       0.01 0.49 0.49
+ znucl 26.0
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

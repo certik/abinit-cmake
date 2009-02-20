@@ -1,0 +1,25 @@
+!Input file for the ifc code. Analysis of a restricted SiO2 DDB 
+!Will use only the Gamma point information : compute 
+!Compute LO-TO splitting for different directions,
+!as well as the dielectric tensor at zero frequency
+
+!Flags
+ dieflag   1     ! Frequency-dependent Dielectric tensor flag
+
+!Effective charges
+ asr     1       ! Acoustic Sum Rule. 1 => imposed asymetrically
+ chneut  2       ! Charge neutrality requirement for effective charges. 
+                 !        2=> imposed with weights proportional to screening)
+
+!Wavevector list number 1 (Reduced coordinates and normalization factor)
+ nph1l     1     ! Number of phonons in list 1
+ qph1l     0.0 0.0 0.0    1.0
+
+!Wavevector list number 2 (Gamma point only, with limiting direction
+!          in cartesian coordinates. )
+ nph2l     2     ! Number of phonons in list 2
+ qph2l     1.0 0.0 0.0    0.0
+           0.0 0.0 1.0    0.0
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  symdynmat 0

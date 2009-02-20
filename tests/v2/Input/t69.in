@@ -1,0 +1,22 @@
+# cI lattice of magnesium atoms
+# Examine the list of k points
+
+ prtkpt 1
+ kptopt 1
+ kptrlen 40.0d0
+
+ acell  3*8.0d0 
+ rprim -0.5  0.5  0.5
+        0.5 -0.5  0.5
+        0.5  0.5 -0.5
+
+ ecut 4.5
+ natom 1 
+ nstep 1
+ ntypat  1
+ tolvrs 3.0d-20
+ typat  1 
+ xcart 0.0 0.0 0.0
+ znucl 12.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

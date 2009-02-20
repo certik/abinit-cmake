@@ -1,0 +1,57 @@
+ ndtset 3 #jdtset 2
+ acell 3*7.0
+ tsmear1 0.002
+ nband1  9
+ occopt 3
+ #prtdos 2
+ #ratsph 3.0
+ ecut   10
+ enunit 2    #sorties dans toutes les unites
+ intxc  1    #integration plus efficace requiert boxcut > 2
+ nline  5    #defaut +1
+ nstep  20
+ nsym   0
+ rprim  1.01 0 0
+        0 1 0.02
+        0.03 0 1
+ toldfe 1e-10
+ chkprim 0
+ natom  4
+ typat  4*1
+ xred   3*0.00
+        0.0   0.49 0.496 
+        0.502 0.0  0.501 
+        0.504 0.51 0.0
+ znucl  13.0
+ #ixc
+kptopt 0
+nkpt 1
+#ngkpt  2 2 2     #convergence a mieux que 0.002 Hartree
+strtarget 6*0.0
+mditemp 500
+ecutsm 0.5
+dilatmx 1.5
+dtion 0.05
+ntime 2
+#Test various iso md options
+#ionmov: 14=isopress, 13=isotemp, 16=cell deformations
+ionmov 13
+optcell1 2
+optcell2 1
+optcell3 0
+
+nnos1 3
+qmass1 3*10
+bmass1 10
+vmass1 10
+
+nnos2 3
+qmass2 10 10 10  
+bmass2 10
+vmass2 10
+
+nnos3 3
+qmass3 1 1 1
+bmass3 10
+vmass3 10
+

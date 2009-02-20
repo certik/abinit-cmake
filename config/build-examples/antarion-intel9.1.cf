@@ -1,0 +1,5 @@
+filename		i686-intel9.1_antarion.ac
+CC			gcc
+CXX			g++
+FC			ifort-9.1
+enable_etsf_xc		yes

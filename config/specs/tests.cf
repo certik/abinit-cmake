@@ -1,0 +1,50 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Config file for the test suite of ABINIT
+#
+# Note: The following statements have to be readable by Python scripts
+#
+
+# Library attributes
+ABI_TST_NIL = 0     # No attribute
+ABI_TST_MPI = 1     # Test series is for MPI-parallel binaries
+ABI_TST_OPT = 2     # Test series is for an optional library (standard runner)
+ABI_TST_EXT = 4     # Test series is for an external library (specific runner)
+
+# Test series and their aliases
+# Please be careful not to name the aliases after the directories names
+abinit_tests = {
+ "cpu":"Tcpu",
+ "fast":"Tfast",
+ "paral":"Tparal",
+ "physics":"Tphysics",
+ "tutorial":"Ttutorial",
+ "tutorespfn":"Ttutorespfn",
+ "v1":"Tv1",
+ "v2":"Tv2",
+ "v3":"Tv3",
+ "v4":"Tv4",
+ "v5":"Tv5",
+ "netcdf":"Tnetcdf",
+ "etsf_io":"Tetsf_io",
+ "etsf_xc":"Tetsf_xc",
+ "wannier90":"Twannier90",
+ "bigdft":"Tbigdft"}
+
+# Test descriptions
+abitests_specs = {
+ "paral":ABI_TST_MPI,
+ "netcdf":ABI_TST_EXT,
+ "etsf_io":ABI_TST_OPT,
+ "etsf_xc":ABI_TST_OPT,
+ "wannier90":ABI_TST_OPT,
+ "bigdft":ABI_TST_EXT}

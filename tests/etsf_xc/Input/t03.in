@@ -1,0 +1,33 @@
+# He atom in x-only PW LDA
+
+acell 3*5
+diemac 1.0d0
+diemix 0.5d0
+ecut 200
+
+iscf 3
+
+ixc 32
+
+kpt 3*0.25
+natom 1
+nband 1
+nkpt 1
+nstep 20
+nsym 8
+ntypat 1
+prtvol 10
+rprim 1 0 0 0 1 0 0 0 1
+symrel  1  0  0   0  1  0   0  0  1
+       -1  0  0   0  1  0   0  0  1
+        1  0  0   0 -1  0   0  0  1
+       -1  0  0   0 -1  0   0  0  1
+        1  0  0   0  1  0   0  0 -1
+       -1  0  0   0  1  0   0  0 -1
+        1  0  0   0 -1  0   0  0 -1
+       -1  0  0   0 -1  0   0  0 -1
+tnons 24*0
+tolwfr 1.0d-14
+typat 1 
+wtk 1 znucl 2
+xred 3*0

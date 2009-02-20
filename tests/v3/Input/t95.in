@@ -1,0 +1,32 @@
+#Test non-isovalent alchemical psps, as well as
+#mixing of alchemical psps and pure psps
+
+ndtset 4
+
+mixalch1  0.0 1.0
+mixalch2  0.5 0.5
+mixalch3  0.8 0.2
+mixalch4  1.0 0.0
+
+#Common data
+natom 2
+ntypat 2
+typat 1 2
+ntypalch 1
+
+npsp 3
+znucl 42 14 8
+
+acell 6 6 6
+xred
+   0.0  0.0  0.0
+   0.25 0.25 0.25
+
+ecut 10
+kptopt 1
+ngkpt 2 2 2
+nstep 20
+toldfe 1.0d-8
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

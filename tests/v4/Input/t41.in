@@ -1,0 +1,8 @@
+Abinit            # Which code have you used to get the input data?
+Charge            # Which is the input data used to compute the band offset?
+t41_DEN          # Name of the file where the input data is stored
+1                 # Number of convolutions required to calculate the macro. ave.
+2.5657775         # First length for the filter function in macroscopic average
+2.5657775         # Second length for the filter function in macroscopic average
+32                # Total charge 
+spline            # Type of interpolation

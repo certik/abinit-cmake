@@ -1,0 +1,7 @@
+!calculate the stress corrected elastic tensor.
+
+elaflag 5
+instrflag 1 
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  asr 0
+  symdynmat 0

@@ -1,0 +1,38 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 1managempi library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "xallgather_mpi.F90",
+ "xallgatherv_mpi.F90",
+ "xalltoallv_mpi.F90",
+ "xalltoall_mpi.F90",
+ "xcast_mpi.F90",
+ "xdef_comm.F90",
+ "xdefineoff.F90",
+ "xexch_mpi.F90",
+ "xmax_mpi.F90",
+ "xmin_mpi.F90",
+ "xsum_master.F90",
+ "xsum_mpi.F90",
+ "xderiveread.F90",
+ "xderivereadval.F90",
+ "xderivewrite.F90",
+ "xderivewriteval.F90"]
+

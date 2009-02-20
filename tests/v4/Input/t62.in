@@ -1,0 +1,42 @@
+#Distorted rocksalt LaAs to test proper handling of nonlocal f psp
+
+  ndtset  2
+
+#Dataset 1 : self-consistent ground state calculation
+
+#Dataset 2 : response function strain perturbation calculation
+  rfstrs2  3
+   rfdir2  1 0 0
+    nqpt2  1
+     qpt2  0 0 0
+  kptopt2  2
+  getwfk2  1
+
+# common input data
+
+   acell  3*11.81
+  diemac  10.0
+    ecut  8.0
+  ecutsm  0.0
+    iscf  5
+     ixc  2
+  kptopt  1
+  mqgrid  1501
+   natom  2
+   nband  4
+   ngkpt  2 2 2
+  nloalg  2
+ nshiftk  1
+   nstep  50
+    nsym  1
+  ntypat  2
+  prtvol  10
+   rprim -0.007  0.548  0.473
+          0.468  0.038  0.512
+          0.481  0.514 -0.032
+  shiftk  0.5 0.5 0.5
+  tolvrs  1.0d-12
+   typat  1 2
+    xred  0.000  0.000  0.000
+          0.543  0.493  0.508
+   znucl  57  33

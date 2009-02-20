@@ -1,0 +1,61 @@
+# Title:
+Suite of various tests of the use of the Wannier90 library for ABINIT
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of 
+# these lines is:	testID [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	run the sequential version of abinis
+#	newsp		run newsp
+#
+#   parameters for copy and erase are file or directory names
+#   parameters for the programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-DOS	appply fdiff/ldiff to the o_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#	-keepfn4
+# default options to call fldiff are: -ignore -ignoreP 
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+# 1) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6-fn9, psp1-psp4 = none
+# 2) newsp
+# fn1-fn2 = none
+# fn3 = tNNNo_WFK
+#
+01 copy $INPUTDIR/t01.wannier90.win wannier90.win
+01 seq psp1=31ga.pspnc psp2=33as.pspnc
+02 copy $INPUTDIR/t02.wannier90.win wannier90.win
+02 seq psp1=31Ga_LDA_abinit psp2=33As_LDA_abinit
+#02 seq fn5=t01 psp1=1h.pspnc
+make report

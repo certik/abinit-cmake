@@ -1,0 +1,168 @@
+# Title:
+Suite of tests v1 for abinit and newsp
+# that complements the tests in the Test_fast directory.
+# It is designed to test the features introduced in the development
+# of the version 1 of the ABINIT code.
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of 
+# these lines is:	testID [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	run the sequential version of abinis
+#	newsp		run newsp
+#
+#   parameters for copy and erase are file or directory names
+#   parameters for the programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-DOS	appply fdiff/ldiff to the o_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#	-keepfn4
+# default options to call fldiff are: -ignore -ignoreP 
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+# 1) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6-fn9, psp1-psp4 = none
+# 2) newsp
+# fn1-fn2 = none
+# fn3 = tNNNo_WFK
+01 seq	psp1=13al.pspgth
+02 seq	psp1=13al.pspgth
+03 seq	psp1=13al.pspgth
+04 seq	psp1=13al.pspgth
+05 seq	psp1=13al.pspgth
+06 newsp fn1=t04o_WFK fn2=t07.in fn3=t06o_WFK
+# The analysis of case 07 is different
+07 seq	fn3=t06o psp1=13al.pspgth opt=-DOS
+08 seq	psp1=8o.pspnc
+09 seq	psp1=8o.pspnc
+10 seq	psp1=02he.bare
+11 seq	psp1=02he.bare
+12 seq	fn3=t11o psp1=02he.bare
+13 seq	fn3=t11o psp1=02he.bare
+14 seq	fn3=t11o psp1=02he.bare
+15 seq	fn3=t11o psp1=02he.bare
+16 seq	fn3=t11o psp1=02he.bare
+17 seq	fn3=t11o psp1=02he.bare
+18 seq	fn3=t11o psp1=02he.bare
+19 seq	fn3=t11o psp1=02he.bare
+20 seq	fn3=t11o psp1=02he.bare
+21 seq	psp1=01h.bare
+22 seq	fn3=t21o psp1=01h.bare
+23 seq	fn3=t21o psp1=01h.bare
+24 seq	fn3=t23o psp1=01h.bare
+28 seq	psp1=02he.bare
+29 seq	psp1=02he.bare
+30 seq	psp1=02he.bare
+31 seq	psp1=50sn.pspnc
+32 seq	fn3=t31o psp1=50sn.psphgh
+33 seq	psp1=6c.pspnc
+34 seq	psp1=82pb.960808c_mod
+35 seq	psp1=14si.phoney_mod
+36 seq	psp1=8o.pspnc
+37 seq	psp1=13al.981214.fhi
+38 seq	psp1=70yb.pho
+39 seq	psp1=01h.pspgth
+# For Case 40, 41 and 42, also take into account the xml files
+40 seq	psp1=6c.pspnc opt=+xml
+41 seq	psp1=42mo.pspnc opt=+xml
+42 seq	psp1=01h.pspgth psp2=8o.pspnc psp3=14si.pspnc opt=+xml
+43 seq	psp1=01h.pspgth psp2=8o.pspnc psp3=14si.pspnc
+44 seq	psp1=14si.pspnc
+45 seq	psp1=14si.pspnc
+46 seq	fn3=t45o psp1=14si.pspnc
+# Case_47: change the default tolerance from 1.0d-10 to 1.0d-6
+47 seq	fn3=t46o psp1=14si.pspnc opt=-easy
+# Case_48: change the default tolerance from 1.0d-10 to 1.0d-8
+48 seq	psp1=14si.pspnc opt=-medium
+49 seq	psp1=14si.pspnc
+50 seq	psp1=14si.pspnc
+51 seq	psp1=13al.pspgth
+52 seq	fn3=t51o psp1=13al.pspgth
+53 seq	psp1=14si.pspnc
+54 seq	psp1=14si.pspnc
+55 seq	psp1=42mo.pspnc
+56 seq	fn3=t55o psp1=42mo.pspnc
+57 seq	psp1=42mo.pspnc
+58 seq	psp1=42mo.pspnc
+59 seq	psp1=14si.pspgth
+60 seq	psp1=1h.pspnc
+61 seq	psp1=1h.pspnc
+62 seq	psp1=13al.pspgth
+# Note that test 63 is actually continuing test62 (same input and output
+# wf files ... )
+# the output wfs file should not be erased
+63 seq	fn3=t62i fn4=t62o psp1=13al.pspgth opt=-keepfn4
+64 seq	psp1=1h.pspnc
+65 seq	psp1=1h.pspnc
+66 seq	psp1=1h.pspnc
+67 seq	psp1=7n.pspnc
+68 seq	psp1=7n.pspnc
+69 seq	psp1=12mg.pspnc
+70 seq	psp1=12mg.pspnc
+71 seq	psp1=42mo.pspnc
+72 seq	fn3=t71o psp1=42mo.pspnc
+73 seq	psp1=42mo.pspnc
+74 seq	psp1=1h.pspnc
+75 seq	psp1=1h.pspnc
+76 seq	psp1=14si.pspnc
+77 seq	psp1=14si.pspnc
+78 seq	psp1=14si.pspnc
+79 seq	psp1=1h.pspnc
+80 seq	psp1=12mg.pspnc
+81 seq	psp1=12mg.pspnc
+82 seq	psp1=12mg.pspnc
+83 seq	psp1=14si.pspnc
+84 seq	psp1=14si.pspnc
+85 seq	psp1=14si.pspnc psp2=1h.pspnc
+86 seq	psp1=14si.pspnc psp2=1h.pspnc
+87 seq	psp1=1h.pspnc
+88 seq	psp1=1h.pspnc
+89 seq	psp1=12mg.pspnc
+90 seq	psp1=14si.pspgth
+91 seq	psp1=14si.pspgth
+92 seq	psp1=14si.pspgth
+93 seq	psp1=14si.pspgth
+94 seq	psp1=14si.pspgth
+95 seq	psp1=14si.pspgth
+96 seq	psp1=13al.pspgth psp2=8o.pspnc
+# Case_97: make sure there is no file abinit.exit
+97 erase abinit.exit
+# copy exit file and run test
+97 copy ../Input/t97.exit abinit.exit
+97 seq	psp1=14si.pspnc opt=-nofld
+# delete file abinit.exit
+97 erase abinit.exit
+# Case 98 and 99: no use of fldiff for these tests
+98 seq	psp1=14si.pspnc opt=-nofld
+99 seq	fn3=t98o psp1=14si.pspnc opt=-nofld
+make report

@@ -1,0 +1,1 @@
+CXXFLAGS_OPT="-O2 -march=nocona -mmmx -msse -mfpmath=sse"

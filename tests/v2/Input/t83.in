@@ -1,0 +1,39 @@
+# FCC Ni, ferromagnetic. 
+# Use two datasets to test start again from a 
+# previous unconverged calculation
+# ecut much too low : stresses will be completely wrong
+
+ ndtset 2
+ getwfk2 1
+
+ acell 3*6.6496
+ rprim  0.0  0.5  0.5
+        0.5  0.0  0.5
+        0.5  0.5  0.0
+
+ ntypat 1
+ znucl 28.0
+ natom 1
+ typat  1
+ xred 0.0 0.0 0.0
+
+ nsppol 2
+ spinat 0.0 0.0 0.5
+
+ nstep  7 
+ toldfe 1.0d-12
+
+ ecut 20.0
+ ixc  11
+
+#To be tested
+ occopt 7
+ tsmear 0.01 
+ nband 6    # the seventh bands are not needed
+
+ kptopt 1
+ ngkpt  4 4 4
+ shiftk
+   0.5 0.5 0.5
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

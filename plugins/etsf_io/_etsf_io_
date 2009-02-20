@@ -1,0 +1,23 @@
+!!****d* ABINIT/Lib_etsf_io
+!! NAME
+!! Lib_etsf_io
+!!
+!! DESCRIPTION
+!! This subdirectory contains a development version of the ETSF I/O library.
+!! In ABINITv5.3, it is optionally compiled into abinis, and
+!! should be used with care.
+!! The --enable-etsf-io option of the configure script has to be
+!! used at compile time.
+!! These routines do not follow the ABINIT coding rules
+!! (~abinit/doc/developers/rules_coding).
+!! 
+!! COPYRIGHT
+!! Copyright (C) 1998-2008 ABINIT group (YP)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!!
+!!***

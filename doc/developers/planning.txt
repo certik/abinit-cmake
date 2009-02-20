@@ -1,0 +1,133 @@
+
+Planning
+
+This document describes a wish list for the ABINIT development,
+more than a planning !
+Since new features (to be coded) have been added very often, and 
+on the contrary features
+that were coded have been removed, this file is changed very frequently.
+
+Copyright (C) 1996-2008 ABINIT group (XG,DCA) 
+This file is distributed under the terms of the
+GNU General Public License, see ~abinit/COPYING
+or http://www.gnu.org/copyleft/gpl.txt .
+For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+
+#############################################################################
+
+
+1. Guidelines for establishing the planning
+*******************************************
+
+The classification of the work to be done is based on the following :
+
+A. work needed to ease further developments, 
+     or needed for testing the code (language standard, test suites ...)
+B. work needed to facilitate the use of the code
+        (help files, better I/O files, pre- and post-processing)
+C. work needed to increase the capabilities of the code (ground-state)
+D. work needed to increase the capabilities of the code (response functions)
+E. work needed to increase the capabilities of the code (excited states)
+F. work needed to increase the speed of the code
+G. work needed to improve utilities (cut3d, mrgddb, anaddb ...)
+
+Note : 
+- major works are NOT distinguished from minor works
+- of course, if somebody volunteer to implement a feature not listed 
+    the planning will be modified without problem !
+
+#############################################################################
+
+
+A. Development and testing
+----------------------------
+
+A.4 Self-documentation project : add a layer between sources and bibliography (MM...)
+A.6 Examine how to use Python in the context of ABINIT (GZ)
+A.7 Develop more datatypes, and the corresponding documentation.
+
+
+B. Use of the code
+--------------------
+
+B.1 Complete bibliography file
+B.3 Provide core-hole pseudopotentials for the most used
+        elements in the periodic table
+B.4 Provide advice on cut-off energy for all existing pseudopotentials.
+        Set up a protocol for that purpose.
+B.5 Improve the classification of messages (may be
+        introduce a third class in addition to WARNING and COMMENT). 
+        For the time being, some 
+        WARNING messages should be only COMMENTS.
+B.6 Improve tools for constructing phonon densities of states 
+
+
+C. Capabilities of the code (GroundState)
+-----------------------------------------
+
+C.1 Conjugate-gradient algorithm for the relaxation of ions
+C.2 Allow to use the SCF preconditioner if spin-polarized and/or
+        if a metal (some possibilities are not allowed yet)
+        Optimize dieltcel.f routine, use inversion routine Lapack
+        and unsymmetric eigenvalue solver
+C.3 Allow a more general treatment of non-linear XC core correction.
+        Also, mkcore should be used on finer grid. GGA with finer grid.
+C.4 Exact exchange for molecule and solids
+C.5 Optimized effective potentials
+C.7 Complete the available options for FFTs
+C.8 Might code another method for handling a metal. 
+C.9 Allow for the computation of properties at the nucleus site,
+      thanks to the PAW method
+C.11 Treat Hartree energy using Jarvis, White, Godby and Payne
+     technique
+C.13 Search for transition states
+C.15 Hyperdynamics (see work by Voter)
+C.17 Layer of dipoles in the vacuum, for polar surfaces,
+       with the corresponding energy correction (FabioFinocchi+Francois).
+C.18 Car-Parrinello type dynamics
+C.21 (Improve) Frequency-dependent conductivity thanks to the Kubo-Greenwood
+      formula (already coded by VRecoules)
+C.23 Test and improve use of non-collinear magnetism
+
+
+D. Capabilities of the code (Response Functions)
+------------------------------------------------
+ 
+D.2 Optimize Response functions with GGA
+D.3 Remove other constraints placed upon response-function calculations.
+D.5 Responses with respect to alchemical perturbations 
+D.6 Time-dependent responses using the linear-response part of the code
+D.7 More 2n+1 theorem
+D.9 Implement stationary formulation of mixed derivatives.
+D.10 Better use of symmetries in RF.
+
+
+E. Capabilities of the code (Excited states)
+--------------------------------------------
+
+E.1 Make GW technique more robust, and treat symmetries correctly
+E.2 Bethe-Salpeter equation
+
+
+
+F. Speed of the code, memory usage. 
+-----------------------------------
+
+F.1 Optimize parallelisation of ground state on the bands 
+F.2 Treatment of non-local potentials in real space
+F.5 Improve the approximate atomic density available
+        for every pseudopotential. Provide a better starting
+        point for response functions. 
+F.6 Improve preconditioning of SCF cycle, especially provide
+        better default or expert system (for both ground state 
+        and response function)
+F.7 Precondition geometry search. Use previous work by GMR.
+F.9 Improved wf storage format (istwfk/=1) for RF and spin-orbit
+
+
+G. Utilities
+------------
+
+G.2 Link to the Wannier function code by Marzari
+G.4 Recode some parts of anaddb
+

@@ -1,0 +1,27 @@
+#MgO in NaCl structure : prepare the density 
+#for Bader analysis
+
+  prtden  1
+  kptopt  1
+    nkpt  2
+  tolwfr  1.0d-12
+ ngkpt  2 2 2 
+ nshiftk 4
+ shiftk  0.5 0.5 0.5
+         0.5 0.0 0.0
+         0.0 0.5 0.0
+         0.0 0.0 0.5  
+ acell   3*7.4
+ ecut 70
+ iscf 3
+ natom  2
+ nband 4   
+ nstep 40
+ ntypat  2
+ occopt 1
+ rprim   0 .5 .5  .5 0 .5  .5 .5 0
+ xred 3*0.00d0 3*0.5d0
+ typat  1 2  
+ znucl  8 12
+
+

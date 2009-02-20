@@ -1,0 +1,85 @@
+# Silicon structure
+     acell     10.263  10.263  10.263
+     rprim      0.00   0.50   0.50
+                0.50   0.00   0.50
+                0.50   0.50   0.00
+     natom      2
+      xred      0.00   0.00   0.00
+                0.25   0.25   0.25
+    ntypat      1
+     typat      1      1
+     znucl     14.00
+ symmorphi      0
+
+# Parameters common to all runs
+      ecut      6.00
+    kptopt      1
+     ngkpt      4      4      4
+     nstep    100
+    enunit      2
+
+    ndtset      5
+# Self-consistent run to get the density
+      iscf1     5
+    toldfe1     1.00d-6
+   nshiftk1     1
+    shiftk1     0.00   0.00   0.00
+    istwfk1     8*1
+
+  nbandkss1     30
+    npwkss1     89
+
+# Calculation of the static dielectric matrix
+ optdriver2     3
+ gwcalctyp2     7
+    getkss2     1
+
+     nband2    16
+    npweps2    51
+    npwwfn2    51
+
+# Calculation of the HF corrections
+ optdriver3     4
+ gwcalctyp3     5
+    getkss3     1
+    getscr3     2
+
+     nband3     5
+    nkptgw3     2
+     kptgw3     0.00   0.00   0.00
+                0.50   0.50   0.00
+      bdgw3     4      5
+                4      5
+   npwsigx3    89 
+    npwwfn3    89 
+
+# Calculation of the SEX corrections
+ optdriver4     4
+ gwcalctyp4     6
+    getkss4     1
+    getscr4     2
+
+     nband4     5
+    nkptgw4     2
+     kptgw4     0.00   0.00   0.00
+                0.50   0.50   0.00
+      bdgw4     4      5
+                4      5
+   npwsigx4    89 
+    npwwfn4    89 
+
+# Calculation of the COHSEX corrections
+ optdriver5     4
+ gwcalctyp5     7
+    getkss5     1
+    getscr5     2
+
+     nband5     5
+    nkptgw5     2
+     kptgw5     0.00   0.00   0.00
+                0.50   0.50   0.00
+      bdgw5     4      5
+                4      5
+   npwsigx5    89 
+    npwwfn5    89 
+

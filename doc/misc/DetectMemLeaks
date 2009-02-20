@@ -1,0 +1,6 @@
+(From Thierry Deutsch 040908)
+Valgrind (http://valgrind.kde.org) can be used to debug ABINIT.
+It analyzes the code running, understand the run-time errors,
+identifies memory leaks and other things....
+
+

@@ -1,0 +1,167 @@
+# ---------------------------------------------------------------------------- #
+
+# Script that generates a summary from the output of the tests series
+benchabinit = $(BOURNE_SHELL) ../../Scripts/benchabinit.sh
+
+# Perform all sequential tests, except cpu (test accuracy)
+tests_acc:
+	$(MAKE) tests_fast dirname=test
+	$(MAKE) tests_v1 dirname=test start=01 stop=make
+	$(MAKE) tests_v2 dirname=test
+	$(MAKE) tests_v3 dirname=test
+	$(MAKE) tests_v4 dirname=test start=01 stop=make
+	$(MAKE) tests_v5 dirname=test
+	$(MAKE) tests_tutorial dirname=test
+	$(MAKE) tests_tutorespfn dirname=test
+	$(MAKE) tests_bigdft dirname=test
+	$(MAKE) tests_wannier90 dirname=test
+
+# Perform all sequential tests, except cpu (test accuracy)
+# 4 threads at once. Start with the longest of test series.
+tests_acc4:
+	$(MAKE) tests_tutorial dirname=test &
+	$(MAKE) tests_tutorespfn dirname=test &
+	$(MAKE) tests_v4 dirname=test start=01 stop=make   &
+	$(MAKE) tests_fast dirname=test
+	$(MAKE) tests_v1 dirname=test start=01 stop=make
+	$(MAKE) tests_v2 dirname=test
+	$(MAKE) tests_v3 dirname=test  
+	$(MAKE) tests_v5 dirname=test 
+	$(MAKE) tests_bigdft dirname=test
+	$(MAKE) tests_wannier90 dirname=test
+
+# Perform all sequential tests, for benchmarks
+tests_bench: tests_acc
+	$(MAKE) tests_cpu dirname=test
+	cd cpu/,,test* && $(benchabinit) > summary
+	rm -rf summary_tests.tar.gz
+	tar cvf summary_tests.tar \
+	 fast/,,test*/fl* fast/,,test*/*out* \
+	 v*/,,test*/fl* v*/,,test*/*out* \
+	 tutorial/,,test*/fl* tutorial/,,test*/*out* \
+	 paral/,,test*/fl* paral/,,test*/*out* \
+	 cpu/,,test*/*/*diff* cpu/,,test*/*/*report* cpu/,,test*/summary
+	gzip --best summary_tests.tar
+
+# Minimal set of tests
+tests_min:
+	$(MAKE) tests_v1 dirname=test start=01 stop=make
+	$(MAKE) tests_v2 dirname=test  
+	$(MAKE) tests_v3 dirname=test  
+	$(MAKE) tests_v4 dirname=test start=01 stop=make
+	$(MAKE) tests_v5 dirname=test
+	$(MAKE) tests_fast dirname=test
+	$(MAKE) tests_paral paral_host=test paral_mode=seq
+
+# Minimal set of tests, 4 threads at once
+tests_min4:
+	$(MAKE) tests_v2 dirname=test &
+	$(MAKE) tests_v3 dirname=test &
+	$(MAKE) tests_v4 dirname=test start=01 stop=make &
+	$(MAKE) tests_v1 dirname=test start=01 stop=make
+	$(MAKE) tests_v5 dirname=test
+	$(MAKE) tests_fast dirname=test
+	$(MAKE) tests_paral paral_host=test paral_mode=seq
+
+# All sequential tests, except cpu and paral, using abinip
+# The proper command line has to be defined before
+# (FIXME: will definitively not work with the following coding)
+tests_abinip:
+	$(MAKE) tests_fast dirname=paral
+	$(MAKE) tests_v1 dirname=paral start=01 stop=make
+	$(MAKE) tests_v2 dirname=paral
+	$(MAKE) tests_v3 dirname=paral
+	$(MAKE) tests_v4 dirname=paral start=01 stop=make
+	$(MAKE) tests_v5 dirname=paral 
+	$(MAKE) tests_tutorial dirname=paral
+	$(MAKE) tests_tutorespfn dirname=paral
+
+# Minimal set of sequential tests, guaranteeing that a version runs correctly
+# Produces a summary file as well
+# Suitable for developers
+tests_dev:
+	$(MAKE) tests_fast dirname=test
+	$(MAKE) tests_v1 dirname=test start=01 stop=make
+	$(MAKE) tests_v2 dirname=test
+	$(MAKE) tests_v3 dirname=test
+	$(MAKE) tests_v4 dirname=test start=01 stop=make
+	$(MAKE) tests_v5 dirname=test 
+	$(MAKE) tests_paral paral_host=test paral_mode=seq
+	rm -rf summary_tests.tar.gz
+	tar cvf summary_tests.tar \
+	 fast/,,test*/*report* fast/,,test*/*out* \
+	 v*/,,test*/*report* v*/,,test*/*out* \
+	 paral/,,test*/*report* paral/,,test*/*out*
+	gzip --best summary_tests.tar
+
+# Test the speed
+tests_speed: $(tests_cpu_inps) $(psps_for_tests)
+	@if test ! -e cpu; then mkdir -p cpu; fi
+	$(run_standard_tests) test $(abinit_builddir)/src/main $(abinit_srcdir)/tests cpu A3 A3
+	$(run_standard_tests) test $(abinit_builddir)/src/main $(abinit_srcdir)/tests cpu B3 B3
+	cd cpu/,,test* && $(benchabinit) > ../../,summary_speed
+
+# Specific tests : PAW
+tests_paw:
+	rm -fr */,,paw*
+	$(MAKE) tests_v4 dirname=paw start=04 stop=08
+	cd v4/,,paw* ; mv fldiff.report fldiff_keep.report
+	$(MAKE) tests_v4 dirname=paw start=94
+	$(MAKE) tests_v5 dirname=paw start=08 stop=10
+	cd v5/,,paw* ; mv fldiff.report fldiff_keep.report
+	$(MAKE) tests_v5 dirname=paw start=16 stop=17
+	cd v5/,,paw* ; mv fldiff.report fldiff_keep.report
+	$(MAKE) tests_v5 dirname=paw start=51 stop=53
+	$(MAKE) tests_tutorial dirname=paw start=paw1_2 stop=paw1_6
+	echo
+	echo 'At present, there are 15 tests in this suite (7 minutes on a 3GHz PC)'
+	echo 'Generic tolerances : tolnlines=    1   tolabs=  1.1e-5      tolrel= 1.2e-4'
+	echo 'Case_08 tolerances : tolnlines=    9   tolabs=  2.0e-7      tolrel= 6.0e-3'
+	grep Summary */*paw*/fldiff*.report
+
+# Specific tests : GW
+tests_gw:
+	rm -fr */,,gw*
+	$(MAKE) tests_v3 dirname=gw start=30 stop=31
+	cd v3/,,gw* ; mv fldiff.report fldiff_keep.report
+	$(MAKE) tests_v3 dirname=gw start=87 stop=89
+	$(MAKE) tests_v4 dirname=gw start=84 stop=88
+	$(MAKE) tests_v5 dirname=gw start=63 stop=69
+	$(MAKE) tests_tutorial dirname=gw start=gw1_2 stop=gw1_8
+	cd tutorial/,,gw* ; mv fldiff.report fldiff_keep.report
+	$(MAKE) tests_tutorial dirname=gw start=gw2_1 stop=gw2_4
+	echo
+	echo 'At present, there are 28 tests in this suite (10 minutes on a 3GHz PC)'
+	echo 'Generic tolerances : tolnlines=   33   tolabs=  2.0e-3      tolrel= 6.0e-3'
+	echo 'Case_28 tolerances : tolnlines=   28   tolabs=  2.0e-3      tolrel= 1.2e-2'
+	grep Summary */*gw*/fldiff*.report
+
+# Specific tests : tddft
+tests_tddft:
+	rm -fr */,,tddft*
+	$(MAKE) tests_v1 dirname=tddft start=69 stop=70
+	$(MAKE) tests_v2 dirname=tddft start=42 
+	$(MAKE) tests_v3 dirname=tddft start=54 stop=55 
+	$(MAKE) tests_v5 dirname=tddft start=61 stop=62 
+	$(MAKE) tests_tutorial dirname=tddft start=tddft_1 
+	echo
+	echo 'At present, there are 7 tests in this suite (2 minutes and a half on a 3GHz PC)'
+	echo 'Generic tolerances : tolnlines=    1   tolabs=  1.1e-5      tolrel= 1.1e-4'
+	echo 'Case_55 tolerances : tolnlines=   10   tolabs=  1.0e-2      tolrel= 4.0e-1'
+	grep Summary */*tddft*/fldiff*.report
+
+# ---------------------------------------------------------------------------- #
+
+# Automatic testing (required for nightly builds)
+check-local:
+	$(MAKE) tests_in
+	$(MAKE) tests_acc
+	grep 'failed' */*/report >&2
+
+# ---------------------------------------------------------------------------- #
+
+dev help_dev:
+	@cat $(top_srcdir)/doc/help_make/help_make_tests_dev
+
+# ---------------------------------------------------------------------------- #
+

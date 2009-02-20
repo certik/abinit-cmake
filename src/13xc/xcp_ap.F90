@@ -1,0 +1,106 @@
+!{\src2tex{textfont=tt}}
+!!****f* ABINIT/xcp_ap
+!! NAME
+!! xcp_ap
+!!
+!! FUNCTION
+!! Compute electron-positron correlation potential for positron, in the zero
+!! positron density limit.
+!! Returns exc and vxc from input rhopr and rhoer for positron and electrons.
+!!
+!! NOTE
+!! Boronski and Nieminen parameterization of Arponen and Pajanne
+!! electron-positron  gas energy data--
+!! J. Arponen and E. Pajanne, Ann. Phys. (N.Y.) 121, 343 (1979).
+!! E. Boronski and R.M. Nieminen, Phys. Rev. B 34, 3820 (1986).
+!! M.J. Puska, A.P. Seitsonen, and R.M. Nieminen, Phys. Rev. B 52, 10947 (1994).
+!!
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2008 ABINIT group (GJ)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! INPUTS
+!!  npt=number of real space points on which density is provided
+!!  rhoer(npt)=electron number density (bohr^-3)
+!!  rsepts(npt)=corresponding Wigner-Seitz radii, precomputed
+!!
+!! OUTPUT
+!!  exc(npt)=exchange-correlation energy density (hartree)
+!!  vxc(npt)=xc potential (d($\rho$*exc)/d($\rho$)) (hartree)
+!!
+!! PARENTS
+!!      calc_xc_ep
+!!
+!! CHILDREN
+!!
+!! SOURCE
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+subroutine xcp_ap(exc,npt,rhoer,rsepts,vxc)
+
+ use defs_basis
+
+ implicit none
+
+!Arguments ------------------------------------
+!scalars
+ integer,intent(in) :: npt
+!arrays
+ real(dp),intent(in) :: rhoer(npt),rsepts(npt)
+ real(dp),intent(out) :: exc(npt),vxc(npt)
+
+!Local variables-------------------------------
+!Perdew-Zunger parameters a, b, b1, b2, c, d, gamma
+!scalars
+ integer :: ipt
+ real(dp),parameter :: apa=-0.6298_dp,apb=-13.15111_dp,apc=2.8655_dp
+ real(dp) :: invrse,rhoe,rse
+
+! *************************************************************************
+
+!Loop over grid points
+ do ipt=1,npt
+  rse=rsepts(ipt)
+  invrse=one/rse
+  rhoe=rhoer(ipt)
+! Consider four regimes: rse<0.302
+! 0.302<=rse<=0.56
+! 0.56<rse<=8.0
+! rse>8.0
+  if (rse<0.302_dp) then
+!  compute energy density exc (hartree)
+   exc(ipt)=half*(-1.56_dp/rse**half+(0.051_dp*log(rse)-&
+&   0.081_dp)*log(rse)+1.14_dp)
+!  compute potential vxc=d(rhop*exc)/d(rhop) (hartree)
+   vxc(ipt)=exc(ipt)
+  else if (rse>=0.302_dp .and. rse<=0.56_dp) then
+!  compute energy density exc (hartree)
+   exc(ipt)=half*(-0.92305_dp-0.05459_dp/rse**2.0_dp)
+!  compute potential vxc=d(rhop*exc)/d(rhop) (hartree)
+   vxc(ipt)=exc(ipt)
+  else if (rse>0.56_dp .and. rse<=8.0_dp) then
+!  compute energy density exc (hartree)
+   exc(ipt)=half*(apa+apb/(rse+2.5)**2.0_dp+apc/(rse+2.5))
+!  compute potential vxc=d(rhop*exc)/d(rhop) (hartree)
+   vxc(ipt)=exc(ipt)
+  else
+!  compute energy density exc (hartree)
+   exc(ipt)=half*(-179856.2768_dp*rhoe**2.0_dp+186.4207_dp*rhoe-0.524_dp)
+!  compute potential vxc=d(rhop*exc)/d(rhop) (hartree)
+   vxc(ipt)=exc(ipt)
+  end if
+
+! modif pour utiliser la meme formule que Sterne et Kaiser
+! vxc(ipt)=-1.56_dp*(datan(rse))**(-half)+ &
+! &           0.1324_dp*dexp(-(rse-4.092_dp)**(2._dp)/51.96_dp) + 0.72zero
+ end do
+!
+end subroutine xcp_ap
+!!***

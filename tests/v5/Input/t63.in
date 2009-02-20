@@ -1,0 +1,115 @@
+# Bcc Hydrogen, r_s=2.6 a.u AF
+# To check a GW+spin calculation with and without symmetries
+
+ndtset      5
+prtvol      1
+
+#DATASET 1 
+#ground state calculation and output of the KSS file 
+
+nbandkss1    20      # number of bands in kss file 
+istwfk1      4*1
+
+#DATASET 2
+#screening calculation without symmetries
+symchi2       0
+optdriver2    3
+getkss2       1
+nband2       20
+npwwfn2     179 
+npweps2      81 
+inclvkb2     0          
+
+#DATASET 3
+#sigma calculation with G-N ppmodel without symmetries
+optdriver3    4
+gwcalctyp3    0
+symsigma3     0
+ppmodel3      1    #G-N
+getkss3       1
+getscr3       2
+nband3      20
+npwwfn3     179
+npwsigx3    179
+npweps3      81  
+
+#DATASET 4
+#screening calculation with symmetries
+symchi4       1
+optdriver4    3
+getkss4       1
+nband4       20
+npwwfn4     179
+npweps4      81 
+inclvkb4     0         
+
+#DATASET 5
+#sigma calculation with G-N ppmodel with symmetries
+optdriver5    4
+gwcalctyp5    0
+symsigma5     1
+ppmodel5      1    #G-N
+getkss5       1
+getscr5       4
+
+nband5      20
+npwwfn5     179
+npwsigx5    179
+npweps5      81  
+
+#k Points for GW corrections
+nkptgw        3
+kptgw   
+       1/8  1/8  1/8
+       3/8  3/8  1/8
+       3/8  3/8  3/8
+
+bdgw   1  2 
+       1  2 
+       1  2 
+
+############################################################
+##               COMMON PART
+############################################################
+
+symmorphi    0       # use only symmorphic operations
+fftgw 11
+
+nsppol       2
+spinat       0  0  1
+             0  0 -1
+
+ecut         12      # energy cutoff [Ha] 
+nband        2       # number of (occ and empty) bands to be computed
+enunit       2       # eigenenergies in eV
+
+#Definition of the atom types
+npsp   1                
+znucl  1    
+ntypat 1            
+
+#Definition of the atoms
+natom 2         
+typat 1 1      
+
+#Definition of the k-point grid
+occopt 1           # Semiconductor
+kptopt 1           # Option for the automatic generation of k points
+ngkpt  4 4 4
+nshiftk 1
+shiftk 0.5 0.5 0.5
+
+# number of self-consistent field steps
+nstep        20
+diemac       12.0
+tolvrs       1d-9
+
+####################GEO PART##############################################
+acell   3*5.2805547473289485 Bohr
+
+rprim   1.0  0.0  0.0 
+        0.0  1.0  0.0 
+        0.0  0.0  1.0
+
+xred    0.0  0.0  0.0   
+        1/2  1/2  1/2

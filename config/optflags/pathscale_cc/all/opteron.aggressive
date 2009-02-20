@@ -1,0 +1,1 @@
+CFLAGS_OPT="-O3 -march=opteron -msse2"

@@ -1,0 +1,3 @@
+FCFLAGS_OPT="-O3"
+fcflags_opt_17ddb="-O1"
+fcflags_opt_21drive="-O1"

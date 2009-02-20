@@ -1,0 +1,324 @@
+
+.Version 5.6.3  of CUT3D 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ CUT3D comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Thu  6 Nov 2008.
+  
+
+  What is the name of the 3D function (density, potential or wavef) file ?
+  => Your 3D function file is : t31o_DS11_DEN
+
+  Does this file contain formatted 3D ASCII data (=0)  
+   or unformatted binary header + 3D data        (=1) ?
+   or ETSF binary                                (=2) ?
+  1 => Your file contains unformatted binary header + 3D data
+  The information it contains should be sufficient.
+  cut3d : read file t31o_DS11_DEN from unit number 19.
+
+ ===============================================================================
+ ECHO of the ABINIT file header 
+ 
+ First record :
+.codvsn,headform,fform = 5.6.3    56   52
+ 
+ Second record :
+ bantot,intxc,ixc,natom  =     8     0     1     1
+ ngfft(1:3),nkpt         =    27    27    27     1
+ nspden,nspinor          =     2     1
+ nsppol,nsym,npsp,ntypat =     2    48     1     1
+ occopt,pertcase,usepaw  =     2     0     0
+ ecut,ecutdg,ecutsm      =  8.0000000000E+00  8.0000000000E+00  0.0000000000E+00
+ ecut_eff                =  8.0000000000E+00
+ qptn(1:3)               =  0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+ rprimd(1:3,1)           =  1.0000000000E+01  0.0000000000E+00  0.0000000000E+00
+ rprimd(1:3,2)           =  0.0000000000E+00  1.0000000000E+01  0.0000000000E+00
+ rprimd(1:3,3)           =  0.0000000000E+00  0.0000000000E+00  1.0000000000E+01
+ stmbias,tphysel,tsmear  =  0.0000000000E+00  0.0000000000E+00  4.0000000000E-02
+
+ Third record :
+ istwfk=   2
+ nband =   4   4
+ npwarr=  523
+ so_psp=   0
+ symafm=
+          1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+          1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+ symrel=
+           1   0   0   0   1   0   0   0   1    -1   0   0   0  -1   0   0   0  -1
+          -1   0   0   0   1   0   0   0  -1     1   0   0   0  -1   0   0   0   1
+          -1   0   0   0  -1   0   0   0   1     1   0   0   0   1   0   0   0  -1
+           1   0   0   0  -1   0   0   0  -1    -1   0   0   0   1   0   0   0   1
+           0   1   0   1   0   0   0   0   1     0  -1   0  -1   0   0   0   0  -1
+           0  -1   0   1   0   0   0   0  -1     0   1   0  -1   0   0   0   0   1
+           0  -1   0  -1   0   0   0   0   1     0   1   0   1   0   0   0   0  -1
+           0   1   0  -1   0   0   0   0  -1     0  -1   0   1   0   0   0   0   1
+           0   0   1   1   0   0   0   1   0     0   0  -1  -1   0   0   0  -1   0
+           0   0  -1   1   0   0   0  -1   0     0   0   1  -1   0   0   0   1   0
+           0   0  -1  -1   0   0   0   1   0     0   0   1   1   0   0   0  -1   0
+           0   0   1  -1   0   0   0  -1   0     0   0  -1   1   0   0   0   1   0
+           1   0   0   0   0   1   0   1   0    -1   0   0   0   0  -1   0  -1   0
+          -1   0   0   0   0   1   0  -1   0     1   0   0   0   0  -1   0   1   0
+          -1   0   0   0   0  -1   0   1   0     1   0   0   0   0   1   0  -1   0
+           1   0   0   0   0  -1   0  -1   0    -1   0   0   0   0   1   0   1   0
+           0   1   0   0   0   1   1   0   0     0  -1   0   0   0  -1  -1   0   0
+           0  -1   0   0   0   1  -1   0   0     0   1   0   0   0  -1   1   0   0
+           0  -1   0   0   0  -1   1   0   0     0   1   0   0   0   1  -1   0   0
+           0   1   0   0   0  -1  -1   0   0     0  -1   0   0   0   1   1   0   0
+           0   0   1   0   1   0   1   0   0     0   0  -1   0  -1   0  -1   0   0
+           0   0  -1   0   1   0  -1   0   0     0   0   1   0  -1   0   1   0   0
+           0   0  -1   0  -1   0   1   0   0     0   0   1   0   1   0  -1   0   0
+           0   0   1   0  -1   0  -1   0   0     0   0  -1   0   1   0   1   0   0
+ type  =   1
+ kptns =                 (max 50 k-points will be written)
+            0.000000E+00    0.000000E+00    0.000000E+00
+ wtk =
+          1.00
+   occ =
+          1.00  1.00  1.00  1.00  1.00  0.00  0.00  0.00
+ tnons =
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+          0.000000  0.000000  0.000000    0.000000  0.000000  0.000000
+  znucl= 83.00
+
+ Pseudopotential info :
+ title=Hartwigsen-Goedecker-Hutter psp for Bismuth,  from PRB58, 3641 (1998) paper
+  znuclpsp= 83.00, zionpsp=  5.00, pspso=  0, pspdat=980509, pspcod=  3, pspxc=  1
+  lmnmax  =  9
+ 
+ Last record :
+ residm,etot,fermie=    1.539322E-13   -5.466896164637E+00   -1.232758E-01
+ xred =
+            0.000000E+00    0.000000E+00    0.000000E+00
+ End the ECHO of the ABINIT file header 
+ ===============================================================================
+ 
+ * This file contains more than one spin component,
+  (indeed, nspden=  2 )
+  Some of the tasks that you will define later will concern all spin components.
+  Others tasks might require you to have chosen among the following :
+   ispden= 0 ==> Total density
+   ispden= 1 ==> spin-up density
+   ispden= 2 ==> spin-down density
+   ispden= 3 ==> spin-polarization (or magnetization) density
+                 spin up - spin down difference.
+   Please define ispden :
+ You entered ispden=  2
+
+ ===========================================================
+
+ ECHO important input variables ...
+
+  Dimensional primitive vectors (ABINIT equivalent : rprimd):
+    1.000000E+01    0.000000E+00    0.000000E+00
+    0.000000E+00    1.000000E+01    0.000000E+00
+    0.000000E+00    0.000000E+00    1.000000E+01
+  Grid density (ABINIT equivalent : ngfft):    27   27   27
+  Number of atoms       :           1
+  Number of atomic types:           1
+
+   #    Atomic positions (cartesian coordinates - Bohr)
+   1    0.000000E+00    0.000000E+00    0.000000E+00
+
+  This file is a Density or Potential file 
+
+  3D function was read. Ready for further treatment.
+
+ ===========================================================
+
+  What is your choice ? Type:
+   0 => exit
+   1 => point  (interpolation of data for a single point)
+   2 => line   (interpolation of data along a line)
+   3 => plane  (interpolation of data in a plane)
+   4 => volume (interpolation of data in a volume)
+   5 => 3D formatted data (output the bare 3D data - one column)
+   6 => 3D indexed data (bare 3D data, preceeded by 3D index)
+   7 => 3D Molekel formatted data 
+   8 => 3D data with coordinates (tecplot ASCII format)
+   9 => output .xsf file for XCrysDen
+  10 => output .dx file for OpenDx
+  11 => compute atomic charge using the Hirshfeld method
+  12 => NetCDF file
+  14 => Gaussian/cube wavefunction module
+
+ Your choice is  2
+
+  Type 1) for a line between two cartesian-defined points
+    or 2) for a line between two crystallographic-defined points 
+    or 3) for a line defined by its direction in cartesion coordinates
+    or 4) for a line defined by its direction in crystallographic coordinates
+  You typed            2 
+
+  Type the first point coordinates (fractional):
+     -> X-dir   Y-dir   Z-dir:
+ You typed    -5.000000E-01    0.000000E+00    0.000000E+00
+
+  Type the second point coordinates (fractional):
+     -> X-dir   Y-dir   Z-dir:
+ You typed     1.000000E+00    0.000000E+00    0.000000E+00
+
+
+ Crystallographic coordinates of the first point  :   -5.000000E-01    0.000000E+00    0.000000E+00
+ Crystallographic coordinates of the second point :    1.000000E+00    0.000000E+00    0.000000E+00
+
+   Enter line resolution:   (integer, number of points on the line)
+  You typed          15 
+
+ 
+  Enter the name of an output file:
+   The name of your file is : t32.outlin
+
+  Index of point   non-spin-polarized   spin up       spin down     difference 
+            0    2.542529239552E-04    1.371013686722E-04    1.171515552829E-04    1.994981338931E-05
+            1    2.207721156962E-03    1.910146801906E-03    2.975743550557E-04    1.612572446851E-03
+            2    1.305974363991E-02    1.105748810734E-02    2.002255532572E-03    9.055232574771E-03
+            3    4.519913414122E-02    3.354937811207E-02    1.164975602916E-02    2.189962208291E-02
+            4    2.503128647504E-02    1.563658373147E-02    9.394702743576E-03    6.241880987891E-03
+            5    8.614342045428E-05    4.964513686600E-05    3.649828358828E-05    1.314685327773E-05
+            6    2.503128210709E-02    1.563658092354E-02    9.394701183545E-03    6.241879739998E-03
+            7    4.519913668197E-02    3.354937958737E-02    1.164975709460E-02    2.189962249277E-02
+            8    1.305974486342E-02    1.105748911169E-02    2.002255751726E-03    9.055233359967E-03
+            9    2.207721586274E-03    1.910147182024E-03    2.975744042500E-04    1.612572777774E-03
+           10    2.542529239552E-04    1.371013686722E-04    1.171515552829E-04    1.994981338931E-05
+           11    2.207721156962E-03    1.910146801906E-03    2.975743550558E-04    1.612572446851E-03
+           12    1.305974363991E-02    1.105748810734E-02    2.002255532572E-03    9.055232574771E-03
+           13    4.519913414122E-02    3.354937811207E-02    1.164975602916E-02    2.189962208291E-02
+           14    2.503128647504E-02    1.563658373147E-02    9.394702743576E-03    6.241880987891E-03
+           15    8.614342045428E-05    4.964513686600E-05    3.649828358828E-05    1.314685327773E-05
+  Task            2  has been done !
+
+  More analysis of the 3D file ? (1=default=yes,0=no)
+  What is your choice ? Type:
+   0 => exit
+   1 => point  (interpolation of data for a single point)
+   2 => line   (interpolation of data along a line)
+   3 => plane  (interpolation of data in a plane)
+   4 => volume (interpolation of data in a volume)
+   5 => 3D formatted data (output the bare 3D data - one column)
+   6 => 3D indexed data (bare 3D data, preceeded by 3D index)
+   7 => 3D Molekel formatted data 
+   8 => 3D data with coordinates (tecplot ASCII format)
+   9 => output .xsf file for XCrysDen
+  10 => output .dx file for OpenDx
+  11 => compute atomic charge using the Hirshfeld method
+  12 => NetCDF file
+  14 => Gaussian/cube wavefunction module
+
+ Your choice is  5
+
+ 
+  Enter the name of an output file:
+   The name of your file is : t32.outden
+  Task            5  has been done !
+
+  More analysis of the 3D file ? (1=default=yes,0=no)
+  What is your choice ? Type:
+   0 => exit
+   1 => point  (interpolation of data for a single point)
+   2 => line   (interpolation of data along a line)
+   3 => plane  (interpolation of data in a plane)
+   4 => volume (interpolation of data in a volume)
+   5 => 3D formatted data (output the bare 3D data - one column)
+   6 => 3D indexed data (bare 3D data, preceeded by 3D index)
+   7 => 3D Molekel formatted data 
+   8 => 3D data with coordinates (tecplot ASCII format)
+   9 => output .xsf file for XCrysDen
+  10 => output .dx file for OpenDx
+  11 => compute atomic charge using the Hirshfeld method
+  12 => NetCDF file
+  14 => Gaussian/cube wavefunction module
+
+ Your choice is  1
+
+  Select the coordinate system:
+  Type 1) for cartesian coordinates
+   or 2) for crystallographic coordinates
+  Input point Cartesian Coord:  X  Y  Z
+ Crystallographic coordinates:     0.000000E+00    0.000000E+00    0.000000E+00
+ X coordinate, r1 is:    0.000000E+00
+ Y coordinate, r2 is:    0.000000E+00
+ Z coordinate, r3 is:    0.000000E+00
+
+ ---------------------------------------------
+ Non-spin-polarized value=     8.614342E-05
+ Spin-up value           =     4.964514E-05
+ Spin-down value         =     3.649828E-05
+ Spin difference value   =     1.314685E-05
+ ---------------------------------------------
+  Task            1  has been done !
+
+  More analysis of the 3D file ? (1=default=yes,0=no)
+  What is your choice ? Type:
+   0 => exit
+   1 => point  (interpolation of data for a single point)
+   2 => line   (interpolation of data along a line)
+   3 => plane  (interpolation of data in a plane)
+   4 => volume (interpolation of data in a volume)
+   5 => 3D formatted data (output the bare 3D data - one column)
+   6 => 3D indexed data (bare 3D data, preceeded by 3D index)
+   7 => 3D Molekel formatted data 
+   8 => 3D data with coordinates (tecplot ASCII format)
+   9 => output .xsf file for XCrysDen
+  10 => output .dx file for OpenDx
+  11 => compute atomic charge using the Hirshfeld method
+  12 => NetCDF file
+  14 => Gaussian/cube wavefunction module
+
+ Your choice is  1
+
+  Select the coordinate system:
+  Type 1) for cartesian coordinates
+   or 2) for crystallographic coordinates
+  Input point Crystallographic Coord:  X  Y  Z
+  Cartesian coordinates : 
+    2.500000E+00    2.500000E+00    2.500000E+00
+ X coordinate, r1 is:    2.500000E-01
+ Y coordinate, r2 is:    2.500000E-01
+ Z coordinate, r3 is:    2.500000E-01
+
+ ---------------------------------------------
+ Non-spin-polarized value=     2.057471E-03
+ Spin-up value           =     1.930193E-03
+ Spin-down value         =     1.272777E-04
+ Spin difference value   =     1.802916E-03
+ ---------------------------------------------
+  Task            1  has been done !
+
+  More analysis of the 3D file ? (1=default=yes,0=no)
+
+  Thank you for using me
+

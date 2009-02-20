@@ -1,0 +1,185 @@
+# Title:
+Suite v2 of various tests of abinit, mrgddb, and anaddb
+# This suite of tests complements the tests in the
+#  Test_fast and Test_v1 directories.
+# It is designed to test the features introduced in the development
+# of the version 2 of the ABINIT code.
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of 
+# these lines is:	testID [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	exercise the sequential version of abinis
+#	ana | anaddb	exercise anaddb
+#	cut3d		exercise cut3d
+#	mrg | mrgddb	exercise mrgddb
+#	newsp		exercise newsp
+#
+#   parameters for copy and erase are file or directory names
+#
+#   parameters for mrgddb must comply to the following format:
+#	[fn1] 'short description' (fn2 fn3 ... fnLast)
+#   fn2 ... fnLast can reside in the Test directory as normal or g-zipped files
+# they will be copied, and unzipped if necessary, to the working directory
+# before the test and the copy will be deleted after
+#
+#   parameters for the other programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-logout  log to .out file and apply diff/fldiff to it
+#	-DOS	apply diff/fldiff to the o_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#     -keepfn4
+# default options to call fldiff are: -ignore -ignoreP 
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+# 1) mrg/mrgddb
+# fn1 = tNNN.ddb.out
+# 2) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6-fn9, psp1-psp4 = none
+# 3) newsp
+# fn1-fn2 = none
+# fn3 = tNNNo_WFK
+# 4) ana/anaddb
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 = tNNN.ddb.in
+#   fn3 can reside in the Test directory as a normal or g-zipped file
+# it will be copied, and unzipped if necessary, to the working directory before
+# the test and the copy will be deleted after
+# fn4 = tNNN.md
+# 5) cut3d
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+#
+01 seq psp1=32ge.SJ_mod
+02 seq psp1=32ge.SJ_mod
+03 seq fn3=t02o psp1=32ge.SJ_mod
+04 seq psp1=14si.Hamann_mod
+05 seq psp1=14si.Hamann_mod
+# In some cases, change the default tolerance from 1.0d-10 to 1.0d-8
+06 seq psp1=14si.Hamann_mod opt=-medium
+07 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod opt=-medium
+08 seq psp1=14si.Doug_mod
+09 seq psp1=32ge.SJ_mod
+10 seq psp1=32ge.SJ_mod
+11 seq psp1=13al.981214.fhi
+12 seq psp1=2he_ca_30t.psp
+13 anaddb
+14 mrgddb desc='DDB for Quartz, 30.0Ha, 1SP in the IBZ, 022092. Gamma, 0 0 1/4, 1/2 0 1/4.' files=t14.ddb.gamma.in,t14.ddb.0.0.25.in,t14.ddb.5.0.25.in
+15 anaddb fn3=t14.ddb.out
+16 anaddb
+17 anaddb fn3=t16.ddb.in
+18 anaddb
+19 anaddb fn3=t18.ddb.in
+20 anaddb fn3=t18.ddb.in
+21 anaddb fn3=t18.ddb.in
+22 anaddb
+23 mrgddb desc='DDB for BaTiO3-cubic, a=7.5589, 45Ha, 10SP IBZ, SCI=0. (G and X only)' files=t23.ddb.Ba.G.in,t23.ddb.Ti.G.in,t23.ddb.O1.G.in,t23.ddb.O2.G.in,t23.ddb.Ef.G.in,t23.ddb.Bax.X.in,t23.ddb.Baz.X.in,t23.ddb.O1x.X.in,t23.ddb.O1y.X.in,t23.ddb.O1z.X.in,t23.ddb.O2x.X.in,t23.ddb.O2z.X.in,t23.ddb.Tix.X.in,t23.ddb.Tiz.X.in
+24 anaddb fn3=t23.ddb.out
+25 anaddb
+26 seq psp1=13al.981214.fhi
+27 mrgddb desc='DDB for Al, 4.0Ha, 10SP in the IBZ. For testing purposes only.' files=t26o_DS4_DDB,t26o_DS5_DDB,t26o_DS7_DDB,t26o_DS9_DDB,t26o_DS11_DDB,t26o_DS13_DDB
+28 anaddb fn3=t27.ddb.out
+29 anaddb
+30 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod opt=-medium
+31 mrgddb desc='DDB for GaAs, 2.0Ha, 2SP in the IBZ. For testing purposes only.' files=t30o_DS4_DDB,t30o_DS6_DDB,t30o_DS8_DDB
+32 anaddb fn3=t31.ddb.out
+33 seq psp1=1h.pspnc
+34 seq psp1=1h.pspnc
+35 seq psp1=13al.981214.fhi
+36 seq psp1=13al.981214.fhi opt=-medium
+37 seq psp1=12mg.psphgh psp2=8o.psphgh opt=-easy
+38 seq psp1=12mg.pspnc psp2=8o.pspnc opt=-medium
+39 anaddb
+40 seq psp1=8o.pspnc
+41 seq psp1=8o.pspnc
+42 seq psp1=2he.psphgh psp2=1h.psphgh opt=-medium
+43 seq psp1=42mo.pspnc
+44 seq psp1=33as.SGS_mod opt=-medium
+45 seq psp1=13al.981214.fhi
+46 seq psp1=13al.981214.fhi
+47 seq psp1=14si.Hamann_mod
+48 seq psp1=1h.pspnc opt=-easy
+49 seq psp1=14si.pspnc
+50 seq psp1=8o.pspnc
+51 seq psp1=8o.pspnc
+52 seq psp1=12mg.pspnc
+53 seq psp1=12mg.pspnc psp2=14si.pspnc
+54 seq psp1=12mg.pspnc
+55 seq psp1=12mg.pspnc
+56 seq psp1=24cr.000107.fhi
+57 seq psp1=2he_ca_30t.psp
+58 seq psp1=1h.pspnc
+59 seq psp1=13al.981214.fhi
+60 seq psp1=13al.981214.fhi
+61 seq psp1=12mg.pspnc
+62 seq psp1=12mg.pspnc
+63 seq psp1=12mg.pspnc
+64 seq psp1=12mg.pspnc
+65 seq psp1=12mg.pspnc
+66 seq psp1=12mg.pspnc
+67 seq psp1=12mg.pspnc
+68 seq psp1=12mg.pspnc
+69 seq psp1=12mg.pspnc
+70 seq psp1=12mg.pspnc
+71 seq psp1=12mg.pspnc
+72 seq psp1=12mg.pspnc
+73 seq psp1=12mg.pspnc
+74 seq psp1=50sn.psphgh
+75 seq psp1=83bi.psphgh opt=-medium
+76 seq psp1=14si.pspnc
+# Cases 77,79,80: exercise cut3d in the case of an unformatted file
+77 cut3d
+# Case 78: exercise cut3d in the case of a formatted file
+78 cut3d fn3=t78.cut.in fn4=t78.xyz.in
+79 cut3d
+80 cut3d opt=-logout
+81 seq psp1=7n.pspnc
+82 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod
+83 seq psp1=28ni.pspnc
+84 seq psp1=73ta.hgh
+85 seq psp1=73ta.hghsc
+86 seq psp1=73ta.tm_so
+87 seq psp1=32ge_lda.fhi
+88 seq psp1=32ge_lda.fhi
+90 seq psp1=01h.pspgth
+91 seq psp1=01h.pspgth opt=-medium
+92 seq psp1=3li.pspnc
+93 seq psp1=3li.pspnc opt=-medium
+94 seq psp1=28ni.pspnc opt=-easy
+95 seq psp1=28ni.pspnc
+96 seq psp1=3li.pspnc opt=-medium
+97 seq psp1=3li.pspnc
+98 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod
+99 seq psp1=41nb.pspfhi opt=-medium
+make report

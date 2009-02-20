@@ -1,0 +1,19 @@
+!!****d* ABINIT/_lib00numeric_
+!!
+!! NAME
+!!  _lib00numeric_
+!!
+!! DESCRIPTIONS
+!!  This directory contains some numerical routines.
+!!
+!! COPYRIGHT
+!! Copyright (C) 2007-2008 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!!
+!! WARNING
+!!  Some routines, zgedi, zgefa, using complex are the interfaces changed for abinit, 
+!!  because intentionally, developers do not use the correct type of arguments
+!!
+!!***

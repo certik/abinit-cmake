@@ -1,0 +1,45 @@
+# Al normal fcc structure for test of metal strain perturbation
+
+ ndtset   2
+
+# Set 1 : initial self-consistency
+
+  iscf1   5
+kptopt1   1
+tolvrs1   1.0d-18
+
+# Set 2 : response-function strain calculation
+
+getwfk2   -1
+  iscf2   5
+kptopt2   2
+  nqpt2   1
+   qpt2   0  0  0
+ rfdir2   1  0  0
+rfstrs2   3
+tolvrs2   1.0d-12
+
+# common input data
+
+  acell   3*7.60
+   ecut   6.0
+ ecutsm   0.0
+  natom   1
+  nband   8
+  ngkpt   2 2 2
+nshiftk   4
+  nstep   50
+ ntypat   1
+ occopt   3
+ prtvol   10
+  rprim   0.0  0.5  0.5
+          0.5  0.0  0.5
+          0.5  0.5  0.0
+ shiftk   0.0 0.0 0.5
+          0.0 0.5 0.0
+          0.5 0.0 0.0
+          0.5 0.5 0.5
+ tsmear   0.04
+  typat   1
+   xred   0.0  0.0  0.0
+ znucl    13

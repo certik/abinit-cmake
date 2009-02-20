@@ -1,0 +1,180 @@
+#input for bulk Si in the diamond structure.
+
+#Number of atoms, chemical species and atom types
+
+natom   2                          # Number of atoms in the unit cell
+ntypat  1                          # Number of types of atoms 
+znucl   14                         # Charge Z that characterises 
+                                   # the atomic number
+typat 1 1                          # Type of atoms
+
+#Coordinates and cell variables
+
+acell    10.261212169      10.261212169    10.261212169
+rprim   0.0     0.5     0.5 
+        0.5     0.0     0.5
+        0.5     0.5     0.0
+
+
+xred  0.000  0.000 0.000
+      0.250  0.250 0.250
+
+#Geometry builder + symmetry related input variables 
+
+natrd   2                          # Number of atoms read
+#spgroup 123                        # Space group number.
+                                   # This option can be used to obtain all 
+                                   # the atoms in the unit cell, 
+                                   # starting from the assymetric unit cell.  
+
+#Structural relaxation variables.
+
+natfix  2                          # Number of atoms that are fixed
+iatfix  1 2                        # Indices of atoms that are fixed 
+optcell 1                          # Optimize the cell shape and dimensions:
+                                   # 0 = modify nuclear positions
+                                   # 1 = optimisation of volume only
+                                   # 2 = full optimization of cell geometry
+                                   # 3 = constant-volume optimization of cell 
+                                   # 4 = optimize acell(1)
+                                   # 5 = optimize acell(2)
+                                   # 6 = optimize acell(3)
+                                   # 7 = optimize the cell geometry 
+                                   #     while keeping the first vector unchang.
+dilatmx 1.1                        # Maximal permitted scaling 
+                                   # of the lattice parameters
+
+#PlaneWave cutoff and k-grid mesh integration 
+
+ecut    4                          # Energy cutoff (Ha)
+ecutsm  1                          # Energy cutoff smearing (Ha)
+nband   10                         # Number of bands
+kptopt  1                          # Kpoints option
+                                   # 0 = read directly nkpt, kpt, kptnrm and wtk
+                                   # 1 = rely on ngkpt or kptrlatt, as well as 
+                                   #     on nshiftk and shiftk to set up 
+                                   #     the k points.
+                                   #     Full symmetry taken into account.   
+                                   # 2 = 1, but only time reversal symmetry
+                                   #     is taken into account. 
+                                   # 3 = 1, but do not take into account 
+                                   #     any symmetry
+                                   # A negative value = rely on kptbounds, 
+                                   #     and ndivk to set up a band structure 
+                                   #     calculation along different lines
+ngkpt   4 4 4                      # Number of grid points for k points 
+                                   #     generation
+shiftk  0.5 0.5 0.5                # Shift for k points 
+mkmem   0                          # Maximum number of k - points in memory
+                                  
+#Exchange-correlation
+
+ixc     2                          # Integer for exchange-correlation choice
+                                   # 0 = No xc
+                                   # 1 = LDA or LSD, Teter Pade parametrization
+                                   # 2 = LDA, Perdew-Zunger-Ceperley-Alder
+                                   # 3 = LDA, old Teter rational polynomial 
+                                   #     parametrization, fit to Ceperley-Alder
+                                   #     data (no spin-polarization: no sp)
+                                   # 4 = LDA, Wigner functional (no sp)
+                                   # 5 = LDA, Hedin-Lundqvist functional (no sp)
+                                   # 6 = LDA, "X-alpha" functional (no sp)
+                                   # 7 = LDA or LSD, Perdew-Wang 92 functional
+                                   # 8 = LDA or LSD, x-only part of the PW 92
+                                   # 9 = LDA or LSD, x- and RPA part of the PW92
+                                   # 10= GGA, Perdew-Burke-Ernzerhof
+
+#Convergence parameters
+
+iscf    5                          # Integer for self-consistent-field cycles
+                                   # 1 = get the largest eigenvalue 
+                                   #     of the SCF cycle
+                                   # 2 = SCF cycle, simple mixing
+                                   # 3 = SCF cycle, anderson mixing
+                                   # 5 = SCF cycle, CG based on the minim. 
+                                   #     of the energy
+                                   # -2= non-self-consistent calculation is 
+                                   #     to be done. An electron density rho(r)
+                                   #     on a real space grid will be read.
+nstep   50                         # Max number of SCF cycles
+toldfe  1.0d-10                    # Tolerance on the difference of 
+                                   #     total energy (Ha)
+tolmxf  1.0d-05                    # Tolerance on the maximal force (Ha/bohr)
+diemac  1.2d01                     # Model dielectric macroscopic constant
+                                   # 1 = simple mixing
+                                   # A very large value (typically 10^6) 
+                                   #     will damp all the long wavelength
+                                   #     components of the potential. METALS
+                                   # For silicon, use 12.0  
+
+#Dynamical variables
+
+ionmov  2                          # Ionic moves
+                                   # 0 = do not move ions
+                                   # 1 = move atoms using molecular dynamics 
+                                   #     with optional viscous damping
+                                   # 2 = conduct structural optimization using 
+                                   #     the Broyden-Fletcher-Goldfarb-Shanno 
+                                   #     minimization (BFGS)
+                                   # 3 = 2 + take into account the total energy
+                                   #     as well as the gradients 
+                                   # 4 = conjugate gradient algorithm for 
+                                   #     simultaneous optimization of 
+                                   #     potential and ionic degrees of freedom.
+                                   # 5 = Simple relaxation of ionic positions 
+                                   #     according to (converged) forces
+                                   # 6 = Verlet algorithm
+                                   # 7 = Quenched Molecular dynamics using 
+                                   #     the Verlet algorithm
+                                   # 8 = Nose-Hoover thermostat, using 
+                                   #     the Verlet algorithm.
+                                   # 9 = Langevin molecular dynamics
+ntime   0                         # Max number of Broyden step
+
+
+
+#Restart options
+ 
+#restartxf 0                        # The code will take in consideration
+#                                   #      the whole history
+#irdwfk    1                        # Integer that governs the reading
+#                                   #     of _WFK files 
+#                                   # 1 = read ground state k -wavefunctions 
+#                                   #     from a disk file appended with _WFK, 
+#                                   #     produced in a previous ground state 
+#                                   #     calculation.
+#getwfk    -1                       # GET the wavefunctions from _WFK file 
+#                                   # 0 = no use of previously computed output 
+#                                   #     wavefunction file.
+#                                   # -1= the output wf file with _WFK of 
+#                                   #     the previous dataset must be taken, 
+#                                   #     which is a frequently occuring case. 
+#                                   # positive = its value gives the index of 
+#                                   #            the dataset for which the output
+#                                   #            wavefunction file appended 
+#                                   #            with _WFK must be used. 
+#                                   # negative = it indicates the number of 
+#                                   #            datasets to go backward to 
+#                                   #            find the needed wavefunction 
+#                                   #            file.
+#
+##Output options
+#
+prtden     0                       # Print the density
+prtpot     0                       # Print the total (Kohn-Sham) potential
+prtvha     0                       # Print the Hartree potential
+prtvhxc    0                       # Print the sum of Hartree potential and xc 
+prtvxc     0                       # Print the xc potential
+prt1dm     0                       # Print 1-dimensional potential and density
+
+
+#isecur 2
+
+
+
+
+
+
+
+
+

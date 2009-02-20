@@ -1,0 +1,5 @@
+
+This directory, ~abinit/tests/tutorial, provides the files needed
+for the ABINIT tutorial. Related explanations can be found in 
+~abinit/doc/tutorial, in particular within the welcome.html file.
+

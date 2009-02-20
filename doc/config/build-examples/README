@@ -1,0 +1,13 @@
+Building ABINIT - Examples of configuration files
+=================================================
+
+Naming convention
+-----------------
+
+The example files are named after the following convention:
+
+<architecture>-<operating system>-<C compiler>-<C++ compiler>-<Fortran compiler>_<hostname>.ac
+
+They correspond to the configurations which have been tested before the
+release of the current version of ABINIT.
+

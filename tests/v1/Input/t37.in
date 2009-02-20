@@ -1,0 +1,33 @@
+#   Al in Box : fhi pseudopotential
+
+ acell  3*12    ecut 13.5
+ diemac 1.0d0
+ diemix 1.0d0
+ enunit 2  
+ intxc 1
+ ixc 7
+ kpt   3*0.25   kptnrm 1
+ natom  1 nband 4
+ nkpt  1
+ nline 3  nstep 8
+ nsym  8  ntypat 1
+ occopt 0 occ 1*2.0d0 3*0.33333333333333d0 
+ rprim  1 0 0 0 1 0 0 0 1 
+ symrel
+       1  0  0    0  1  0    0  0  1    
+      -1  0  0    0  1  0    0  0  1    
+       1  0  0    0 -1  0    0  0  1    
+      -1  0  0    0 -1  0    0  0  1    
+       1  0  0    0  1  0    0  0 -1    
+      -1  0  0    0  1  0    0  0 -1    
+       1  0  0    0 -1  0    0  0 -1    
+      -1  0  0    0 -1  0    0  0 -1    
+ tnons  24*0d0
+ tolwfr 1.0d-16
+ typat  1  
+ wtk   1 
+ xred  0.0 0.0 0.0
+ znucl 13
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

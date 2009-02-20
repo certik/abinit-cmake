@@ -1,0 +1,1 @@
+CXXFLAGS_OPT="-O2 -qarch=auto -qtune=auto -qstrict -qspill=2000 -qessl"

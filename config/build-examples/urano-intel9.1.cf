@@ -1,0 +1,7 @@
+filename		itanium2-intel9.1_urano.ac
+enable_mpi		yes
+with_mpi_cc_libs	-lmpi
+with_mpi_cxx_libs	-lmpi++ -lmpi
+with_mpi_fc_libs	-lmpi
+enable_netcdf		no
+enable_etsf_io		no

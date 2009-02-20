@@ -1,0 +1,210 @@
+# -*- Python -*-
+#
+# Copyright (c) 2006-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Config file for the options of the "configure" script
+#
+# Note: The following statements must be readable by Python scripts
+#
+
+#
+# Configure's --enable-* arguments
+#
+# Syntax: [ arg_name, help_string, default_value, allowed_values_list ]
+#
+ac_args_enable = [
+ ["64bit-flags","Use 64-bit flags (see documentation)","no",
+  None],
+ ["all-plugins","Activate support for all plug-ins (EXPERIMENTAL)","",
+  None],
+ ["bigdft","Activate internal support for BigDFT","yes",
+  None],
+ ["bindings","Activate support for bindings","no",
+  None],
+ ["cclock","Use C clock for timings","no",
+  None],
+ ["config-file","Read options from config files","yes",
+  None],
+ ["debug","Turn-on debug mode","symbols",
+  "yes no symbols"],
+ ["error-handlers","Activate error handlers","no",
+  None],
+ ["etsf-io","Activate support for ETSF I/O","yes",
+  None],
+ ["etsf-xc","Activate support for ETSF XC","no",
+  None],
+ ["fc-wrapper","Wrap Fortran compiler calls","no",
+  None],
+ ["fftw","Enable use of the FFTW library - developers only","no",
+  None],
+ ["fftw-threads","Enable use of the threaded FFTW library - developers only","no",
+  None],
+ ["fox","Activate support for FoX","no",
+  None],
+ ["gw-dpc","Enable double-precision GW calculations","no",
+  None],
+ ["mpi","Enable MPI support",None,
+  "yes no manual native"],
+ ["mpi-io","Enable MPI I/O (under development)","no",
+  None],
+ ["mpi-trace","Enable MPI time tracing","no",
+  None],
+ ["netcdf","Activate support for NetCDF","yes",
+  None],
+ ["nightly","Activate nightly build support","no",
+  None],
+ ["optlevel","Set optimisation level","standard",
+  "safe standard aggressive"],
+ ["scalapack","Use ScaLAPACK for parallel linear algebra operations","no",
+  None],
+ ["stdin","Tell ABINIT to read file lists from standard input","yes",
+  None],
+ ["tricks","See ~abinit/doc/config/build-config.ac for information","yes",
+  "yes no fc-only no-ar opt-only"],
+ ["wannier90","Activate support for Wannier90","yes",
+  None],
+ ["xmlf90","Activate support for XMLF90","no",
+  None],
+]
+
+#
+# Configure's --with-* arguments
+#
+# Syntax: [ arg_name, help_string, default_value, allowed_values_list ]
+#
+ac_args_with = [
+ ["64bit-flags","Specify 64-bit flags (see documentation)",None,
+  "ar cpp cc cxx fc"],
+ ["ar-optflags","Set optimization of archives",None,
+  None],
+ ["bigdft-includes","Include parameters for BigDFT support",None,
+  "@includes"],
+ ["bigdft-libs","BigDFT libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["config-file","Specify config file to read options from",None,
+  None],
+ ["cc-ld-optflags","Prepend optflags when calling the C linker",None,
+  None],
+ ["cc-ld-optlibs","Append libraries when calling the C linker",None,
+  None],
+ ["cc-optflags","Set optimization of C routines",None,
+  None],
+ ["cpp-optflags","Set preprocessing options for optimisation",None,
+  None],
+ ["cxx-ld-optflags","Prepend optflags when calling the C++ linker",None,
+  None],
+ ["cxx-ld-optlibs","Append libraries when calling the C++ linker",None,
+  None],
+ ["cxx-optflags","Set optimization of C++ routines",None,
+  None],
+ ["etsf-io-includes","Include parameters for ETSF I/O support",None,
+  "@includes"],
+ ["etsf-io-libs","ETSF I/O libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["etsf-xc-includes","Include parameters for ETSF XC support",None,
+  "@includes"],
+ ["etsf-xc-libs","ETSF XC libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["fc-ld-optflags","Prepend optflags when calling the Fortran linker",None,
+  None],
+ ["fc-ld-optlibs","Append libraries when calling the Fortran linker",None,
+  None],
+ ["fc-vendor","Fortran compiler vendor name to use when installing modules",None,
+  None],
+ ["fc-optflags","Set optimization of Fortran routines",None,
+  None],
+ ["fftw-includes","Include parameters for the FFTW libraries",None,
+  "@includes"],
+ ["fftw-libs","FFTW libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["fox-includes","Include parameters for FoX support",None,
+  "@includes"],
+ ["fox-libs","FoX libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["linalg-includes","Include parameters for the linear algebra libraries (BLAS+LAPACK)",None,
+  "@includes"],
+ ["linalg-libs","Linear algebra libraries (BLAS+LAPACK) to link with",None,
+  "@libs"],
+ ["linalg-type","See ~abinit/doc/config/build-config.ac for information",None,
+  "@linalg"],
+ ["mpi-cppflags","MPI preprocessing options for parallel code",None,
+  None],
+ ["mpi-cflags","MPI compile options for C parallel code",None,
+  None],
+ ["mpi-cc-ldflags","MPI link options for C parallel code",None,
+  None],
+ ["mpi-cc-libs","MPI libraries required to link C parallel code",None,
+  "@libs"],
+ ["mpi-cxxflags","MPI compile options for C++ parallel code",None,
+  None],
+ ["mpi-cxx-ldflags","MPI link options for C++ parallel code",None,
+  None],
+ ["mpi-cxx-libs","MPI libraries required to link C++ parallel code",None,
+  "@libs"],
+ ["mpi-fcflags","MPI compile options for Fortran parallel code",None,
+  None],
+ ["mpi-fc-ldflags","MPI link options for Fortran parallel code",None,
+  None],
+ ["mpi-fc-libs","MPI libraries required to link Fortran parallel code",None,
+  "@libs"],
+ ["mpi-level","MPI standard level to use (1 or 2)",None,
+  "1 2"],
+ ["mpi-prefix","Prefix for the MPI installation",None,
+  None],
+ ["mpi-runner","Full path to the MPI runner program",None,
+  None],
+ ["netcdf-includes","Include parameters for NetCDF support",None,
+  "@includes"],
+ ["netcdf-libs","NetCDF libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["plugins-prefix","Prefix for already installed plug-ins",None,
+  None],
+ ["plugins-tardir","Full path for the tarballs of plug-ins",None,
+  None],
+ ["scalapack-includes","Include parameters for ScaLAPACK support",None,
+  "@includes"],
+ ["scalapack-libs","ScaLAPACK libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["timeout","Automatic test timeout (Nightly feature)","600",
+  "@integer"],
+ ["wannier90","Full path to the Wannier90 executable",None,
+  None],
+ ["wannier90-includes","Include parameters for Wannier90 support",None,
+  "@includes"],
+ ["wannier90-libs","Wannier90 libraries to link ABINIT binaries with",None,
+  "@libs"],
+ ["xmlf90-includes","Include parameters for XML Fortran 90 support",None,
+  "@includes"],
+ ["xmlf90-libs","XML Fortran 90 libraries to link ABINIT binaries with",None,
+  "@libs"]
+]
+
+#
+# Advertise command-line options which changed in this version
+#
+#   * [None,"newarg"]     : new option
+#   * ["oldarg",None]     : removed option
+#   * ["oldarg","newarg"] : renamed option
+#   * ["arg","arg"]       : modified option (its meaning changed)
+#
+ac_args_changed = [
+  [None,"enable-bindings"],
+  [None,"enable-error-handlers"],
+  [None,"enable-gw-dpc"],
+  ["enable-mpi","enable-mpi"],
+  [None,"enable-scalapack"],
+  ["with-fc-name","with-fc-vendor"],
+  [None,"with-mpi-level"],
+  [None,"with-plugins-prefix"],
+  [None,"with-plugins-srcdir"],
+  [None,"with-scalapack-includes"],
+  [None,"with-scalapack-libs"],
+  ["enable-tricks","enable-tricks"]
+]

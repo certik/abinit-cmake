@@ -1,0 +1,16 @@
+filename		amd-open64_chum.ac
+#
+CC			/opt/open64/bin/opencc
+FC			/opt/open64/bin/openf90
+#
+enable_debug		no
+#
+enable_mpi		yes
+# for MIPCH-2 
+#with_mpi_prefix		/usr/local/mpich2-open64
+# for MIPCH-1 
+#with_mpi_prefix		/usr/local/mpich-1.2.7p1-open64
+# for openmpi 1.2.8
+with_mpi_prefix		/usr/local/openmpi-open64
+#
+enable_64bit_flags	yes

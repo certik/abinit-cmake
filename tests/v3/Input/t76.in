@@ -1,0 +1,81 @@
+# Aluminum molecule, treated with varying occupation numbers
+# Compare finite differences to analytical derivatives
+# Do not use a very high precision for the finite differences
+
+ ndtset 5
+ ixc 11
+
+#GS at k
+  prtden1  1
+#GS at k+q
+  getden2  1
+  getwfk2  1
+    iscf2  -2
+    nqpt2  1
+     qpt2  0.0 0.0 0.5
+  tolwfr2  1.0d-26
+  tolvrs2  0.0d0
+
+#Specific to the RF dataset
+  rfphon3  1
+ rfatpol3  2 2
+   rfdir3  1 0 0
+    nqpt3  1
+     qpt3  0.0 0.0 0.5
+  getwfk3  1
+  getwfq3  2
+    iscf3  3
+  diemix3  0.35
+  diemac3  1.0
+  toldfe3  1.0d-10
+  tolvrs3  0.0
+   nstep3  10
+
+#Computation in a doubled cell, with exactly same atomic positions 
+#This should give exactly twice the total energy of dataset #1
+   acell4 11 11 32
+    xred4 0.0 0.0 -0.090     0.0 0.0 0.090
+          0.0 0.0  0.410     0.0 0.0 0.590
+   natom4 4
+   nband4 10
+    nkpt4 1
+    typat4 1 1 1 1
+     kpt4 0.0 0.0 0.0
+     wtk4 1.0
+
+#Computation in a doubled cell, with slightly disturbed positions
+   acell5 11 11 32
+  getwfk5 4
+    xred5 0.0 0.0 -0.090     0.0001  0.0 0.090
+          0.0 0.0  0.410    -0.0001  0.0 0.590
+   natom5 4
+   nband5 10
+    nkpt5 1
+    typat5 1 1 1 1
+     kpt5 0.0 0.0 0.0
+     wtk5 1.0
+
+#Common data
+ acell 11 11 16
+ amu 1.0d0
+ diemac 1.0d0
+ diemix 1/3
+ ecut 2.5
+ kpt   3*0.0  0.0 0.0 0.5
+ natom  2 
+ nband 5
+ nbdbuf 0
+ nkpt 2
+ nstep 40
+ nsym 1
+ ntypat  1
+ occopt 4
+ rprim 1 0 0  0 1 0  0 0 1
+ tolvrs 1.d-20
+ tsmear 0.08
+ typat  1 1
+ wtk  2*0.5
+ xred   0.0 0.0 -0.180   0.0 0.0  0.180
+ znucl 13.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

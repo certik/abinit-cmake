@@ -1,0 +1,44 @@
+# Ni simple cubic, metallic. 
+# The cut-off is irrealistic
+
+ ndtset 2
+
+#DATASET 1 : SC run with 4 kpoints
+  prtden1  1
+  kptopt1  1
+  tolvrs1  1.0d-22
+
+#DATASET 2 : RF at 1/2 0 0
+  getwfk2   1
+  getden2   1
+    nqpt2   1
+     qpt2   0.5d0 0.0d0 0.0d0
+  kptopt2   3
+  rfphon2   1
+ rfatpol2   1 1
+   rfdir2   1 0 0
+  tolvrs2   1.0d-10
+   nstep2   18
+
+#Common data
+ acell  3*4.09
+
+ ntypat 1
+ znucl 28.0
+ natom 1
+ typat  1
+ xred 0.0 0.0 0.0
+
+ nstep 25 
+
+ ecut 20.0
+
+ nband  8
+ occopt 7
+
+ ngkpt  4 4 4
+ shiftk
+   0.5 0.5 0.5
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,72 @@
+(From MMikami, 000702)
+
+PLOTMTV (v.1.4.1) may be useful to draw "phonon mode eigenvectors"
+(produced by anaddb), though it is a relatively old package ('94-'95).
+This package may be easily compiled on unix platforms.
+In my case, I compiled it on my Linux box, as usual;
+just rewrite one line in the Imakefile (for a printer), xmkmf,
+and make World ... No compilation errors appeared on RedHat 6.0-like
+system (kernel 2.2.13, XFree86 3.5, egcs-2.91.66, glibc-2.1.2).
+(Some Linux system seems to include this package already ...)
+
+The URL (ftp site) for retrieving the package is
+  ftp://ftp.x.org/contrib/applications/Plotmtv1.4.1.tar.Z
+and the useful links for data formats are 
+  http://csep1.phy.ornl.gov/cornell_proceedings/tutorials/Plotmtv/overview.html
+  http://csep1.phy.ornl.gov/plotmtv/plotmtv.html
+
+If we want to plot vector fields in 3-D, for example,
+just prepare a data file (e.g. mode.dat, please see below), and 
+
+plotmtv -3d mode.dat
+
+That's all. We can rotate, zoom in/out, print our figure 
+with the menu bar upside. We still need to modify the figures
+for publications, but it would be useful to grasp how phonon modes
+look like at first hand. And ... the plotmtv is freely available !
+
+(mode.dat)
+-----------------------------(cut)-------------------------------------------
+$DATA=VECTOR
+%xmin= -10
+%ymin= -10
+%xmax=  20
+%ymax=  20
+%zmin= -10
+%zmax=  20
+%vscale=  4.00
+ 0.000  4.091  3.501   0.854  1.478  0.000
+ 3.543  2.046  8.829  -0.854 -1.478  0.000
+ 0.000  4.091  7.774  -0.487 -0.844  0.000
+ 3.543  2.046  4.557   0.487  0.845  0.000
+ 0.000  0.000  0.000   0.000  0.000  0.000
+ 7.086  0.000  0.000   0.000  0.000  0.000
+-3.543  6.137  0.000   0.000  0.000  0.000
+ 3.543  6.137  0.000   0.000  0.000  0.000
+ 0.000  0.000 12.330   0.000  0.000  0.000
+ 7.086  0.000 12.330   0.000  0.000  0.000
+-3.543  6.137 12.330   0.000  0.000  0.000
+ 3.543  6.137 12.330   0.000  0.000  0.000
+------------------------------(cut)------------------------------------------
+
+"%" lines are the ranges for a plot (%xmax, %xmin, ...)
+and a scale factor for vectors (%vscale= ...).
+Next, some lines for the vector-field data follow;
+The format for the vector field data is like
+
+   (x, y, z) (Vx, Vy, Vz)
+     point     vector at the point
+(This is in free format ...)
+
+I attach the screen shot ("mode.png", PNG format) for the above example.
+(This is one "Raman mode" in the oxysulfide system ...)
+(See ~ABINIT/Infos/Images)
+
+P.S.
+Just after writing the above, I have found the newer plotmtv at
+   ftp://ftp.funet.fi/pub/sci/math/tela/needed/Plotmtv1.4.4t.tar.gz
+it is said that this newer version is prepared for "Tela" package:
+   http://www.geo.fmi.fi/prog/tela.html
+("Tela" may compete with "Matlab" ?)
+In any case, I wish it might be useful for the other users ...
+

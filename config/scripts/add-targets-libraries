@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+from time import gmtime,strftime
+
+import commands
+import os
+import re
+import sys
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Subroutines
+#
+
+# Makefile header
+def makefile_header():
+
+ return """
+# ---------------------------------------------------------------------------- #
+
+#
+# Targets for libabinit
+#
+
+# Set temporary directory
+libabinit_tmpdir = tmp-libabinit-objects
+
+"""
+
+
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Main program
+#
+
+# Initial setup
+my_name    = "add-targets-libraries"
+my_configs = ["config/specs/corelibs.cf"]
+
+# Check if we are in the top of the ABINIT source tree
+if ( not os.path.exists("configure.ac") or
+     not os.path.exists("src/main/abinit.F90") ):
+ print "%s: You must be in the top of an ABINIT source tree." % my_name
+ print "%s: Aborting now." % my_name
+ sys.exit(1)
+
+# Read config file(s)
+for cnf in my_configs:
+ if ( os.path.exists(cnf) ):
+  execfile(cnf)
+ else:
+  print "%s: Could not find config file (%s)." % (my_name,cnf)
+  print "%s: Aborting now." % my_name
+  sys.exit(2)
+
+# What time is it?
+now = strftime("%Y/%m/%d %H:%M:%S +0000",gmtime())
+
+# Init targets
+tgt_lib = "# Main target\nlibabinit:"
+tgt_seq = "# Sequential libraries\nlibabinis.a:"
+tgt_par = "# Parallel libraries\nlibabinip.a:"
+
+# Process each library
+for lib in abinit_corelibs:
+
+ # Init
+ if ( lib in corelibs_specs ):
+  lib_specs = corelibs_specs[lib]
+ else:
+  lib_specs = ABI_LIB_NIL
+
+
+ if ( (lib_specs & ABI_LIB_MPI) == 0 ):
+  tgt_seq += "\n\tcd $(libabinit_tmpdir)/seq && $(AR) xv $(abs_top_builddir)/src/%s/lib%s.a" \
+    % (lib,lib)
+  tgt_par += "\n\tcd $(libabinit_tmpdir)/par && $(AR) xv $(abs_top_builddir)/src/%s/lib%s.a" \
+    % (lib,lib)
+ else:
+  tgt_seq += "\n\tcd $(libabinit_tmpdir)/seq && $(AR) xv $(abs_top_builddir)/src/%s/lib%ss.a" \
+    % (lib,lib)
+  tgt_par += "\n\t-cd $(libabinit_tmpdir)/par && $(AR) xv $(abs_top_builddir)/src/%s/lib%sp.a" \
+    % (lib,lib)
+
+# Finish setting targets
+tgt_lib += """
+	test ! -e "$(libabinit_tmpdir)"
+	$(MKDIR_P) $(libabinit_tmpdir)/seq $(libabinit_tmpdir)/par
+	$(MAKE) libabinis.a
+	$(MAKE) libabinip.a
+	rm -rf $(libabinit_tmpdir)
+"""
+tgt_seq += """
+	$(AR) $(ARFLAGS) libabinis.a $(libabinit_tmpdir)/seq/*.$(OBJEXT)
+"""
+tgt_par += """
+	$(AR) $(ARFLAGS) libabinip.a $(libabinit_tmpdir)/par/*.$(OBJEXT)
+"""
+
+# Write targets
+mf = file("Makefile.am","a")
+mf.write(makefile_header()+tgt_lib+"\n"+tgt_seq+"\n"+tgt_par)
+mf.close()

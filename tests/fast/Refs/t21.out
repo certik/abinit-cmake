@@ -1,0 +1,3220 @@
+
+.Version 5.6.3  of ABINIT 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Tue 11 Nov 2008.
+  
+- input  file    -> /home/gonze/ABINIT/ABINITv5.6.3/5.6.3-private/tests/fast/Input/t21.in
+- output file    -> t21.out
+- root for input  files -> t20o
+- root for output files -> t21o
+
+
+ Symmetries : space group P1 (#  1); Bravais aP (primitive triclinic)
+================================================================================
+ Values of the parameters that define the memory need of the present run
+   intxc =         1  ionmov =         1    iscf =         3 xclevel =         1
+  lmnmax =         2   lnmax =         2   mband =         5  mffmem =         1
+P  mgfft =        30   mkmem =         1 mpssoang=         3     mpw =       338
+  mqgrid =      3001   natom =         2    nfft =     12000    nkpt =         1
+  nloalg =         4  nspden =         2 nspinor =         1  nsppol =         2
+    nsym =         1  n1xccc =      2501  ntypat =         1  occopt =         2
+================================================================================
+P This job should need less than                       3.541 Mbytes of memory.
+P Max. in XC chain
+P          3 blocks of mpw  integer numbers, for      0.004 Mbytes.
+P         20 blocks of mpw  real(dp)  numbers, for      0.052 Mbytes.
+P         32 blocks of nfft real(dp)  numbers, for      2.930 Mbytes.
+P            Additional     real(dp)  numbers, for      0.319 Mbytes.
+P            With residue estimated to be             0.237 Mbytes.
+P
+P Comparison of the memory needs of different chains
+P Main chain + fourwf.f                 3.390 Mbytes.
+P Main chain + nonlop.f + opernl.f      3.073 Mbytes.
+P XC chain                              3.541 Mbytes.
+P mkrho chain                           2.738 Mbytes.
+P fourdp chain                          2.534 Mbytes.
+P newvtr chain                          3.251 Mbytes.
+  Rough estimation (10% accuracy) of disk space for files :
+  WF disk file :      0.043 Mbytes ; DEN or POT disk file :      0.185 Mbytes.
+================================================================================
+
+ -outvars: echo values of preprocessed input variables --------
+     acell    1.2000000000E+01  8.0000000000E+00  8.0000000000E+00 Bohr
+       amu    2.80000000E+01
+    diemac    1.00000000E+00
+    diemix    3.33333333E-01
+     dtion    6.75000000E+02
+      ecut    7.00000000E+00 Hartree
+    enunit         2
+     intxc         1
+    ionmov         1
+    iprcch         1
+    irdwfk         1
+      iscf         3
+    istwfk      2
+P    mkmem         1
+     natom         2
+     nband      5    3
+     ngfft        30      20      20
+      nkpt         1
+     nline         3
+    nspden         2
+    nsppol         2
+     nstep        20
+      nsym         1
+     ntime        10
+    ntypat         1
+       occ    1.000000  1.000000  1.000000  1.000000  1.000000
+              1.000000  1.000000  1.000000
+    occopt         2
+    prtvol        10
+   spgroup         1
+    timopt        -1
+    tolmxf    1.00000000E-04
+    tolwfr    1.00000000E-13
+     typat    1  1
+       vis    3.00000000E+02
+    xangst   -1.1229140366E+00  0.0000000000E+00  0.0000000000E+00
+              1.1229140366E+00  0.0000000000E+00  0.0000000000E+00
+     xcart   -2.1220000000E+00  0.0000000000E+00  0.0000000000E+00
+              2.1220000000E+00  0.0000000000E+00  0.0000000000E+00
+      xred   -1.7683333333E-01  0.0000000000E+00  0.0000000000E+00
+              1.7683333333E-01  0.0000000000E+00  0.0000000000E+00
+     znucl     14.00000
+
+================================================================================
+
+ chkinp: Checking input parameters for consistency.
+
+================================================================================
+== DATASET  1 ==================================================================
+
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)= 12.0000000  0.0000000  0.0000000  G(1)=  0.0833333  0.0000000  0.0000000
+ R(2)=  0.0000000  8.0000000  0.0000000  G(2)=  0.0000000  0.1250000  0.0000000
+ R(3)=  0.0000000  0.0000000  8.0000000  G(3)=  0.0000000  0.0000000  0.1250000
+ Unit cell volume ucvol=  7.6800000E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  30  20  20
+         ecut(hartree)=      7.000   => boxcut(ratio)=   2.09906
+
+--- Pseudopotential description ------------------------------------------------
+- pspini: atom type   1  psp file is /home/gonze/ABINIT/ABINITv5.6.3/5.6.3-private/tests/Psps_for_tests/14si.pspnc
+- pspatm: opening atomic psp file    /home/gonze/ABINIT/ABINITv5.6.3/5.6.3-private/tests/Psps_for_tests/14si.pspnc
+  Troullier-Martins psp for element  Si        Thu Oct 27 17:31:21 EDT 1994
+  14.00000   4.00000    940714                znucl, zion, pspdat
+    1    1    2    2      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+    0   5.907  14.692    1   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1   2.617   4.181    1   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    2   0.000   0.000    0   2.0872718        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1.80626423934776    0.22824404341771    1.17378968127746   rchrg,fchrg,qchrg
+ pspatm: epsatm=    1.43386982
+         --- l  ekb(1:nproj) -->
+             0    3.287949
+             1    1.849886
+ pspatm: atomic psp has been read  and splines computed
+
+   2.29419171E+01                                ecore*ucvol(ha*bohr**3)
+--------------------------------------------------------------------------------
+
+-inwffil : will read wavefunctions from disk file t20o_WFK
+P newkpt: treating      5 bands with npw=     338 for ikpt=   1
+P newkpt: treating      3 bands with npw=     338 for ikpt=   1
+
+ setup2: Arith. and geom. avg. npw (full set) are     675.000     675.000
+
+================================================================================
+
+ TIME STEP NUMBER   1  ------------------------------------------------------
+ (initialisation period : icalls=1)
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6582498418312    -8.658E+00 1.623E-06 4.124E+01 4.579E-03 4.579E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.57893069749E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.57893069749E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.06698   Average Vxc (hartree)=  -0.22117
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.39828  -0.22399  -0.09890  -0.06698  -0.06698
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36187  -0.19298  -0.08237
+ Fermi (or HOMO) energy (eV) =  -1.82256   Average Vxc (eV)=  -6.01826
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.83779  -6.09510  -2.69125  -1.82256  -1.82256
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84704  -5.25137  -2.24138
+
+ ETOT  2  -8.6707673136961    -1.252E-02 2.898E-07 2.899E+00 9.614E-03 1.419E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.41926194536E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.41926194536E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04979   Average Vxc (hartree)=  -0.22251
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37452  -0.21766  -0.09482  -0.04979  -0.04979
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33831  -0.18884  -0.07937
+ Fermi (or HOMO) energy (eV) =  -1.35483   Average Vxc (eV)=  -6.05468
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.19127  -5.92295  -2.58018  -1.35483  -1.35483
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.20578  -5.13850  -2.15978
+
+ ETOT  3  -8.6716275453843    -8.602E-04 3.709E-05 6.630E-03 3.677E-03 1.787E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.78691504222E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.78691504222E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04665   Average Vxc (hartree)=  -0.22296
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36942  -0.21825  -0.09610  -0.04665  -0.04665
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33266  -0.18967  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.26942   Average Vxc (eV)=  -6.06701
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.05232  -5.93899  -2.61491  -1.26942  -1.26942
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.05215  -5.16112  -2.18623
+
+ ETOT  4  -8.6716305404020    -2.995E-06 2.833E-08 2.629E-03 1.344E-04 1.773E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77347465978E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77347465978E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04723   Average Vxc (hartree)=  -0.22295
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37007  -0.21880  -0.09667  -0.04723  -0.04723
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33313  -0.19015  -0.08082
+ Fermi (or HOMO) energy (eV) =  -1.28508   Average Vxc (eV)=  -6.06675
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07022  -5.95392  -2.63050  -1.28508  -1.28508
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06488  -5.17431  -2.19934
+
+ ETOT  5  -8.6716315738410    -1.033E-06 2.110E-08 1.044E-04 8.665E-06 1.773E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77260819560E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77260819560E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04727   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37022  -0.21882  -0.09672  -0.04727  -0.04727
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33314  -0.19025  -0.08091
+ Fermi (or HOMO) energy (eV) =  -1.28638   Average Vxc (eV)=  -6.06651
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07428  -5.95426  -2.63192  -1.28638  -1.28638
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06524  -5.17687  -2.20160
+
+ ETOT  6  -8.6716316038817    -3.004E-08 1.733E-09 1.062E-05 1.886E-05 1.774E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77449400805E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77449400805E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04725   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21880  -0.09670  -0.04725  -0.04725
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33309  -0.19024  -0.08090
+ Fermi (or HOMO) energy (eV) =  -1.28582   Average Vxc (eV)=  -6.06658
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07364  -5.95379  -2.63147  -1.28582  -1.28582
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06397  -5.17680  -2.20130
+
+ ETOT  7  -8.6716316099985    -6.117E-09 3.886E-10 2.582E-06 6.147E-06 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77510870796E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77510870796E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04725   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37019  -0.21880  -0.09670  -0.04725  -0.04725
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33308  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28579   Average Vxc (eV)=  -6.06661
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07350  -5.95372  -2.63135  -1.28579  -1.28579
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06350  -5.17691  -2.20123
+
+ ETOT  8  -8.6716316113268    -1.328E-09 3.400E-11 1.016E-06 1.233E-06 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77523201024E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77523201024E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04725   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09670  -0.04725  -0.04725
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28584   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07353  -5.95371  -2.63130  -1.28584  -1.28584
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06339  -5.17696  -2.20119
+
+ ETOT  9  -8.6716316121735    -8.468E-10 5.594E-11 4.118E-08 5.794E-07 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77528994577E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77528994577E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09669  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28591   Average Vxc (eV)=  -6.06663
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07357  -5.95366  -2.63120  -1.28591  -1.28591
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06322  -5.17702  -2.20114
+
+ ETOT 10  -8.6716316122136    -4.010E-11 7.204E-13 1.444E-08 5.713E-07 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77523281106E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77523281106E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09670  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28593   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07359  -5.95367  -2.63121  -1.28593  -1.28593
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06322  -5.17703  -2.20115
+
+ ETOT 11  -8.6716316122280    -1.433E-11 3.116E-13 3.753E-09 3.662E-07 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77519619569E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77519619569E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09670  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28593   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07360  -5.95366  -2.63121  -1.28593  -1.28593
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06322  -5.17704  -2.20116
+
+ ETOT 12  -8.6716316122323    -4.340E-12 1.664E-13 4.721E-10 3.272E-07 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77516347193E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77516347193E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09670  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28592   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07361  -5.95365  -2.63121  -1.28592  -1.28592
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06321  -5.17705  -2.20117
+
+ ETOT 13  -8.6716316122323    -1.776E-15 8.077E-14 1.592E-10 5.895E-08 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77515757672E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77515757672E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMA_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09670  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28592   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07361  -5.95365  -2.63121  -1.28592  -1.28592
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06321  -5.17705  -2.20117
+
+ At SCF step   13   max residual=  8.08E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.36716135E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10398982E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10398982E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.12200000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.12200000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ Velocities (bohr/(atomic time unit))
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ Cartesian forces (hart/bohr); max,rms= 1.77516E-02 1.02489E-02 (free atoms)
+ -1.77515757672201E-02 -1.26992576194622E-16 -9.19201667807345E-17
+  1.77515757672201E-02  1.26992576194622E-16  9.19201667807345E-17
+
+
+ TIME STEP NUMBER   1  ------------------------------------------------------
+ (initialisation period : icalls=2)
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6716316122324    -8.672E+00 8.040E-14 6.955E-12 9.174E-08 1.775E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.77514840239E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.77514840239E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMB_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04726   Average Vxc (hartree)=  -0.22294
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37020  -0.21879  -0.09669  -0.04726  -0.04726
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.33307  -0.19025  -0.08089
+ Fermi (or HOMO) energy (eV) =  -1.28592   Average Vxc (eV)=  -6.06662
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.07361  -5.95365  -2.63120  -1.28592  -1.28592
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.06321  -5.17705  -2.20117
+
+ At SCF step    1   max residual=  8.04E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.36716021E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10399118E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10399118E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.12200000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.12200000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ Cartesian forces (hart/bohr); max,rms= 1.77515E-02 1.02488E-02 (free atoms)
+ -1.77514840238678E-02 -5.01430312534363E-17  2.59908208705236E-17
+  1.77514840238678E-02  5.01430312534363E-17 -2.59908208705236E-17
+
+
+ TIME STEP NUMBER   1  ------------------------------------------------------
+ (initialisation period : icalls=3)
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6702731212111    -8.670E+00 3.919E-07 7.485E+00 3.196E-03 1.456E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.45554241530E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.45554241530E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03597   Average Vxc (hartree)=  -0.22407
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35458  -0.21875  -0.09614  -0.03597  -0.03597
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.31830  -0.19093  -0.08014
+ Fermi (or HOMO) energy (eV) =  -0.97866   Average Vxc (eV)=  -6.09736
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.64870  -5.95238  -2.61613  -0.97866  -0.97866
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.66150  -5.19548  -2.18059
+
+ ETOT  2  -8.6725443922606    -2.271E-03 1.213E-08 4.802E-01 3.827E-03 1.073E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.07280948595E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.07280948595E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04253   Average Vxc (hartree)=  -0.22351
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36346  -0.22101  -0.09785  -0.04253  -0.04253
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32678  -0.19223  -0.08168
+ Fermi (or HOMO) energy (eV) =  -1.15729   Average Vxc (eV)=  -6.08196
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.89037  -6.01405  -2.66265  -1.15729  -1.15729
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.89214  -5.23087  -2.22262
+
+ ETOT  3  -8.6726912223870    -1.468E-04 6.592E-06 9.663E-04 1.442E-03 9.286E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.28601564280E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.28601564280E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04365   Average Vxc (hartree)=  -0.22333
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36536  -0.22068  -0.09732  -0.04365  -0.04365
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32884  -0.19178  -0.08131
+ Fermi (or HOMO) energy (eV) =  -1.18780   Average Vxc (eV)=  -6.07710
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.94194  -6.00500  -2.64818  -1.18780  -1.18780
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94823  -5.21873  -2.21265
+
+ ETOT  4  -8.6726917039103    -4.815E-07 4.425E-09 3.549E-04 4.292E-05 9.329E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.32893872256E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.32893872256E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04343   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36512  -0.22045  -0.09710  -0.04343  -0.04343
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32867  -0.19158  -0.08114
+ Fermi (or HOMO) energy (eV) =  -1.18177   Average Vxc (eV)=  -6.07726
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93535  -5.99879  -2.64229  -1.18177  -1.18177
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94353  -5.21303  -2.20798
+
+ ETOT  5  -8.6726918723861    -1.685E-07 3.855E-09 7.951E-06 4.593E-05 9.283E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.28300535111E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.28300535111E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36508  -0.22043  -0.09710  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32868  -0.19152  -0.08115
+ Fermi (or HOMO) energy (eV) =  -1.18145   Average Vxc (eV)=  -6.07735
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93446  -5.99830  -2.64227  -1.18145  -1.18145
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94387  -5.21157  -2.20811
+
+ ETOT  6  -8.6726918767163    -4.330E-09 1.905E-10 1.078E-06 6.429E-06 9.277E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27657594697E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27657594697E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32869  -0.19152  -0.08115
+ Fermi (or HOMO) energy (eV) =  -1.18155   Average Vxc (eV)=  -6.07733
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93451  -5.99843  -2.64243  -1.18155  -1.18155
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94417  -5.21151  -2.20829
+
+ ETOT  7  -8.6726918772628    -5.465E-10 2.739E-11 3.141E-07 3.814E-07 9.276E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27619450861E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27619450861E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32870  -0.19152  -0.08115
+ Fermi (or HOMO) energy (eV) =  -1.18157   Average Vxc (eV)=  -6.07732
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93452  -5.99849  -2.64247  -1.18157  -1.18157
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94430  -5.21150  -2.20834
+
+ ETOT  8  -8.6726918774644    -2.016E-10 7.501E-12 1.012E-07 1.333E-07 9.276E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27632785406E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27632785406E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32870  -0.19152  -0.08116
+ Fermi (or HOMO) energy (eV) =  -1.18157   Average Vxc (eV)=  -6.07732
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93451  -5.99853  -2.64248  -1.18157  -1.18157
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94436  -5.21149  -2.20836
+
+ ETOT  9  -8.6726918775376    -7.316E-11 3.035E-12 2.166E-08 5.569E-07 9.277E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27688475540E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27688475540E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32870  -0.19152  -0.08116
+ Fermi (or HOMO) energy (eV) =  -1.18157   Average Vxc (eV)=  -6.07731
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93450  -5.99855  -2.64248  -1.18157  -1.18157
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94441  -5.21148  -2.20837
+
+ ETOT 10  -8.6726918775501    -1.249E-11 4.260E-13 5.374E-09 4.095E-07 9.277E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27729429562E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27729429562E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32870  -0.19152  -0.08116
+ Fermi (or HOMO) energy (eV) =  -1.18156   Average Vxc (eV)=  -6.07731
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93449  -5.99856  -2.64248  -1.18156  -1.18156
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94442  -5.21148  -2.20837
+
+ ETOT 11  -8.6726918775516    -1.535E-12 9.583E-14 1.685E-09 1.693E-08 9.277E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.27731122112E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.27731122112E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMC_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04342   Average Vxc (hartree)=  -0.22334
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36509  -0.22044  -0.09711  -0.04342  -0.04342
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32870  -0.19152  -0.08116
+ Fermi (or HOMO) energy (eV) =  -1.18156   Average Vxc (eV)=  -6.07732
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.93448  -5.99856  -2.64248  -1.18156  -1.18156
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.94442  -5.21148  -2.20836
+
+ At SCF step   11   max residual=  9.58E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.90303079E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10650719E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10650719E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.16161560858513E+00 -2.83405161193248E-16 -2.05135217065606E-16
+  2.16161560858513E+00  2.83405161193248E-16  2.05135217065606E-16
+ Cartesian forces (hart/bohr); max,rms= 9.27731E-03 5.35626E-03 (free atoms)
+ -9.27731122112317E-03 -1.84085311709839E-16  1.20810479556531E-16
+  9.27731122112317E-03  1.84085311709839E-16 -1.20810479556531E-16
+
+
+ TIME STEP NUMBER   1  ------------------------------------------------------
+ (initialisation period : icalls=4)
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6466994920347    -8.647E+00 3.137E-06 6.201E+01 9.878E-03 1.916E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.91555330465E-02    0.00000000000E+00    0.00000000000E+00
+    2     1.91555330465E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.08210   Average Vxc (hartree)=  -0.21985
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.41865  -0.22248  -0.09957  -0.08210  -0.08210
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38111  -0.19154  -0.08295
+ Fermi (or HOMO) energy (eV) =  -2.23399   Average Vxc (eV)=  -5.98239
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -11.39192  -6.05405  -2.70947  -2.23399  -2.23399
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.37047  -5.21213  -2.25717
+
+ ETOT  2  -8.6658891032817    -1.919E-02 5.821E-07 4.510E+00 1.498E-02 3.413E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.41312548422E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.41312548422E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05911   Average Vxc (hartree)=  -0.22156
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38694  -0.21410  -0.09360  -0.05911  -0.05911
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34953  -0.18597  -0.07852
+ Fermi (or HOMO) energy (eV) =  -1.60844   Average Vxc (eV)=  -6.02897
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.52913  -5.82592  -2.54692  -1.60844  -1.60844
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.51117  -5.06051  -2.13664
+
+ ETOT  3  -8.6672521577880    -1.363E-03 5.787E-05 1.064E-02 5.622E-03 3.975E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.97536912861E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.97536912861E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05466   Average Vxc (hartree)=  -0.22216
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.37984  -0.21476  -0.09505  -0.05466  -0.05466
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34167  -0.18694  -0.07959
+ Fermi (or HOMO) energy (eV) =  -1.48736   Average Vxc (eV)=  -6.04531
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.33609  -5.84386  -2.58639  -1.48736  -1.48736
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.29742  -5.08691  -2.16585
+
+ ETOT  4  -8.6672568417808    -4.684E-06 4.693E-08 4.244E-03 1.570E-04 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.95966591794E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.95966591794E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05542   Average Vxc (hartree)=  -0.22215
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38072  -0.21548  -0.09582  -0.05542  -0.05542
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34229  -0.18758  -0.08024
+ Fermi (or HOMO) energy (eV) =  -1.50813   Average Vxc (eV)=  -6.04504
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36002  -5.86354  -2.60727  -1.50813  -1.50813
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31431  -5.10426  -2.18336
+
+ ETOT  5  -8.6672583901976    -1.548E-06 4.131E-08 1.837E-04 4.151E-05 3.956E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.95551496775E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.95551496775E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05549   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38094  -0.21549  -0.09590  -0.05549  -0.05549
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34232  -0.18770  -0.08036
+ Fermi (or HOMO) energy (eV) =  -1.51000   Average Vxc (eV)=  -6.04468
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36601  -5.86386  -2.60961  -1.51000  -1.51000
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31510  -5.10769  -2.18683
+
+ ETOT  6  -8.6672584443656    -5.417E-08 2.760E-09 2.030E-05 2.954E-05 3.958E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.95846878035E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.95846878035E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21547  -0.09588  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34225  -0.18770  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50910   Average Vxc (eV)=  -6.04479
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36490  -5.86313  -2.60890  -1.50910  -1.50910
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31319  -5.10746  -2.18629
+
+ ETOT  7  -8.6672584558716    -1.151E-08 8.024E-10 3.827E-06 1.480E-05 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.95994914736E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.95994914736E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38089  -0.21546  -0.09587  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34223  -0.18770  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50904   Average Vxc (eV)=  -6.04484
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36466  -5.86304  -2.60871  -1.50904  -1.50904
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31247  -5.10762  -2.18618
+
+ ETOT  8  -8.6672584577059    -1.834E-09 4.695E-11 1.495E-06 2.405E-06 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96018964573E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96018964573E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09587  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34222  -0.18770  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50914   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36471  -5.86304  -2.60866  -1.50914  -1.50914
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31236  -5.10770  -2.18615
+
+ ETOT  9  -8.6672584589497    -1.244E-09 8.705E-11 6.531E-08 1.806E-06 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96037023433E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96037023433E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09586  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34222  -0.18771  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50924   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36477  -5.86298  -2.60851  -1.50924  -1.50924
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31215  -5.10779  -2.18608
+
+ ETOT 10  -8.6672584590046    -5.490E-11 6.287E-13 2.960E-08 6.025E-07 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96030998076E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96030998076E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09586  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34222  -0.18771  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50926   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36480  -5.86299  -2.60852  -1.50926  -1.50926
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31215  -5.10781  -2.18610
+
+ ETOT 11  -8.6672584590393    -3.470E-11 1.655E-12 2.927E-09 8.394E-07 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96022604432E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96022604432E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09586  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34221  -0.18771  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50926   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36482  -5.86297  -2.60852  -1.50926  -1.50926
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31214  -5.10783  -2.18612
+
+ ETOT 12  -8.6672584590421    -2.743E-12 1.384E-13 4.329E-10 6.360E-08 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96021968451E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96021968451E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09586  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34221  -0.18771  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50926   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36482  -5.86297  -2.60852  -1.50926  -1.50926
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31213  -5.10784  -2.18612
+
+ ETOT 13  -8.6672584590421     0.000E+00 8.935E-14 1.636E-10 8.427E-09 3.960E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.96021884179E-02    0.00000000000E+00    0.00000000000E+00
+    2     3.96021884179E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIMD_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.05546   Average Vxc (hartree)=  -0.22214
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.38090  -0.21546  -0.09586  -0.05546  -0.05546
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.34221  -0.18771  -0.08034
+ Fermi (or HOMO) energy (eV) =  -1.50926   Average Vxc (eV)=  -6.04485
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+ -10.36482  -5.86297  -2.60852  -1.50926  -1.50926
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.31213  -5.10783  -2.18612
+
+ At SCF step   13   max residual=  8.94E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  9.82251910E-06  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10203313E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10203313E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.04405951436335E+00  9.00578869959836E-16  9.29860880234885E-16
+  2.04405951436335E+00 -9.00578869959836E-16 -9.29860880234885E-16
+ Cartesian forces (hart/bohr); max,rms= 3.96022E-02 2.28643E-02 (free atoms)
+ -3.96021884178575E-02 -1.02042966905533E-16  1.81898272309954E-16
+  3.96021884178575E-02  1.02042966905533E-16 -1.81898272309954E-16
+
+
+ TIME STEP NUMBER   1  ------------------------------------------------------
+ (initialisation period : icalls=5)
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6405586382117    -8.641E+00 1.622E-05 1.005E+02 1.593E-02 2.367E-02
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.36698157132E-02    0.00000000000E+00    0.00000000000E+00
+    2     2.36698157132E-02    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.01640   Average Vxc (hartree)=  -0.22621
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32787  -0.21671  -0.09300  -0.01640  -0.01640
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.29371  -0.19171  -0.07559
+ Fermi (or HOMO) energy (eV) =  -0.44636   Average Vxc (eV)=  -6.15538
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.92170  -5.89702  -2.53079  -0.44636  -0.44636
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -7.99227  -5.21670  -2.05680
+
+ ETOT  2  -8.6711803777329    -3.062E-02 1.895E-07 5.932E+00 1.398E-02 9.688E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -9.68795779545E-03    0.00000000000E+00    0.00000000000E+00
+    2     9.68795779545E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03822   Average Vxc (hartree)=  -0.22418
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35647  -0.22379  -0.09981  -0.03822  -0.03822
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.31971  -0.19520  -0.08278
+ Fermi (or HOMO) energy (eV) =  -1.04006   Average Vxc (eV)=  -6.10022
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.70002  -6.08953  -2.71605  -1.04006  -1.04006
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.69966  -5.31157  -2.25250
+
+ ETOT  3  -8.6730413547796    -1.861E-03 8.499E-05 1.287E-02 4.948E-03 4.740E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.73990966325E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.73990966325E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04177   Average Vxc (hartree)=  -0.22356
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36267  -0.22240  -0.09800  -0.04177  -0.04177
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32634  -0.19338  -0.08167
+ Fermi (or HOMO) energy (eV) =  -1.13671   Average Vxc (eV)=  -6.08343
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.86865  -6.05184  -2.66679  -1.13671  -1.13671
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.88011  -5.26201  -2.22241
+
+ ETOT  4  -8.6730473671208    -6.012E-06 8.091E-08 4.415E-03 8.535E-05 4.825E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.82526389133E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.82526389133E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04104   Average Vxc (hartree)=  -0.22358
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36191  -0.22158  -0.09730  -0.04104  -0.04104
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32580  -0.19260  -0.08115
+ Fermi (or HOMO) energy (eV) =  -1.11667   Average Vxc (eV)=  -6.08406
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84800  -6.02960  -2.64762  -1.11667  -1.11667
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86550  -5.24090  -2.20815
+
+ ETOT  5  -8.6730497737383    -2.407E-06 9.074E-08 1.093E-04 2.899E-04 4.535E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.53531397522E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.53531397522E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36186  -0.22148  -0.09736  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32589  -0.19236  -0.08128
+ Fermi (or HOMO) energy (eV) =  -1.11585   Average Vxc (eV)=  -6.08427
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84671  -6.02687  -2.64928  -1.11585  -1.11585
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86791  -5.23444  -2.21166
+
+ ETOT  6  -8.6730498619510    -8.821E-08 1.270E-09 1.693E-05 2.586E-05 4.509E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.50945802279E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.50945802279E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04100   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36185  -0.22149  -0.09738  -0.04100  -0.04100
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32590  -0.19234  -0.08131
+ Fermi (or HOMO) energy (eV) =  -1.11579   Average Vxc (eV)=  -6.08428
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84632  -6.02710  -2.64981  -1.11579  -1.11579
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86826  -5.23395  -2.21252
+
+ ETOT  7  -8.6730498721167    -1.017E-08 2.130E-10 4.605E-06 1.438E-06 4.508E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.50801995828E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.50801995828E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22150  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32591  -0.19234  -0.08132
+ Fermi (or HOMO) energy (eV) =  -1.11585   Average Vxc (eV)=  -6.08425
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84617  -6.02734  -2.64992  -1.11585  -1.11585
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86855  -5.23385  -2.21284
+
+ ETOT  8  -8.6730498746884    -2.572E-09 9.745E-11 1.204E-06 5.757E-07 4.509E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.50859566046E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.50859566046E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22151  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32592  -0.19234  -0.08132
+ Fermi (or HOMO) energy (eV) =  -1.11592   Average Vxc (eV)=  -6.08422
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84613  -6.02752  -2.64991  -1.11592  -1.11592
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86878  -5.23383  -2.21296
+
+ ETOT  9  -8.6730498754639    -7.755E-10 2.297E-11 3.869E-07 2.274E-06 4.511E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.51086950962E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.51086950962E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22151  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32593  -0.19234  -0.08133
+ Fermi (or HOMO) energy (eV) =  -1.11595   Average Vxc (eV)=  -6.08422
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84609  -6.02760  -2.64986  -1.11595  -1.11595
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86890  -5.23383  -2.21298
+
+ ETOT 10  -8.6730498756931    -2.292E-10 4.989E-12 1.275E-07 1.878E-06 4.513E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.51274754196E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.51274754196E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22151  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32593  -0.19234  -0.08133
+ Fermi (or HOMO) energy (eV) =  -1.11596   Average Vxc (eV)=  -6.08422
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84606  -6.02764  -2.64983  -1.11596  -1.11596
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86894  -5.23383  -2.21298
+
+ ETOT 11  -8.6730498757528    -5.974E-11 1.803E-12 3.228E-08 1.377E-06 4.514E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.51412477771E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.51412477771E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22151  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32593  -0.19234  -0.08133
+ Fermi (or HOMO) energy (eV) =  -1.11596   Average Vxc (eV)=  -6.08422
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84604  -6.02765  -2.64981  -1.11596  -1.11596
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86896  -5.23383  -2.21297
+
+ ETOT 12  -8.6730498757592    -6.384E-12 6.908E-14 1.073E-08 4.212E-07 4.515E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.51454602306E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.51454602306E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM1_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04101   Average Vxc (hartree)=  -0.22359
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36184  -0.22151  -0.09738  -0.04101  -0.04101
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32593  -0.19234  -0.08133
+ Fermi (or HOMO) energy (eV) =  -1.11596   Average Vxc (eV)=  -6.08422
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.84604  -6.02765  -2.64981  -1.11596  -1.11596
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.86896  -5.23383  -2.21297
+
+ At SCF step   12   max residual=  6.91E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.22159700E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10865322E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10865322E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.18776977894969E+00 -7.58115923538254E-16 -2.61920290343197E-16
+  2.18776977894969E+00  7.58115923538254E-16  2.61920290343197E-16
+ Cartesian forces (hart/bohr); max,rms= 4.51455E-03 2.60647E-03 (free atoms)
+ -4.51454602305533E-03 -3.35240571109792E-17  5.59136154594420E-17
+  4.51454602305533E-03  3.35240571109792E-17 -5.59136154594420E-17
+
+
+ TIME STEP NUMBER   2  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6730607747210    -8.673E+00 8.078E-10 5.581E-02 1.705E-04 4.344E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.34402244921E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.34402244921E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04007   Average Vxc (hartree)=  -0.22369
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36052  -0.22150  -0.09734  -0.04007  -0.04007
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32468  -0.19239  -0.08128
+ Fermi (or HOMO) energy (eV) =  -1.09040   Average Vxc (eV)=  -6.08679
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.81036  -6.02727  -2.64885  -1.09040  -1.09040
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.83492  -5.23508  -2.21174
+
+ ETOT  2  -8.6730775385841    -1.676E-05 8.767E-11 3.620E-03 2.928E-04 4.051E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -4.05126024896E-03    0.00000000000E+00    0.00000000000E+00
+    2     4.05126024896E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04063   Average Vxc (hartree)=  -0.22364
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36129  -0.22170  -0.09748  -0.04063  -0.04063
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32541  -0.19250  -0.08139
+ Fermi (or HOMO) energy (eV) =  -1.10558   Average Vxc (eV)=  -6.08550
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83107  -6.03264  -2.65252  -1.10558  -1.10558
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85491  -5.23827  -2.21486
+
+ ETOT  3  -8.6730786239460    -1.085E-06 4.831E-08 7.388E-06 1.125E-04 3.939E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.93877340256E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.93877340256E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04072   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36144  -0.22167  -0.09743  -0.04072  -0.04072
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32559  -0.19247  -0.08136
+ Fermi (or HOMO) energy (eV) =  -1.10815   Average Vxc (eV)=  -6.08509
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83540  -6.03192  -2.65125  -1.10815  -1.10815
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85964  -5.23731  -2.21395
+
+ ETOT  4  -8.6730786275535    -3.608E-09 2.779E-11 2.814E-06 4.223E-06 3.943E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.94299591067E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.94299591067E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04070   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36142  -0.22165  -0.09741  -0.04070  -0.04070
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32557  -0.19245  -0.08135
+ Fermi (or HOMO) energy (eV) =  -1.10763   Average Vxc (eV)=  -6.08510
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83483  -6.03140  -2.65075  -1.10763  -1.10763
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85923  -5.23684  -2.21355
+
+ ETOT  5  -8.6730786288603    -1.307E-09 2.163E-11 7.708E-08 2.417E-06 3.941E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.94057883408E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.94057883408E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04070   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36142  -0.22165  -0.09741  -0.04070  -0.04070
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32557  -0.19245  -0.08135
+ Fermi (or HOMO) energy (eV) =  -1.10760   Average Vxc (eV)=  -6.08511
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83474  -6.03137  -2.65074  -1.10760  -1.10760
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85925  -5.23673  -2.21354
+
+ ETOT  6  -8.6730786288898    -2.952E-11 1.747E-12 8.373E-09 5.994E-07 3.940E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.93997941372E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.93997941372E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04070   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36142  -0.22165  -0.09741  -0.04070  -0.04070
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32557  -0.19245  -0.08135
+ Fermi (or HOMO) energy (eV) =  -1.10761   Average Vxc (eV)=  -6.08511
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83475  -6.03138  -2.65076  -1.10761  -1.10761
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85928  -5.23672  -2.21355
+
+ ETOT  7  -8.6730786288936    -3.814E-12 2.142E-13 2.597E-09 1.048E-07 3.940E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.93987465355E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.93987465355E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04070   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36142  -0.22165  -0.09741  -0.04070  -0.04070
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32557  -0.19245  -0.08135
+ Fermi (or HOMO) energy (eV) =  -1.10761   Average Vxc (eV)=  -6.08511
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83475  -6.03139  -2.65076  -1.10761  -1.10761
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85929  -5.23672  -2.21355
+
+ ETOT  8  -8.6730786288948    -1.117E-12 9.197E-14 8.111E-10 1.729E-07 3.940E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.94004754963E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.94004754963E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM2_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.04070   Average Vxc (hartree)=  -0.22362
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.36142  -0.22165  -0.09741  -0.04070  -0.04070
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32557  -0.19245  -0.08135
+ Fermi (or HOMO) energy (eV) =  -1.10761   Average Vxc (eV)=  -6.08511
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.83475  -6.03139  -2.65076  -1.10761  -1.10761
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.85930  -5.23672  -2.21355
+
+ At SCF step    8   max residual=  9.20E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.26113389E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.10897253E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.10897253E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.19768197989726E+00 -7.71729452186032E-16 -2.82403237466358E-16
+  2.19768197989726E+00  7.71729452186032E-16  2.82403237466358E-16
+ Velocities (bohr/(atomic time unit))
+ -1.10507812362932E-05  2.07246393951431E-19 -4.50381020152776E-19
+  1.10507812362932E-05 -2.07246393951431E-19  4.50381020152776E-19
+ Cartesian forces (hart/bohr); max,rms= 3.94005E-03 2.27479E-03 (free atoms)
+ -3.94004754963251E-03  9.80580874842142E-17 -2.36107126322345E-16
+  3.94004754963251E-03 -9.80580874842142E-17  2.36107126322345E-16
+
+
+ TIME STEP NUMBER   3  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6728086962850    -8.673E+00 2.554E-08 1.102E+00 7.019E-04 3.238E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.23811479063E-03    0.00000000000E+00    0.00000000000E+00
+    2     3.23811479063E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03663   Average Vxc (hartree)=  -0.22404
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35573  -0.22161  -0.09726  -0.03663  -0.03663
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32017  -0.19267  -0.08114
+ Fermi (or HOMO) energy (eV) =  -0.99682   Average Vxc (eV)=  -6.09638
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.67998  -6.03027  -2.64662  -0.99682  -0.99682
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.71226  -5.24279  -2.20789
+
+ ETOT  2  -8.6731391165443    -3.304E-04 1.670E-09 7.045E-02 1.250E-03 1.988E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.98835945106E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.98835945106E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03905   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35902  -0.22246  -0.09785  -0.03905  -0.03905
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32333  -0.19317  -0.08165
+ Fermi (or HOMO) energy (eV) =  -1.06257   Average Vxc (eV)=  -6.09073
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76949  -6.05344  -2.66263  -1.06257  -1.06257
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79828  -5.25635  -2.22181
+
+ ETOT  3  -8.6731602143180    -2.110E-05 9.419E-07 1.439E-04 4.768E-04 1.512E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51160321844E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51160321844E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03945   Average Vxc (hartree)=  -0.22376
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35971  -0.22234  -0.09764  -0.03945  -0.03945
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32408  -0.19301  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.07353   Average Vxc (eV)=  -6.08894
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78810  -6.05020  -2.65704  -1.07353  -1.07353
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81858  -5.25200  -2.21782
+
+ ETOT  4  -8.6731602837953    -6.948E-08 5.526E-10 5.437E-05 1.840E-05 1.530E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.53000680353E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.53000680353E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35962  -0.22226  -0.09756  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32401  -0.19293  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07129   Average Vxc (eV)=  -6.08900
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78564  -6.04794  -2.65487  -1.07129  -1.07129
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81682  -5.24995  -2.21607
+
+ ETOT  5  -8.6731603097222    -2.593E-08 4.688E-10 1.271E-06 1.176E-05 1.518E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51824549709E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51824549709E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03936   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22225  -0.09756  -0.03936  -0.03936
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07115   Average Vxc (eV)=  -6.08903
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78526  -6.04779  -2.65486  -1.07115  -1.07115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81690  -5.24944  -2.21607
+
+ ETOT  6  -8.6731603102742    -5.520E-10 3.038E-11 1.597E-07 1.874E-06 1.516E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51637184502E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51637184502E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22225  -0.09757  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07120   Average Vxc (eV)=  -6.08902
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78529  -6.04784  -2.65492  -1.07120  -1.07120
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81703  -5.24943  -2.21612
+
+ ETOT  7  -8.6731603103573    -8.306E-11 4.410E-12 4.895E-08 1.796E-07 1.516E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51619219641E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51619219641E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22225  -0.09757  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07120   Average Vxc (eV)=  -6.08902
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78530  -6.04786  -2.65493  -1.07120  -1.07120
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81708  -5.24942  -2.21613
+
+ ETOT  8  -8.6731603103884    -3.118E-11 8.680E-13 1.686E-08 1.564E-07 1.516E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51634856075E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51634856075E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22226  -0.09757  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07120   Average Vxc (eV)=  -6.08901
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78530  -6.04787  -2.65493  -1.07120  -1.07120
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81710  -5.24942  -2.21614
+
+ ETOT  9  -8.6731603104032    -1.473E-11 9.018E-13 1.698E-09 2.079E-07 1.517E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51655649594E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51655649594E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22226  -0.09757  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07120   Average Vxc (eV)=  -6.08901
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78529  -6.04788  -2.65494  -1.07120  -1.07120
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81712  -5.24941  -2.21615
+
+ ETOT 10  -8.6731603104033    -1.865E-13 7.072E-14 6.535E-10 1.549E-07 1.516E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.51640163791E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.51640163791E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM3_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03937   Average Vxc (hartree)=  -0.22377
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35960  -0.22226  -0.09757  -0.03937  -0.03937
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32402  -0.19291  -0.08144
+ Fermi (or HOMO) energy (eV) =  -1.07120   Average Vxc (eV)=  -6.08901
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78529  -6.04788  -2.65494  -1.07120  -1.07120
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81712  -5.24941  -2.21614
+
+ At SCF step   10   max residual=  7.07E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.43091018E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11036236E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11036236E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.20527723397700E+00 -6.69025373672493E-16 -7.72788788904673E-16
+  2.20527723397700E+00  6.69025373672493E-16  7.72788788904673E-16
+ Velocities (bohr/(atomic time unit))
+ -7.47616580119698E-06 -1.94411069319649E-19 -6.10905995635449E-19
+  7.47616580119698E-06  1.94411069319649E-19  6.10905995635449E-19
+ Cartesian forces (hart/bohr); max,rms= 1.51640E-03 8.75495E-04 (free atoms)
+ -1.51640163790653E-03 -1.42056435632441E-16 -1.32433194364245E-16
+  1.51640163790653E-03  1.42056435632441E-16  1.32433194364245E-16
+
+
+ TIME STEP NUMBER   4  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731615790627    -8.673E+00 8.493E-11 5.995E-03 4.586E-05 1.471E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.47054353440E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.47054353440E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03907   Average Vxc (hartree)=  -0.22380
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35918  -0.22225  -0.09756  -0.03907  -0.03907
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32362  -0.19293  -0.08143
+ Fermi (or HOMO) energy (eV) =  -1.06302   Average Vxc (eV)=  -6.08984
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.77384  -6.04775  -2.65465  -1.06302  -1.06302
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80620  -5.24981  -2.21578
+
+ ETOT  2  -8.6731633731994    -1.794E-06 9.149E-12 3.868E-04 9.065E-05 1.380E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.37989342402E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.37989342402E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03924   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35943  -0.22231  -0.09760  -0.03924  -0.03924
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32386  -0.19296  -0.08146
+ Fermi (or HOMO) energy (eV) =  -1.06790   Average Vxc (eV)=  -6.08943
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78051  -6.04949  -2.65582  -1.06790  -1.06790
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81264  -5.25084  -2.21676
+
+ ETOT  3  -8.6731634885338    -1.153E-07 5.135E-09 7.920E-07 3.492E-05 1.345E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.34497641220E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.34497641220E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03927   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35948  -0.22231  -0.09758  -0.03927  -0.03927
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32391  -0.19295  -0.08145
+ Fermi (or HOMO) energy (eV) =  -1.06872   Average Vxc (eV)=  -6.08929
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78189  -6.04926  -2.65540  -1.06872  -1.06872
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81415  -5.25053  -2.21646
+
+ ETOT  4  -8.6731634889164    -3.825E-10 2.914E-12 3.014E-07 1.349E-06 1.346E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.34632499391E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.34632499391E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03927   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35947  -0.22230  -0.09758  -0.03927  -0.03927
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32391  -0.19295  -0.08145
+ Fermi (or HOMO) energy (eV) =  -1.06855   Average Vxc (eV)=  -6.08930
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78170  -6.04909  -2.65524  -1.06855  -1.06855
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81402  -5.25038  -2.21633
+
+ ETOT  5  -8.6731634890596    -1.432E-10 2.244E-12 9.281E-09 6.422E-07 1.346E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.34568282765E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.34568282765E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03927   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35947  -0.22230  -0.09758  -0.03927  -0.03927
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32391  -0.19295  -0.08145
+ Fermi (or HOMO) energy (eV) =  -1.06854   Average Vxc (eV)=  -6.08930
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78167  -6.04908  -2.65524  -1.06854  -1.06854
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81402  -5.25035  -2.21633
+
+ ETOT  6  -8.6731634890626    -3.025E-12 2.069E-13 8.254E-10 1.959E-07 1.345E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.34548692665E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.34548692665E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03927   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35947  -0.22230  -0.09758  -0.03927  -0.03927
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32391  -0.19295  -0.08145
+ Fermi (or HOMO) energy (eV) =  -1.06855   Average Vxc (eV)=  -6.08930
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78168  -6.04909  -2.65524  -1.06855  -1.06855
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81403  -5.25034  -2.21633
+
+ ETOT  7  -8.6731634890626     0.000E+00 7.039E-14 3.331E-10 4.670E-08 1.346E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.34553362968E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.34553362968E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM4_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03927   Average Vxc (hartree)=  -0.22378
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35947  -0.22230  -0.09758  -0.03927  -0.03927
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32391  -0.19295  -0.08145
+ Fermi (or HOMO) energy (eV) =  -1.06855   Average Vxc (eV)=  -6.08930
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.78168  -6.04909  -2.65524  -1.06855  -1.06855
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.81403  -5.25034  -2.21633
+
+ At SCF step    7   max residual=  7.04E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.44310455E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11049192E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11049192E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.20849689690230E+00 -9.26153806874989E-16 -1.02182057614168E-15
+  2.20849689690230E+00  9.26153806874989E-16  1.02182057614168E-15
+ Velocities (bohr/(atomic time unit))
+ -4.15976650840983E-06 -2.00449180829259E-19 -2.21104499829971E-19
+  4.15976650840983E-06  2.00449180829259E-19  2.21104499829971E-19
+ Cartesian forces (hart/bohr); max,rms= 1.34553E-03 7.76844E-04 (free atoms)
+ -1.34553362968223E-03 -6.79964390151885E-19 -4.54333781933879E-17
+  1.34553362968223E-03  6.79964390151885E-19  4.54333781933879E-17
+
+
+ TIME STEP NUMBER   5  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731460278426    -8.673E+00 1.154E-09 8.139E-02 1.661E-04 1.179E-03
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.17945315123E-03    0.00000000000E+00    0.00000000000E+00
+    2     1.17945315123E-03    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03817   Average Vxc (hartree)=  -0.22389
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35793  -0.22228  -0.09754  -0.03817  -0.03817
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32244  -0.19300  -0.08140
+ Fermi (or HOMO) energy (eV) =  -1.03862   Average Vxc (eV)=  -6.09234
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.73977  -6.04867  -2.65422  -1.03862  -1.03862
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.77411  -5.25186  -2.21498
+
+ ETOT  2  -8.6731703755341    -2.435E-05 1.230E-10 5.228E-03 3.306E-04 8.488E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -8.48814501658E-04    0.00000000000E+00    0.00000000000E+00
+    2     8.48814501658E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03882   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35883  -0.22252  -0.09770  -0.03882  -0.03882
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32331  -0.19314  -0.08153
+ Fermi (or HOMO) energy (eV) =  -1.05648   Average Vxc (eV)=  -6.09082
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76415  -6.05501  -2.65847  -1.05648  -1.05648
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79762  -5.25561  -2.21860
+
+ ETOT  3  -8.6731719338219    -1.558E-06 6.940E-08 1.073E-05 1.269E-04 7.219E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.21869445954E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.21869445954E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03893   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35901  -0.22249  -0.09764  -0.03893  -0.03893
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32351  -0.19310  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05945   Average Vxc (eV)=  -6.09033
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76919  -6.05415  -2.65694  -1.05945  -1.05945
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80314  -5.25446  -2.21750
+
+ ETOT  4  -8.6731719389870    -5.165E-09 3.888E-11 4.099E-06 5.170E-06 7.270E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.27039062413E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.27039062413E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03891   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35899  -0.22246  -0.09762  -0.03891  -0.03891
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32349  -0.19308  -0.08147
+ Fermi (or HOMO) energy (eV) =  -1.05885   Average Vxc (eV)=  -6.09035
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76852  -6.05355  -2.65636  -1.05885  -1.05885
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80266  -5.25391  -2.21702
+
+ ETOT  5  -8.6731719409238    -1.937E-09 3.186E-11 1.045E-07 2.696E-06 7.243E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.24343189614E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.24343189614E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03891   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35898  -0.22246  -0.09762  -0.03891  -0.03891
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32349  -0.19307  -0.08147
+ Fermi (or HOMO) energy (eV) =  -1.05881   Average Vxc (eV)=  -6.09035
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76841  -6.05351  -2.65635  -1.05881  -1.05881
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80268  -5.25377  -2.21701
+
+ ETOT  6  -8.6731719409645    -4.070E-11 2.415E-12 1.219E-08 5.770E-07 7.238E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.23766189827E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.23766189827E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03891   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35898  -0.22246  -0.09762  -0.03891  -0.03891
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32349  -0.19307  -0.08147
+ Fermi (or HOMO) energy (eV) =  -1.05882   Average Vxc (eV)=  -6.09035
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76843  -6.05352  -2.65636  -1.05882  -1.05882
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80271  -5.25377  -2.21702
+
+ ETOT  7  -8.6731719409708    -6.308E-12 3.218E-13 3.721E-09 5.056E-08 7.237E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.23715628087E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.23715628087E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03891   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35898  -0.22246  -0.09762  -0.03891  -0.03891
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32349  -0.19307  -0.08147
+ Fermi (or HOMO) energy (eV) =  -1.05882   Average Vxc (eV)=  -6.09035
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76843  -6.05353  -2.65637  -1.05882  -1.05882
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80273  -5.25377  -2.21703
+
+ ETOT  8  -8.6731719409727    -1.805E-12 9.636E-14 1.458E-09 1.435E-07 7.236E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -7.23572170772E-04    0.00000000000E+00    0.00000000000E+00
+    2     7.23572170772E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM5_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03891   Average Vxc (hartree)=  -0.22382
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35898  -0.22246  -0.09762  -0.03891  -0.03891
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32349  -0.19307  -0.08147
+ Fermi (or HOMO) energy (eV) =  -1.05882   Average Vxc (eV)=  -6.09035
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76843  -6.05353  -2.65637  -1.05882  -1.05882
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.80273  -5.25377  -2.21703
+
+ At SCF step    8   max residual=  9.64E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.48764241E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11089639E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11089639E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21119525253409E+00 -8.92671888091388E-16 -1.20055086098885E-15
+  2.21119525253409E+00  8.92671888091388E-16  1.20055086098885E-15
+ Velocities (bohr/(atomic time unit))
+ -3.02818667351261E-06  1.56640812309101E-19 -4.90247436449807E-19
+  3.02818667351261E-06 -1.56640812309101E-19  4.90247436449807E-19
+ Cartesian forces (hart/bohr); max,rms= 7.23572E-04 4.17755E-04 (free atoms)
+ -7.23572170771703E-04  5.59977091676461E-17 -2.01639060356444E-16
+  7.23572170771703E-04 -5.59977091676461E-17  2.01639060356444E-16
+
+
+ TIME STEP NUMBER   6  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731715879941    -8.673E+00 7.548E-11 5.366E-03 4.089E-05 6.827E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -6.82684397985E-04    0.00000000000E+00    0.00000000000E+00
+    2     6.82684397985E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03863   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35859  -0.22246  -0.09761  -0.03863  -0.03863
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32312  -0.19309  -0.08146
+ Fermi (or HOMO) energy (eV) =  -1.05114   Average Vxc (eV)=  -6.09113
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75767  -6.05342  -2.65611  -1.05114  -1.05114
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79248  -5.25415  -2.21669
+
+ ETOT  2  -8.6731731918475    -1.604E-06 8.107E-12 3.455E-04 8.425E-05 5.984E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.98434280503E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.98434280503E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03880   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35882  -0.22252  -0.09765  -0.03880  -0.03880
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32334  -0.19312  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05573   Average Vxc (eV)=  -6.09074
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76394  -6.05505  -2.65720  -1.05573  -1.05573
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79853  -5.25512  -2.21761
+
+ ETOT  3  -8.6731732946622    -1.028E-07 4.580E-09 7.119E-07 3.245E-05 5.660E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.65987310977E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.65987310977E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03883   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35887  -0.22251  -0.09764  -0.03883  -0.03883
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32339  -0.19311  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05650   Average Vxc (eV)=  -6.09062
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76523  -6.05483  -2.65681  -1.05650  -1.05650
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79995  -5.25482  -2.21733
+
+ ETOT  4  -8.6731732950041    -3.419E-10 2.581E-12 2.709E-07 1.285E-06 5.673E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.67272386075E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.67272386075E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03882   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35886  -0.22251  -0.09763  -0.03882  -0.03882
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32339  -0.19311  -0.08148
+ Fermi (or HOMO) energy (eV) =  -1.05634   Average Vxc (eV)=  -6.09062
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76506  -6.05467  -2.65666  -1.05634  -1.05634
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79983  -5.25468  -2.21720
+
+ ETOT  5  -8.6731732951331    -1.290E-10 2.020E-12 8.267E-09 5.824E-07 5.667E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.66689983041E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.66689983041E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03882   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35886  -0.22250  -0.09763  -0.03882  -0.03882
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32339  -0.19310  -0.08148
+ Fermi (or HOMO) energy (eV) =  -1.05633   Average Vxc (eV)=  -6.09062
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76503  -6.05466  -2.65665  -1.05633  -1.05633
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79983  -5.25465  -2.21720
+
+ ETOT  6  -8.6731732951358    -2.705E-12 1.847E-13 7.463E-10 1.807E-07 5.665E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.66509286013E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.66509286013E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03882   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35886  -0.22250  -0.09763  -0.03882  -0.03882
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32339  -0.19310  -0.08148
+ Fermi (or HOMO) energy (eV) =  -1.05633   Average Vxc (eV)=  -6.09062
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76503  -6.05467  -2.65666  -1.05633  -1.05633
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79984  -5.25464  -2.21720
+
+ ETOT  7  -8.6731732951358     7.105E-15 6.284E-14 3.007E-10 4.446E-08 5.666E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.66553748263E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.66553748263E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM6_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03882   Average Vxc (hartree)=  -0.22383
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35886  -0.22250  -0.09763  -0.03882  -0.03882
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32339  -0.19310  -0.08148
+ Fermi (or HOMO) energy (eV) =  -1.05633   Average Vxc (eV)=  -6.09062
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76504  -6.05467  -2.65666  -1.05633  -1.05633
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79984  -5.25464  -2.21721
+
+ At SCF step    7   max residual=  6.28E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.49896941E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11100021E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11100021E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21271570744475E+00 -8.00641573433687E-16 -1.53558115585187E-15
+  2.21271570744475E+00  8.00641573433687E-16  1.53558115585187E-15
+ Velocities (bohr/(atomic time unit))
+ -1.92366228964883E-06  3.62363051789976E-20 -1.47876366319619E-19
+  1.92366228964883E-06 -3.62363051789976E-20  1.47876366319619E-19
+ Cartesian forces (hart/bohr); max,rms= 5.66554E-04 3.27100E-04 (free atoms)
+ -5.66553748263078E-04 -1.50029763458469E-17  4.20255581344725E-17
+  5.66553748263078E-04  1.50029763458469E-17 -4.20255581344725E-17
+
+
+ TIME STEP NUMBER   7  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731714569075    -8.673E+00 1.389E-10 9.905E-03 5.528E-05 5.113E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -5.11275067084E-04    0.00000000000E+00    0.00000000000E+00
+    2     5.11275067084E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03844   Average Vxc (hartree)=  -0.22387
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35832  -0.22250  -0.09762  -0.03844  -0.03844
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32288  -0.19312  -0.08146
+ Fermi (or HOMO) energy (eV) =  -1.04593   Average Vxc (eV)=  -6.09168
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75045  -6.05452  -2.65631  -1.04593  -1.04593
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.78595  -5.25516  -2.21675
+
+ ETOT  2  -8.6731744171610    -2.960E-06 1.492E-11 6.370E-04 1.140E-04 3.973E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.97300200818E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.97300200818E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03867   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35863  -0.22258  -0.09767  -0.03867  -0.03867
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32318  -0.19317  -0.08151
+ Fermi (or HOMO) energy (eV) =  -1.05215   Average Vxc (eV)=  -6.09115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75895  -6.05673  -2.65779  -1.05215  -1.05215
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79414  -5.25647  -2.21800
+
+ ETOT  3  -8.6731746067312    -1.896E-07 8.440E-09 1.310E-06 4.388E-05 3.534E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.53416922187E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.53416922187E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03870   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35870  -0.22257  -0.09765  -0.03870  -0.03870
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32325  -0.19316  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05318   Average Vxc (eV)=  -6.09098
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76070  -6.05643  -2.65725  -1.05318  -1.05318
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79607  -5.25607  -2.21761
+
+ ETOT  4  -8.6731746073607    -6.295E-10 4.731E-12 5.018E-07 1.823E-06 3.552E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.55240328753E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.55240328753E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03870   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35869  -0.22256  -0.09764  -0.03870  -0.03870
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32324  -0.19315  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05297   Average Vxc (eV)=  -6.09098
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76047  -6.05622  -2.65705  -1.05297  -1.05297
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79590  -5.25588  -2.21745
+
+ ETOT  5  -8.6731746075976    -2.370E-10 3.798E-12 1.323E-08 8.908E-07 3.543E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.54349538379E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.54349538379E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03870   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35869  -0.22256  -0.09764  -0.03870  -0.03870
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32324  -0.19315  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05296   Average Vxc (eV)=  -6.09099
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76043  -6.05621  -2.65704  -1.05296  -1.05296
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79590  -5.25584  -2.21744
+
+ ETOT  6  -8.6731746076022    -4.581E-12 3.026E-13 1.290E-09 2.410E-07 3.541E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.54108558130E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.54108558130E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03870   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35869  -0.22256  -0.09764  -0.03870  -0.03870
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32324  -0.19315  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05296   Average Vxc (eV)=  -6.09099
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76044  -6.05621  -2.65705  -1.05296  -1.05296
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79592  -5.25584  -2.21745
+
+ ETOT  7  -8.6731746076024    -1.670E-13 9.535E-14 5.439E-10 5.268E-08 3.542E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.54161239577E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.54161239577E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM7_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03870   Average Vxc (hartree)=  -0.22384
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35869  -0.22256  -0.09764  -0.03870  -0.03870
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32324  -0.19315  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05296   Average Vxc (eV)=  -6.09099
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.76044  -6.05621  -2.65705  -1.05296  -1.05296
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79592  -5.25584  -2.21745
+
+ At SCF step    7   max residual=  9.53E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.51430903E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11114697E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11114697E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21387400637248E+00 -8.22547854018006E-16 -1.65540955572497E-15
+  2.21387400637248E+00  8.22547854018006E-16  1.65540955572497E-15
+ Velocities (bohr/(atomic time unit))
+ -1.37047252867209E-06  1.19819529026428E-21 -8.07814171652383E-19
+  1.37047252867209E-06 -1.19819529026426E-21  8.07814171652383E-19
+ Cartesian forces (hart/bohr); max,rms= 3.54161E-04 2.04475E-04 (free atoms)
+ -3.54161239576707E-04  1.38731884149533E-17 -3.95011373576036E-16
+  3.54161239576707E-04 -1.38731884149533E-17  3.95011373576036E-16
+
+
+ TIME STEP NUMBER   8  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731743510447    -8.673E+00 2.888E-11 2.058E-03 2.487E-05 3.293E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -3.29289400111E-04    0.00000000000E+00    0.00000000000E+00
+    2     3.29289400111E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03852   Average Vxc (hartree)=  -0.22386
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35845  -0.22256  -0.09764  -0.03852  -0.03852
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32301  -0.19316  -0.08148
+ Fermi (or HOMO) energy (eV) =  -1.04822   Average Vxc (eV)=  -6.09147
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75379  -6.05615  -2.65690  -1.04822  -1.04822
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.78959  -5.25607  -2.21725
+
+ ETOT  2  -8.6731749658675    -6.148E-07 3.098E-12 1.324E-04 5.178E-05 2.775E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.77512981150E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.77512981150E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03863   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35859  -0.22260  -0.09766  -0.03863  -0.03863
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32315  -0.19318  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05106   Average Vxc (eV)=  -6.09123
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75766  -6.05715  -2.65757  -1.05106  -1.05106
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79333  -5.25667  -2.21781
+
+ ETOT  3  -8.6731750052431    -3.938E-08 1.754E-09 2.734E-07 1.994E-05 2.576E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.57571252106E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.57571252106E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03864   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35862  -0.22259  -0.09765  -0.03864  -0.03864
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32318  -0.19317  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05153   Average Vxc (eV)=  -6.09115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75846  -6.05702  -2.65732  -1.05153  -1.05153
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79420  -5.25649  -2.21763
+
+ ETOT  4  -8.6731750053742    -1.311E-10 9.865E-13 1.040E-07 7.996E-07 2.584E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.58370862497E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.58370862497E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03864   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35861  -0.22259  -0.09765  -0.03864  -0.03864
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32318  -0.19317  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05143   Average Vxc (eV)=  -6.09115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75836  -6.05692  -2.65723  -1.05143  -1.05143
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79413  -5.25640  -2.21756
+
+ ETOT  5  -8.6731750054236    -4.937E-11 7.735E-13 2.825E-09 4.276E-07 2.579E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.57943297182E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.57943297182E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03864   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35861  -0.22259  -0.09765  -0.03864  -0.03864
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32318  -0.19317  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05142   Average Vxc (eV)=  -6.09115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75834  -6.05691  -2.65723  -1.05142  -1.05142
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79413  -5.25638  -2.21755
+
+ ETOT  6  -8.6731750054243    -7.603E-13 9.923E-14 3.828E-10 6.640E-08 2.580E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.58009700615E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.58009700615E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM8_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03864   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35861  -0.22259  -0.09765  -0.03864  -0.03864
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32318  -0.19317  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.05143   Average Vxc (eV)=  -6.09115
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75834  -6.05692  -2.65723  -1.05143  -1.05143
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79414  -5.25638  -2.21756
+
+ At SCF step    6   max residual=  9.92E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.52127775E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11120633E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11120633E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21461218574584E+00 -8.37001121512270E-16 -2.27032356732456E-15
+  2.21461218574584E+00  8.37001121512270E-16  2.27032356732456E-15
+ Velocities (bohr/(atomic time unit))
+ -9.16617100991711E-07 -1.55949459336606E-19 -1.08195637998396E-19
+  9.16617100991711E-07  1.55949459336606E-19  1.08195637998396E-19
+ Cartesian forces (hart/bohr); max,rms= 2.58010E-04 1.48962E-04 (free atoms)
+ -2.58009700614710E-04 -7.72442346651727E-17  1.73691794467666E-16
+  2.58009700614710E-04  7.72442346651727E-17 -1.73691794467666E-16
+
+
+ TIME STEP NUMBER   9  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731747241798    -8.673E+00 2.350E-11 1.676E-03 2.237E-05 2.356E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -2.35635041485E-04    0.00000000000E+00    0.00000000000E+00
+    2     2.35635041485E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03848   Average Vxc (hartree)=  -0.22386
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35839  -0.22259  -0.09765  -0.03848  -0.03848
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32297  -0.19318  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.04715   Average Vxc (eV)=  -6.09159
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75235  -6.05686  -2.65709  -1.04715  -1.04715
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.78843  -5.25659  -2.21738
+
+ ETOT  2  -8.6731752249988    -5.008E-07 2.521E-12 1.078E-04 4.664E-05 1.890E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.88994577736E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.88994577736E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03858   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35852  -0.22262  -0.09767  -0.03858  -0.03858
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32309  -0.19320  -0.08151
+ Fermi (or HOMO) energy (eV) =  -1.04971   Average Vxc (eV)=  -6.09137
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75584  -6.05776  -2.65769  -1.04971  -1.04971
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79180  -5.25713  -2.21788
+
+ ETOT  3  -8.6731752570629    -3.206E-08 1.428E-09 2.220E-07 1.796E-05 1.710E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.71030188277E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.71030188277E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03859   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35855  -0.22261  -0.09766  -0.03859  -0.03859
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32312  -0.19319  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05013   Average Vxc (eV)=  -6.09130
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75656  -6.05764  -2.65747  -1.05013  -1.05013
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79259  -5.25696  -2.21773
+
+ ETOT  4  -8.6731752571694    -1.065E-10 8.012E-13 8.451E-08 7.210E-07 1.718E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.71751200770E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.71751200770E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03859   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35854  -0.22261  -0.09766  -0.03859  -0.03859
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32312  -0.19319  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05005   Average Vxc (eV)=  -6.09130
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75647  -6.05756  -2.65739  -1.05005  -1.05005
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79252  -5.25689  -2.21766
+
+ ETOT  5  -8.6731752572096    -4.024E-11 6.249E-13 2.293E-09 3.865E-07 1.714E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.71364706747E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.71364706747E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03859   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35854  -0.22261  -0.09766  -0.03859  -0.03859
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32312  -0.19319  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05004   Average Vxc (eV)=  -6.09130
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75645  -6.05755  -2.65739  -1.05004  -1.05004
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79252  -5.25687  -2.21765
+
+ ETOT  6  -8.6731752572098    -1.457E-13 9.812E-14 3.984E-10 1.816E-07 1.715E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.71546266815E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.71546266815E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM9_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03859   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35854  -0.22261  -0.09766  -0.03859  -0.03859
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32312  -0.19319  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.05004   Average Vxc (eV)=  -6.09130
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75645  -6.05755  -2.65739  -1.05004  -1.05004
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79253  -5.25687  -2.21766
+
+ At SCF step    6   max residual=  9.81E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.52755448E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11126413E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11126413E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21514395252409E+00 -9.32529274381066E-16 -2.12390225434548E-15
+  2.21514395252409E+00  9.32529274381066E-16  2.12390225434548E-15
+ Velocities (bohr/(atomic time unit))
+ -6.42437545608074E-07  8.86567892877855E-20 -4.95560170524459E-19
+  6.42437545608074E-07 -8.86567892877856E-20  4.95560170524459E-19
+ Cartesian forces (hart/bohr); max,rms= 1.71546E-04 9.90423E-05 (free atoms)
+ -1.71546266814791E-04  8.25414947934773E-17 -3.48362220624132E-16
+  1.71546266814791E-04 -8.25414947934773E-17  3.48362220624132E-16
+
+
+ TIME STEP NUMBER  10  ------------------------------------------------------
+
+     iter   Etot(hartree)      deltaE(h)  residm     vres2    diffor    maxfor
+
+ ETOT  1  -8.6731751755756    -8.673E+00 8.014E-12 5.718E-04 1.317E-05 1.584E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.58379080526E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.58379080526E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03850   Average Vxc (hartree)=  -0.22386
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35841  -0.22261  -0.09765  -0.03850  -0.03850
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32300  -0.19319  -0.08149
+ Fermi (or HOMO) energy (eV) =  -1.04755   Average Vxc (eV)=  -6.09156
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75296  -6.05752  -2.65731  -1.04755  -1.04755
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.78920  -5.25699  -2.21755
+
+ ETOT  2  -8.6731753463868    -1.708E-07 8.595E-13 3.678E-05 2.720E-05 1.312E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.31178892173E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.31178892173E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03855   Average Vxc (hartree)=  -0.22386
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35849  -0.22263  -0.09767  -0.03855  -0.03855
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32307  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04904   Average Vxc (eV)=  -6.09143
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75500  -6.05805  -2.65766  -1.04904  -1.04904
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79116  -5.25731  -2.21785
+
+ ETOT  3  -8.6731753573212    -1.093E-08 4.872E-10 7.591E-08 1.047E-05 1.207E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.20706567212E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.20706567212E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03856   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35850  -0.22263  -0.09766  -0.03856  -0.03856
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32309  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04929   Average Vxc (eV)=  -6.09139
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75542  -6.05798  -2.65753  -1.04929  -1.04929
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79162  -5.25721  -2.21776
+
+ ETOT  4  -8.6731753573568    -3.567E-11 2.737E-13 2.821E-08 3.395E-07 1.210E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.21046115177E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.21046115177E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03856   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35850  -0.22262  -0.09766  -0.03856  -0.03856
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32308  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04924   Average Vxc (eV)=  -6.09139
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75536  -6.05793  -2.65749  -1.04924  -1.04924
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79158  -5.25716  -2.21772
+
+ ETOT  5  -8.6731753573711    -1.426E-11 1.943E-13 1.166E-09 1.129E-07 1.209E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.20933244641E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.20933244641E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03856   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35850  -0.22262  -0.09766  -0.03856  -0.03856
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32308  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04923   Average Vxc (eV)=  -6.09139
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75535  -6.05792  -2.65748  -1.04923  -1.04923
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79158  -5.25715  -2.21771
+
+ ETOT  6  -8.6731753573711     1.776E-15 7.857E-14 2.561E-10 1.584E-07 1.211E-04
+
+ cartesian forces (ha/bohr); non-corrected avg=  0.00E+00  0.00E+00  0.00E+00
+    1    -1.21091632021E-04    0.00000000000E+00    0.00000000000E+00
+    2     1.21091632021E-04    0.00000000000E+00    0.00000000000E+00
+ prteigrs : about to open file t21o_TIM10_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03856   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35850  -0.22262  -0.09766  -0.03856  -0.03856
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32308  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04924   Average Vxc (eV)=  -6.09139
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75535  -6.05792  -2.65749  -1.04924  -1.04924
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79159  -5.25715  -2.21772
+
+ At SCF step    6   max residual=  7.86E-14 < tolwfr=  1.00E-13 =>converged.
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.53121485E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11129741E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11129741E-04  sigma(2 1)=  0.00000000E+00
+
+ Cartesian coordinates (bohr)
+ -2.21550020020111E+00 -8.07558177426430E-16 -2.59659940135108E-15
+  2.21550020020111E+00  8.07558177426430E-16  2.59659940135108E-15
+ Velocities (bohr/(atomic time unit))
+ -4.38530702360625E-07  8.30373053601808E-21  2.10250372220968E-19
+  4.38530702360625E-07 -8.30373053601808E-21 -2.10250372220968E-19
+ Cartesian forces (hart/bohr); max,rms= 1.21092E-04 6.99123E-05 (free atoms)
+ -1.21091632020795E-04 -4.87896040288171E-17  2.99386681807145E-16
+  1.21091632020795E-04  4.87896040288171E-17 -2.99386681807145E-16
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   4.9245E-14; max=  7.8570E-14
+   0.0000  0.0000  0.0000    1  7.85699E-14 kpt; spin; max resid(k); each band:
+ 3.02E-14 7.86E-14 2.93E-14 4.55E-14 4.55E-14
+   0.0000  0.0000  0.0000    2  6.67959E-14 kpt; spin; max resid(k); each band:
+ 6.68E-14 5.35E-14 4.45E-14
+ reduced coordinates (array xred) for    2 atoms
+      -0.184625016683     -0.000000000000     -0.000000000000
+       0.184625016683      0.000000000000      0.000000000000
+ rms dE/dt=  8.3895E-04; max dE/dt=  1.4531E-03; dE/dt below (all hartree)
+    1       0.001453099584      0.000000000000     -0.000000000000
+    2      -0.001453099584      0.000000000000      0.000000000000
+
+ cartesian coordinates (angstrom) at end:
+    1     -1.17239221157301    -0.00000000000000    -0.00000000000000
+    2      1.17239221157301     0.00000000000000     0.00000000000000
+
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00012109163202    -0.00000000000000     0.00000000000000
+    2      0.00012109163202     0.00000000000000    -0.00000000000000
+ frms,max,avg= 6.9912286E-05 1.2109163E-04   0.000E+00  0.000E+00  0.000E+00 h/b
+
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00622678155382    -0.00000000000000     0.00000000000002
+    2      0.00622678155382     0.00000000000000    -0.00000000000002
+ frms,max,avg= 3.5950340E-03 6.2267816E-03   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales= 12.000000000000  8.000000000000  8.000000000000 bohr
+              =  6.350126503080  4.233417668720  4.233417668720 angstroms
+ prteigrs : about to open file t21o_EIG
+ Fermi (or HOMO) energy (hartree) =  -0.03856   Average Vxc (hartree)=  -0.22385
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.35850  -0.22262  -0.09766  -0.03856  -0.03856
+ Eigenvalues (hartree) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -0.32308  -0.19320  -0.08150
+ Fermi (or HOMO) energy (eV) =  -1.04924   Average Vxc (eV)=  -6.09139
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN UP:
+ kpt#   1, nband=  5, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -9.75535  -6.05792  -2.65749  -1.04924  -1.04924
+ Eigenvalues (   eV  ) for nkpt=   1  k points, SPIN DOWN:
+ kpt#   1, nband=  3, wtk=  1.00000, kpt=  0.0000  0.0000  0.0000 (reduced coord)
+  -8.79159  -5.25715  -2.21772
+ Total charge density [el/Bohr^3]
+,     Maximum=    8.1366E-02  at reduced coord.    0.9667    0.0000    0.0000
+,Next maximum=    8.1366E-02  at reduced coord.    0.0333    0.0000    0.0000
+,     Minimum=    1.5920E-04  at reduced coord.    0.0000    0.5000    0.5000
+,Next minimum=    1.6644E-04  at reduced coord.    0.0333    0.5000    0.5000
+ Spin up density      [el/Bohr^3]
+,     Maximum=    4.0149E-02  at reduced coord.    0.9667    0.0000    0.0000
+,Next maximum=    4.0149E-02  at reduced coord.    0.0333    0.0000    0.0000
+,     Minimum=    7.4175E-05  at reduced coord.    0.0000    0.5000    0.5000
+,Next minimum=    7.7761E-05  at reduced coord.    0.0333    0.5000    0.5000
+ Spin down density    [el/Bohr^3]
+,     Maximum=    4.1217E-02  at reduced coord.    0.9667    0.0000    0.0000
+,Next maximum=    4.1217E-02  at reduced coord.    0.0333    0.0000    0.0000
+,     Minimum=    8.5024E-05  at reduced coord.    0.0000    0.5000    0.5000
+,Next minimum=    8.8682E-05  at reduced coord.    0.0333    0.5000    0.5000
+ Magnetization (spin up - spin down) [el/Bohr^3]
+,     Maximum=    1.8776E-02  at reduced coord.    0.8667    0.8500    0.9000
+,Next maximum=    1.8776E-02  at reduced coord.    0.1333    0.8500    0.9000
+,     Minimum=   -1.8060E-03  at reduced coord.    0.3000    0.0000    0.0000
+,Next minimum=   -1.8060E-03  at reduced coord.    0.7000    0.0000    0.0000
+ Relative magnetization (=zeta, between -1 and 1)
+,     Maximum=    6.2792E-01  at reduced coord.    0.0000    0.6500    0.7000
+,Next maximum=    6.2792E-01  at reduced coord.    0.0000    0.3500    0.7000
+,     Minimum=   -6.8148E-02  at reduced coord.    0.0000    0.5000    0.5000
+,Next minimum=   -6.7242E-02  at reduced coord.    0.5000    0.5000    0.5000
+
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+
+    Kinetic energy  =  2.53952004335980E+00
+    Hartree energy  =  1.46010816677175E+00
+    XC energy       = -3.21834811656701E+00
+    Ewald energy    = -5.58909998985531E+00
+    PspCore energy  =  2.98722879454542E-02
+    Loc. psp. energy= -5.84311225212409E+00
+    NL   psp  energy=  1.94788450309830E+00
+    >>>>>>>>> Etotal= -8.67317535737110E+00
+
+ Other information on the energy :
+    Total energy(eV)= -2.36009103934518E+02 ; Band energy (Ha)=  -1.3536866140E+00
+--------------------------------------------------------------------------------
+
+          ===> extra information on forces <===
+ ewald contribution to reduced grads
+    1       7.730410306892      0.000000000000      0.000000000000
+    2      -7.730410306892     -0.000000000000     -0.000000000000
+ nonlocal contribution to red. grads
+    1       0.438744618580     -0.000000000000      0.000000000000
+    2      -0.438744618580      0.000000000000      0.000000000000
+ local psp contribution to red. grads
+    1      -8.081470802490      0.000000000000     -0.000000000000
+    2       8.081470802490      0.000000000000      0.000000000000
+ core charge xc contribution to reduced grads
+    1      -0.086228793119      0.000000000000     -0.000000000000
+    2       0.086228793119      0.000000000000      0.000000000000
+ residual contribution to red. grads
+    1      -0.000002230278     -0.000000000000     -0.000000000000
+    2       0.000002230278      0.000000000000     -0.000000000000
+ rms coord change=  4.4985E-03   atom, delta coord (reduced):
+     1       -0.007791683350     -0.000000000000     -0.000000000000
+     2        0.007791683350      0.000000000000      0.000000000000
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.53121485E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.11129741E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.11129741E-04  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -4.6621E+00 GPa]
+- sigma(1 1)=  7.44708993E+00  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)=  3.26954931E+00  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)=  3.26954931E+00  sigma(2 1)=  0.00000000E+00
+
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+     acell    1.2000000000E+01  8.0000000000E+00  8.0000000000E+00 Bohr
+       amu    2.80000000E+01
+    diemac    1.00000000E+00
+    diemix    3.33333333E-01
+     dtion    6.75000000E+02
+      ecut    7.00000000E+00 Hartree
+    enunit         2
+    etotal   -8.6731753574E+00
+     fcart   -1.2109163202E-04 -4.8789604029E-17  2.9938668181E-16
+              1.2109163202E-04  4.8789604029E-17 -2.9938668181E-16
+     intxc         1
+    ionmov         1
+    iprcch         1
+    irdwfk         1
+      iscf         3
+    istwfk      2
+P    mkmem         1
+     natom         2
+     nband      5    3
+     ngfft        30      20      20
+      nkpt         1
+     nline         3
+    nspden         2
+    nsppol         2
+     nstep        20
+      nsym         1
+     ntime        10
+    ntypat         1
+       occ    1.000000  1.000000  1.000000  1.000000  1.000000
+              1.000000  1.000000  1.000000
+    occopt         2
+    prtvol        10
+   spgroup         1
+    strten    2.5312148461E-04  1.1112974095E-04  1.1112974092E-04
+              0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+    timopt        -1
+    tolmxf    1.00000000E-04
+    tolwfr    1.00000000E-13
+     typat    1  1
+       vel   -4.3853070236E-07  8.3037305360E-21  2.1025037222E-19
+              4.3853070236E-07 -8.3037305360E-21 -2.1025037222E-19
+       vis    3.00000000E+02
+    xangst   -1.1723922116E+00 -4.2734138210E-16 -1.3740612230E-15
+              1.1723922116E+00  4.2734138210E-16  1.3740612230E-15
+     xcart   -2.2155002002E+00 -8.0755817743E-16 -2.5965994014E-15
+              2.2155002002E+00  8.0755817743E-16  2.5965994014E-15
+      xred   -1.8462501668E-01 -1.0094477218E-16 -3.2457492517E-16
+              1.8462501668E-01  1.0094477218E-16  3.2457492517E-16
+     znucl     14.00000
+
+================================================================================
+
+ Test the timer : 
+  a combined call timab(*,1,tsec) + timab(*,2,tsec) is 
+- CPU time =    5.6313E-06 sec,    Wall time =    5.6313E-06 sec
+
+- Total cpu        time (s,m,h):          7.2        0.12      0.002
+- Total wall clock time (s,m,h):          7.2        0.12      0.002
+
+- For major independent code sections, cpu and wall times (sec),
+- as well as % of the total time and number of calls 
+
+- routine                 cpu     %       wall     %      number of calls 
+-                                                          (-1=no count)
+- fourwf(pot)            1.488  20.7      1.488  20.7           4068
+- xc:pot/=fourdp         1.334  18.6      1.320  18.4            129
+- status                 0.569   7.9      0.556   7.7           8074
+- vtowfk(ssdiag)         0.557   7.8      0.551   7.7             -1
+- forces                 0.504   7.0      0.482   6.7            115
+- fourdp                 0.503   7.0      0.508   7.1           1291
+- timing timab           0.487   6.8      0.487   6.8             12
+- scfcv-scprqt           0.468   6.5      0.478   6.7            115
+- pspini                 0.225   3.1      0.224   3.1              1
+- mkcore                 0.206   2.9      0.198   2.8            143
+- fourwf(den)            0.185   2.6      0.202   2.8            928
+- nonlop(apply)          0.143   2.0      0.120   1.7           4068
+- stress                 0.112   1.6      0.113   1.6             14
+- invars2                0.106   1.5      0.106   1.5              1
+- vtorho(4)-mkrho-       0.092   1.3      0.075   1.0            115
+- ewald                  0.073   1.0      0.077   1.1             14
+- getghc-other           0.073   1.0      0.059   0.8             -1
+- ewald2                 0.053   0.7      0.056   0.8             14
+- vtorho-kpt loop        0.051   0.7      0.052   0.7            230
+- vtorho  (1)            0.050   0.7      0.048   0.7            115
+- projbd                 0.045   0.6      0.060   0.8           5880
+- vtowfk(contrib)        0.045   0.6      0.046   0.6            230
+- nonlop(forces)         0.041   0.6      0.040   0.6            920
+- abinit(2)              0.031   0.4      0.031   0.4              1
+- symrhg(no FFT)         0.012   0.2      0.012   0.2            116
+- vtowfk  (1)            0.011   0.2      0.013   0.2            230
+- nonlop(forstr)         0.005   0.1      0.009   0.1            112
+- rwwf                   0.001   0.0      0.001   0.0              4
+- inwffil                0.001   0.0      0.001   0.0              1
+- mkrho/=                0.001   0.0      0.001   0.0              2
+- kpgsph                 0.000   0.0      0.000   0.0              2
+- vtowfk3(contrib)       0.000   0.0      0.000   0.0             -1
+- cgwf3-O(npw)           0.000   0.0      0.000   0.0             -1
+- 37   others            0.000   0.0      0.000   0.0
+
+- subtotal               7.472 104.1      7.414 103.3
+
+ Partitioning of abinit 
+- abinit                 7.177 100.0      7.178 100.0              1
+ 
+- abinit(1)              0.011   0.2      0.011   0.2              1
+- abinit(2)              0.031   0.4      0.031   0.4              1
+- invars2m               0.107   1.5      0.107   1.5              1
+- abinit(4)              0.000   0.0      0.001   0.0              1
+- abinit(5)              0.061   0.8      0.061   0.8              1
+- driver                 6.480  90.3      6.479  90.3              1
+- abinit(6)              0.000   0.0      0.001   0.0              1
+- timing timab           0.487   6.8      0.487   6.8             12
+
+- subtotal               7.177 100.0      7.178 100.0
+
+ Partitioning of driver 
+- driver                 6.480  90.3      6.479  90.3              1
+ 
+- gstate                 6.479  90.3      6.479  90.3              1
+
+- subtotal               6.479  90.3      6.479  90.3
+
+ Partitioning of gstate 
+- gstate                 6.479  90.3      6.479  90.3              1
+ 
+- gstate->kpgsph         0.001   0.0      0.003   0.0              2
+- pspini                 0.225   3.1      0.224   3.1              1
+- gstate  (2)            0.004   0.1      0.003   0.0              1
+- test_ionmov            6.245  87.0      6.246  87.0              1
+- gstate  (3)            0.004   0.1      0.003   0.0              1
+
+- subtotal               6.479  90.3      6.479  90.3
+
+ Partitioning of scfcv 
+- scfcv                  6.242  87.0      6.244  87.0             14
+ 
+- scfcv   (1)            0.001   0.0      0.001   0.0             14
+- setvtr                 0.291   4.1      0.294   4.1             28
+- setvtr:mkcore          0.020   0.3      0.021   0.3             14
+- stress-mkcore          0.026   0.4      0.028   0.4             14
+- scfcv-read             0.005   0.1      0.002   0.0            115
+- vtorho                 3.008  41.9      3.007  41.9            115
+- etotfor/=forces        0.505   7.0      0.482   6.7            230
+- scfcv-scprqt           0.468   6.5      0.478   6.7            115
+- newvtr/newrho          0.121   1.7      0.114   1.6            101
+- scfcv   (6)            0.124   1.7      0.128   1.8             28
+- stress                 0.112   1.6      0.113   1.6             14
+
+- subtotal               4.681  65.2      4.668  65.0
+
+ Partitioning of etotfor/rhotov 
+- etotfor/=forces        0.505   7.0      0.482   6.7            230
+- rhotov                 1.651  23.0      1.675  23.3            115
+- forces-mkcore          0.163   2.3      0.150   2.1            115
+- forces                 0.504   7.0      0.482   6.7            115
+
+- subtotal               2.823  39.3      2.789  38.9
+
+ Partitioning of vtorho 
+- vtorho                 3.008  41.9      3.007  41.9            115
+ 
+- vtorho  (1)            0.050   0.7      0.048   0.7            115
+- vtowfk                 2.746  38.3      2.752  38.3            230
+- vtorho-kpt loop        0.051   0.7      0.052   0.7            230
+- vtorho  (4)            0.092   1.3      0.075   1.0            115
+- vtorho(symrhg)         0.064   0.9      0.074   1.0            115
+
+- subtotal               3.003  41.8      3.001  41.8
+
+ Partitioning of vtowfk 
+- vtowfk                 2.746  38.3      2.752  38.3            230
+ 
+- cgwf                   1.909  26.6      1.902  26.5            282
+- subdiago               0.369   5.1      0.362   5.0            282
+- orthon                 0.019   0.3      0.024   0.3            282
+- nonlop%vtowfk          0.041   0.6      0.040   0.6            920
+- fourwf%vtowfk          0.183   2.5      0.200   2.8            920
+- nonlocalpart           0.002   0.0      0.003   0.0            230
+
+- subtotal               2.523  35.2      2.531  35.3
+
+ Partitioning of cgwf 
+- cgwf                   1.909  26.6      1.902  26.5            282
+ 
+- getghc%cgwf            1.704  23.7      1.667  23.2           4068
+- cgwf-O(npw)            0.160   2.2      0.175   2.4             -1
+- projbd%cgwf            0.045   0.6      0.060   0.8           5880
+
+- subtotal               1.909  26.6      1.902  26.5
+
+ Partitioning of getghc 
+- getghc                 1.704  23.7      1.667  23.2           4068
+ 
+- fourwf%getghc          1.488  20.7      1.488  20.7           4068
+- nonlop%getghc          0.143   2.0      0.120   1.7           4068
+- getghc-other           0.073   1.0      0.059   0.8             -1
+
+- subtotal               1.704  23.7      1.667  23.2
+
+ Partitioning of fourwf 
+- fourwf(total )         1.673  23.3      1.690  23.5           4996
+ 
+- fourwf%getghc          1.488  20.7      1.488  20.7           4068
+- fourwf%vtowfk          0.183   2.5      0.200   2.8            920
+- fourwf%mkrho           0.002   0.0      0.002   0.0              8
+
+- subtotal               1.673  23.3      1.690  23.5
+
+ Partitioning of sg_fourwf (disabled) 
+
+
+
+ Additional information 
+- total timab            0.717  10.0      0.717  10.0         127291
+- fourwf(total )         1.673  23.3      1.690  23.5           4996
+- mklocl(2)              0.097   1.4      0.097   1.4            115
+- status                 0.569   7.9      0.556   7.7           8074
+- nonlop(forstr)         0.005   0.1      0.009   0.1            112
+- nonlop(total)          0.189   2.6      0.169   2.4           5100
+- xc:fourdp              0.405   5.6      0.405   5.6           1032
+
+
+ Detailed analysis of some time consuming routines 
+                          tcpu    ncalls  tcpu/ncalls    ndata tcpu/ncalls/ndata
+                         (sec)                (msec)              (microsec)
+- fourwf(pot)            1.488      4068       0.366     24000       0.015
+- fourwf(den)            0.185       928       0.199     12000       0.017
+- fourdp                 0.503      1291       0.390     12000       0.032
+- nonlop(apply)          0.143      4068       0.035      1350       0.026
+- nonlop(forces)         0.041       920       0.045      1350       0.033
+- nonlop(forstr)         0.005       112       0.045      1350       0.033
+- projbd                 0.045      5880       0.008      2700       0.003
+- xc:pot/=fourdp         1.334       129      10.341     24000       0.431
+
+================================================================================
+
+ Calculation completed.
+.Delivered   10 WARNINGs and   1 COMMENTs to log file.
++Overall time at end (sec) : cpu=          7.2  wall=          7.2

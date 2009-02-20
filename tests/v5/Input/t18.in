@@ -1,0 +1,40 @@
+#### This is a local exact exchange calculation for NiO.
+##### DATASETS AND OPTIONS #
+nstep  70
+nsppol 1
+nspden 2
+
+### CONVERGENCE PARAMETERS
+ecut 4
+pawecutdg 10
+toldfe 1.0d-8
+nband 30
+
+
+
+##### PHYSICAL PARAMETERS
+natom 4 ntypat 2 typat 1 1 2 2
+spinat 0 0 1  0 0  -1  0 0 0  0 0  0
+znucl  28.0 8.0 
+xred 0 0 0
+    0.0 0.0 0.5
+    0.5 0.5 0.25
+    0.5 0.5 0.75
+acell 3*7.92 
+rprim 0.0 1/2 1/2
+      1/2 0.0 1/2
+      1.0 1.0 0.0
+
+##### K-POINTS
+kptopt 1 
+kptrlatt 4 0 0 0 4 0 0 0 4
+nshiftk 1
+shiftk 0.5 0.5 0.5
+
+##### Exact Exchange
+
+useexexch 1
+lexexch 2 -1 
+
+
+

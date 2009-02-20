@@ -1,0 +1,13 @@
+telphon_3o_GKK.bin   # Name of output file
+0                    # binary (0) or ascii (1) output
+telphon_1o_DS1_WFK   # GS wavefunction file
+9  0 0               # number of 1WF files, of GKK files, and of perturbations in the GKK files
+telphon_1o_DS3_1WF1  # names of the 1WF then the (eventual) GKK files
+telphon_1o_DS4_1WF2
+telphon_1o_DS5_1WF3
+telphon_1o_DS7_1WF1
+telphon_1o_DS8_1WF2
+telphon_1o_DS9_1WF3
+telphon_1o_DS11_1WF1
+telphon_1o_DS12_1WF2
+telphon_1o_DS13_1WF3

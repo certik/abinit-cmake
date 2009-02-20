@@ -1,0 +1,216 @@
+# Title:
+Suite v3 of various tests of abinit, mrgddb, and anaddb
+# This suite of tests has been established during the
+# development of the version 3.x of ABINIT.
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of
+# these lines is:	[testID | end] [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order. "testID" can be 'end' to
+# signal the normal end of a tests sequence: multiple 'end's are allowed.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	exercise the sequential version of abinis
+#	aim		exercise the atom-in-molecule Bader analysis
+#	ana | anaddb	exercise anaddb
+#	cut3d		exercise cut3d
+#	conducti	exercise conducti
+#	lwf		exercise lwf
+#	mrg | mrgddb	exercise mrgddb
+#	newsp		exercise newsp
+#
+#   parameters for copy and erase are file or directory names
+#
+#   parameters for mrgddb must comply to the following format:
+#	[fn1] 'short description' (fn2 fn3 ... fnLast)
+#   fn2 ... fnLast can reside in the Test directory as normal or g-zipped files
+# they will be copied, and unzipped if necessary, to the working directory
+# before the test and the copy will be deleted after
+#
+#   parameters for the other programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium , -ridiculous),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-logout  log to .out file and apply diff/fldiff to it
+#	-DOS	apply diff/fldiff to the o_DOS file
+#	-DS2	apply diff/fldiff to the o_DS2_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#     -keepfn4
+# default options to call fldiff are: -ignore -ignoreP
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+# 1) mrg/mrgddb
+# fn1 = tNNN.ddb.out
+# 2) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6-fn9,psp1-psp4 = none
+# 3) newsp
+# fn1-fn2 = none
+# fn3 = tNNNo_WFK
+# 4) ana/anaddb
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 = tNNN.ddb.in
+#   fn3 can reside in the Test directory as a normal or g-zipped file
+# it will be copied, and unzipped if necessary, to the working directory before
+# the test and the copy will be deleted after
+# fn4 = tNNN.md
+# 5) cut3d
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# 6) aim
+# fn1 = ../tNNN.in
+# fn2 = tNNNi_DEN
+# fn3 = tNNN
+# fn4-fn5,psp1-psp2 = none
+# 7) conducti
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 = tNNN
+# 8) lwf
+# fn1 = ../tNNN.in
+# fn2 = ../tNNN.moldyn.in
+# fn3 = tNNN.out
+# fn4 = tNNN.wandata
+#
+
+01 seq psp1=73ta.hghsc
+02 seq psp1=83bi.psphgh opt=-medium
+03 seq psp1=31ga.hgh psp2=33as.hgh
+04 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod opt=-medium
+05 seq psp1=14si.pspnc opt=-easy
+06 seq psp1=32ge.SJ_mod
+07 seq psp1=1h.pspnc
+08 seq psp1=1h.pspnc
+09 seq psp1=70yb.pspnc opt=-easy
+10 seq psp1=14si.pspnc
+11 seq psp1=14si.pspnc
+12 seq psp1=1h.pspnc
+13 seq psp1=83bi.psphgh
+14 seq psp1=83bi.psphgh opt=-easy
+15 seq psp1=26fe.pspnc opt=-easy
+16 seq psp1=14si.pspnc opt=-medium
+17 seq psp1=14si.pspnc
+18 seq psp1=13al.981214.fhi
+19 seq psp1=26fe.pspnc opt=-easy
+20 seq psp1=1h.pspnc
+21 seq psp1=01h.bare
+23 seq psp1=01h.bare
+24 seq psp1=01h.bare
+25 seq psp1=01h.bare
+26 seq psp1=01h.bare
+27 seq psp1=01h.bare
+28 seq psp1=01h.bare
+29 seq psp1=01h.bare
+30 seq psp1=14si.pspnc
+31 seq psp1=6c.pspnc psp2=14si.pspnc
+32 seq psp1=01h.bare
+33 seq psp1=01h.bare
+34 seq psp1=01h.bare
+35 seq psp1=01h.bare
+36 seq psp1=01h.bare
+37 seq psp1=01h.bare
+38 seq psp1=01h.bare
+39 seq psp1=01h.bare
+40 seq psp1=14si.pspnc opt=-easy
+41 seq psp1=14si.pspnc
+42 seq psp1=12mg.pspnc
+43 seq psp1=01h.pspgth
+45 seq psp1=14si.pspnc psp2=12mg.pspnc
+46 seq psp1=14si.pspnc opt=-DS2
+47 seq psp1=26fe.pspnc
+48 seq psp1=1h.pspnc
+49 seq psp1=14si.pspnc
+50 seq psp1=12mg.pspnc
+51 seq psp1=26fe.pspnc
+52 seq psp1=13al.pspgth
+53 seq psp1=8o.pspnc
+54 seq psp1=2he.psphgh psp2=1h.psphgh
+55 seq psp1=7n.psphgh
+56 seq psp1=8o.pspnc psp2=12mg.pspnc
+57 erase t57i_*
+# Copy files at the right place
+57 copy t56o_DEN t57i_DEN
+57 aim psp1=o.fc psp2=mg.fc opt=-easy
+58 seq psp1=14si.pspnc
+59 cut3d fn2=t59_k2_b3_s2 opt=-logout
+60 seq psp1=11na.pspnc psp2=17cl.pspnc
+# Need some psp for cut3d
+61 copy $PSPS/0.11-Na.8.density.AE 0.11-Na.8.density.AE
+61 copy $PSPS/0.17-Cl.8.density.AE 0.17-Cl.8.density.AE
+61 cut3d opt=-logout
+61 erase 0.11-Na.8.density.AE
+61 erase 0.17-Cl.8.density.AE
+62 seq psp1=14si.pspnc
+63 cut3d fn2=t63_k1_b1_s1 opt=-medium opt=-logout 
+64 cut3d fn2=t64_k2_b2_s1 opt=-logout
+65 seq psp1=13al.pspgth
+66 cut3d opt=-logout
+67 cut3d fn2=t67.out opt=-logout
+# Copying required XML files
+68 copy $INPUTDIR/t68.in_CML.xml t68.in_CML.xml
+68 seq psp1=42mo.pspnc
+68 erase t68.in_CML.xml
+# Copying required XML files
+69 copy $INPUTDIR/t69a.in_CML.xml t69a.in_CML.xml
+69 copy $INPUTDIR/t69b.in_CML.xml t69b.in_CML.xml
+69 seq psp1=6c.pspnc psp2=01h.pspgth psp3=8o.pspnc psp4=14si.pspnc
+69 erase t69a.in_CML.xml
+69 erase t69b.in_CML.xml
+70 seq psp1=1h.pspnc
+71 seq psp1=1h.pspnc
+72 seq psp1=01h.pspgth
+73 seq psp1=01h.pspgth
+74 seq psp1=8o.pspnc
+75 seq psp1=8o.pspnc opt=-easy
+76 seq psp1=13al.981214.fhi opt=-easy
+77 seq psp1=56ba.psp_mod psp2=8o.psp_mod opt=-easy
+78 seq psp1=13al.psphgh
+79 conducti
+80 seq psp1=01h.pspgth
+81 seq psp1=01h.pspgth psp2=8o.pspnc opt=-easy
+82 seq psp1=01h.pspgth psp2=8o.pspnc opt=-medium
+83 seq psp1=13al.psphgh psp2=33as.hgh
+84 seq psp1=83bi.psphgh opt=-medium
+85 seq psp1=22ti.pspnc psp2=28ni.pspnc opt=-easy
+86 seq psp1=14si.pspnc opt=-medium
+87 seq psp1=14si.pspnc 
+88 mrgscr files=t87o_DS2_SCR,t87o_DS3_SCR,t87o_DS4_SCR
+89 mrgscr files=t88o_SCR,t87o_DS4_SCR
+90 seq psp1=14si.Hamann_mod psp2=32ge.SJ_mod
+91 seq psp1=32ge.SJ_mod psp2=14si.Hamann_mod
+92 seq psp1=14si.Hamann_mod psp2=14si.Hamann_mod
+93 seq psp1=14si.Hamann_mod psp2=32ge.SJ_mod
+94 seq psp1=14si.pspgth psp2=32ge_lda.fhi
+95 seq psp1=42mo.pspnc psp2=14si.pspnc psp3=8o.pspnc
+96 lwf opt=-easy 
+97 lwf opt=-easy 
+make report
+end v3
+# extra test follows
+98 seq psp1=13al.981214.fhi

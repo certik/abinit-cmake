@@ -1,0 +1,50 @@
+(From MMikami 010130)
+The following URL might help,
+when you would like to check the periodic table of
+the elements via "internet" :
+
+http://www.webelements.com/webelements/index.html
+
+---------------------------------------------------------------------
+(From MMikami 010130)
+The Electronic Periodic Table of the Elements
+
+  The source (epte.tar.gz, 9MB) is available, under GPL, at
+  http://www.toddmiller.com/epte/index.html
+
+  For the screenshot, follow http://www.toddmiller.com/index.html
+
+  From the WEB pages:
+
+   The Electronic Periodic Table of the Elements - The source code for
+   the non-graphical based Periodic Table of the elements with data
+   concerning each element, sound files in English for element name
+   and chemistry definitions for Unix platforms (not Windows).
+   ...
+
+   The program, epte, contains a central screen which shows the periodic
+   table of the elements and from which each letter of the alphabet
+   produces a new display. The supplemental displays are of physical
+   constants related to chemistry and contain references to books.
+   The following tables are included:
+
+a - Attributes of some Metals           n - Nobel Prize Awards for Chemistry
+b - Bond Energies of Inorg. Compounds   o - Oxidation Potentials of Elements
+c - Conversions between units           p - Physical Constants of Chemistry
+d - Definitions of Chemistry            q - Quit the Program
+e - Electronegativity of the Elements   r - Radii, Ionic with Charge States
+f - Formula Weight Calculator           s - Solubility Products of Compounds
+g - Groups of Elements by Common Name   t - Time Line of Chemical Events
+h - Move LEFT or Use Left Arrow         u - Units and Prefixes of Metric System
+i - Ions of the Elements with Names     v - Various Forms of Periodic Tables
+j - Move DOWN or Use Down Arrow         w - Orbital Filling on Table (toggle)
+k - Move UP or Use Up Arrow             x - Number the Periodic Table (toggle)
+l - Move RIGHT or Use Right Arrow       y - Element Weight on table (toggle)
+m - Minerals of the Earth with Formulas z - Group Labels on Table (toggle)
+---------------------------------------------------------------------------
+
+I tried it on a Linux box at lunch time today.
+(No modifications, just "make; make install".)
+It worked fine (no heavy !). Some functions would help you, e.g.
+"Radii, Ionic with Charge States" etc. Several conversion functions/
+calculators might also help.

@@ -1,0 +1,26 @@
+# Carbon atom
+ acell 9 9 9
+ diemac 1.0d0
+ diemix 0.2d0
+ ecut 19
+ isecur 1
+ kpt   3*0.0
+ natom  1 nband 4 1
+ nkpt 1
+ nline 5  nnsclo 2
+ nsppol 2   nstep 20
+ nsym 2 ntypat  1
+ occ 1.0 1.0 1.0 0.0
+     1.0 
+ occopt 2
+ rprim 1 0 0  0 1 0  0 0 1
+ symrel  1  0  0   0  1  0   0  0  1
+         1  0  0   0 -1  0   0  0  1
+ tnons 3*0 3*0
+ tolwfr 1.d-16
+ typat  1 
+ wtk  1
+ xcart   0.0 0.0 0.0
+ znucl  6.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

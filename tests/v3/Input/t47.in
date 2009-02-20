@@ -1,0 +1,58 @@
+#  Dimer of  Fe  atoms in a big box (SC), with non-collinear magnetism
+
+ ndtset 5
+
+#First dataset : metallic occupations, five steps
+ nstep1   5
+
+#Second dataset : fixed occupations
+ occopt2  1
+# getwfk2 -1     # Seem not to work very well ...
+
+#Third dataset : another starting spinat
+ spinat3 0.0 3.0 0.0
+         0.0 3.0 0.0
+
+#Fourth dataset : still another starting spinat
+ spinat4 sqrt(4.5) 0.0 -sqrt(4.5) 
+         sqrt(4.5) 0.0 -sqrt(4.5)
+
+#Fifth dataset : still another spinat
+ spinat5 6*sqrt(3.0) 
+
+#Default data
+ occopt  7
+ tsmear  0.002
+ spinat  3.0 0.0 0.0
+         3.0 0.0 0.0
+
+#Common data
+ acell 10.0 6.0 6.0
+ ecut 15  # Original value from GZ was 20
+ enunit 2 
+ nkpt  1
+ istwfk 1
+ kpt  0.0 0.0 0.0
+ ixc 1
+ natom  2  
+ nband 20  
+ nspinor 2
+ nspden 4 # Non-collinear magnetism
+ nsym  1
+ nline 5  
+ nstep 2
+#nstep 100
+ diemac 2.0
+ npulayit 12
+
+ ntypat  1
+ rprim
+   1.0 0.0 0.0 
+   0.0 1.0 0.0 
+   0.0 0.0 1.0
+ toldfe 1.0d-7
+ typat  2*1 
+ xcart
+ 0.0  0.0 0.0
+ 3.74 0.0 0.0 
+ znucl 26.0

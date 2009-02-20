@@ -1,0 +1,43 @@
+# (HeH)+ system. acell much too small, ecut also. Excited state computation, using
+# ground-state potential Fermi-Amaldi (=xOEP for 2 electron systems),
+# and xOEP kernel (ixc=20). Focuses on the analysis of oscillator strengths.
+
+ ndtset    2   
+
+   iscf1   5
+    ixc1   20
+  nband1   1
+ prtden1   1
+ tolwfr1   1.0d-22
+
+   iscf2  -1
+    ixc2   20
+  nband2   20
+ getden2   1
+ getwfk2   1
+
+
+#Common
+ nkpt  1    kptnrm  4  
+     kpt  0 0 0  
+     wtk  1  
+
+ acell 12 2*10
+ boxcenter 3*0.0d0
+ charge 1.0d0
+ diemac 1.0d0   diemix 0.5d0
+ ecut 9
+
+ mffmem 0
+ natom  2 
+ nbdbuf 0
+
+ nstep 25
+ ntypat  2
+ occopt 1
+ tolwfr 1.0d-9
+ typat  1 2
+ xcart    3*0.0       2 0 0
+ znucl  2 1
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,57 @@
+! Input file for the ifc code. Analysis of a Nb DDB 
+
+!Flags
+ ifcflag   1     ! Interatomic force constant flag
+
+!Effective charges
+     asr   1     ! Acoustic Sum Rule. 1 => imposed asymetrically
+  chneut   0     ! Charge neutrality requirement for effective charges.
+
+!Interatomic force constant info
+  dipdip  0      ! Dipole-dipole interaction treatment
+  ifcana  0      ! Analysis of the IFCs
+
+!Wavevector grid number 1 (coarse grid, from DDB)
+  brav    3         ! Bravais Lattice : 1-S.C., 2-F.C., 3-B.C., 4-Hex.)
+  ngqpt   8  8  8   ! Monkhorst-Pack indices
+  nqshft  4         ! number of q-points in repeated basic q-cell
+  q1shft   0.0  0.0  0.0     
+           0.0  0.5  0.5
+           0.5  0.0  0.5
+           0.5  0.5  0.0
+
+! Wavevector list number 1 (Reduced coordinates and normalization factor)         
+  nph1l    31      ! number of phonons in list 1
+  qph1l
+  0.0  0.0  0.0     1.0
+ -0.05 0.05 0.05    1.0
+ -0.1  0.1  0.1     1.0
+ -0.15 0.15 0.15    1.0
+ -0.2  0.2  0.2     1.0
+ -0.25 0.25 0.25    1.0
+ -0.3  0.3  0.3     1.0
+ -0.35 0.35 0.35    1.0
+ -0.4  0.4  0.4     1.0
+ -0.45 0.45 0.45    1.0
+ -0.5  0.5  0.5     1.0
+ -0.35 0.45 0.45    1.0
+ -0.2  0.4  0.4     1.0
+ -0.05 0.35 0.35    1.0
+  0.1  0.3  0.3     1.0
+  0.25 0.25 0.25    1.0
+  0.4  0.2  0.2     1.0
+  0.55 0.15 0.15    1.0
+  0.7  0.1  0.1     1.0
+  0.85 0.05 0.05    1.0
+  1.0  0.0  0.0     1.0
+  0.05 0.0  0.0     1.0
+  0.1  0.0  0.0     1.0
+  0.15 0.0  0.0     1.0
+  0.2  0.0  0.0     1.0
+  0.25 0.0  0.0     1.0
+  0.3  0.0  0.0     1.0
+  0.35 0.0  0.0     1.0
+  0.4  0.0  0.0     1.0
+  0.45 0.0  0.0     1.0
+  0.5  0.0  0.0     1.0
+

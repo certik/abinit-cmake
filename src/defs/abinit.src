@@ -1,0 +1,104 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the defs library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "defs_basis.F90",
+ "defs_aimfields.F90",
+ "defs_aimprom.F90",
+ "defs_berry.F90",
+ "defs_datatypes.F90",
+ "defs_dyson.F90",
+ "defs_elphon.F90",
+ "defs_fftdata.F90", 
+ "defs_infos.F90",
+ "defs_interfaces.F90",
+ "defs_parameters.F90",
+ "defs_scalapack.F90",
+ "defs_suscep.F90",
+ "defs_time.F90",
+ "defs_wannier90.F90",
+ "defs_wvltypes.F90",
+ "defs_xc.F90",
+ "defs_xderive.F90",
+ "defs_xfuncmpi.F90",
+ "ftfvw1.F90",
+ "frskerker2.F90",
+ "frskerker1.F90",
+ "ftfvw2.F90",
+ "interfaces_linalg.F90",
+ "interfaces_netcdf.F90",
+ "interfaces_etsf_io.F90",
+ "interfaces_etsf_xc.F90",
+ "interfaces_fox.F90",
+ "interfaces_00basis.F90",
+ "interfaces_lib00macroav.F90",
+ "interfaces_lib00numeric.F90",
+ "interfaces_lib01cg.F90",
+ "interfaces_lib01hidempi.F90",
+ "interfaces_lib01fftnew.F90",
+ "interfaces_01manage_mpi.F90",
+ "interfaces_11util.F90",
+ "interfaces_11contract.F90",
+ "interfaces_12ffts.F90",
+ "interfaces_12geometry.F90",
+ "interfaces_12nlstrain.F90",
+ "interfaces_12parser.F90",
+ "interfaces_12spacepar.F90",
+ "interfaces_13psp.F90",
+ "interfaces_13io_mpi.F90",
+ "interfaces_13ionetcdf.F90",
+ "interfaces_13iovars.F90",
+ "interfaces_13nonlocal.F90",
+ "interfaces_13paw.F90",
+ "interfaces_13recipspace.F90",
+ "interfaces_13xc.F90",
+ "interfaces_13xml.F90",
+ "interfaces_14bader.F90",
+ "interfaces_14iowfdenpot.F90",
+ "interfaces_14occeig.F90",
+ "interfaces_14poisson.F90",
+ "interfaces_14wfs.F90",
+ "interfaces_14wvl_wfs.F90",
+ "interfaces_15recursion.F90",
+ "interfaces_15rsprc.F90",
+ "interfaces_15common.F90",
+ "interfaces_15gw.F90",
+ "interfaces_16geomoptim.F90",
+ "interfaces_16response.F90",
+ "interfaces_17ddb.F90",
+ "interfaces_17lwf.F90",
+ "interfaces_17suscep.F90",
+ "interfaces_18seqpar.F90",
+ "interfaces_19cut3d.F90",
+ "interfaces_21rdm.F90",
+ "interfaces_21paral_md.F90",
+ "interfaces_21drive.F90",
+ "m_errors.F90",
+ "m_fstrings.F90",
+ "m_gwdefs.F90",
+ "m_io_tools.F90",
+ "m_numeric_tools.F90",
+ "m_pseudo_types.F90",
+ "m_pseudo.F90",
+ "m_special_funcs.F90"]
+
+# Source file descriptions (only for files requiring a special treatment)
+sources_specs = {
+ "defs_infos.F90":ABI_SRC_BLT}

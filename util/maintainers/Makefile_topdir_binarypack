@@ -1,0 +1,25 @@
+tests_in :
+	for bit in 1 2 3 4 5; \
+           do  echo "Running built-in test $${bit}"; \
+           cd tests ; Scripts/run-basic-tests.sh built-in $${bit}; cd .. ; \
+           done
+
+test1 : 
+	echo "Running built-in test 1"
+	cd tests ; Scripts/run-basic-tests.sh built-in 1
+
+test2 : 
+	echo "Running built-in test 2"
+	cd tests ; Scripts/run-basic-tests.sh built-in 2
+
+test3 :
+	echo "Running built-in test 3"
+	cd tests ; Scripts/run-basic-tests.sh built-in 3
+
+test4 :
+	echo "Running built-in test 4"
+	cd tests ; Scripts/run-basic-tests.sh built-in 4
+
+test5 :
+	echo "Running built-in test 5"
+	cd tests ; Scripts/run-basic-tests.sh built-in 5

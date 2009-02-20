@@ -1,0 +1,22 @@
+!Input file for the ifc code. Analysis of the BaTiO3 DDB                       
+
+!Flags
+ dieflag   2     ! 2=> electronic dielectric tensor only
+
+!Effective charges
+     asr   1     ! Acoustic Sum Rule. 1 => imposed asymetrically
+  chneut   1     ! Charge neutrality requirement for effective charges.
+
+!Eigenvectors
+  eivec    1
+
+!Wavevector list number 1 (Reduced coordinates and normalization factor)         
+  nph1l    1      ! number of phonons in list 1                               
+  qph1l 0.0 0.0 0.0    1.0
+
+!Wavevector list number 2 (Gamma point only, with limiting direction             
+!           in cartesian coordinates. )                                          
+  nph2l  1         ! number of phonons in list 2                               
+  qph2l  1.0 0.0 0.0    0.0                                                            
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  symdynmat 0

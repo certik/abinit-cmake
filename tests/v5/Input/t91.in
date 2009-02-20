@@ -1,0 +1,46 @@
+#Comment: Boron 4 atoms, test of lobpcgII
+#Definition of acell
+ acell 3*8.3
+#Primitive cell sc
+ rprim 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0
+ ntypat 1           # There is one type of atom
+ znucl 5           # This is Boron
+
+ #Definition of the atoms(four atoms)
+ natom 4
+ typat 4*1
+
+ #Definition of the k-point grid
+ nkpt 1            # Only one k point (iswfk 2)
+ #Definition of the planewave basis set
+  nline 4
+  nnsclo 1
+
+  iprcch 0  intxc 0  fftalg 400
+  optcell 0  ionmov 0
+  nspinor 1  pspso 1
+  ortalg 1
+  ecut 30.0
+ occopt 3
+ tsmear 0.04
+ nband 30
+ #Timing info
+ timopt -1
+#Definition of the SCF procedure
+ wfoptalg 5 #This is lobpcgII (only for testing purposes, NOT for production)
+ iscf 2
+ nstep 3  #on peut aussi tester avec 20
+ toldfe 1.0d-10
+ diemac 1.0
+ diemix 0.0
+ iprcel 0
+xred
+9.69352483749e-05 6.55898630619e-05 0.000155466413498
+0.249872799325 0.249979644747 -2.70123302937e-05
+0.249997580157 0.00016469181776 0.249943109339
+-5.40672421455e-05 0.24985907675 0.250108477402
+vel
+-0.00857235497324 0.013251792816 -0.00162531986615
+-0.0129699938057 -0.00143355944159 0.0263535583944
+0.0080743069217 0.0179631749288 0.00863211962203
+0.0120566953846 -0.00813237801645 0.0186719478928

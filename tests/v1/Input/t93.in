@@ -1,0 +1,56 @@
+# Crazy orthorhombic Si cell with 16 atoms.
+# Used to test the generation of symmetry matrices from 
+# input spatial group and different orientations and origins
+
+ ndtset 12
+ prtvol -1
+
+ spgorig1 1
+ spgaxor1 1
+ spgorig2 1
+ spgaxor2 2
+ spgorig3 1
+ spgaxor3 3
+ spgorig4 1
+ spgaxor4 4 
+ spgorig5 1
+ spgaxor5 5
+ spgorig6 1
+ spgaxor6 6 
+ spgorig7 2
+ spgaxor7 1
+ spgorig8 2
+ spgaxor8 2
+ spgorig9 2
+ spgaxor9 3
+ spgorig10 2
+ spgaxor10 4
+ spgorig11 2
+ spgaxor11 5
+ spgorig12 2
+ spgaxor12 6
+
+ spgroup 68
+ chkprim 0
+
+#common declarations
+
+ natom 16
+ acell 3*10.26311 
+ rprim 1 0 0  0 1 0  0 0 1
+ diemac 12.d0
+ ecut 2.00
+ enunit 2  
+ intxc 1
+ iscf 3   kpt 0 0 0   kptnrm 1
+ natrd 1
+ nband 32
+ nkpt  1
+ nline 1   
+ nstep 1 
+ ntypat  1
+ occopt  1  
+ tolwfr 1.0d-13
+ wtk   1
+   xred        .1       .1       .1
+ znucl 14

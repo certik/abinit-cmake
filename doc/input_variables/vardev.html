@@ -1,0 +1,1504 @@
+<html>
+<head><title>ABINIT : DEVELOPMENT input variables.</title>
+<link rel=stylesheet type="text/css" href="formabinit.css">
+</head>
+<body bgcolor="#ffffff">
+
+<hr>
+<a name="top"></a>
+
+<h1>ABINIT, developper input variables:</h1>
+<h2>List and description.</h2>
+
+<hr>
+
+<p>This document lists and provides the description
+of the name (keywords) of the input
+variables "for developpers" to be used in the
+main input file of the abinis code.
+
+<p>The new user is advised to read first the
+  <a href="../users/new_user_guide.html">new user's guide</a>,
+  before reading the present file. It will be easier to discover the
+  present file with the help of the <a href="../tutorial/welcome.html">tutorial</a>.
+
+<p>When the user is sufficiently familiarized with ABINIT, the reading of the
+  ~abinit/doc/users/tuning file might be useful. For response-function calculations using
+  abinis, please read <a href="../users/respfn_help.html">the response function help file</a>
+
+<h5>Copyright (C) 1998-2008 ABINIT group (DCA, XG, RC)
+<br> This file is distributed under the terms of the GNU General Public License, see
+~abinit/COPYING or <a href="http://www.gnu.org/copyleft/gpl.txt">
+http://www.gnu.org/copyleft/gpl.txt </a>.
+<br> For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+</h5>
+
+<HR ALIGN=left>
+Goto :
+<A href="http://www.abinit.org"><B>ABINIT home Page</B></A>
+<B> | </B>
+<A href="../users/acknowledgments.html"><B>Suggested acknowledgments</B></A>
+<B> | </B>
+<A href="keyhr.html"><B>List of input variables</B></A>
+<B> | </B>
+<A href="../tutorial/welcome.html"><B>Tutorial home page</B></A>
+<B> | </B>
+<A href="../users/bibliography.html"><B>Bibliography</B></A>
+<HR ALIGN=left>
+Help files :
+<A href="../users/new_user_guide.html"><B>New user's guide</B></A>
+<B> | </B>
+<A href="../users/abinis_help.html"><B>Abinis (main)</B></A>
+<B> | </B>
+<A href="../users/respfn_help.html"><B>Abinis (respfn)</B></A>
+<B> | </B>
+<A href="../users/mrgddb_help.html"><B>Mrgddb</B></A>
+<B> | </B>
+<A href="../users/anaddb_help.html"><B>Anaddb</B></A>
+<B> | </B>
+<A href="../users/aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="../users/cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="../users/optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="../users/mrgscr_help.html"><B>Mrgscr</B></A>
+<HR ALIGN=left>
+
+Files that describe other input variables:<br>
+<ul>
+<li> Basic variables, <A href="varbas.html">VARBAS</a></li>
+<li> File handling variables, <A href="varfil.html">VARFIL</a></li>
+<li> Geometry builder + symmetry related variables, <A href="vargeo.html">VARGEO</a></li>
+<li> Ground-state calculation variables, <A href="vargs.html">VARGS</a></li>
+<li> GW variables, <A href="vargw.html">VARGW</a></li>
+<li> Internal variables, <A href="varint.html">VARINT</a></li>
+<li> Parallelisation variables, <A href="varpar.html">VARPAR</a></li>
+<li> Projector-Augmented Wave variables, <A href="varpaw.html">VARPAW</a></li>
+<li> Response Function variables, <A href="varrf.html">VARRF</a></li>
+<li> Structure optimization variables, <A href="varrlx.html">VARRLX</a></li>
+<li> Wannier90 interface variables, <A href="varw90.html">VARW90</a></li>
+</ul>
+<hr>
+
+<h3><b> Content of the file : alphabetical list of developper variables.</b></h3>
+ <br>A.
+ <a href="vardev.html#accesswff">accesswff</a>&nbsp;&nbsp;
+ <a href="vardev.html#atvshift">atvshift</a>&nbsp;&nbsp;
+ <br>B.
+ <br>C.
+ <a href="vardev.html#ceksph">ceksph</a>&nbsp;&nbsp;
+ <br>D.
+ <a href="vardev.html#dedlnn">dedlnn</a>&nbsp;&nbsp;
+ <a href="vardev.html#densty">densty</a>&nbsp;&nbsp;
+ <br>E.
+ <a href="vardev.html#effmass">effmass</a>&nbsp;&nbsp;
+ <a href="vardev.html#eshift">eshift</a>&nbsp;&nbsp;
+ <a href="vardev.html#exchn2n3d">exchn2n3d</a>&nbsp;&nbsp;
+ <br>F.
+ <a href="vardev.html#fftalg">fftalg</a>&nbsp;&nbsp;
+ <a href="vardev.html#fftcache">fftcache</a>&nbsp;&nbsp;
+ <a href="vardev.html#freqsusin">freqsusin</a>&nbsp;&nbsp;
+ <a href="vardev.html#freqsuslo">freqsuslo</a>&nbsp;&nbsp;
+ <br>G.
+ <br>H.
+ <br>I.
+ <a href="vardev.html#idyson">idyson</a>&nbsp;&nbsp;
+ <a href="vardev.html#ikhxc">ikhxc</a>&nbsp;&nbsp;
+ <a href="vardev.html#intexact">intexact</a>&nbsp;&nbsp;
+ <a href="vardev.html#intxc">intxc</a>&nbsp;&nbsp;
+ <a href="vardev.html#iprcch">iprcch</a>&nbsp;&nbsp;
+ <a href="vardev.html#iprcfc">iprcfc</a>&nbsp;&nbsp;
+ <a href="vardev.html#isecur">isecur</a>&nbsp;&nbsp;
+ <a href="vardev.html#istatr">istatr</a>&nbsp;&nbsp;
+ <a href="vardev.html#istatshft">istatshft</a>&nbsp;&nbsp;
+ <a href="vardev.html#istwfk">istwfk</a>&nbsp;&nbsp;
+ <br>J.
+ <br>K.
+ <br>L.
+ <a href="vardev.html#ldgapp">ldgapp</a>&nbsp;&nbsp;
+ <br>M.
+ <a href="vardev.html#mqgrid">mqgrid</a>&nbsp;&nbsp;
+ <br>N.
+ <a href="vardev.html#natvshift">natvshift</a>&nbsp;&nbsp;
+ <a href="vardev.html#nbandsus">nbandsus</a>&nbsp;&nbsp;
+ <a href="vardev.html#nbdblock">nbdblock</a>&nbsp;&nbsp;
+ <a href="vardev.html#nctime">nctime</a>&nbsp;&nbsp;
+ <a href="vardev.html#ndyson">ndyson</a>&nbsp;&nbsp;
+ <a href="vardev.html#nloalg">nloalg</a>&nbsp;&nbsp;
+ <a href="vardev.html#nnsclo">nnsclo</a>&nbsp;&nbsp;
+ <a href="vardev.html#noseft">noseft</a>&nbsp;&nbsp;
+ <a href="vardev.html#noseinert">noseinert</a>&nbsp;&nbsp;
+ <a href="vardev.html#npulayit">npulayit</a>&nbsp;&nbsp;
+ <a href="vardev.html#nscforder">nscforder</a>&nbsp;&nbsp;
+ <br>O.
+ <a href="vardev.html#optforces">optforces</a>&nbsp;&nbsp;
+ <a href="vardev.html#optfreqsus">optfreqsus</a>&nbsp;&nbsp;
+ <a href="vardev.html#optnlxccc">optnlxccc</a>&nbsp;&nbsp;
+ <a href="vardev.html#ortalg">ortalg</a>&nbsp;&nbsp;
+ <a href="vardev.html#outputxml">outputxml</a>&nbsp;&nbsp;
+ <br>P.
+ <a href="vardev.html#parareel">parareel</a>&nbsp;&nbsp;
+ <br>Q.
+ <a href="vardev.html#qprtrb">qprtrb</a>&nbsp;&nbsp;
+ <br>R.
+ <br>S.
+ <a href="vardev.html#suskxcrs">suskxcrs</a>&nbsp;&nbsp;
+ <br>T.
+ <a href="vardev.html#tfkinfunc">tfkinfunc</a>&nbsp;&nbsp;
+ <a href="vardev.html#tfnewton">tfnewton</a>&nbsp;&nbsp;
+ <br>U.
+ <a href="vardev.html#useri">useria, userib, useric, userid, userie</a>&nbsp;&nbsp;
+ <a href="vardev.html#userr">userra, userrb, userrc, userrd, userre</a>&nbsp;&nbsp;
+ <a href="vardev.html#useylm">useylm</a>&nbsp;&nbsp;
+ <br>V.
+ <a href="vardev.html#vprtrb">vprtrb</a>&nbsp;&nbsp;
+ <br>W.
+ <a href="vardev.html#wfoptalg">wfoptalg</a>&nbsp;&nbsp;
+ <br>X.
+ <br>Y.
+ <br>Z.
+
+<br><br><br><br><hr>
+
+<font id="title"><a name="accesswff">accesswff</a></font>
+<br><font id="definition">Mnemonics: ACCESS to WaveFunction Files </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">Governs the method of access to the
+internal wavefunction files. Relevant only for the wavefunctions
+files for which the corresponding "mkmem"-type variable is zero, that
+is, for the wavefunctions that are not kept in core memory.
+<ul>
+<li>0 =&gt; Use standard Fortran IO routines</li>
+<li>1 =&gt; Use MPI/IO routines (this option is only available in parallel)</li>
+<li>2 =&gt; Use NetCDF routines (this option is not yet available)</li>
+<li>3 =&gt; Use ETSF routines, creating files according to the ETSF specification, see <a href="http://www.etsf.eu/fileformats">http://www.etsf.eu/fileformats</a></li>
+</ul>
+The MPI/IO routines might be much more efficient than usual Fortran IO
+routines in the case of a large number of processors, with a pool of
+disks attached globally to the processors, but not one disk attached
+to each processor. For a cluster of workstations, where each processor
+has his own temporaries, the use of <b>accesswff</b>=0 might be perfectly
+allright.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="atvshift">atvshift</a></font><br>
+<br><font id="definition">Mnemonics: ATomic potential (V) energy SHIFTs </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: real array atvshift
+(<a href="vardev.html#natvshift">natvshift</a>,
+ <a href="varbas.html#nsppol">nsppol</a>,
+ <a href="varbas.html#natom">natom</a>) </font>
+<br><font id="default">Default is a set of 0.0d0.</font>
+<br><br><font id="text">
+Define, for each atom, and each spin channel (at present, can only be used
+with <a href="varbas.html#nsppol">nsppol</a>=2, like the +U scheme),
+a possible potential shift, for the d 
+(with <a href="varpaw.html#lpawu">lpawu</a>=2, 
+      <a href="vardev.html#natvshift">natvshift</a>=5),
+or f states 
+(with <a href="varpaw.html#lpawu">lpawu</a>=3,
+      <a href="vardev.html#natvshift">natvshift</a>=7).
+In the case of d states, and 2 spin channels, a set of 10 numbers for
+each atom must be defined. 
+The first set of 5 numbers corresponds to real spherical harmonics
+m=-2 to m=+2 for the spin-up channel, 
+the second set of 5 numbers corresponds to real spherical harmonics
+m=-2 to m=+2 for the spin-down channel.
+In the case of f states, the same ordering applies, for sets of 7 numbers, 
+corresponding to m=-3 to m=+3.
+<br>
+<a href="varpaw.html#usepawu">usepawu</a> should be non-zero,
+<a href="varpaw.html#lpawu">lpawu</a> should be 2 or 3.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="ceksph">ceksph</a></font>
+<br><font id="definition">Mnemonics: CEnter K SPHere </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">Control the set of plane waves
+in a sphere, generated for each k point.
+<ul>
+<li>0 =&gt; do not center the sphere on Gamma</li>
+<li>1 =&gt; do center the sphere on Gamma (this option
+  is allowed only in the program newsp, not in abinis or abinip)</li>
+</ul>
+The value 0 is desirable for all usual band structure
+calculation, since this choice allows the symmetry to
+be preserved at each k-points, so that degeneracies are correct.
+The value 1 is used to generate input wavefunctions
+to the GW code of Rex Gody and coworkers. This option
+is only allowed in newsp.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="dedlnn">dedlnn</a></font>
+<br><font id="definition">Mnemonics:  </font>
+<br><font id="category">Characteristic: ENERGY </font>
+<br><font id="vartype">Variable type: real parameter </font>
+<br><font id="default">Default is 0, i.e. no correction.</font>
+<br><br><font id="text">
+Gives a value for derivative
+d(Etotal)/d(log(Npw)) for given value of <a href="varbas.html#ecut">ecut</a>.
+Here "log" refers to a natural, base "e" logarithm.
+Since Etotal is an energy, <b>dedlnn</b> is also an energy.
+Can be specified in Ha (the default), Ry, eV or Kelvin, since
+<b>ecut</b> has the
+'<a href="../users/abinis_help.html#dimensions">ENERGY</a>' characteristics.
+(1 Ha=27.2113845 eV).
+<br>
+<b>dedlnn</b> is used to compute the Pulay correction
+to the stress tensor using:
+<br>correction=(1/ucvol)*<b>dedlnn</b>.
+<br>See the discussion on the stress tensor given below.
+<br>This value must be computed independently by making
+several runs at fixed geometry and variable <a href="varbas.html#ecut">ecut</a>,
+generally within +/- 3% of the desired <a href="varbas.html#ecut">ecut</a>,
+and using the Etotal(npw) data to compute the
+derivative.
+<br>NOTE: ABINIT computes the stress tensor whenever
+a self-consistent energy run is performed, but the values
+along the diagonal of the stress tensor can have large
+systematic errors unless a user-provided value of <b>dedlnn</b>
+is input so that the appropriate Pulay correction to the
+diagonal stress tensor is computed.
+<br>An alternative (and more elegant) way to correct these
+systematic errors is provided through the use of the
+<a href="varrlx.html#ecutsm">ecutsm</a> input variable.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="densty">densty</a></font><br>
+<br><font id="definition">Mnemonics: initial DENSity for each TYpe of atom </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: real array densty(<a href="varbas.html#ntypat">ntypat</a>) </font>
+<br><font id="default">Default is 0.0d0.</font>
+<br><br><font id="text">
+Gives a rough description
+of the initial GS density, for each type of atom.
+This value is only used to create
+the first exchange and correlation potential,
+and is not used anymore afterwards.
+For the time being, it corresponds to an average
+radius (a.u.) of the density, and is used to generate
+a gaussian density. If set to 0.0d0, an optimized value is used.
+<br>No meaning for RF calculations.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="effmass">effmass</a></font>
+<br><font id="definition">Mnemonics: EFFective MASS </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: real number  </font>
+<br><font id="default">Default is one.</font>
+<br><br><font id="text">
+<br>This parameter allows to change the electron mass, with respect to its
+experimental value.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="eshift">eshift</a></font>
+<br><font id="definition">Mnemonics: Energy SHIFT </font>
+<br><font id="category">Characteristic: DEVELOP, ENERGY  </font>
+<br><font id="vartype">Variable type: real number  </font>
+<br><font id="default">Default is zero.</font>
+<br><br><font id="text">
+Used only if <a href="vardev.html#wfoptalg">wfoptalg</a>=3 .
+<b>eshift</b> gives the shift of the energy used in the
+shifted Hamiltonian squared.
+The algorithm will determine eigenvalues and eigenvectors centered
+on <b>eshift</b>.
+<br>Can be specified in Ha (the default), Ry, eV or Kelvin, since
+<b>ecut</b> has the
+'<a href="../users/abinis_help.html#dimensions">ENERGY</a>' characteristics.
+(1 Ha=27.2113845 eV)
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="exchn2n3d">exchn2n3d</a></font><br>
+<br><font id="definition">Mnemonics: EXCHange N2 and N3 Dimensions</font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0. </font>
+<br><br><font id="text">
+If <b>exchn2n3d</b> is 1, the internal representation of the FFT arrays
+in reciprocal space will be array(n1,n3,n2), where the second and
+third dimensions have been switched. This is to allow to be coherent with the
+<a href="vardev.html#exchn2n3d">exchn2n3d</a>=4xx FFT treatment.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="fftalg">fftalg</a></font>
+<br><font id="definition">Mnemonics: Fast Fourier Transform ALGorithm </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 112, except for VPP Fujitsu, for which
+the Default is 111, and for NEC, for which the default is 200.</font>
+<br><br><font id="text">Allows to choose the algorithm
+for Fast Fourier Transforms. These have to be used
+when applied to wavefunctions (routine fourwf.f),
+as well as when
+applied to densities and potentials (routine fourdp.f).
+Presently, it is the concatenation of three digits,
+labelled (A), (B) and (C).
+<br>
+<br>The first digit (A) is to be chosen among 1, 2, 3 and 4 :
+<ul>
+<li> 1=&gt; use FFT routines written by S. Goedecker.</li>
+<li> 2=&gt; use machine-dependent FFT algorithm, taken from the vendor
+      library, if it exists and if it has been implemented.
+      The bare <b>fftalg</b>=200 has little chance to be
+      faster than <b>fftalg</b>=112,
+      but it might be tried. Implementing library
+      subroutines with <b>fftalg</b>/=200 has not yet been done.
+     Currently implemented library subroutines (<b>fftalg</b>=200)
+     are:
+<ul>
+<li>      on HP, z3dfft from Veclib; </li>
+<li>      on DEC Alpha, zfft_3d from DXML;</li>
+<li>      on NEC, ZFC3FB from ASL lib;</li>
+<li>      on SGI, zfft3d from complib.sgimath</li>
+</ul>
+</li>
+
+<li>
+3=&gt; use serial or multi-threaded FFTW fortran routines (<a href="http://www.fftw.org">http://www.fftw.org</a>).
+Currently implemented with <b>fftalg</b>=300.</li>
+<li> 4=&gt; use FFT routines written by S. Goedecker, 2002 version, that will
+be suited for MPI and OpenMP parallelism.</li>
+</ul>
+The second digit (B) is related to fourdp.f :
+<ul>
+<li> 0=&gt; only use Complex-to-complex FFT</li>
+<li> 1=&gt; real-to-complex is also allowed (only coded for A==1)</li>
+</ul>
+The third digit (C) is related to fourwf.f :
+<ul>
+<li> 0=&gt; no use of zero padding </li>
+<li> 1=&gt; use of zero padding (only coded for A==1 and A==4)</li>
+<li> 2=&gt; use of zero padding, and also combines actual
+      FFT operations (using 2 routines from S. Goedecker)
+      with important pre- and post-processing
+      operations, in order to maximize cache data reuse.
+      This is very efficient for cache architectures.
+      (coded for A==1 and A==4, but A==4 is not yet sufficiently tested)</li>
+</ul>
+Internal representation as <a href="vargs.html#ngfft">ngfft</a>(7).</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+<font id="title"><a name="fftcache">fftcache</a></font><br>
+<br><font id="definition">Mnemonics: Fast Fourier Transform CACHE size </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 16. Not yet machine-dependent.</font>
+<br><br><font id="text">Gives the cache size of the current
+machine, in Kbytes.
+<br>Internal representation as <a href="vargs.html#ngfft">ngfft</a>(8).</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+<font id="title"><a name="freqsusin">freqsusin</a></font><br>
+<br><font id="definition">Mnemonics:
+FREQuencies for the SUSceptibility matrix : the INcrement </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: real parameter, positive or zero </font>
+<br><font id="default">Default is 0.0</font>
+<br><br><font id="text">Define, with
+<a href="vardev.html#freqsuslo">freqsuslo</a>, the series of imaginary frequencies at which
+the susceptibility matrix should be computed.
+<br>This is still under development.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="freqsuslo">freqsuslo</a></font><br>
+<br><font id="definition">Mnemonics:
+FREQuencies for the SUSceptibility matrix : the LOwest frequency </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: real parameter, positive or zero </font>
+<br><font id="default">Default is 0.0</font>
+<br><br><font id="text">Define, with
+<a href="vardev.html#freqsusin">freqsusin</a>,
+the series of imaginary frequencies at which
+the susceptibility matrix should be computed.
+<br>This is still under development.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="idyson">idyson</a></font>
+<br><font id="definition">Mnemonics: Integer giving the choice of method for the DYSON equation</font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 1.</font>
+<br><br><font id="text">
+Choice for the method used to solve the Dyson equation in the calculation
+of the interacting susceptibility matrix or/and in the calculation of the ACFD exchange-correlation energy:
+<ul>
+ <li><b>idyson</b>=1 : Solve the Dyson equation by direct matrix inversion</li>
+ <li><b>idyson</b>=2 : Solve the Dyson equation as a first-order differential equation
+   with respect to the coupling constant lambda - only implemented for the RPA at the
+   present stage (see header of dyson_de.f for details)</li>
+ <li><b>idyson</b>=3 : Calculate only the diagonal of the interacting susceptibility matrix
+   by self-consistently computing the linear density change in response to a set
+   of perturbations. Only implemented for the RPA at the present stage,
+   and entirely experimental (see dyson_sc.f for details).</li>
+</ul>
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="ikhxc">ikhxc</a></font>
+<br><font id="definition">Mnemonics:
+ Integer option for KHXC = Hartree XC kernel </font>
+<br><font id="category">Characteristic: </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 1.</font>
+<br><br><font id="text">
+Define the HXC kernel, in the cases for which it can be
+dissociated with the choice of the HXC functional given by
+<a href="varbas.html#ixc">ixc</a>, namely the TD-DFT computation of excited
+states (<a href="varbas.html#iscf">iscf</a>=-1), and the computation of the
+susceptibility matrix (for ACFD purposes). Options 2 to 6 are for the
+ACFD only.
+<ul>
+<li>0 =&gt; RPA for the TDDFT but no kernel for the ACFD (testing purposes).</li>
+<li>1 =&gt; RPA for the TDDFT and ACFD.</li>
+<li>2 =&gt; ALDA (PW92) for the ACFD</li>
+<li>3 =&gt; PGG for the ACFD [M. Petersilka, U.J. Gossmann and E.K.U. Gross, PRL 76,1212 (1996)]</li>
+<li>4 =&gt; BPG for the ACFD. This amounts to half the PGG kernel plus half
+the ALDA kernel for spin-compensated systems [K. Burke, M. Petersilka and E.K.U. Gross,
+in "Recent Advances in Density FUnctional Methods", Vol. III, edited by P. Fantucci and A. Bencini
+(World Scientific, Singapore, 2002)]</li>
+<li>5 =&gt; Linear energy optimized kernel [J. Dobson and J. Wang, PRB 62, 10038 (2000)]</li>
+<li>6 =&gt; Non-linear energy optimized kernel [J. Dobson and J. Wang, PRB 62, 10038 (2000)]</li>
+</ul>
+<br>
+For ACFD-ALDA, BPG and energy optimized kernels are highly experimental and not tested yet !!!
+For ACFD calculations, a cut-off density has been defined for the ALDA, BPG and
+energy optimized kernels : let rhomin = userre*rhomax (where rhomax is the maximum density
+in space) ; then the actual density used to calculate the local part of these kernels
+at point r is max(rho(r),rhomin.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="intexact">intexact</a></font>
+<br><font id="definition">Mnemonics: INTegration using an EXACT scheme </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+Relates to the ACFD xc functionals only.
+If <b>intexact</b> &gt; 0, the integration over the coupling constant
+will be performed analytically in the RPA and in the two-electron PGG
+approximation for the ACFD exchange-correlation energy.
+Otherwise, the integration over the coupling constant will be performed
+numerically (also see
+<a href="vardev.html#ndyson">ndyson</a> and
+<a href="vardev.html#idyson">idyson</a>.
+Note that the program will stop in <b>intexact</b> &gt; 0 and
+<a href="vardev.html#ikhxc">ikhxc</a>/=1 (RPA) or
+<a href="vardev.html#ikhxc">ikhxc</a>/=3 (PGG, with two electrons)
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="intxc">intxc</a></font>
+<br><font id="definition">Mnemonics: INTerpolation for eXchange-Correlation </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+<ul>
+<li>0=&gt; do "usual" xc quadrature on fft grid</li>
+<li>1=&gt; do higher accuracy xc quadrature using fft grid
+and additional points at the centers of each cube
+(doubles number of grid points)--the high accuracy version
+is only valid for boxcut&gt;=2.  If boxcut &lt; 2, the code stops.</li>
+</ul>
+<br>For RF calculations only <b>intxc</b>=0 is allowed yet. Moreover,
+the GS preparation runs (giving the density file and zero-order
+wavefunctions) must be done with <b>intxc</b>=0
+<p> Prior to ABINITv2.3, the choice <b>intxc</b>=1 was favoured (it was the default),
+but the continuation of the development of the code lead to prefer
+the default <b>intxc</b>=0 . Indeed, the benefit of <b>intxc</b>=1 is
+rather small, while making it available for all cases is a
+non-negligible development effort. Other targets are prioritary...
+You will notice that many automatice tests use <b>intxc</b>=1. Please,
+do not follow this historical choice for your production runs.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="etsfgroups">etsfgroups</a></font>
+<br><font id="definition">Mnemonics: ETSF I/O additional GROUPS of variables</font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+<p>NOTE : NOT USED AT PRESENT (v5.3.0)
+<p>This variable is a bit-wise combination of what will be written
+into&nbsp;/&nbsp;read from a special WFK/DEN/POT file. The contents of the file
+follow the <a href="http://www.etsf.eu/fileformats">Nanoquanta/ETSF file format specifications</a>.</p>
+<p>Please check the "etsf_io" module of the ETSF I/O library for possible
+values.</p>
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="etsfmain">etsfmain</a></font>
+<br><font id="definition">Mnemonics: ETSF I/O MAIN variable</font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+<p>NOTE : NOT USED AT PRESENT (v5.3.0)
+<p>This variable tells what will be written into&nbsp;/&nbsp;read from a
+special WFK/DEN/POT file. The contents of the file follow the
+<a href="http://www.etsf.eu/fileformats">Nanoquanta/ETSF file format specifications</a>.</p>
+<p>Please check the "etsf_io" module of the ETSF I/O library for possible
+values.</p>
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="iprcch">iprcch</a></font><br>
+<br><font id="definition">Mnemonics: Integer for PReConditioning of CHarge response </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 2, unless <a href="varrlx.html#ionmov">ionmov</a>=4
+and <a href="varbas.html#iscf">iscf</a>=5, in which
+case <b>iprcch</b> is automatically put to 3.</font>
+<br><br><font id="text">Used when <a href="varbas.html#iscf">iscf</a>>0, to defined:<br>
+- the way a change of density is derived from a change of atomic position,<br>
+- the way forces are corrected when the SCF cycle is not converged.<br>
+<br>Supported values :
+<ul>
+<li>0 =&gt; density not changed (fixed charge), forces not corrected </li>
+<li>1 =&gt; density not changed, forces corrected with rigid ion hypothesis (atomic charge moved with atom)</li>
+<li>2 =&gt; density changed and forces corrected with rigid ion hypothesis (atomic charge moves with atom)</li>
+<li>3 =&gt; density changed and forces corrected with a different implementation of the rigid ion hypothesis</li>
+<li>4 =&gt; density not changed, forces corrected with the use of Harris functional formula (*)</li>
+<li>5 =&gt; density changed using D. Alfe 2nd-order algorithm (**), forces not corrected</li>
+<li>6 =&gt; density changed using D. Alfe 2nd-order algorithm (**) and forces corrected with the use of Harris functional formula (*)</li>
+</ul>
+No meaning for RF calculations.<br>
+
+<br>For the time being,<br>
+- the choice 3 must be used with <a href="varrlx.html#ionmov">ionmov</a>=4
+and <a href="varbas.html#iscf">iscf</a>=5.<br>
+- the choices 4, 5 or 6 must be used when band-FFT parallelism is selected.<br>
+Otherwise, use the choice 2.<br>
+
+<br><b>(*)</b><U>Note concerning the use of <b>iprcch</b>=4 or 6 (correction of forces)</U>:<br>
+The force on the atom located at R is corrected by the addition of the following term:<br>
+<i>F_residual=Int[dr.V_residual.dRho_atomic/dR]</i>,  where Rho_atomic is an atomic (spherical) density.<br>
+- When such an atomic density (Rho_atomic) is found in the pseudopotential or PAW file, it is used. If not, a gaussian density
+ (defined by <a href="vardev.html#densty">densty</a> parameter) is used.<br>
+- When SCF mixing is done on the density (<a href="varbas.html#iscf">iscf</a>>=10), the potential residual (V_residual)
+is obtained from the density residual with the first order formula <i>V_residual=dV/drho.Rho_residual</i>
+ and uses the exchange-correlation kernel <i>dVxc/drho=Kxc</i> which computation is time-consuming for GGA functionals.
+By default the LDA exchange-correlation kernel is used (even for GGA, for which it seems to give a reasonable accuracy).
+Using the exact GGA exchange correlation kernel is always possible by giving a negative value to <b>iprcch</b>.
+
+<br><br><b>(**)</b><U>Note concerning the use of <b>iprcch</b>=5 or 6 (density prediction)</U>:<br>
+The algorithm is described in <i>Computer Physics Communications <b>118</b> (1999) 31-33</i>.
+It uses an atomic (spherical) density. When such an atomic density is found in the pseudopotential or PAW file, it is used. If not, a gaussian density
+ (defined by <a href="vardev.html#densty">densty</a> parameter) is used.<br>
+Also note that, to be efficient, this algorithm requires a minimum convergency of the SCF cycle; 
+Typically, vres2 (or nres2) has to be small enough (10<sup>-4</sup>...10<sup>-5</sup>).</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="iprcfc">iprcfc</a></font>
+<br><font id="definition">Mnemonics: Integer for PReConditioner of Force Constants </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">Used when <a href="varbas.html#iscf">iscf</a>>0, to define the SCF preconditioning scheme.
+Potential-based preconditioning schemes for the SCF loop
+are still under development.
+<br>The present parameter (force constant part)
+describe the way the a change of force
+is derived from a change of atomic position.
+<br>Supported values :
+<ul>
+<li>0 =&gt; hessian is the identity matrix</li>
+<li>1 =&gt; hessian is 0.5 times the identity matrix</li>
+<li>2 =&gt; hessian is 0.25 times the identity matrix</li>
+<li>-1=&gt; hessian is twice the identity matrix</li>
+<li>... (simply corresponding power of 2 times the identity matrix)</li>
+</ul>
+No meaning for RF calculations.</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="isecur">isecur</a></font>
+<br><font id="definition">Mnemonics: Integer for level of SECURity choice </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer </font>
+<br><font id="default">Default is 0. </font>
+<br><br><font id="text">In the presently used algorithms, there is a compromise
+between speed and robustness, that can be tuned by
+using <b>isecur</b>.
+<br>If <b>isecur</b>=0, an extrapolation of out-of-line
+ data is allowed, and might save one non-SCF calculation every
+ two line minimisation when some stability conditions
+ are fulfilled (since there are 2 non-SCF calculations
+ per line minimisation, 1 out of 4 is saved)
+<br>Using <b>isecur</b>=1 or higher integers will raise gradually
+the threshold to make extrapolation.
+<br>Using <b>isecur</b>=-2 will allow to save 2 non-SCF calculations
+ every three line minimisation, but this can make the
+ algorithm unstable. Lower values of <b>isecur</b> allows
+ for more (tentative) savings. In any case, there must
+ be one non-SCF computation per line minimisation.
+<br>No meaning for RF calculations yet.  </font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="istatr">istatr</a></font>
+<br><font id="definition">Mnemonics: Integer for STATus file repetition Rate </font>
+<p>
+<font id="title"><a name="istatshft">istatshft</a></font>
+<br><font id="definition">Mnemonics: Integer for STATus file SHiFT</font>
+<p><font id="category">Characteristic: DEVELOP, NO MULTI  </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 49, and 149 for Cray T3E (slow I/Os).
+Values lower than 10 may not work on some machines. Default <b>istatshft</b> is 1.</font>
+<br><br><font id="text">
+Govern the rate of output of the status file.
+This status file is written when the number of the
+call to the status
+subroutine is equal to '<b>istatshft</b>' modulo '<b>istatr</b>', so that
+it is written once every '<b>istatr</b>' call.
+There is also a writing for each of the 5 first calls,
+and the 10th call.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="istwfk">istwfk</a></font>
+<br><font id="definition">Mnemonics: Integer for choice of STorage of WaveFunction at each k point </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: integer array istwfk(<a href="varbas.html#nkpt">nkpt</a>)  </font>
+<br><font id="default">Default is 0 for all k points for GS calculations.
+For RF calculations, the Default is not used :
+<b>istwfk</b> is forced to be 1 deep inside the code, for all k points.
+For spin-orbit calculations (<a href="vardev.html#nspinor">nspinor</a>=2),
+<b>istwfk</b> is also forced to be 1, for all k points.</font>
+<br><br><font id="text">Control the way the
+wavefunction for each k-point is stored inside ABINIT,
+in reciprocal space.
+<br>For the GS calculations, in the "cg" array containing the
+wavefunction coefficients, there is for each k-point
+and each band, a segment cg(1:2,1:npw). The 'full' number
+of plane wave is determined by <a href="varbas.html#ecut">ecut</a>.
+However, if the k-point coordinates are build
+only from zeroes and halves (see list below),
+the use of time-reversal symmetry (that connects coefficients)
+has been implemented, in order to use real-to-complex
+FFTs (see <a href="vardev.html#fftalg">fftalg</a>), and to treat explicitly only half
+of the number of plane waves (this being used as 'npw').
+<br>For the RF calculations, there is not only the "cg"
+array, but also the "cgq" and "cg1" arrays. For the
+time-reversal symmetry to decrease the number of
+plane waves of these arrays, the q vector MUST be (0 0 0).
+Then, for each k point, the same rule as for the
+RF can be applied.
+<br>WARNING (991018) : for the time being, the time-reversal
+symmetry cannot be used in the RF calculations.
+<ul>
+<li>1=&gt; do NOT take advantage of the time-reversal symmetry</li>
+<li>2=&gt; use time-reversal symmetry for k=( 0   0   0 )</li>
+<li>3=&gt; use time-reversal symmetry for k=(1/2  0   0 )</li>
+<li>4=&gt; use time-reversal symmetry for k=( 0   0  1/2)</li>
+<li>5=&gt; use time-reversal symmetry for k=(1/2  0  1/2)</li>
+<li>6=&gt; use time-reversal symmetry for k=( 0  1/2  0 )</li>
+<li>7=&gt; use time-reversal symmetry for k=(1/2 1/2  0 )</li>
+<li>8=&gt; use time-reversal symmetry for k=( 0  1/2 1/2)</li>
+<li>9=&gt; use time-reversal symmetry for k=(1/2 1/2 1/2)</li>
+<li>0=&gt; (preprocessed) for each k point, choose automatically
+      the appropriate time-reversal option when it is allowed,
+      and chose <b>istwfk</b>=1 for all the other k points.</li>
+</ul>
+Note that the input variable "<a href="varfil.html#mkmem">mkmem</a>" also controls
+the wavefunction storage, but at the
+level of core memory versus disk space.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="kpara">kpara</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is </font>
+<br><br><font id="text">
+Input variable linked to the <a href="vardev.html#parareel">parareel</a> algorithm, to be documented.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="ldgapp">ldgapp</a></font>
+<br><font id="definition">Mnemonics:
+Lein-Dobson-Gross approximation</font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+<p>Concern only the ACFD computation of the correlation energy
+(<a href="vargs.html#optdriver">optdriver</a>=3).
+<br>If <b>ldgapp</b> &gt; 0, the Lein, Dobson and Gross first-order
+approximation to the correlation energy is also computed during the ACFD run.
+[See Lein, Dobson and Gross, J. Comput. Chem. 20,12 (1999)]. This
+is only implemented for the RPA, for the PGG kernel and
+for the linear energy optimized kernel at the present time.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+<font id="title"><a name="mqgrid">mqgrid</a></font>
+<br><font id="definition">Mnemonics:
+Maximum number of Q-space GRID points for pseudopotentials</font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 3001.</font>
+<br><br><font id="text">
+<p>Govern the size of the one-dimensional information
+related to pseudopotentials, in reciprocal space :
+potentials, or projector functions.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nbandsus">nbandsus</a></font>
+<br><font id="definition">Mnemonics: Number of BANDs to compute the SUSceptibility </font>
+<br><font id="category">Characteristic: </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is <a href="varbas.html#nband">nband</a>.</font>
+<br><br><font id="text">
+Number of bands to be used in the calculation of the susceptibility matrix (ACFD only).
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="natvshift">natvshift</a></font>
+<br><font id="definition">Mnemonics: Number of ATomic potential (V) energy SHIFTs (per atom) </font>
+<br><font id="category">Characteristic: </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+Number of atomic potential energy shifts (per atom), to be used to defined the
+array <a href="vardev.html#atvshift">atvshift</a>. 
+If non-zero, only two possibilities exist : 5 for d states 
+(with <a href="varpaw.html#lpawu">lpawu</a>=2),
+and 7 for f states (with <a href="varpaw.html#lpawu">lpawu</a>=3).
+If non-zero, one should define 
+<a href="varpaw.html#usepawu">usepawu</a>,
+<a href="varpaw.html#lpawu">lpawu</a> and 
+<a href="vardev.html#atvshift">atvshift</a>.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nbdblock">nbdblock</a></font>
+<br><font id="definition">Mnemonics:
+Number of BanDs in a BLOCK </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 1</font>
+<br><br><font id="text">
+<p>In case of non-standard, blocked algorithms for the
+optimization of the wavefunctions (that is, if
+<a href="vardev.html#wfoptalg">wfoptalg</a>=1 or <a href="vardev.html#wfoptalg">wfoptalg</a>=4):
+<ul>
+<li>if <a href="vardev.html#wfoptalg">wfoptalg</a>=1,
+<b>nbdblock</b> defines the number of bands (or states)
+in a block, and, by the same token, the maximal number of processors that can be used for that type of parallelism.</li>
+<li>if <a href="vardev.html#wfoptalg">wfoptalg</a>=4,
+<b>nbdblock</b> defines the number of blocks (the number of bands in the block is
+then <a href="varbas.html#nband">nband</a>/nbdblock ), at variance with the case <a href="vardev.html#wfoptalg">wfoptalg</a>=1.</li>
+</ul>
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nctime">nctime</a></font>
+<br><font id="definition">Mnemonics: NetCdf TIME between output of molecular dynamics informations </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 0</font>
+<br><br><font id="text">
+<p>When <b>nctime</b> is non-zero, the molecular dynamics information
+is output in NetCDF format, every <b>nctime</b> time step. Here is the content of an example file :
+<pre>
+netcdf md32.outH_moldyn1 {
+dimensions:
+        time = UNLIMITED ; // (11 currently)
+        DimTensor = 6 ;
+        DimCoord = 3 ;
+        NbAtoms = 32 ;
+        DimVector = 3 ;
+        DimScalar = 1 ;
+variables:
+        double E_pot(time) ;
+                E_pot:units = "hartree" ;
+        double E_kin(time) ;
+                E_kin:units = "hartree" ;
+        double Stress(time, DimTensor) ;
+                Stress:units = "hartree/Bohr^3" ;
+        double Position(time, DimCoord, NbAtoms) ;
+                Position:units = "Bohr" ;
+        double Celerity(time, DimCoord, NbAtoms) ;
+                Celerity:units = "Bohr/(atomic time unit)" ;
+        double PrimitiveVector1(DimVector) ;
+        double PrimitiveVector2(DimVector) ;
+        double PrimitiveVector3(DimVector) ;
+        double Cell_Volume(DimScalar) ;
+                Cell_Volume:units = "Bohr^3" ;
+}
+</pre>
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+<font id="title"><a name="ndyson">ndyson</a></font>
+<br><font id="definition">Mnemonics: Number of points to be added for the solution of the DYSON equation </font>
+<br><font id="category">Characteristic: </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is -1.</font>
+<br><br><font id="text">
+Number of points to be added to lambda=0 and lambda=1 (that are always calculated
+for the integration ober the coupling constant lambda in the ACFD calculation of the
+exchange-correlation energy.
+<ul>
+<li>ndyson=-1 : let the code decide how many points to use (presently, 3 points
+for <a href="vardev.html#idyson">idyson</a>=1 or 3, and 9 points for
+<a href="vardev.html#idyson">idyson</a>=2)</li>
+<li>ndyson=0 : only compute the non-interacting and fully-interacting
+susceptibility matrices.</li>
+<li>ndyson&gt;0 : use <b>ndyson</b> more points in ]0,1[</li>
+</ul>
+</font>
+
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nfreqsus">nfreqsus</a></font>
+<br><font id="definition">Mnemonics:
+Number of FREQuencies for the SUSceptibility matrix</font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 0</font>
+<br><br><font id="text">
+If 0, no computation of frequency-dependent susceptibility matrix.
+If 1 or larger, will read <a href="vardev.html#freqsuslo">freqsuslo</a> and
+<a href="vardev.html#freqsusin">freqsusin</a>
+to define the frequencies
+(1 is currently the only value allowed)
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nloalg">nloalg</a></font>
+<br><font id="definition">Mnemonics: Non Local ALGorithm </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer variable  </font>
+<br><font id="default">Default is 4 (norm-conserving psps) or 14 (PAW), except for the NEC where it is 2 (or 12).</font>
+<br><br><font id="text">
+Allows to choose the algorithm
+for non-local operator application.
+On super-scalar architectures, the Default <b>nloalg</b>=4/14 is the best,
+but you can save memory by using <b>nloalg</b>=-4.<br>
+More detailed explanations:<br><br>
+<div style="margin-left: 10px;">Units figure of <b>nloalg</b>:</div>
+<div style="margin-left: 40px;">
+- <b>nloalg</b>=?2 : Should be efficient on vector machines. It is
+indeed the fastest algorithm for the NEC, but
+ actual tests on Fujitsu machine did not gave better
+ performances than the other options.<br>
+- <b>nloalg</b>=?3 : same as <b>nloalg</b>==2, but the loop order is inverted.<br>
+- <b>nloalg</b>=?4 : same as <b>nloalg</b>==3, but maximal use of registers
+ has been coded. This should be especially efficient on
+ scalar and super-scalar machines. This has been
+ confirmed by tests.<br>
+</div><br>
+<div style="margin-left: 10px;">Tens figure of <b>nloalg</b>:</div>
+<div style="margin-left: 40px;">
+- <b>nloalg</b><10 : (k+G) vectors are not precomputed, in order to save memory space.<br>
+- <b>nloalg</b>>=10 : (k+G) vectors are precomputed, once per k-point.<br>
+</div><br>
+<div style="margin-left: 10px;">Sign of <b>nloalg</b>:</div>
+<div style="margin-left: 40px;">
+Negative values of <b>nloalg</b> correspond positive ones,
+where the phase precomputation has been suppressed,
+in order to save memory space: an array <i>double precision :: ph3d(2,npw,<a href="varbas.html#natom">natom</a>)</i>
+is saved (typically half the space needed
+for the wavefunctions at 1 k point - this corresponds
+to the silicon case). However, the computation of phases
+inside nonlop is somehow time-consuming.<br>
+</div>
+<br>
+Note: internally, <b>nloalg</b> is an array <i>nloalg(1:5)</i>,
+that also allows to initialize several internal variables (not documented):
+<div style="margin-left: 40px;">
+- <i>nloalg(1)</i>=mod(<b>nloalg</b>,10)<br>
+- <i>jump</i>=nloalg(2)<br>
+- <i>mblkpw</i>=nloalg(3)<br>
+- <i>mincat</i>=nloalg(4)<br>
+- <i>nloalg(5)</i>=<b>nloalg</b>/10<br>
+</div>
+However, only <i>nloalg(1)+10*nloalg(5)</i> is read as an input variable.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="nnsclo">nnsclo</a></font>
+<br><font id="definition">Mnemonics: Number of Non-Self Consistent LOops </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text"> Gives the maximum number of
+non-self-consistent loops of <a href="vargs.html#nline">nline</a> line minimisations,
+in the SCF case (when <a href="varbas.html#iscf">iscf</a> &gt;0).  In the case <a href="varbas.html#iscf">iscf</a> &lt;=0 ,
+the number of non-self-consistent loops is determined
+by <a href="varbas.html#nstep">nstep</a>.
+<br>The Default value of 0 correspond to make
+the two first fixed potential determinations
+of wavefunctions have 2 non-self consistent loops,
+and the next ones to have only 1 non-self consistent loop. </font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="noseft">noseft</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is </font>
+<br><br><font id="text">TO BE DOCUMENTED
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="noseinert">noseinert</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is </font>
+<br><br><font id="text">TO BE DOCUMENTED
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="npulayit">npulayit</a></font>
+<br><font id="definition">Mnemonics: Number of PULAY ITerations for SC mixing </font>
+<br><font id="category">Characteristic: DEVELOP </font>
+<br><font id="vartype">Variable type: integer parameter </font>
+<br><font id="default">Default is 7.</font>
+<br><br><font id="text">Needed only when
+<a href="varbas.html#iscf">iscf</a>=7 or 17.
+<br><font id="text"> Gives the  number of previous iterations involved in Pulay mixing (mixing
+during electronic SC iterations).
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="npack">npack</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is </font>
+<br><br><font id="text">
+Input variable linked to the <a href="vardev.html#parareel">parareel</a> algorithm, to be documented.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="nscforder">nscforder</a></font>
+<br><font id="definition">Mnemonics: SCaling Function ORDER</font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is 16</font>
+<br><br><font id="text">
+This variable controls the order of used scaling functions when the Hartree potential is computed using the Poisson solver (see <a href="vargs.html#icoulomb">icoulomb</a> imput variable). This variable is of seldom use since the default value is large enough. Nonetheless, possible values are 8, 14, 16, 20, 24, 30, 40, 50, 60, 100. Values greater than 20 are included in ABINIT for test purposes only.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="npara">npara</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: </font>
+<br><font id="default">Default is </font>
+<br><br><font id="text">
+Input variable linked to the <a href="vardev.html#parareel">parareel</a> algorithm, to be documented.
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="optforces">optforces</a></font>
+<br><font id="definition">Mnemonics: OPTions for the calculation of FORCES </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 1.</font>
+<br><br><font id="text"> Allows to choose options for the calculation of forces.
+<ul>
+ <li><b>optforces</b>=0 : the forces are set to zero, and many steps of the
+   computation of forces are skipped </li>
+ <li><b>optforces</b>=1 : calculation of forces at each SCF iteration, allowing
+   to use forces as criterion to stop the SCF cycles
+   </li>
+ <li><b>optforces</b>=2 : calculation of forces at the end of the SCF iterations
+   (like the stresses)
+   </li>
+</ul>
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="optfreqsus">optfreqsus</a></font>
+<br><font id="definition">Mnemonics: OPTion for the generation of FREQuency grids for the SUSceptibility</font>
+<br><font id="category">Characteristic: DEVELOP</font>
+<br><font id="vartype">Variable type: integer parameter</font>
+<br><font id="default">Default is 2</font>
+<br><br><font id="text">
+<p>
+Selects the type of frequency grid that will be used to compute ACFD energies,
+as follows:
+</p>
+<ul>
+ <li>0: use preassigned mesh (see defs_suscep module)
+  <ul>
+   <li>nfreqsus= 2: pick-up 2 highest frequencies of H_2 mesh</li>
+   <li>nfreqsus= 8: pick-up 8 frequencies inside Be_2 mesh, depending on freq1</li>
+   <li>nfreqsus= 9: pick-up 9 frequencies inside H_2 mesh, depending on freq1</li>
+   <li>nfreqsus=11: pick-up 11 highest frequencies of Be_2 mesh</li>
+   <li>nfreqsus=16: use full He mesh</li>
+   <li>nfreqsus=18: use full H_2 mesh</li>
+   <li>nfreqsus=20: use full He mesh good up to 8 Ha</li>
+   <li>nfreqsus=24: use full Be_2 mesh</li>
+  </ul>
+ </li>
+ <li>1: create linear mesh and weights for quadrature by Taylor rule
+  <ul>
+   <li>freqsusin=starting frequency</li>
+   <li>freqsuslo=frequency increment</li>
+  </ul>
+ </li>
+ <li>2: create mesh and weights using Gauss-Legendre quadrature
+  <p>A first Gauss-Legendre mesh is built for interval [0,freqsuslo], then
+    a second one is obtained by transforming the first for the
+    [freqsuslo,+\infty[ interval. freqsusin may be use to compress or expand
+    the mesh on the second interval (a value of 1.0 is adequate for
+    most cases). For practical reasons, nfreqsus must be even.
+  </p>
+ </li>
+</ul>
+
+<p>
+See also:
+<a href="vardev.html#nfreqsus">nfreqsus</a>,
+<a href="vardev.html#freqsuslo">freqsuslo</a>,
+<a href="vardev.html#freqsusin">freqsusin</a>.
+</p>
+
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="optnlxccc">optnlxccc</a></font>
+<br><font id="definition">Mnemonics: OPTion for the calculation of Non-Linear eXchange-Correlation Core Correction</font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 1.</font>
+<br><br><font id="text"> Allows to choose options for the calculation of non-linear XC correction.
+At present, only relevant for the FHI type of pseudopotentials, with pspcod=6 .
+<ul>
+ <li><b>optnlxccc</b>=1 : uses the old psp6cc.f routine, with inconsistent treatment of real-space derivatives of the core function (computed in this routine, while splined in the other parts of the code) </li>
+ <li><b>optnlxccc</b>=2 : consistent calculation derivatives, in the psp6cc_dhr.f routine from DHamann.</li>
+</ul>
+</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="ortalg">ortalg</a></font>
+<br><font id="definition">Mnemonics: ORThogonalisation ALGorithm </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 2 when <a href="vardev.html#wfoptalg">wfoptalg</a> &lt; 10,
+                                 -2 when <a href="vardev.html#wfoptalg">wfoptalg</a> >=10.</font>
+<br><br><font id="text"> Allows to choose the algorithm
+for orthogonalisation.
+<br>Positive or zero values make two projections per
+line minimisation, one before the preconditioning, one
+after. This is the clean application of the band-by-band
+CG gradient for finding eigenfunctions.
+<br>Negative values make only one projection per line mininisation.
+<br>The orthogonalisation step is twice faster, but the
+convergence is less good. This actually calls to
+a better understanding of this effect.
+<br><b>ortalg</b>=0, 1 or -1 is the conventional coding, actually
+ identical to the one in versions prior to 1.7
+<br><b>ortalg</b>=2 or -2 try to make better use of existing registers
+on the particular machine one is running.
+<br>More demanding use of registers
+is provided by <b>ortalg</b>=3 or -3, and so on.
+<br>The maximal value is presently 4 and -4.
+<br>Tests have shown that <b>ortalg</b>=2 or -2 is suitable for
+use on the available platforms.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="outputxml">outputxml</a></font>
+<br><font id="definition">Mnemonics: OUTPUT XML </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: 0 or 1  </font>
+<br><font id="default">Default is 0</font>
+<br><br><font id="text"> Create an XML output with common values. The corresponding
+    DTD is distributed in sources as extras/post_processing/abinitRun.dtd. All the DTD is not
+    yet implemented and this one is currently restricted to ground computations
+    (and derivative such as geometry optimisation).</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="parareel">parareel</a></font>
+<br><font id="definition">Mnemonics: </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: integer</font>
+<br><font id="default">Default is 0 </font>
+<br><br><font id="text">
+When non-zero, use the parareel algorithm (contact developer Gilles Zerah)
+</font>
+
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="qprtrb">qprtrb</a></font>
+<br><font id="definition">Mnemonics: Q-wavevector of the PERTurbation </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer array of three values</font>
+<br><font id="default">Default is 0 0 0.</font>
+<br><br><font id="text">Gives the wavevector,
+in units of reciprocal lattice primitive translations,
+of a perturbing potential of strength vprtrb.  See vprtrb
+for more explanation.</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="suskxcrs">suskxcrs</a></font>
+<br><font id="definition">Mnemonics: SUSceptibility times KXC treated in real space </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer</font>
+<br><font id="default">Default is 0</font>
+<br><br><font id="text">Only relevant for the ACFD calculation of total energies.
+If <b>suskxcrs</b>=1, the XC kernel is not treated in
+reciprocal space, but combined with the susceptibility (chi_0), to avoid
+Kxc divergences where the density goes to zero (G. Onida &amp; M. Gatti !)
+<p>
+NOT TESTED for ikhxc/=1 !!
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+
+<font id="title"><a name="tfkinfunc">tfkinfunc</a></font>
+<br><font id="definition">Mnemonics: Thomas-Fermi KINetic energy FUNCtional </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer</font>
+<br><font id="default">Default is 0</font>
+<br><br><font id="text">If <b>tfkinfunc</b>=1, Thomas-Fermi
+kinetic functional (explicit functional of the density)
+is used instead of Kohn-Sham kinetic energy functional (implicit functional of the density
+through Kohn-Sham wavefunctions).
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="tfnewton">tfnewton</a></font>
+<br><font id="definition">Mnemonics: Thomas-Fermi kinetic functional, parameter for NEWTON algorithms</font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: real</font>
+<br><font id="default">Default is -0.4 </font>
+<br><br><font id="text">Needed when <a href="vardev.html#tfkinfunc">tfkinfunc</a>=1, to initialize
+the search using the Newton-Raphson algorithm.
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+
+<font id="title"><a name="useri">useria, userib, useric, userid, userie</a></font>
+<br><font id="definition">Mnemonics: USER Integer variables A, B, C, D and E </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: integers </font>
+<br><font id="default">Default is 0 .</font>
+<br><br><font id="text">These are user-definable integers which the user may
+input and then utilize in subroutines of his/her own
+design.  They are not used in the official versions
+of the ABINIT code, and should ease independent
+developments (hopefully integrated in the official
+version afterwards).
+<br>Internally, they are available in the dtset structured datatype,
+e.g. dtset%useria .
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="userr">userra, userrb, userrc, userrd, userre</a></font>
+<br><font id="definition">Mnemonics: USER Real variables A, B, C, D, and E </font>
+<br><font id="category">Characteristic:  </font>
+<br><font id="vartype">Variable type: real numbers</font>
+<br><br><font id="text">These are user-definable with the same purpose
+as <a href="vardev.html#useri">useri</a> above. </font>
+<br><font id="default">Default is 0.0 .</font>
+
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+<font id="title"><a name="useylm">useylm</a></font>
+<br><font id="definition">Mnemonics: USE YLM (the spherical harmonics) </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 0.</font>
+<br><br><font id="text">
+(Should be documented ... This variable is set automatically to 1 in the PAW case)
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="vprtrb">vprtrb</a></font>
+<br><font id="definition">Mnemonics: potential -V- for the PeRTuRBation </font>
+<br><font id="category">Characteristic: DEVELOP, ENERGY  </font>
+<br><font id="vartype">Variable type: real array of 2 elements  </font>
+<br><font id="default">Default is 0.d0 0.d0.</font>
+<br><br><font id="text">Gives the real and imaginary
+parts of a scalar potential perturbation.
+Can be specified in Ha (the default), Ry, eV or Kelvin, since
+<b>ecut</b> has the
+'<a href="../users/abinis_help.html#dimensions">ENERGY</a>' characteristics.
+<br>This is made
+available for testing responses to such perturbations.
+The form of the perturbation, which is added to the local
+potential, is:
+<ul>
+<li> (<b>vprtrb</b>(1)+I*<b>vprtrb</b>(2))/2 at G=<a href="vardev.html#qprtrb">qprtrb</a>  and</li>
+<li> (<b>vprtrb</b>(1)-I*<b>vprtrb</b>(2))/2 at G=-<a href="vardev.html#qprtrb">qprtrb</a>
+(see <a href="vardev.html#qprtrb">qprtrb</a> also).</li>
+</ul></font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+<font id="title"><a name="wfoptalg">wfoptalg</a></font>
+<br><font id="definition">Mnemonics: WaveFunction OPTimisation ALGorithm </font>
+<br><font id="category">Characteristic: DEVELOP  </font>
+<br><font id="vartype">Variable type: integer parameter  </font>
+<br><font id="default">Default is 0 when <a href="varint.html#usepaw">usepaw</a>=0 (norm-conserving pseudopotentials),
+                                 10 when <a href="varint.html#usepaw">usepaw</a>=1 (PAW).</font>
+<br><br><font id="text"> Allows to choose the algorithm
+for the optimisation of the wavefunctions.
+<br>The different possibilities are :
+<ul>
+<li><b>wfoptalg</b>=0 : standard state-by-state conjugate gradient algorithm,
+ with no possibility to parallelize over the states;</li>
+<li><b>wfoptalg</b>=1 : blocked conjugate gradient algorithm,
+ with possibility to parallelize over the states (or bands), but at the expense
+ of a few more operations
+ when a block of states has been optimized separately, to obtain a coherent
+ set of wavefunctions. The number of states in a block
+ is defined in <a href="vardev.html#nbdblock">nbdblock</a></li>
+<li><b>wfoptalg</b>=2 : minimisation of the residual with respect
+ to different shifts, in order to cover the whole set of occupied
+ bands, with possibility to parallelize over blocks of states (or bands).
+ The number of states in a block
+ is defined in <a href="vardev.html#nbdblock">nbdblock</a>.
+ THIS IS STILL IN DEVELOPMENT.</li>
+<li><b>wfoptalg</b>=3 : minimisation of the residual with respect
+ to a shift. Available only in the non-self-consistent case
+ <a href="varbas.html#iscf">iscf</a>=-2,
+ in order to find eigenvalues and wavefunctions close to a
+ prescribed value.</li>
+<li><b>wfoptalg</b>=4 : Locally Optimal Block Preconditioned Conjugate Gradient (lobpcg) method of Knyazev.
+ Reference : A.V. Knyazev, "Toward the Optimal Preconditioned Eigensolver : Locally Optimal
+Block Preconditioned Conjugate Gradient Method". Siam Journal on Scientific Computing 23, pp517-541 (2001).
+The implementation (by G. Zerah), rests on the
+<a href="http://www-math.cudenver.edu/~aknyazev/software/CG"> matlab program</a> by Knyazev.
+For more information see
+<a href="http://www-math.cudenver.edu/~aknyazev">Knyazev page.</a></li>
+<li><b>wfoptalg</b>=10 : (for PAW) standard state-by-state conjugate gradient algorithm,
+ with no possibility to parallelize over the states, but modified
+ scheme described in Kresse, Furthmuller, PRB 54, 11169 (1996)
+ (modified kinetic energy, modified preconditionning, minimal
+  orthogonalization, ...) ;</li>
+<li><b>wfoptalg</b>=11 : blocked conjugate gradient algorithm,
+ with possibility to parallelize over the states (or bands), but at the expense
+ of a few more operations
+ when a block of states has been optimized separately, to obtain a coherent
+ set of wavefunctions. The number of states in a block
+ is defined in <a href="vardev.html#nbdblock">nbdblock</a>. Modified
+ scheme described in Kresse, Furthmuller, see <b>wfoptalg</b>=10.
+</li>
+</ul>
+</font>
+
+<br><br><br><br><a href=#top>Go to the top</a>
+<B> | </B><a href="keyhr.html#list">Complete list of input variables</a><hr>
+
+
+Goto :
+<A href="http://www.abinit.org"><B>ABINIT home Page</B></A>
+<B> | </B>
+<A href="../users/acknowledgments.html"><B>Suggested acknowledgments</B></A>
+<B> | </B>
+<A href="keyhr.html"><B>List of input variables</B></A>
+<B> | </B>
+<A href="../tutorial/welcome.html"><B>Tutorial home page</B></A>
+<B> | </B>
+<A href="../users/bibliography.html"><B>Bibliography</B></A>
+<HR ALIGN=left>
+Help files :
+<A href="../users/new_user_guide.html"><B>New user's guide</B></A>
+<B> | </B>
+<A href="../users/abinis_help.html"><B>Abinis (main)</B></A>
+<B> | </B>
+<A href="../users/respfn_help.html"><B>Abinis (respfn)</B></A>
+<B> | </B>
+<A href="../users/mrgddb_help.html"><B>Mrgddb</B></A>
+<B> | </B>
+<A href="../users/anaddb_help.html"><B>Anaddb</B></A>
+<B> | </B>
+<A href="../users/aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="../users/cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="../users/optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="../users/mrgscr_help.html"><B>Mrgscr</B></A>
+<HR ALIGN=left>
+
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+filename		opteron-intel9.1_lemaitre.ac
+FC			/opt/intel/fce/9.1.036/bin/ifort
+with_mpi_prefix		/usr/local/mpich-1.2.6-eth-intel9.1
+enable_netcdf		no
+enable_etsf_io		no

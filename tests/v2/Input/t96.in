@@ -1,0 +1,58 @@
+# Li compressed simple cubic, metallic. 
+# Large smearing width
+
+ ndtset 3
+
+# Defaults for phonon calculations
+    nqpt   1
+  rfphon   1
+ rfatpol   1 1
+   rfdir   0 1 0
+
+
+#DATASET 1 : SC run with 4 kpoints
+  getwfk1  0
+    nqpt1  0
+  rfphon1  0
+  kptopt1  1
+  tolwfr1  1.0d-22
+
+#DATASET 2 : RF at Gamma
+     qpt2   0.0d0 0.0d0 0.0d0
+  rfphon2   1
+  toldfe2   1.0d-10
+
+#DATASET 3 : RF at 1/2 0 0
+     qpt3   0.5d0 0.0d0 0.0d0
+  rfphon3   1
+  toldfe3   1.0d-10
+
+#Common data
+ acell  3*4.90
+
+ ntypat 1
+ znucl 3.0
+ natom 1
+ typat  1
+ xred 0.0 0.0 0.0
+
+ nstep 20 
+
+ ecut 5.0
+ ecutsm 1.0
+ dilatmx 1.10
+
+ nband  3
+ nbdbuf 1
+ getwfk 1
+
+ kptopt 3
+ occopt 7
+ tsmear 0.04
+
+ ngkpt  4 4 4
+ shiftk
+   0.5 0.5 0.5
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,26 @@
+!!****d* ABINIT/Lib_FoX
+!! NAME
+!! Lib_FoX
+!!
+!! DESCRIPTION
+!! This subdirectory contains the package 'FoX' v2.1.1
+!! written by Toby White (http://www.uszla.me.uk/FoX/),
+!! and based on the XMLF90 library written by A. Garcia
+!! (http://lcdx00.wm.lc.ehu.es/ag/xml).
+!! In ABINITv5.4, it is not yet used, nor compiled.
+!! However, the availability of this package paves the way for future
+!! developments.
+!! These routines do not follow the ABINIT
+!! coding rules (~abinit/doc/developers/rules_coding).
+!! 
+!! COPYRIGHT
+!! Copyright (C) 1998-2008 ABINIT group (TD,YPouillon)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see
+!! ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!!
+!!***

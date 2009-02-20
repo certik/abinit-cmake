@@ -1,0 +1,43 @@
+# Fe atom in a big box
+# Perform the computation of the Gamma dynamical matrix.
+
+ ndtset 2  
+
+#Dataset 1 : SCF 
+  tolvrs1  1.0d-13
+   nstep1  30
+
+#Dataset 2 : RF at q=0 0 0   (this is always needed for IFCs)
+
+  getwfk2  1
+    nqpt2  1
+     qpt2  0.0 0.0 0.0
+ rfatpol2  1 1
+   rfdir2  1 1 1
+  rfphon2  1
+  tolvrs2  1.0d-10
+   nstep2  18
+
+#Common data
+
+ ecut 22
+ acell 3*6.50  
+ rprim 0 .5 .5  .5 0 .5  .5 .5 0
+
+ ixc    1
+ natom  1 
+ nband 10
+ nsppol 2
+ spinat 0.0 0.0 4.0
+ ntypat  1
+ occopt 4
+ nkpt  1
+ kpt 0.0 0.0 0.0
+ wtk 1.0
+
+ typat  1 
+ xred  0.0 0.0 0.0
+ znucl 26.0
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,51 @@
+# Crystalline aluminum
+# Create the KSS file
+
+kssform     1
+nbandkss   30
+
+nband      6
+prtwf      0
+
+#Definition of occupation numbers
+occopt 3
+tsmear 0.05
+
+#Definition of the unit cell
+acell 3*7.652
+
+rprim  0.0  0.5  0.5   # FCC primitive vectors (to be scaled by acell)
+       0.5  0.0  0.5 
+       0.5  0.5  0.0
+
+#Definition of the atom types
+ntypat 1       
+znucl 13      
+
+#Definition of the atoms
+natom 1  
+typat 1  
+xred  0.0  0.0  0.0  
+
+#Definition of the planewave basis set
+ecut  8.0
+
+#Definition of the k-point grid
+kptopt      1        
+ngkpt       4 4 4
+
+#64 k points
+ nshiftk     1      
+ shiftk      0.  0.  0. 
+ istwfk     8*1
+#256 k points
+#nshiftk 4
+#shiftk 0 0 0   1/2 1/2 0   1/2 0 1/2  0 1/2 1/2
+#istwfk     19*1
+
+#Definition of the SCF procedure
+nstep 50          
+toldfe 1.0d-8     
+                 
+prtvol     5
+enunit     1

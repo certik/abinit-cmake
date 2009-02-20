@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper,openright]{book}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{times}
+
+% Use metric system
+\unitlength=1cm
+
+% Page layout
+\topmargin=0cm
+\oddsidemargin=0.5cm
+\evensidemargin=-0.5cm
+\marginparsep=0cm
+\marginparwidth=0cm
+\textwidth=16cm
+\textheight=23cm
+
+% Formatting preferences
+\sloppy
+\hyphenpenalty=5000
+\widowpenalty=5000
+\clubpenalty=5000
+\raggedbottom
+
+% Commands
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+
+% Title info
+\title{The build system of ABINIT 5.5 \\ \textit{A definitive guide}}
+\author{Yann Pouillon}
+\date{Draft version - \today}
+
+\begin{document}
+
+% Title page
+\maketitle
+\clearemptydoublepage
+
+% Table of contents
+\setcounter{page}{1}
+\renewcommand{\thepage}{\roman{page}}
+\lhead[\thepage]{\nouppercase{\rightmark}}
+\rhead[\nouppercase{\leftmark}]{\thepage}
+\lfoot[]{}
+\rfoot[]{}
+\pagestyle{fancy}
+\tableofcontents
+\clearemptydoublepage
+
+% Body
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+
+%\include{conventions}
+
+\part{Users}
+\include{overview}
+\clearemptydoublepage
+\include{configure-options}
+\clearemptydoublepage
+
+\part{Developers}
+\include{preprocessing-macros}
+\clearemptydoublepage
+\include{adding-extlibs}
+\clearemptydoublepage
+
+\part{Maintainers}
+\include{extending-the-build-system}
+\clearemptydoublepage
+
+\end{document}

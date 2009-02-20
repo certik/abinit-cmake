@@ -1,0 +1,46 @@
+# Hydrogen diatomic molecule. acell much too small.
+# Multidataset testing : geometry optimisation,
+# then use getxcart and getwfk, and increase the number of bands
+# as well as ecut for a fixed geometry calculation.
+# Note that mkmem==0
+
+ ndtset 2      getxcart -1   getwfk -1
+
+ ecut1   12
+ ionmov1  2
+ nband1   1
+
+ ecut2   15
+ ionmov2  0
+ nband2   3
+
+ nkpt  1    kptnrm  4  
+     kpt  1 1 1  
+     wtk  1  
+
+ acell  7 5 5
+ diemac 1.0d0   diemix 0.5d0
+ iprcch 1
+ mkmem  0
+ natom  2 
+
+ nline 3   nstep 7
+ nsym 8 ntime  5 ntypat  1
+ occopt 1
+ rprim 1 0 0  0 1 0  0 0 1
+ symrel  1  0  0   0  1  0   0  0  1
+        -1  0  0   0  1  0   0  0  1
+         1  0  0   0 -1  0   0  0  1
+        -1  0  0   0 -1  0   0  0  1
+         1  0  0   0  1  0   0  0 -1
+        -1  0  0   0  1  0   0  0 -1
+         1  0  0   0 -1  0   0  0 -1
+        -1  0  0   0 -1  0   0  0 -1
+ tnons 24*0
+ toldff 5.0d-6
+ tolmxf 5.0d-5
+ typat  2*1 
+ xangst -0.385 0 0   0.385  0 0
+ znucl  1.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

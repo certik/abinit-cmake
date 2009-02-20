@@ -1,0 +1,52 @@
+#Définition de la maille
+#***********************
+   acell 3*10.260157145
+   angdeg 3*55.63241086
+
+#Définition du type d'atomes
+#***************************
+   ntypat 3
+   znucl 41 3 8
+   ixc 7
+
+#Définition des atomes
+#*********************
+   natom 10
+   natrd 10
+   typat 2*1 2*2 6*3
+
+ xred        -6.2167749428E-04 -6.2167749428E-04 -6.2167749428E-04
+              4.9937832251E-01  4.9937832251E-01  4.9937832251E-01
+              2.8311188469E-01  2.8311188469E-01  2.8311188469E-01
+              7.8311188469E-01  7.8311188469E-01  7.8311188469E-01
+              7.1853575943E-01  3.6749800127E-01  1.0707868171E-01
+              1.0707868171E-01  7.1853575943E-01  3.6749800127E-01
+              3.6749800127E-01  1.0707868171E-01  7.1853575943E-01
+              8.6749800127E-01  2.1853575943E-01  6.0707868171E-01
+              6.0707868171E-01  8.6749800127E-01  2.1853575943E-01
+              2.1853575943E-01  6.0707868171E-01  8.6749800127E-01
+
+#Définition de la base d'ondes planes et de la grille ds l'espace k
+#******************************************************************
+   ecut 3
+   kptopt   1
+   ngkpt 2 2 2
+   nshiftk 1
+   shiftk 0.5 0.5 0.5
+   nband   34
+
+#Définition de la procédure SCF
+#******************************
+   nstep 200
+   diemac 6.0
+   toldfe  1.0d-10
+
+   ndtset 2   jdtset  1 2
+   berryopt1 -1    rfdir1    1 1 1 
+   berryopt2  4    efield2   0.0001 0.00 0.00  getwfk2 1
+
+
+nbdbuf 0
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

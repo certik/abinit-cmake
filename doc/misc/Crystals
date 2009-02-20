@@ -1,0 +1,101 @@
+(From MMikami 000929)
+Crystal Lattice Structures Database 
+   http://cst-www.nrl.navy.mil/lattice/
+
+   From the page, 
+
+   This page offers a concise index of common crystal lattice
+   structures. A graphical representation as well as useful
+   information about the lattices can be obtained by clicking on 
+   the desired structure below.
+
+(From MMikami 020110)
+Mineralogical Resources
+(from Mineralogical Society of America, http://www.minsocam.org
+
+1-a) Software (http://www.minsocam.org/MSA/Software.html)
+
+1-b) Mineral-related links (http://www.minsocam.org/MSA/Research_Links.html )
+     "Mineral Databases" section is one of my favorite, in particular,
+     Mineralogy Database (http://webmineral.com/) give us detailed
+     explanations with pictures of many crystals.
+     
+1-c) The Crystal Structure Database
+     (http://www.minsocam.org/MSA/Crystal-Database.html)
+
+(From AOganov 030207)
+Bilbao server for Crystallography
+http://www.cryst.ehu.es
+Contains symmetry information and k-vector notations for all the 230 space groups
+
+(From RCaracas 030320)
+Crystallography Open Database
+http://sdpd.univ-lemans.fr/cod
+
+(From MMikami 030718)
+EMS OnLine
+From "Info" page ( http://cimesg1.epfl.ch/CIOL/summary.html ):
+"EMS On Line implements some features of EMS (Electron Microscopy Image Simulation), the commercial 
+software which is developed by Pierre Stadelmann at the Center for Electron Microscopy (CIME), in 
+Lausanne. About 20 of the 70 sub-programmes of this package have been linked together with perl 
+scripts for make them accessible on the World Wide Web."
+
+If one enters the next page by clicking the "Run" button,
+one can find the crystal database: the user library has "2885 crystals saved by users of EMS
+OnLine." But kindly notice that "There is no guaranty of correctness !!!"
+
+
+American Mineralogist Crystal Structure Database
+http://www.geo.arizona.edu/AMS/amcsd.phgp
+
+(From MMikami 030812)
+- WARNING : in french -
+JAVA Applets for space groups
+
+http://www.univ-lemans.fr/enseignements/physique/02/cristallo/cristal.html
+http://www.univ-lemans.fr/enseignements/physique/02/cristallo/espace.html
+http://www.univ-lemans.fr/enseignements/physique/02/cristallo/stereo.html
+
+
+(From MMikami 041026)
+A good On-line Lectures for "Structure of Solids" 
+by Prof.Stephen J. Heyes (http://www.chem.ox.ac.uk/icl/heyes.html), 
+in particular, "Structures of Simple Inorganic Solids"
+http://www.chem.ox.ac.uk/icl/heyes/structure_of_solids/strucsol.html
+See also the online "practical":
+http://neon.chem.ox.ac.uk/course/inorganicsolids/
+(NB: He also writes "Chemistry of Lanthanides and Actinides":
+ http://www.chem.ox.ac.uk/icl/heyes/LanthAct/lanthact.html)
+
+
+"Crystal Structures" by Prof. Winston Chan(http://home3.netcarrier.com/~chan/)
+http://home3.netcarrier.com/~chan/SOLIDSTATE/CRYSTAL/
+Prof. Chan has written Java applets to allow you to view and manipulate crystal structures within your web browser. 
+
+
+"Software database for crystallography" from Laboratoire de Minelogie-Cristallographie
+http://www.lmcp.jussieu.fr/sincris/logiciel/
+
+
+NB: the above pages are traced from a useful URL list:
+http://chemistry.about.com/od/crystallography/
+
+(From A.R.Oganov 041027)
+ICSD(Inorganic Crystal Structure Database) for WWW
+http://icsd.ill.fr/icsd/
+The free part of the excellent database is small
+(3,325 out of 76,480 in 2004), still it may be useful.
+
+(From MMikami 041027)
+"Teaching Pamphlets" for Crystallography 
+http://www.iucr.org/iucr-top/comm/cteach/pamphlets.html
+are available at the IUCr site (http://www.iucr.org/).  
+
+You might also be interested in some hyperlinks there:
+- about CIF (Crystallographic Information File):
+  http://www.iucr.org/iucr-top/cif/index.html
+- SINCRYS (Information Server for Crystallography)
+  http://www.iucr.org/sincris-top/
+
+The mincryst crystallographic database, with 6000 minerals :
+http://database.iem.ac.ru/mincryst

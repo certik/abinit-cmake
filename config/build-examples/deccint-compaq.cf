@@ -1,0 +1,19 @@
+filename		alphaev67-compaq_deccint.ac
+CC			cc
+CXX			cxx
+enable_cxx		no
+FC			f95
+with_fc_optflags	-convert big_endian -O3 -arch host -tune host
+fcflags_opt_21drive	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_18seqpar	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_15gw	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_16response	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_13paw	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_13io_mpi	-convert big_endian -O1 -arch host -tune host
+fcflags_opt_16response	-convert big_endian -O1 -arch host -tune host
+enable_mpi		manual
+with_mpi_runner		/usr/bin/dmpirun
+with_mpi_fc_libs	-lmpi -lrt
+with_mpi_fc_ldflags	-pthread
+enable_netcdf		no 
+enable_etsf_io		no

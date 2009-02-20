@@ -1,0 +1,90 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 1util library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "acrossb.F90",
+ "appdig.F90",
+ "atmdata.F90",
+ "atmlength.F90",
+ "besjm.F90",
+ "calc_psden.F90",
+ "calc_psden_log.F90",
+ "calc_vhtnzc.F90",
+ "canon9.F90",
+ "chknm8.F90",
+ "clsopn.F90",
+ "compmesh.F90",
+ "copymesh.F90",
+ "ctrap.F90",
+ "ctrap_gen.F90",
+ "deducer0.F90",
+ "derf.F90",
+ "derfc.F90",
+ "dtsetcopy.F90",
+ "dtsetfree.F90",
+ "energies_init.F90",
+ "factorial.F90",
+ "hermit.F90",
+ "ifromr.F90",
+ "inupper.F90",
+ "inupper.F90",
+ "interpol3d.F90",
+ "int2char.F90",
+ "int2char4.F90",
+ "isfile.F90",
+ "jbessel.F90",
+ "lxyz.F90",
+ "matcginv.F90",
+ "mati3inv.F90",
+ "matrginv.F90",
+ "matr3eigval.F90",
+ "matr3inv.F90",
+ "memerr.F90",
+ "mkfilename.F90",
+ "mkherm.F90",
+ "mknormpath.F90",
+ "mvrecord.F90",
+ "nderiv.F90",
+ "nderiv_gen.F90",
+ "normev.F90",
+ "overlap.F90",
+ "pawfgrtab_utils.F90",
+ "orthonormalize.F90",
+ "pl_deriv.F90",
+ "plm_coeff.F90",
+ "plm_dphi.F90",
+ "plm_dtheta.F90",
+ "plm_d2theta.F90",
+ "print_ij.F90",
+ "print_ngfft.F90",
+ "poisson.F90",
+ "prmat.F90",
+ "ratint.F90",
+ "rhoij_utils.F90",
+ "rotmat.F90",
+ "simp_gen.F90",
+ "slxyzs.F90",
+ "status.F90",
+ "ylmc.F90",
+ "ylmcd.F90",
+ "ylm_cmplx.F90",
+ "ys.F90",
+ "zorthonormalize.F90"]
+ 

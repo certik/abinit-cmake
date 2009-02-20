@@ -1,0 +1,253 @@
+
+FFT_in_parallel
+
+Notes on the implementation of the "space" (or FFT) parallelism in ABINIT.
+
+Copyright (C) 1998-2008 ABINIT group (XG) 
+This file is distributed under the terms of the
+GNU General Public License, see ~abinit/COPYING
+or http://www.gnu.org/copyleft/gpl.txt .
+For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+
+
+*************************************************************************
+
+As of September 2003 (version 4.2),
+now, the biggest difficulty of the steps that are still to be done,
+lies in the correct interplay with the MPI-parallelism that is already
+implemented. However, one is likely close of being able to have
+a working space parallelism, nevertheless with several restriction
+in the working mode. These should be waived at later stages.
+
+-------------------------------------------------------------------------
+
+There are two different tasks to be done at this stage.
+
+
+Task 1 : the goal is to have a working space parallelism,
+with the following restrictions :
+
+1) The code is compiled without the -DMPI cpp option, in order
+ to disable the existing MPI parallelism. On the contrary,
+ the -DMPI_FFT cpp option is used
+
+2) One does not use MPI_COMM_WORLD, but define a communicator
+ mpi_comm_fft, so that the parallelisation that will be
+ done will not interfere with the other MPI parallelisation
+ when one will try to merge them
+
+3) The code is compiled without OMP
+
+4) The only symmetry is the identity matrix, so as to avoid
+ the parallelisation of symrhg.f (later to be done by T. Deutsch,
+ if he still agrees)
+
+5) No input/output of wavefunctions or densities or potentials
+
+6) The input variable iprcch is set to 0, in order to avoid
+ parallelizing the routine fresid.f
+
+7) The pseudopotentials do not contain a core charge, 
+ so as to avoid parallelizing the routine mkcore.f and many
+ routines related to the treatment of core charges,
+ for which there should be lot of transfer of data
+ represented in real space
+
+8) No PAW. Indeed, all the routines src/03paw, that contain
+ nfft, might have to be examined, and have not been ... 
+ Same thing for defs_paw .
+
+9) No Time-dependent Density-Functional Theory (TD-DFT).
+ This is all in the tddft.f routine. Indeed, this routine
+ has already been parallelized by J.-Y. Raty, using
+ still another mapping of the processors than in the
+ main ABINIT stream. It is using only one k point, and the
+ parallelisation was done on bands. The space parallelism
+ should be done afterwards, specifically.
+
+10) The new FFT routines of Stefan, parallelized, are used,
+ that is, one must have fftalg=4xx . Moreover, the n2 and n3 dimensions
+ are exchanged in reciprocal space, that is, 
+ one must have exchn2n3d=1 .
+
+11) The number of processors in a FFT group must divide n2 and n3, the
+ second and third linear dimensions of the FFT.
+ This is because, when this number of processor does not divide
+ these factors, there will be a different number of FFT points
+ treated by this processor in real space and in reciprocal space :
+ nfftr = n1*n2proc*n3   where n2proc is the set of n2 planes
+                  treated by this processor.
+      The sum of n2proc's over the FFT processors give n2.
+ nfftg = n1*n2*n3proc   where n3proc is the set of n3 planes
+                  treated by this processor.
+      The sum of n3proc's over the FFT processors give n3.
+ For the time being, however, nfftr must be equal to nfftg, and
+ be equal to the dimensioning number nfft, that appear
+ at about 1500 places in ABINIT ...
+ In the future version 4.3 , the difference between nfftr anf nfftg
+ will be implemented. This will be tedious ...
+
+12) One does not care about the prediction of memory use,
+ as given in memorf.f, memory.f, and memsta.f . 
+ This will be left for later adjustment.
+
+13) One avoids xcden.f and xcpot.f, by setting intxc=0 (the default)
+ and using the LDA. One avoids dens_in_sph.f by avoiding
+ computing the DOS or using cut3d in parallel.
+
+
+
+Task 2 : the goal is to clean the already existing MPI parallelism,
+that is, the one obtained with the -DMPI flag ,
+in order to avoid the conflict with the space parallelism.
+
+The problems with the existing implementation are :
+- MPI_COMM_WORLD is often used, while in the future,
+ often only one out of the mpi_comm_fft processors
+ will have to talk with the other processors (one for each group
+ of processors on which the space is spread out)
+- even in the present implementation, the notion of communicators
+ is not used often enough, leading to hard-to-understand conditions
+ for parallel branches
+
+So : MPI_COMM_WORLD should nearly disappear, and be replaced
+by the adequate communicator(s) to be created, for each level of parallelism.
+
+-------------------------------------------------------------------------
+
+In later stages :
+- The above-mentioned restrictions of the parallelism will be waived
+- One will allow both MPI and MPI_FFT flags, in order to obtain
+ the full functionalities. The number of processors attributed to the
+ space parallelism will be governed by an input variable "paralfft",
+ to which an adequate value will have to be computed
+- The OMP parallelism will be reconsidered and discussed, in view of the
+ way it is implemented in Stefan's FFT routine.
+
+--------------------------------------------------------------------------
+
+Here are some fundamental variables that are affected by the
+space parallelism :
+
+npw      (and its variants, like npw_k) is the number of plane waves
+         effectively treated by ONE processor
+npwtot   is the total number of planewaves 
+mpw      is the maximal value of npw over all processors
+
+nfft     is the number of FFT points effectively treated by ONE processor
+nfftot   is the total number of FFT points in the FFT grid
+ngfft(1),ngfft(2),ngfft(3) are the three numbers of FFT points of the
+         FFT grid along the x, y and z directions. 
+         Note that nfftot=ngfft(1)*ngfft(2)*ngfft(3) 
+
+The ngfft array is now dimensioned as ngfft(18), while previously,
+it was dimensioned as ngfft(8). This is because the additional
+memory slot should contain additional information for the
+parallelisation of the FFT. That information is described
+in the html file  ~abinit/doc/input_variables/vargs.html, or
+http://www.abinit.org/ABINIT/Infos_v4.2/vargs.html#ngfft
+
+---------------------------------------------------------------------------
+
+A non-exhaustive list of routines that have to be parallelized, or
+that are relevant in this first stage
+(there might be more, but it is sure that these must be parallelized)
+
+* prtrhomxmn.f
+* invars2m.f      (the routine where the FFT parallelisation information should be set up,
+                   see the indications MPIWF in that routine).
+* getng.f, kpgsph.f, kpgio.f, getmpw.f  are likely not to be modified anymore,
+   but they play an important role (called by invars2m.f)
+* defs_mpi.f : note the new records (paral_fft, nproc_fft, me_fft)
+
+* The "group 1", of which mklocl.f is an example
+   Likely, the file mklocl.f.EXAMPLE is the correct parallelization.
+   Note the way the G=0  has been treated : the previous coding
+   was not parallelizable.
+   This routine should be an example for a whole class of routines :
+   hartre.f initro.f mklocl.f moddiel.f  strhar.f  eltfrhar3.f
+   eltfrloc3.f  hartrestr.f  vloca3.f vlocalstr.f
+
+   In the case of mklocl, the array ngfft was an argument, so that
+   me_fft and nproc_fft were readily available. One might need to bring
+   these two variable to other routines. Two sources are possible :
+   ngfft , or mpi_enreg .
+
+* The "group 2", of which dotprod_vn.f is an example.
+   See the end of this routine. Simply dotr and doti have to be
+   summed over all processors. One has likely to add the
+   communicator for FFT as an argument of the routine,
+   and use the proper MPI instruction.
+   Routines in this group : dotprodm_vn.f  dotprod_vn.f    mean_fftr.f
+   sqnorm_v.f dotprodm_v.f  dotprod_v.f  sqnormm_v.f
+
+* The "group 3", of which sqnorm_g.f is an example.
+   It is rather similar to the "group 2" routines, except
+   that one need to know the processor that is dealing with the
+   planewave number 1 : see line 78 and 81 of that routine
+
+       dotr=half*vect(1,1)**2
+      !$OMP PARALLEL DO PRIVATE(ipw) REDUCTION(+:dotr) &
+      !$OMP&SHARED(vect,npwsp)
+         do ipw=2,npwsp
+          dotr=dotr+vect(1,ipw)**2+vect(2,ipw)**2
+         enddo
+      !$OMP END PARALLEL DO
+
+   Actually, only that processor will execute this specialized set of lines.
+   One should introduce a variable me_g0 , and modify the line 76 :
+    if(istwf_k==2 .and. me_g0==1 )then
+
+   The variable me_g0 is defined in mpi_enreg , set up in kpgsph,
+   and transferred to mpi_enreg in kpgio .
+
+   Routines in this group : dotprod_g.f sqnorm_g.f matrixelmt_g.f  
+   meanvalue_g.f
+
+* The "group 4" : nearly all routines in the Lib_fftnew directory.
+   Likely, with ngfft as an argument, all the needed information
+   to parallelize are available. However, there are modifications
+   of the argument, bounds, etc ... that I had no time to do,
+   neither to think of. I plan to send an example, with instructions
+   to be followed as soon as possible (but likely not before end of October ...).
+
+* The "group 5" : routines that are calling the fftpac routine,
+   and that transmit the modified density or potential.
+   To be described also ...
+    
+* Finally, lines 564-571 should be made a routine in Src2_spacepar ...
+
+
+Things that should NOT be done :
+- do not parallelize a section of code that is only for debugging purposes
+
+
+Other indications can be found by scanning all the source files, looking for the
+tag "MPIWF". In the main directory, issue :
+grep MPIWF */*.f
+
+----------------------------------------------------------------------------
+
+The space parallelism alone, will be activated by compiling the routines
+with the cpp flag CPP_MPI= -DMPI_FFT inside the makefile_macros .
+The usual value (k point MPI parallelism) was CPP_MPI= -DMPI.
+In order to activate both parallelisms, one will have to use CPP_MPI= -DMPI -DMPI_FFT .
+This might be changed after the present stage of development, when all
+parallelisms will be working correctly, simultaneously.
+
+For an example of a makefile_macros containing the -DMPI_FFT ccp flag,
+see ~abinit/Machine_dept_files/Intel_P6/makefile_macros.PGI_dummy_MPI_FFT
+In the official ABINITv4.2, just released, the use of this makefile_macros
+will lead to a stop after a few instructions, in ABINIT. This is
+due to the following section of code, inserted in the main abinit.f routine.
+
+#          if defined MPI_FFT
+           write(6,*)' me,nproc=',me,nproc
+           write(6,*)' abinit : one should remove this stop, and '
+           write(6,*)'    try to execute this MPI_FFT version of ABINIT'
+           call MPI_FINALIZE(ierr)
+           stop
+#          endif
+
+If this is removed, one comes very quickly to a problem in the execution.
+Solving this problem, and going forward, is one subtask of the first task !

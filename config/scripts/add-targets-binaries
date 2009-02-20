@@ -1,0 +1,145 @@
+#!/usr/bin/env python
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+from time import gmtime,strftime
+
+import commands
+import os
+import re
+import sys
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Subroutines
+#
+
+# Makefile header
+def makefile_header():
+
+ return """
+# ---------------------------------------------------------------------------- #
+
+#
+# Individual targets for binaries
+#
+
+"""
+
+
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Main program
+#
+
+# Initial setup
+my_name    = "add-targets-binaries"
+my_configs = [
+  "config/specs/corelibs.cf",
+  "config/specs/prereqs.cf",
+  "config/specs/plugins.cf",
+  "config/specs/binaries.cf"]
+my_output  = "Makefile.am"
+
+# Check if we are in the top of the ABINIT source tree
+if ( not os.path.exists("configure.ac") or
+     not os.path.exists("src/main/abinit.F90") ):
+ print "%s: You must be in the top of an ABINIT source tree." % my_name
+ print "%s: Aborting now." % my_name
+ sys.exit(1)
+
+# Read config file(s)
+for cnf in my_configs:
+ if ( os.path.exists(cnf) ):
+  execfile(cnf)
+ else:
+  print "%s: Could not find config file (%s)." % (my_name,cnf)
+  print "%s: Aborting now." % my_name
+  sys.exit(2)
+
+# Start writing to Makefile.am
+mf = file(my_output,"a")
+mf.write(makefile_header())
+
+# Create targets for required external libraries
+for lib in abinit_prereqs:
+ mf.write("if DO_BUILD_%s\n%s:\n\tcd prereqs/%s && $(MAKE) all_targets\nelse\n%s:\n\t@echo 'Not building the %s library'\nendif\n\n" % \
+   (lib.upper(),lib,lib,lib,lib.upper()))
+
+# Create targets for plug-ins
+for lib in abinit_plugins:
+ mf.write("if DO_BUILD_%s\n%s:\n\tcd plugins/%s && $(MAKE) all_targets\nelse\n%s:\n\t@echo 'Not building the %s library'\nendif\n\n" % \
+   (lib.upper(),lib,lib,lib,lib.upper()))
+
+# Process each binary
+for abibin in main_bins:
+
+ # Init
+ if ( abibin in main_bins_specs ):
+  specs = main_bins_specs[abibin]
+ else:
+  specs = ABI_BIN_NIL
+
+ if ( (specs & ABI_BIN_MPI) == 0 ):
+  bins = [abibin]
+ else:
+  bins = [re.sub(".$","s",abibin),re.sub(".$","p",abibin)]
+
+ # Produce all binaries related to one source file
+ for bin in bins:
+
+  # Init
+  bin_make = "\n\tcd src/main && $(MAKE) %s$(EXEEXT)\n\n" % (bin)
+  bin_deps = ""
+
+  # List all libraries the binary depends on
+  for lib in eval("%s_deps" % (abibin)):
+
+   # Init
+   if ( lib in corelibs_specs ):
+    lib_specs = corelibs_specs[lib]
+   else:
+    lib_specs = ABI_LIB_NIL
+
+   # Set suffix for library
+   if ( (lib_specs & ABI_LIB_MPI) == 0 ):
+    lib_suffix = ""
+   else:
+    if ( (specs & ABI_BIN_MPI) == 0 ):
+     lib_suffix = "s"
+    else:
+     if ( bin == bins[0] ):
+      lib_suffix = "s"
+     else:
+      lib_suffix = "p"
+
+   # Set directory for library
+   if ( lib in abinit_corelibs ):
+    lib_dir = "src"
+    lib_tgt = "lib%s%s.a" % (lib,lib_suffix)
+   elif ( lib in abinit_prereqs ):
+    lib_dir = "prereqs"
+    lib_tgt = "all_targets"
+   elif ( lib in abinit_plugins ):
+    lib_dir = "plugins"
+    lib_tgt = "all_targets"
+   else:
+    sys.stderr.write("Error: unknown dependency of %s: %s\n" % (abibin,lib))
+    sys.exit(4)
+
+   bin_make = "\n\tcd %s/%s && $(MAKE) %s" % \
+    (lib_dir,lib,lib_tgt) + bin_make
+
+  # Write results
+  mf.write("# Individual build of %s\n%s:%s%s" % (bin,bin,bin_deps,bin_make))
+
+mf.close()

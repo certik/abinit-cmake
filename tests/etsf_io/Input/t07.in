@@ -1,0 +1,69 @@
+# CO molecule
+
+#Definition of the SCF procedure
+nstep 4          # unrealistic value, only used for tests
+tolwfr 1.0d-4    # Tolerence on gradient norm, physical value
+nwfshist 8       # Wavefunction DIIS
+iscf 2           # Mixing value for wavelets
+
+# Force symetries
+nsym 1
+symrel   1  0  0   0  1  0   0  0  1
+
+#Definition of the unit cell
+acell 25 20 20
+rprim
+1. 0. 0.
+0. 1. 0.
+0. 0. 1.
+
+natom 2
+
+nband 5
+
+# WVL
+usewvl 1
+wvl_hgrid 0.7     # Very high value, unphysical.
+wvl_crmult 4.5
+wvl_frmult 8.
+wvl_cpmult 8.
+wvl_fpmult 8.
+wvl_nprccg 15
+icoulomb 1      # Use Poisson solver
+optforces 0       # Don't compute the forces inside the SCF loop
+optstress 0       # Don't compute stress (required for wavelets)
+nscforder 14      # order of wavelet for Poisson solver
+
+
+#Definition of the k-point grid 
+kptopt 1          # Option for the automatic generation of k points, taking
+                  # into account the symmetry
+ngkpt  1  1  1
+nshiftk 1
+shiftk  0. 0. 0.
+
+#Definition of the atom types
+ntypat 2
+znucl 6 8
+
+#Definition of the atoms
+typat 1 2
+
+#Geometric positions
+xcart
+ 4. 2.5 2.5
+ 6. 2.5 2.5
+
+#Exchange-correlation functional
+ixc 1             # LDA Teter Pade parametrization
+
+#Definition of the planewave basis set
+ecut  5
+
+# Input/output
+istwfk 1     # Required value for ETSF file
+prtden 0     # Don't print the density
+prtwf 1      # Output the wave-functions
+irdwfk 1     # Restart from wavefunctions
+accesswff 3  # ETSF IO access
+

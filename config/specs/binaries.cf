@@ -1,0 +1,324 @@
+# -*- Python -*-
+#
+# Copyright (c) 2005-2008 ABINIT Group (Yann Pouillon)
+# All rights reserved.
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Config file for the main binaries of ABINIT
+#
+# Note: The following statements have to be readable by Python scripts
+#
+
+# Main binaries attributes
+ABI_BIN_NIL = 0     # No attribute
+ABI_BIN_MPI = 1     # Binary has a MPI-parallel version
+ABI_BIN_ADD = 2     # Binary is an additional version of a source
+ABI_BIN_C89 = 4     # Binary source is written in ANSI C
+ABI_BIN_FFT = 8     # Binary source may use external FFT libraries
+
+# List of main binaries (in order of build)
+main_bins = [
+   "abinit",
+   "mrgddb",
+   "mrggkk",
+   "mrgscr",
+   "anaddb",
+   "aim",
+   "cut3d",
+   "macroave",
+   "newsp",
+   "conducti",
+   "optic",
+   "lwf",
+   "band2eps",
+   "abinetcdf",
+   "anascr"]
+
+# Main binary descriptions
+main_bins_specs = {
+   "abinit":ABI_BIN_MPI|ABI_BIN_FFT,
+   "cut3d":ABI_BIN_FFT}
+
+# Descriptions of multiple binary sets
+# Format: "<binary>":["<source>","<cppflags>","<conditional>"]
+# Leave strings empty for nothing
+main_bins_add_specs = {}
+
+# Dependencies of abinit
+abinit_deps = [
+   "21drive",
+   "21paral_md",
+   "21rdm",
+   "18seqpar",
+   "17suscep",
+   "16response",
+   "16geomoptim",
+   "15gw",
+   "15common",
+   "15recursion",
+   "15rsprc",
+   "14occeig",
+   "14iowfdenpot",
+   "14wvl_wfs",
+   "14wfs",
+   "14poisson",
+   "13ionetcdf",
+   "13iovars",
+   "13io_mpi",
+   "13paw",
+   "13recipspace",
+   "13xc",
+   "13xml",
+   "13nonlocal",
+   "12nlstrain",
+   "12ffts",
+   "13psp",
+   "12geometry",
+   "12parser",
+   "12spacepar",
+   "11contract",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01cg",
+   "lib01hidempi",
+   "lib01fftnew",
+   "lib00numeric",
+   "defs",
+   "wannier90",
+   "bigdft",
+   "linalg",
+   "etsf_io",
+   "etsf_xc",
+   "netcdf",
+   "xmlf90"]
+
+# Dependencies of aim
+aim_deps = [
+   "14bader",
+   "14iowfdenpot",
+   "13io_mpi",
+   "12parser",
+   "12geometry",
+   "11util",
+   "01manage_mpi",
+   "lib00numeric",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "netcdf"]
+
+# Dependencies of anaddb
+anaddb_deps = [
+   "17ddb",
+   "16response",
+   "15common",
+   "14occeig",
+   "14wfs",
+   "14iowfdenpot",
+   "13recipspace",
+   "13nonlocal",
+   "13io_mpi",
+   "12geometry",
+   "12parser",
+   "11util",
+   "01manage_mpi",
+   "lib00numeric",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "linalg",
+   "etsf_io",
+   "netcdf"]
+
+# Dependencies of conducti
+conducti_deps = [
+   "15common",
+   "15gw",
+   "14occeig",
+   "14iowfdenpot",
+   "13recipspace",
+   "13io_mpi",
+   "12geometry",
+   "11util",
+   "01manage_mpi",
+   "lib00numeric",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "linalg",
+   "etsf_io",
+   "netcdf",
+   "bigdft"]
+
+# Dependencies of cut3d
+cut3d_deps = [
+   "19cut3d",
+   "15common",
+   "14occeig",
+   "14iowfdenpot",
+   "13recipspace",
+   "13nonlocal",
+   "13io_mpi",
+   "13ionetcdf",
+   "12geometry",
+   "12ffts",
+   "12spacepar",
+   "12parser",
+   "lib01fftnew",
+   "lib01hidempi",
+   "11contract",
+   "11util",
+   "01manage_mpi",
+   "lib00numeric",
+   "00basis",
+   "defs",
+   "linalg",
+   "etsf_io",
+   "netcdf",
+   "bigdft"]
+
+# Dependencies of lwf
+lwf_deps = [
+   "17lwf",
+   "12parser",
+   "13io_mpi",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "defs",
+   "linalg",
+   "netcdf"]
+
+# Dependencies of macroave
+macroave_deps = [
+   "14iowfdenpot",
+   "13io_mpi",
+   "11util",
+   "01manage_mpi",
+   "lib00macroav",
+   "00basis",
+   "defs",
+   "netcdf"]
+
+# Dependencies of mrgddb
+mrgddb_deps = [
+   "17ddb",
+   "16response",
+   "13io_mpi",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "defs",
+   "netcdf"]
+
+# Dependencies of mrggkk
+mrggkk_deps = [
+   "14iowfdenpot",
+   "13io_mpi",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "defs",
+   "etsf_io",
+   "netcdf"]
+
+# Dependencies of mrgscr
+mrgscr_deps = [
+   "15gw",
+   "14iowfdenpot",
+   "13io_mpi",
+   "12geometry",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "netcdf"]
+
+# Dependencies of newsp
+newsp_deps = [
+   "15common",
+   "14occeig",
+   "14iowfdenpot",
+   "14wfs",
+   "13ionetcdf",
+   "13iovars",
+   "13ionetcdf",
+   "13recipspace",
+   "13xml",
+   "13nonlocal",
+   "13io_mpi",
+   "12ffts",
+   "12geometry",
+   "12parser",
+   "11contract",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "linalg",
+   "etsf_io",
+   "netcdf",
+   "bigdft"]
+
+# Dependencies of optic
+optic_deps = [
+   "15common",
+   "14iowfdenpot",
+   "13recipspace",
+   "13io_mpi",
+   "12geometry",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "defs",
+   "linalg",
+   "etsf_io",
+   "netcdf",
+   "bigdft"]
+
+# Dependencies of band2eps
+band2eps_deps = [
+   "defs"]
+
+# Dependencies of abinetcdf
+abinetcdf_deps = [
+   "defs",
+   "netcdf"]
+
+# Dependencies of anascr
+anascr_deps = [
+   "15gw",
+   "14iowfdenpot",
+   "13recipspace",
+   "13io_mpi",
+   "12geometry",
+   "11util",
+   "01manage_mpi",
+   "00basis",
+   "lib01hidempi",
+   "lib00numeric",
+   "defs",
+   "netcdf"]
+                     
+nightly_bins = [
+   "timeout"]
+
+nightly_bin_specs = {
+   "timeout":ABI_BIN_C89}

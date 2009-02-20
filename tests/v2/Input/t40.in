@@ -1,0 +1,37 @@
+# Oxygen molecule, treated like a metal, with nsppol=1 and GGA
+# The pseudopotential includes a core charge, 
+# inducing non-linear XC core correction
+# Test the forces (move one atom to get finite-difference estimation)
+
+ ndtset 3
+ getwfk -1
+
+ xcart1  0.0 0.0  1.0395   0.0 0.0 -1.040
+ xcart2  0.0 0.0  1.040    0.0 0.0 -1.040
+ xcart3  0.0 0.0  1.0405   0.0 0.0 -1.040
+
+ acell 7 7 9
+ diemac 1.0d0
+ diemix 0.333333333333d0
+ ecut 14
+ ixc 11
+ kpt   3*0.0
+ natom  2 
+ nband 8 
+ nkpt 1
+ nstep 30
+ nsppol 1
+ nsym 4
+ ntypat  1
+ occopt 4
+ rprim 1 0 0  0 1 0  0 0 1
+ symrel   1  0  0    0  1  0    0  0  1
+         -1  0  0    0  1  0    0  0  1
+          1  0  0    0 -1  0    0  0  1
+         -1  0  0    0 -1  0    0  0  1
+ toldff 1.d-8
+ typat  1 1
+ wtk  1
+ znucl  8.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

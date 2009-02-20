@@ -1,0 +1,7 @@
+(From Mikami-san, on 20000127)
+
+P.S. Long ago, I found a tiny benchmark code "flops" somewhere
+     in Internet (You can retrieve it via ftp://ftp.nosc.mil/pub/aburto/
+     <...>
+     You can try it very easily; just set "GCC = ..", make,
+     and run "flops.bat". You might have fun with it for refreshment...

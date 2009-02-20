@@ -1,0 +1,8 @@
+filename		i686-pgi4.0_dummy.ac
+CC			gcc
+CXX			g++
+FC			/usr/pgi/linux86/bin/pgf90
+with_mpi_prefix		/usr/local/mpi-pgi
+fcflags_opt_13paw	-O0
+enable_netcdf		no
+enable_etsf_io		no

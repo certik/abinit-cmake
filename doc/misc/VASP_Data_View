@@ -1,0 +1,115 @@
+(From MMikami, 000602)
+
+I have tried the VASP Data Viewer 
+(http://vaspview.sourceforge.net/ ), 
+and have found it seems to work with "ABINIT & Cut3d". 
+
+I have transmitted a sample output file of VASP Data Viewer.
+Two type of files are available, i.e "png" and "ps"(gzipped).
+(See ~ABINIT/Infos/Images)
+(The snapshot was taken with the image viewer "gimp" on my Linux box.)
+The example was taken from t5o_DEN in Test_fast.
+
+In order to get the output, I first get 3D formatted data file 
+from t5o_DEN with your "cut3d" utility. Then I add following lines 
+at the very beginning of the 3D formatted file, as follows;
+
+<-- input file for VASP Data Viewer --> | <----------- my comment ------------>
+-------------------------------------------------------------------------------
+Si                                      | <-- Title of this file 
+ 1.000000000000000000                   | this may be always 1.00 (Q1)
+ 0 .5 .5                                | lattice vector A
+.5  0 .5                                |                B
+.5 .5  0                                |                C
+ 2                                      | Number of atom1, Number of atom2, ...
+Direct                                  | This may be always "Direct" (Q2)
+ 0.00000 0.00000 0.00000                | Internal coordinates
+ 0.25000 0.25000 0.25000                |       of atom1, atom2, ...
+
+ 16 16 16                               | meshes (NGX, NGY, NGZ)
+   8.9548941621785047E-003              | here 3-D data list of charge etc.
+   1.9158745664131810E-002              | (output from "Cut3d"
+   4.1975287660824784E-002              | the order of the data list is like 
+   5.8167538139171950E-002              |  (((C(NX,NY,NZ),NX=1,NGX),
+   5.6138792960258824E-002              |    NY=1,NGY),NZ=1,NGZ)
+   4.3599107308094173E-002              |
+	(snipped)
+---------------------------------------------------------------------------
+N.B.  The lattice vectors (A,B,and C) can be scaled as the above.
+
+
+
+
+
+
+
+(From MMikami, 000609, additional information)
+
+The latest "VASP Data Viewer" has appeard just now,
+partly because I told the author the meaning of the unknown paramters
+in the input file. 
+
+In passing, I would like to tell you one more info.
+      http://www-k3.ijs.si/kokalj/xc/XCrySDen.html
+This is another viewer code for such 3-D outputs, with crystal structures.
+(Only the executables are distributed. To get the binaries,
+ resigtration procedure is necessary. Please look into the URL for the details)
+
+I have already contacted the author the possibility for XCrySDen to
+manage the VASP-Data-Viewer-type format. He said,
+
+    Thank you very much for suggestion. In fact several VASP users already
+    contacted me with almost the same request. In fact one of them already
+    wrote the VASP->XCrySDen conversion. If he will be willing to share this
+    conversion program, we can hope to have have this option soon.
+
+------- Forwarded Messages
+
+Subject: Re: VASP Data Viewer 
+Date: Wed, 07 Jun 2000 17:54:20 +0900
+From: Masayoshi MIKAMI <mmikami>
+
+Dear Timothy Terriberry,
+
+I think I have found something.
+
+>> (Q1) I don't know what this does. The VASP package was written in
+>> Fortran, and I am not a Fortran programmer, so I never tried picking
+>> through the source to find out _exactly_ what the above command did.
+>> Every file I was given to test with had the same "1.0000000000000000000"
+>> in that position.
+>> 
+>> (Q2) Again, I don't know what this means, for the same reason. Every
+>> file I was given to test with had the same "Direct" in that position.
+>> 
+>> (Q3) This part, at least, I understood, and as you can see from the
+>> above, you have the order of the data list correct.
+
+About (Q1) and (Q2), could you please refer to the following URL ?
+http://cms.mpi.univie.ac.at/vasp/guide/node13.html#SECTION00043100000000000000
+
+>From the POSCAR section,
+
+(Q1) this seems a universal scaling factor (for lattice vectors) !
+(Q2) "Direct" means fractional (internal) coordiates.
+     In the "Cart" case, positions will be scaled by universal scaling factor.
+
+
+------- Message 2
+
+Date: Fri, 09 Jun 2000 00:57:38 -0400
+From: "Timothy B. Terriberry" <tterribe@vt.edu>
+Reply-To: tterribe@vt.edu
+Organization: Virginia Polytechnic Institue
+To: Masayoshi MIKAMI <mmikami@atlas.rc.m-kagaku.co.jp>
+Subject: Re: VASP Data Viewer
+
+> This information might be useful to you ...
+Thanks, an updated version of the viewer that incorporates these things
+has been posted (http://vaspview.sourceforge.net)
+
+-Timothy Terriberry (mailto:tterribe@users.sourceforge.net)
+
+------- End of Forwarded Messages
+
+

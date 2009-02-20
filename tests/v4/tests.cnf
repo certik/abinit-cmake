@@ -1,0 +1,244 @@
+# Title:
+Suite v4 of various tests of abinit, mrgddb, and anaddb
+# This suite of tests has been established during the
+# development of the version 4.x of ABINIT.
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of
+# these lines is:	[testID | end] [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order. "testID" can be 'end' to
+# signal the normal end of a tests sequence: multiple 'end's are allowed.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	exercise the sequential version of abinis
+#	aim		exercise the atom-in-molecule Bader analysis
+#	ana | anaddb	exercise anaddb
+#	band2eps	exercise band2eps
+#	cut3d		exercise cut3d
+#	conducti	exercise conducti
+#	lwf		exercise lwf
+#	macroave	exercise macroave
+#	mrg | mrgddb	exercise mrgddb
+#	newsp		exercise newsp
+#
+#   parameters for copy and erase are file or directory names
+#
+#   parameters for mrgddb must comply to the following format:
+#	[fn1] 'short description' (fn2 fn3 ... fnLast)
+#   fn2 ... fnLast can reside in the Test directory as normal or g-zipped files
+# they will be copied, and unzipped if necessary, to the working directory
+# before the test and the copy will be deleted after
+#
+#   parameters for the other programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for the DS3_DOS_AT000x file name is: DS3AT=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium , -ridiculous),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-diflog  apply diff/fldiff to the .log file
+#	-DOS	apply diff/fldiff to the o_DOS file
+#	-DS2	apply diff/fldiff to the o_DS2_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#     -keepfn4
+# default options to call fldiff are: -ignore -ignoreP
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+# 1) mrg/mrgddb
+# fn1 = tNNN.ddb.out
+# 2) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6-fn9,psp1-psp4 = none
+# 3) newsp
+# fn1-fn2 = none
+# fn3 = tNNNo_WFK
+# 4) ana/anaddb
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 = tNNN.ddb.in
+#   fn3 can reside in the Test directory as a normal or g-zipped file
+# it will be copied, and unzipped if necessary, to the working directory before
+# the test and the copy will be deleted after
+# fn4 = tNNN.md
+# 5) cut3d
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# 6) aim
+# fn1 = ../tNNN.in
+# fn2 = tNNNi_DEN
+# fn3 = tNNN
+# fn4-fn5,psp1-psp2 = none
+# 7) conducti
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNN
+# 8) lwf
+# fn1 = ../tNNN.in
+# fn2 = ../tNNN.moldyn.in
+# fn3 = tNNN.out
+# fn4 = tNNN.wandata
+# 9) band2eps
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out.eps
+# fn3 = ../tNNN.in.freq
+# fn4 = ../tNNN.in.displ
+
+# fn1 = ../tNNN.in
+# fn2 = tNNN_DEN.MAV
+# fn3 = tNNN_DEN.PAV
+# fn4 = tNNN
+01 seq psp1=14si.pspnc
+# In some cases, change the default tolerance from 1.0d-10 to 1.0d-8
+02 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod opt=-medium
+03 seq psp1=14si.phoney_mod
+04 seq psp1=20ca.paw opt=-medium
+05 seq psp1=8o.paw opt=-medium
+06 seq psp1=8o.paw opt=-medium
+07 seq psp1=8o.paw opt=-medium
+08 seq psp1=26fe.paw psp2=26fe.num.paw opt=-medium
+09 seq psp1=26fe.paw opt=-medium
+10 seq psp1=2he_ca_30t.psp
+11 seq psp1=2he_ca_30t.psp
+12 seq psp1=2he_ca_30t.psp
+13 seq psp1=2he_ca_30t.psp
+14 seq psp1=2he_ca_30t.psp
+15 seq psp1=2he_ca_30t.psp
+16 seq psp1=2he_ca_30t.psp
+20 seq psp1=20ca_sic.drh psp2=8o_sic.drh
+21 seq psp1=01h.bare
+22 seq psp1=01h.bare
+23 seq psp1=01h.bare
+24 seq psp1=01h.bare
+25 seq psp1=01h.bare
+26 seq psp1=01h.bare
+27 seq psp1=01h.bare
+28 seq psp1=01h.bare
+29 seq psp1=01h.bare
+30 seq psp1=12mg.pspnc
+31 erase t31i_*
+# Copy file at the right place
+31 copy t30o_DEN t31i_DEN
+31 aim psp1=mg.fc opt=-medium
+32 seq psp1=8o.pspnc psp2=12mg.pspnc
+33 erase t33i_*
+# Copy file at the right place
+33 copy t32o_DEN t33i_DEN
+33 aim psp1=o.fc psp2=mg.fc opt=-medium
+34 erase t34i_*
+# Copy file at the right place
+34 copy t32o_DEN t34i_DEN
+34 aim psp1=o.fc psp2=mg.fc opt=-medium
+35 seq psp1=2he_ca_30t.psp opt=-DS2 DS3AT=t35o_DS3_DOS_AT0001
+36 seq psp1=73ta.hgh
+#Test 37 is not portable, and has been disabled
+#37 cut3d opt=-logout
+38 seq psp1=14si.pspnc DS3AT=t38o_DS3_DOS_AT0002 opt=-ridiculous
+39 cut3d opt=-logout opt=-easy
+40 seq psp1=14si.pspnc
+41 erase t41_DEN
+# Copy files at the right place
+41 copy t40o_DEN t41_DEN
+41 macroave opt=-easy
+42 seq psp1=14si.pspnc psp2=32ge_lda.fhi opt=-easy
+43 erase t43_VHXC
+# Copy files at the right place
+43 copy t42o_VHXC t43_VHXC
+43 macroave fn2=t43_VHXC.MAV fn3=t43_VHXC.PAV opt=-easy
+44 erase t44_VHXC
+# Copy files at the right place
+44 copy t42o_VHXC t44_VHXC
+44 macroave fn2=t44_VHXC.MAV fn3=t44_VHXC.PAV opt=-easy
+45 erase t45_DEN
+# Copy files at the right place
+45 copy t42o_DEN t45_DEN
+45 macroave opt=-easy
+46 seq psp1=13al.981214.fhi
+47 seq psp1=14si.phoney_mod
+48 copy $INPUTDIR/t48.in_aux t48.in_aux
+48 cut3d opt=-logout
+48 erase t48.in_aux
+49 copy $INPUTDIR/t49.in_aux t49.in_aux
+49 cut3d opt=-logout
+49 erase t49.in_aux
+50 anaddb fn4=t50_band2eps
+51 band2eps
+#This tests the color. The color can be suppressed by using the following :
+# 51 band2eps fn4=no
+52 seq psp1=13al.pspnc psp2=33as.pspnc opt=-easy
+53 mrg desc='DDB for AlAs, Raman tensor, Non-linear optical susceptibilities and EO tensor' files=t52o_DS4_DDB,t52o_DS5_DDB
+54 anaddb fn3=t53.ddb.out opt=-easy
+55 seq psp1=41nb_001023.pspfhi psp2=03li.pspfhi psp3=08o_001023.pspfhi opt=-easy
+56 seq psp1=31ga.SGS_mod psp2=33as.SGS_mod
+57 optic
+58 seq psp1=13al.pspnc psp2=33as.pspnc opt=-medium
+59 seq psp1=26fe.pspnc opt=-easy
+60 seq psp1=12mg.pspnc psp2=13al.pspnc opt=-medium
+61 seq psp1=14si.pspnc opt=-medium
+62 seq psp1=57la.drh psp2=33as.drh opt=-medium
+63 seq psp1=31ga.hgh psp2=33as.hgh opt=-medium
+64 seq psp1=13al.pspgth
+65 seq psp1=13al.psphgh psp2=15p.5.hgh opt=-medium
+66 seq psp1=13al.psphgh psp2=15p.5.hgh opt=-easy
+67 seq psp1=31ga.hgh psp2=33as.hgh opt=-easy
+68 anaddb fn3=t67o_DS3_DDB opt=-easy
+69 seq psp1=13al.981214.fhi psp2=33as.pspnc opt=-medium
+70 anaddb fn3=t69o_DS3_DDB opt=-easy
+71 anaddb
+72 seq psp1=13al.pspnc psp2=33as.pspnc
+73 mrg desc='alas_gradients_DDB' files=t72o_DS11_DDB,t72o_DS21_DDB,t72o_DS22_DDB,t72o_DS23_DDB
+74 anaddb fn3=t73.ddb.out opt=-easy
+75 seq psp1=13al.pspnc psp2=33as.pspnc opt=-medium
+76 mrg desc='alas_DDB' files=t75o_DS1_DDB,t75o_DS2_DDB,t75o_DS3_DDB opt=-medium
+77 anaddb fn3=t76.ddb.out opt=-easy
+78 seq psp1=13al.pspnc psp2=33as.pspnc opt=-medium
+79 seq psp1=26fe.pspnc opt=-easy
+80 seq psp1=13al.pspnc psp2=33as.pspnc opt=-medium
+81 seq psp1=14si.pspnc
+82 mrg desc='merged DDB file of strained Si' files=t81o_DS1_DDB,t81o_DS2_DDB
+83 anaddb fn3=t82.ddb.out opt=-easy
+84 seq psp1=14si.pspnc
+85 seq psp1=13al.pspnc
+86 seq psp1=14si.pspnc
+87 seq psp1=14si.pspnc
+88 seq psp1=14si.pspnc
+89 seq psp1=79au.pspnc
+90 seq psp1=14si.pspnc
+91 seq psp1=12mg.psphgh
+92 seq psp1=12mg.psphgh
+93 seq psp1=20ca.2.hgh
+94 seq psp1=20ca.paw
+95 seq psp1=13al.psppos
+96 copy t95o_DEN t96i_DEN
+96 copy t95o_VHA t96i_VHA
+96 seq psp1=13alpos.psppos
+97 seq psp1=05b.soft_tm
+98 seq psp1=01h.bare
+99 seq psp1=26fe.pspnc psp2=7n.pspnc
+make report
+100 cut3d  opt=-nofld
+100 ncdump t100.out.nc t100.out
+101 cut3d opt=-nofld
+101 ncdump t101.out_k1_b1_s1.nc t101.out

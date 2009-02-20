@@ -1,0 +1,38 @@
+# Oxygen molecule, treated like a metal, with nsppol=2 and GGA
+# The pseudopotential includes a core charge, 
+# inducing non-linear XC core correction
+# Test the stresses (move one cell parameter to get 
+# finite-difference estimation)
+# NOTE : one uses xred, and not xcart, so that the 
+# atomic location follows the scaling of the cell
+
+ ndtset 2
+ getwfk -1
+
+ acell1  6.500  6.500  8.9991  
+ acell2  6.500  6.500  9.0009  
+
+ diemac 1.0d0
+ diemix 0.333333333333d0
+ ecut 13.00
+ ixc 11
+ kpt   3*0.0
+ natom  2 
+ nband 8 
+ nkpt 1
+ nsppol 2
+ nstep 30
+ nsym 1
+ ntypat  1
+ occopt 7
+ rprim 1 0 0  0 1 0  0 0 1
+ spinat 0.0 0.0 1.0 
+        0.0 0.0 1.0
+ toldff 1.d-8
+ tsmear 0.02
+ typat  1 1
+ wtk  1
+ xred  0.0 0.0  0.1155     0.0 0.0 -0.1155
+ znucl  8.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

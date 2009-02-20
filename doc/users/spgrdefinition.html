@@ -1,0 +1,45 @@
+<HTML>
+<body>
+<p> This list of symmetry groups is part of the on-line help of the ABINIT code.
+It provides besides <i>classical</i> crystallographic information the values of certain symmetry-related variables used in the input file of the ABINIT code.
+<p>
+The table entries are as follows
+
+<p>
+<ul>
+<li>SPGROUP = "SPace GROUP number", as it is found in the International Tables of Crystallography, 1986 edition.</li>
+<li>SPGAXOR = "SPace Group AXis ORientation", the orientation of the unit cell axis. The allowed values are: </li>
+<ul>
+ <li>Trigonal groups :</li>
+<ul>
+<li>  1 represents the hexagonal axes</li>
+<li>  2 represents the rhombohedral axes</li>
+</ul>
+ <li>Orthorhombic groups:</li>
+<ul>
+<li>1 abc -> abc</li>
+<li>2 abc -> cab</li>
+<li>3 abc -> bca</li>
+<li>4 abc -> acb</li>
+<li>5 abc -> bac</li>
+<li>6 abc -> cba</li>
+</ul>
+ <li>Monoclinic : 3 or 9 possibilities depending on the space group</li>
+</ul>
+<li>SPGORIG = "SPace Group ORIGin", the position of the origin in the unit cell. The allowed values are 1 and 2. they correspond to the actual choices in the International Tables of Crystallography, 1986 edition. </li>
+<li>BRVLTT = "BRaVais LaTTice", the type of Bravais lattice. The allowed values are:</li>
+<ul>
+ <li>1 = Primitive with no associated translations</li>
+ <li>2 = Inner centered with (a/2 + b/2 + c/2) associated translation</li>
+ <li>3 = Face centered with (a/2 + b/2; b/2 + c/2; c/2 + a/2) associated translations</li>
+ <li>4 = C - centered with (a/2 + b/2) associated translation</li>
+ <li>5 = A - centered with (b/2 + c/2) associated translation</li>
+ <li>6 = B - centered with (c/2 + a/2) associated translation</li>
+ <li>7 = Rhombohedral lattice</li>
+</ul>
+<li>INTERNATIONAL = the INTERNATIONAL notation of the space group</li>
+<li>SCHOENFLIES = the equivalent SCHOENFLIES notation of the space group</li>
+<li>MULTIPLICITY (x y z) = the maximum multiplicity, after applying Bravais lattice translations, corresponding to a general position (x y z)</li>
+</ul>
+
+</body></html>

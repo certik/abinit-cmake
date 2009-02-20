@@ -1,0 +1,15 @@
+filename		amd-gfortran4.1_chum.ac
+#
+CPP			cpp
+with_cpp_optflags	-DNDEBUG -Df2cFortran
+CC			gcc
+#
+FC			gfortran
+with_fc_optflags	-O2
+#
+enable_mpi		yes
+with_mpi_prefix		/usr/local/mpich2-gfortran41
+#with_mpi_prefix	/usr/local/mpich-1.2.7p1-gfortran4.1
+#
+enable_64bit_flags	yes
+enable_etsf_io		no

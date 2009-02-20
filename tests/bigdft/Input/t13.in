@@ -1,0 +1,50 @@
+# 78pt.18.hgh
+
+ nstep 20
+
+ acell 3*20
+ wvl_hgrid 0.45
+ wvl_crmult 5
+ wvl_frmult 10
+ wvl_cpmult 12
+ wvl_fpmult 10
+ tolwfr 5e-3
+ kpt   0 0 0
+ natom  1
+ nkpt  1
+ nsym  1
+ ntypat  1
+ rprim   1 0 0  0 1 0  0 0 1
+ symrel  1 0 0  0 1 0  0 0 1    
+ typat  1
+ xred
+  0.5 0.5 0.5
+# The last eigenvalues of down-spin are degenrated.
+# To avoid to populate one level instead of another,
+# we use a 0.5 0.5 occupation for that level.
+ occopt 2
+ nband 10 9
+ occ
+  1.000000  1.000000  1.000000  1.000000  1.000000  1.000000
+  1.000000  1.000000  1.000000  1.000000
+  1.000000  1.000000  1.000000  1.000000  1.000000  1.000000
+  1.000000  0.500000  0.500000
+
+ tsmear 0.001
+ znucl  78
+
+ ixc 11
+ optforces 0
+ optstress 0
+ prteig 0
+ prtwf 0
+ prtden 0
+
+ usewvl 1
+ icoulomb 1
+ iscf 2
+ nsppol 2
+ fixmom 1
+ nwfshist 6
+ nscforder 14
+ wvl_nprccg 15

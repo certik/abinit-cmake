@@ -1,0 +1,1 @@
+CFLAGS_OPT="-O2 -fforce-addr -march=pentium4 -mmmx -msse -msse2"

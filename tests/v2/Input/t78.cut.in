@@ -1,0 +1,6 @@
+t78.xyz.in   
+10.26311 10.26311 10.26311     unit cell parameters (=acell)
+0.0 0.5 0.5  0.5 0.0 0.5  0.5 0.5 0.0  orientation of the unit cell axes (=rprim) 
+16 16 16                       grid size (= nr1,nr2,nr3, all three integers) 
+2                              number of atoms in the unit cell (= natom, integer)
+1                              number of atomic types (=ntypat, integer)

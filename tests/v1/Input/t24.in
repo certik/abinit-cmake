@@ -1,0 +1,39 @@
+# Most trivial case: single H atom
+
+acell 3*7
+diemac 1.0d0
+diemix 0.5d0
+ecut 70
+
+intxc 1
+
+irdwfk 1
+iscf 3
+
+ixc 11
+
+kpt 3*0.25
+natom 1
+nband 1
+nkpt 1
+nline 2 
+nsppol 2
+nstep 2
+nsym 8
+ntypat 1
+occ 1 
+prtvol 10
+rprim 1 0 0 0 1 0 0 0 1
+symrel  1  0  0   0  1  0   0  0  1
+       -1  0  0   0  1  0   0  0  1
+        1  0  0   0 -1  0   0  0  1
+       -1  0  0   0 -1  0   0  0  1
+        1  0  0   0  1  0   0  0 -1
+       -1  0  0   0  1  0   0  0 -1
+        1  0  0   0 -1  0   0  0 -1
+       -1  0  0   0 -1  0   0  0 -1
+tnons 24*0
+tolwfr 1.0d-14
+typat 1 
+wtk 1 znucl 1
+xred 3*0

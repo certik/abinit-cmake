@@ -1,0 +1,39 @@
+# Ni simple cubic, metallic. 
+# The cut-off is irrealistic
+
+ ndtset 2
+
+#Dataset1 : unperturbed geometry
+    xred1  0.0 0.0 0.0
+           0.0 0.0 0.5
+ chkprim1  0
+  tolvrs1  1.0d-10
+
+#Dataset2 : frozen-phonon
+  getwfk2  1
+    xred2  0.0 0.0 0.001
+           0.0 0.0 0.499
+  tolvrs2  1.0d-14
+
+#Common data
+ acell  2*4.09   8.18
+
+ ntypat 1
+ znucl 28.0
+ natom 2
+ typat  1 1
+
+ nstep 20 
+
+ ecut 20.0
+
+ nband  14
+ occopt 7
+
+ kptopt 1
+ ngkpt  4 4 2
+ shiftk
+   0.5 0.5 0.5
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

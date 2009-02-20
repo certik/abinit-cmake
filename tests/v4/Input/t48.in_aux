@@ -1,0 +1,42 @@
+
+supercell 3 3 3 # supercell in which the Wannier type localized orbitals are constructed
+
+norb 4  # Total number of orbitals. This should be chosen <= number 
+        # of bands in the SCF calculation. This number will be treated 
+        # as the number of bands in the present calculation.
+
+ncenter 4  # This corresponds to total number of atomic + bonding sites
+
+shiftk 0.0  0.0  0.0  # same as shiftk in abinit input file
+
+# Type of orbital :
+#   s  py pz px dzx dxy  dyz dy2-z2  dx2
+#   1  2  3  4   5   6    7    8      9
+# Note that in the present implementation same orbital
+# symmetry with different principal quantum number is not allowed
+
+#----------------------------------------------------------
+ rcoord 0.125 0.125 0.125
+        0.625 0.125 0.125
+        0.125 0.625 0.125
+        0.125 0.125 0.625
+
+ numorb 4*1
+ ltypeorb 4*1
+ rtheta 12*0.0d0
+#----------------------------------------------------------
+
+
+alpha 1.0     # Radial gaussian e^(-alpha*|r|*|r|)
+lofwrite 1    # 1-> write complex data file 
+
+
+insmet 1     # 1-> insulator 2-> metal
+#efermi    0.25153  # if insmet=2, available in the abinit output file
+#tsmear 0.0015  # if insmet=2, as in the abinit input file
+
+
+
+
+
+

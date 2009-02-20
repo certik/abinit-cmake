@@ -1,0 +1,1 @@
+CXXFLAGS_OPT="-xO2 -fround=nearest -xtarget=opteron -xarch=sse2a -m64"

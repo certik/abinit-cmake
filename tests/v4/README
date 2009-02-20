@@ -1,0 +1,928 @@
+<html>
+<head>
+<title>v4 : README</title>
+</head>
+<body>
+
+<h5>Copyright (C) 2002-2008 ABINIT group (FJollet, MTorrent, GZerah, XGonze, DHamann, MVeithen)
+<br> This file is distributed under the terms of the GNU General Public License, see
+~abinit/COPYING or <a href="http://www.gnu.org/copyleft/gpl.txt">
+http://www.gnu.org/copyleft/gpl.txt </a>.
+<br> For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+</h5>
+
+<pre>
+
+This directory, v4, contains tests which
+are related to the development of PAW in ABINITv3.x/4.x
+and other developments of v4.x
+This file gives first a very brief description
+of the tests, then a much longer one.
+
+A classification of the tests is provided now. Later, each test is described
+in more detail, with accompanying notes and references (some of the notes
+might have to be updated, due to the small possible drift related to improvement
+of the accuracy of the code).
+
+------------------------------------------------------------------
+* Tests 1 to 3 concern the use of Ylm for the nonlocal operator
+  application (instead of Legendre Polynomials).
+
+Test 1 is related to the computation of energy, forces and (soon)stresses
+Test 2 is related to the computation of response function
+Test 3 concerns the use of Phoney pseudopotentials
+
+------------------------------------------------------------------
+
+* Tests 4 to 9 concern the computation of GS total energy using
+  PAW features.
+
+Test 4 is related to the simple computation of total energy,
+Test 5 concerns the use of differents orthogonalisation algorithms
+Test 6 concerns the convergence versus the number of PW (ecut)
+Test 7 tests the differents mixing schemes in PAW formalism.
+Test 8 tests magnetism, GGA and compensation density in PAW formalism.
+Test 9 tests the use of mkmem=0 with PAW
+
+------------------------------------------------------------------
+* Tests 10 to 16 concern the computation of the XC energy
+using the ACFD formalism.
+ (Tests 10-16 were provided by YM Niquet)
+
+------------------------------------------------------------------
+
+* Test 20 concern psp format 8, from DRHamann
+
+------------------------------------------------------------------
+* Tests 21 to 29 concern symmetry recognition and use
+
+Tests 21 to 29 test the generation and recognition of the
+magnetic space groups, Shubnikov type III, for
+orthorhombic, tetragonal, rhombohedral and hexagonal systems
+
+------------------------------------------------------------------
+* Tests 30 to 49 concern Atom-in-molecule (Bader) utility tests,
+ computation of the partial DOS, angular momenta projections,
+ macroscopic average, STM charge density, Wannier functions (LOrbitals)
+
+Mg simple cubic, MgO molecule, Ta (with spin-orbit), Si diamond,
+distorted diamond, Al surface
+
+------------------------------------------------------------------
+* Tests 50 to 83 concern linear and non-linear response computations
+ as well as finite-electric field computations, and their analysis
+
+------------------------------------------------------------------
+* Tests 84 and 89 concern GW, Hartree-Fock and COHSEX
+
+------------------------------------------------------------------
+* Tests 89 and 90 concern interfaces with other codes
+
+------------------------------------------------------------------
+* Tests 91 to 99 concern diverse topics
+
+------------------------------------------------------------------
+* Tests 100 and 101 concern generation of netCDF file with cut3d
+
+------------------------------------------------------------------
+***************
+
+To run these tests, do the following:
+
+0. Be sure that the perl script "run-standard-tests", in the main directory,
+   has been generated from the primitive file "run-standard-tests.pl",
+   thanks to the command "make perl"
+   issued in ~abinit (see the installation notes on the Web).
+
+1. Submit the "run-standard-tests" script, specifying a machine, and
+   the keyword "v4" (for Tests_v4) and either
+   the index of a test case, i.e.
+   (run-standard-tests name_of_machine v4 22) >& log_file
+   or a whole range of test cases (two indices), i.e.
+   (run-standard-tests name_of_machine v4 02 08) >& log_file
+   or, if you want to run all the test cases of this directory
+   (run-standard-tests name_of_machine v4) >& log_file
+   This will send stdout and stderr to log_file.
+   The script 'run-standard-tests', will create a subdirectory of ~abinit/tests/v4,
+   with the name_of_machine and the
+   date, where all the results will be placed.
+
+2. In that directory, you will find for each test case that you have
+   run, a log file (with the name of the test case), an output
+   file, but also a 'diff.xxx' file, automatically created by making
+   a 'diff' with respect to the "Refs" subdirectory output files.
+   It contains output files from a recent version of the ABINIT code.
+   There may be large differences in timing but there should only
+   be minor differences in the output of physical quantities.
+
+3. There is also a global report file, generated by the use of the
+   fldiff script. Its name is fldiff.report . See the last
+   version of the  ~abinit/doc/install_notes/install** file
+   in the Infos directory for information about the use of this file.
+   This file is the most convenient for a quick look at the correctness
+   of results. When the results are not correct, one has often to
+   rely on the 'diff.xxx' file to understand what was going wrong.
+
+
+**********
+
+Test cases:
+
+  1. Si diamond. Usual geometry, k points, psps. One of the two
+     atoms is displaced in order to have non-zeroforces.
+     Test whether energy and forces (and soon stresses) are correctly
+     given, even with use of spherical harmonics.
+     Perform first computation with the use of Legendre polynomials;
+     Then perform a computation with the use of spherical harmonics.
+     Both must give the same results.
+
+  2. Generate first-order responses for GaAs (zinc-blende) (from test v2 #98).
+     Compute responses at Gamma:
+     1) Ground state calculation, with a k-point sampling in the IBZ only;
+     2) Computation of the ddk response;
+     3) Computation of the dynamical matrix at Gamma, as well as the
+        Born effective charges, and the dielectric tensor ;
+     Perform five datasets:
+      * First dataset is the ground state calculation,
+      * Second dataset compute ddk perturbation
+         with the use of Legendre Polynomials for the nl operator,
+      * Third dataset compute phonon and elec. field perturbation
+         with the use of Legendre Polynomials for the nl operator,
+      * Fourth dataset compute ddk perturbation
+         with the use of spherical harmonics for the nl operator,
+      * Fifth dataset compute phonon and elec. field perturbation
+         with the use of spherical harmonics for the nl operator.
+     Datasets 2 and 3 must give the same results as 4 and 5.
+
+  3. Si in diamond structure. 2 k points, low ecut.
+     Perform a test of "Phoney pseudopotential with Hamman grid",
+     using spherical harmonics in the computation of the nonlocal
+     operator.
+     Perform two datasets:
+       First dataset with the use of Legendre Polynomials,
+       Second dataset with the use of spherical harmonics (useylm=1).
+     Both datasets must give the same results.
+
+  4. Ca in orthorhombic structure. 1 k point, low ecut.
+     Perform a test of GS total energy computation, using an
+     experimental PAW pseudopotential (pspcod=7).
+
+  5. O in orthorhombic structure. 1 k point, low ecut. Experimental PAW pseudopotential.
+     The aim of this test is to verify that different values
+     of input variable 'ortalg' give the same results for
+     total energy. 'ortalg' is use in the congugate gradient
+     algorithm which solves, in the case of PAW calculations,
+     a generalized eigenproblem (H.|Psi>=Lambda.S|Psi>).
+     Three datasets are perfomed ; they must give the same
+     total energies values (when converged).
+
+  6. O in orthorhombic structure. 1 k point, low ecut. Experimental PAW pseudopotential.
+     The aim of this test is to mesure the convergence of
+     the total energy versus the variable 'ecut'.
+     6 datasets are performed with ecut varying from 8 Ha to 18 Ha
+     Cut-off for the fine grid (used to transfer data from spherical
+     meshes to FFt meshes) remain constant.
+
+  7. O in arbitrary structure. 1 k point, low ecut. Experimental PAW pseudopotential.
+     The aim of this test is to test the differents mixing scheme in PAW formalism.
+     Different values of iscf, pawmixdg and pawoptmix are choosen.
+     Features tested:
+      - mixing on density or potential (mod(iscf,10))
+      - different mixing schemes (iscf)
+      - inclusion of spherical part in residual (pawoptmix)
+      - mixing on coarse or fine grid (pawmixdg)
+      - mixing factor for spherical part (pawsphmix)
+     All mixing schemes give the same total energy.
+
+  8. Fe in BCC structure. Low cut-offs and few k-points.
+     This test is done within GGA and (ferro-)magnetism in PAW formalism.
+     The same job is done twice with two differents PAW datasets.
+     First PAW dataset is Fe with a "Bessel" compensation charge
+       shape function expressed analytically.
+     SecondPAW dataset is Fe with a "Bessel" compensation charge
+       shape function expressed numerically.
+
+  9. Fe in HCP structure. Low cut-offs and few k-points.
+     This test is done within GGA and (antiferro-)magnetism in PAW formalism.
+     The same job is done twice with two differents values of mkmem.
+
+ 10. He atom in a big box. ACFD-RPA correlation energy.
+     a) Gauss-Legendre integration along the imaginary frequency axis,
+       on a predefined grid
+     b) Gauss-Legendre integration for the coupling contant, with
+       3 points (excluding 0 and 1). The Dyson equation is solved
+       as a linear system.
+     Also computes the RPA polarizabilities of the He atom at various
+       frequencies.
+     (Contributed by YMN)
+
+ 11. He atom in a big box. ACFD-RPA correlation energy.
+     a) Gauss-Legendre integration along the imaginary frequency axis,
+       on a predefined grid
+     b) Exact integration over the coupling constant.
+     (Contributed by YMN)
+
+ 12. He atom in a big box. ACFD-PGG correlation energy,
+     iu=0 contribution.
+     Gauss-Legendre integration for the coupling constant,
+     with 5 points (excluding 0 and 1). The Dyson equation
+     is solved as a differential equation with respect
+     to the coupling constant. The Lein, Dobson and Gross
+     first-order approximation to the correlation energy
+     is also computed, as well as the static PGG polarizability of
+     the He atom.
+     (Contributed by YMN)
+
+ 13. He atom in a big box. ACFD-PGG correlation energy,
+     iu=0 contribution.
+     Gauss-Legendre integration for the coupling constant,
+     with 3 points (excluding 0 and 1). The Dyson equation
+     is solved as a linear system. The static ALDA polarizability
+     of the He atom is also computed.
+     (Contributed by YMN)
+
+ 14. Same as 13.in within the ACFD-BPG approximation.
+     (Contributed by YMN)
+
+ 15. Same as 13.in using the linear energy optimized kernel.
+     (Contributed by YMN)
+
+ 16. Same as 13.in using the non-linear energy optimized kernel.
+     (Contributed by YMN)
+
+
+ 20. Test of the pspcod=8 input format (contributed by D. R. Hamann).
+     This format is primarily intended to offer a flexible platform
+     for those who wish to experiment with their own features in
+     norm-conserving pseudopotentials.  A full description and discussion
+     is given in Infos/Psp_infos/psp8.info.  This test case, CaO, is an
+     example of self-interaction-corrected pseudopotentials in the
+     style of D. Vogel, P. Krueger, and J. Pollmann, Phys. Rev. B 52,
+     14 316 (1995).  The bandgap (direct) in the test example, 11.2eV,
+     is in excellent agreement with experiment, but is rather strongly
+     dependent on the radius at which the self-interaction-correction
+     of Ca is (smoothly) cut off.  The sic pseudopotentials used in
+     this test should not be considered anything but early-stage
+     experiments and should not be used for any other purpose.
+
+ 21. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     orthorhombic space groups (part I : spgroup 16 to 46)
+
+ 22. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     orthorhombic space groups (part II : spgroup 47 to 62)
+
+ 23. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     orthorhombic space groups (part III : spgroup 63 to 74)
+
+ 24. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     tetragonal space groups (part I : spgroup 75 to 98)
+
+ 25. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     tetragonal space groups (part II : spgroup 99 to 122)
+
+ 26. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     tetragonal space groups (part III : spgroup 123 to 130)
+
+ 27. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     tetragonal space groups (part IV : spgroup 131 to 142)
+
+ 28. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     rhombohedral sub system (spgroup 143 to 167)
+
+ 29. H based fake crystals : magnetic groups, Shubnikov type III
+     Test the generation and recognition of the
+     hexagonal sub system (spgroup 168 to 194)
+
+ 30. Simple cubic lattice of Mg atoms, with low cut-off.
+     Pseudopotentials WITHOUT a non-linear core correction.
+     Prepare the Bader density analysis
+
+ 31. Simple cubic lattice of Mg atoms, Bader analysis.
+     Determine correctly 6 bonding critical points,
+     12 ring critical points, and 8 cage critical points.
+     (In agreement with Euler's relation : #BCP-#RCP+#CCP=2)
+     The positions are very accurate (and fully coherent with symmetries).
+     The eigenvalues of laplacian also fulfill the requirements
+     symmetry.
+     Bader charge is 12.0357, while it should be
+     exactly 12 (10 core electrons and 2 valence electrons).
+     The error is mostly due to
+     insufficient angular sampling (only 5 theta and 5 phi
+     in an octant). Going to (10,10) gives 11.9928,
+     and (20,20) gives 11.9980. But in the latter case,
+     the CPU time required is multiplied by about
+     10 when compared to the present setting.
+
+ 32. MgO molecule, with low cut-off, in a big box, and one k point.
+     Pseudopotentials WITHOUT a non-linear core correction.
+     Prepare the Bader density analysis
+
+ 33. MgO molecule, Bader analysis.
+     Examine the Oxygen atom only.
+     Determine 2 bonding critical points (only !),
+     8 ring critical points, and 8 cage critical points.
+     (In agreement with Euler's relation : #BCP-#RCP+#CCP=2)
+     The ecut that was used in test case 32 is quite
+     low, so that the accuracy of the critical points is not
+     too good. Especially, symmetries are broken at the level
+     of 0.0003.
+
+     Get 2 core electrons, 6.8043 valence electrons.
+     The nucleus charge is +8. The Oxygen atom-in-molecule
+     has a net charge of -0.8043.
+
+     Additional explanation about the weak number of BCP
+     for oxygen. One might expect the O atom to be connected
+     through the other O atoms in neighbouring cells (x and y
+     directions - hence 4 BCPs in these directions), but
+     one sees that the only existing BCPs
+     are towards the Mg atoms. This is surprising, but correct ! Indeed,
+     the density at the middle of the segment between two O atoms
+     along x (or y) is LOWER than the density at the
+     middle of the segment between two Mg atoms along x (or y).
+     Indeed, although the O atoms attract electrons from the Mg
+     atoms, they become negatively charged, and the potential,
+     in DISTANT regions of the molecule, is lower (so more
+     attractive) on the side
+     of the Mg atoms than on the side of the O atoms !
+     This means that the tail of the density extends further
+     in the x-y plane containing the Mg atoms, than in the
+     x-y plane containing the O atoms. So, the middle of the
+     segment connecting the O atoms actually belongs to the
+     Mg basin of attraction, and is close to a Cage Critical Point
+     shared by Oxygen and Magnesium atoms. By contrast, the
+     middle of the segment connecting the Mg atoms is, as expected,
+     close to a Bond Critical Point.
+
+ 34. MgO molecule, Bader analysis.
+     Examine the Magnesium atom only.
+     This is a pathological case for the currently
+     implemented algorithm : the Bader volume is not convex !
+     Determine correctly 6 bonding critical points,
+     but only finds 4 ring critical points, and not even
+     one cage critical point !
+     (Euler's relation #BCP-#RCP+#CCP=2 is fulfilled, but
+      the number of RCP or CCP is not right)
+     Despite that fact that the critical points are not
+     all found, one can proceed with the other steps of the
+     Bader approach : the CP are only used to get an estimation
+     of the minimal and maximal radii of the Bader surface !
+
+     Get 9.8533 core electrons, 1.3388 valence electrons,
+     for a total of 11.1922 electrons.
+     The nucleus charge is +12. The Magnesium atom-in-molecule
+     has a net charge of -0.8078 .
+
+     Comparing with case 33, one sees that the charge neutrality
+     is violated at the level of 0.0035 electron charge.
+     This is quite good, but a bit lucky. For a better
+     charge neutrality, one has to integrate better on the
+     angles phi and theta (increase nphi and ntheta), and also to
+     increase the ecut of the preliminary abinit run.
+     In any case, with the pathology of the Mg Bader volume (being
+     not convex), one will miss some charge. It should
+     be pretty small, and might even be neglected for all practical
+     purposes (the Bader analysis is just a trend analysis, anyhow)
+     Nevertheless, in this particular
+     case of the MgO molecule, there is a fundamental limit of this
+     algorithm...
+
+ 35. One He atom in a big simple cubic box
+     Compute the DOS using the tetrahedron method.
+     Also compute the partial DOS.
+
+     There is a quite surprising feature of this very simple DOS,
+     that might seem to be due to a bug, but is NOT one.
+     Indeed, the obtained DOS is not continuous (vizualize the result
+     of DATASET 2):  at two energies, there is a small, but sizeable
+     jump. This feature is associated with a rather sparse sampling
+     of the Brillouin zone. Indeed, some of the tetrahedra have
+     three corners with perfectly identical energies. Such
+     a set of corners belong to two different tetrahedra.
+     If there is not an equal slope of energy when moving away from
+     each sides of the triangles, in the different tetrahedra,
+     the DOS is discontinuous at the energy of the three shared corners.
+     (explanation found by M. Verstraete)
+
+
+ 36. Ta, single atom in a box (1k point). Same as test v2 #84
+     HGH pseudopotential
+     Ecut and acell are NOT realistic. One would need 20 Ha
+     and a 20x20x20 box, while here we have 5 Ha and a 12x12x12 box.
+     Prepare the analysis of next test
+     level  degeneracy       energy (Ha)  spin-orbit splitting
+     6s      2               -0.194573
+     5d3/2   4               -0.141779
+     5d5/2   6               -0.119933       0.0218
+     6p1/2   2               -0.050542
+     6p3/2   4               -0.031281       0.0193
+
+ 37. Analysis of the angular momentum content of the wavefunctions
+     of the previous test (Ta in a big box)
+     using cut3d .
+     Test v4 #37 is not portable : the spin decomposition of the
+     spinor wavefunctions is not gauge invariant. This
+     test has been disabled.
+
+ 38. 2 Silicon atoms, in a diamond structure.
+     Test the computation of the partial DOS, using the linear
+     tetrahedron method.
+
+ 39. Analysis of the angular momentum content of the wavefunctions
+     of the previous test (Silicon), at Gamma, X and L,
+     using cut3d .
+
+ 40. 8-atom Si cube with one atom displaced from the equilibrium
+     position, to set up DEN file for next test.
+
+ 41. Test of macroave, on the basis of the density of the previous run.
+
+ 42. Si/Ge heterojunction : 4 layer each.
+     Output the density and potential.
+     Prepare the macroaverage analysis, see next tests.
+
+ 43. Si/Ge heterojunction, see test 42
+     Analyze the Hartree and XC potential : one filter function,
+     using the average width of a layer, and spline interpolation.
+
+ 44. Si/Ge heterojunction, see test 42
+     Analyze the Hartree and XC potential : two filter functions,
+     using two distinct values (on the order of the average
+     layer width, but otherwise arbitrary), and spline interpolation.
+
+ 45. Si/Ge heterojunction, see test 42
+     Analyze the charge density : one filter function,
+     using the average width of a layer, and linear interpolation.
+
+ 46. 5-atom Al slab, with three vacuum layers.
+     First, converge the wavefunctions, then compute the
+     STM charge density below and above the Fermi energy, within
+     a 2eV range.
+
+ 47. Silicon, diamond structure.
+     Prepare the computation of Wannier functions, as implemented
+     by Joydeep Battacharjee.
+     (contributed by Joydeep Battacharjee)
+
+ 48. Silicon, diamond structure.
+     Code cut3d
+     Compute bond-centered Wannier functions
+     (contributed by Joydeep Battacharjee)
+
+ 49. Silicon, diamond structure.
+     Code cut3d
+     Compute atom-centered Wannier functions
+     (contributed by Joydeep Battacharjee)
+
+ 50. BaTiO3, cubic structure.
+     Code anaddb
+     Test the use of eivec=4, to produces files from which the
+     phonon band structure can be plotted (test 51). However, due
+     to problems of portability, the output files of this tests are
+     NOT used for the next one. Rather, files produced on one specific
+     platforms have been fixed as input of the next test, and are present
+     as t51_band2eps.displ and t51_band2eps.freq .
+     (contributed by MVeithen)
+
+ 51. BaTiO3, cubic structure.
+     Code band2eps
+     Produce the phonon band structure, in a eps file.
+     (contributed by MVeithen)
+
+ 52. AlAs, zinc-blende structure.
+     Code abinit (gstate+respfn+nonlinear)
+     Generate the linear and non-linear coefficients, in two DDBs,
+     to be merged and analysed in the tests 53 and 54.
+     (contributed by MVeithen)
+
+ 53. AlAs, zinc-blende structure.
+     Code mrgddb
+     Merge the two DDBs generated by test 52, for further
+     use in test 54.
+     (contributed by MVeithen)
+
+ 54. AlAs, zinc-blende structure.
+     Code anaddb
+     Analyse the DDB from test 53, for the generation of
+     the electro-optic tensor, and Raman susceptibility coefficients.
+     (contributed by MVeithen)
+
+ 55. LiNbO3, rhombohedral.
+     Test finite electric field
+     Check the corectness of the symmetry operations with non-zero tnons.
+     (contributed by MVeithen)
+
+ 56. GaAs, zinc-blende structure.
+     Code abinit
+     Generate the data for optic (linear and non-linear coefficients).
+     to be analysed in the test 57.
+
+ 57. GaAs, zinc-blende structure.
+     Code optic.
+
+ 58. Test of the strain perturbation with the GGA
+     (contributed by D. R.  Hamann - Note that this test and the following one, 59,
+     address more advanced features of strain perturbation than the ones
+     going with number 60 to 79, and were developed later, but were
+     placed here for convenience).
+     AlAs in the zincblende structure, with a choice of
+     pseudopotenials that include model core charges.  In the LDA, the
+     strain perturbation simply introduces perturbing charge densities
+     leading to perturbing first-order potentials in a straightforward
+     manner.  (This perturbation does act differently on the valence
+     and model core charges.)   The GGA is a non-trivial extension,
+     since strain perturbs the gradient operator itself.  This test
+     is a symmetrized and stripped-down version of a test case used in
+     development which yielded agreement between such RF calculations
+     and numerical derivatives of GS stresses and forces to 1.e-8 to
+     1.e-9 atomic units for the elastic tensor and intenal strain
+     coupling parameters.  Acheiving this agreement does require forcing
+     a considerably more dense fft grid than the default which is
+     accepted here. (ngfft= 50 50 50 was used.)  While only the PBE GGA
+     is tested here, all forms present in Abinit should give comparably
+     accurate results.
+
+ 59. Test of the strain perturbation with GGA  and spin polarization
+     (contributed by D. R. Hamann).  This is the same as t79, bcc Fe,
+     but with the PBE GGA.  This calculation is restricted to one
+     unaxial strain, which adequately tests the polarization-dependent
+     parts of the strain GGA code.
+
+ 60. Test of the the effect of the first-order Fermi energy on a Q=0
+     phonon calculation in metals. (contributed by D. R. Hamann)
+     The example is for a hypothetical intermetallic compound MgAl2,
+     in a structure which can be thought of as fcc Al with every third
+     (111) layer replaced by Mg.  Technically, this is the hexagonal
+     CdI2 structure, space group #164, P-3 m 1.  For this case, neglect
+     of this contribution yields approximately a 2% error in the largest
+     interatomic force constants.  Its effect on many force constants
+     for this system cancels because of symmetry.  This calculation
+     is not particularly well converged, especially with respect
+     to k sample.  A well-converged version is in excellent agreement
+     with interatomic force constants calculated by numerical
+     differentiation of ground-state forces.
+
+ 61. Test of the strain perturbation (contributed by D. R. Hamann)
+     Si in the usual diamond structrure using a Troullier-Martins
+     potential including a model core charge.  The datasets
+     include an initial ground state run, 2 pairs of 5 ground
+     state runs with incrementally strained lattice vectors rprim
+     (xx and yz strains -0.00004, -0.00002, 0, 0.00002, 0.00004),
+     and one response function run for the strain 2nd derivatives.
+     This set is illustrative of the kind of testing used extensively
+     in developing the strain perturbation portions of the code.
+     The numerical 2nd derivatives of the energy wrt strains were
+     computed by applying a 5-point derivative formula to ucvol*sigma(i,j),
+     where the sigmas are the stresses calculated in the series
+     of ground state calculations.  These agree with the analytic
+     2nd derivatives calculated in the response function run to ~1.E-7
+     for the data given here.  The cartesian internal strain (mixed
+     second derivative wrt strain and atomic coordinate) agrees to ~1E-8.
+     Note that such numerical tests of the internal strain are only valid
+     if the forces are zero (relaxed or by symmetry).  Otherwise, the
+     reduced-coordinate 2nd derivatives must be used for such tests
+     because the conversion to cartesian coordinates is itself strain-
+     dependent and will introduce changes in the computed derivatives.
+     In the actual development tests, stricter converence criteria were
+     used (tolvrs=1.E-24) as well as larger cutoffs, and agreement was
+     obtained at the 1.E-9 level.  The model core charge contributes the
+     largest component of the error.
+
+     ADDITIONAL NOTE :
+     It should be noted that numerical derivative tests of the internal
+     strain should be done by comparing the "2nd-order matrix" with numerical
+     strain derivatives of the gradients wrt reduced atomic coordinates.
+     These are not normally part of the GS output, but can be obtained by
+     uncommenting the DEBUG section at the end of prtxf.F90.
+     Comparisons between numerical strain derivatives of the cartesian
+     forces and the cartesian internal strain tensor will be incorrect
+     unless the coordinates have been relaxed and the forces are zero
+     within a tight tolerance.
+
+ 62. Test of the strain perturbation (contributed by D. R. Hamann)
+     LaAs in a randomly distorted version of its normal rocksalt structure
+     using a non-standard norm conserving potential produced by DRH
+     for this test.  Distorted structures were used for most development
+     work so that no components of the strain 2nd derivatives would be
+     zero by symmetry.  A La compound was chosen because its f nonlocal
+     potential makes a significant contribution to the result (10%
+     for a well-converged result although only 1% for the low value
+     of ecut used here), so it tests that the very complex routines
+     for the strain derivatives of the nonlocal energy are behaving
+     properly.  (Choices in constructing this La potential were
+     restricted by current limitations of the treatment of fhi-
+     format potentials, and it should not be used for physics results.)
+
+ 63. Test of the strain perturbation (contributed by D. R. Hamann)
+     GaAs in a hypothetical wurzite (hexagonal) strucure, using HGH
+     potentials.  The main point here is to test the strain derivatives
+     in a hexagonal symmetry situation.  The indexing of the strain
+     components is pert=natom+3 for 3 uniaxial components, and
+     pert=natom+4 for 3 shear components, translating in this
+     case to (dir, pert, cartesian strain) triplets
+        1 7 xx          1 8 yz
+        2 7 yy          2 8 xz
+        3 7 zz          3 8 xy
+     We see that the cartesian 2nd-order matrix has the expected symmetry
+     despite the lack of any x<->y symmetry operations in this space group.
+     A curious user might wish to extend this test to all strain
+     components (rfstrs2  3; rfdir2 1 1 1) and observe an unexpected
+     symmetry among the cartesian internal strain terms.  In particular,
+     certain diagonal and shear terms are identical, such as 1 1 1 7 (x, xx)
+     and 2 1 3 8 (y, xy) where (.,.) means (force, strain).
+
+ 64. Test of the strain perturbation for metals (contributed by D. R. Hamann).
+     Al in the standard fcc structure using the gth potential.
+     An issue with metals is that the fermi energy has a non-zero
+     derivative wrt at least some of the strain perturbations.
+     Modifications of the "active space" content restored to the
+     first-order wavefunction (in vtowfk3.f) were implemented to
+     reflect the resulting strain contributions.  The fermi energy
+     derivative (itself a 1st-order quantity) depends on the self-
+     consistent first-order potential, and thus plays a role in the
+     response-function self-consistency loop. As of 4.4.x, a new
+     treatment of the first-order fermi energy significantly improves
+     the rate of convergence and allows all self-consistency algorithms.
+     iscf=5, conjugate-gradient iteration, is now used in this test.
+     The results here are in very good agreement with numerical derivatives
+     of ground state calculations with the same input parameters.  However,
+     the kpt sample is far from converged and completely inadequate for
+     real calculations.
+
+ 65. Test of the strain perturbation for the rigid-ion piezoelectric
+     tensor (contributed by D. R. Hamann).  AlP in the zincblende
+     structure but incorporating a rhombohedral distortion of the
+     unit cell to make more tensor components non-zero.  The values
+     of ecut and ngkpt are much too small for convergence, and
+     tolwfs should be set smaller, probably 1.E-18 to 1.E-24.
+     A full calculation of the set of d/dk wave functions in dataset 2
+     is needed, idir2 = 1 1 1, even though idir3 = 1 0 0 in dataset 3,
+     since all d/dk components are needed to compute the cartesian
+     piezoelectric tensor.  The only execptions to this are primitive
+     orthorhombic, tetragonal, or cubic lattices with their primitive
+     lattice vectors aligned with the cartesian axes.
+
+ 66. Test of the strain perturbation for the rigid-ion piezoelectric
+     tensor (contributed by D. R. Hamann).  Rhombohedrally distorted
+     AlP as in the previous test, but using a ground-state finite-
+     difference calculation of the d/dk wave functions.  Such
+     calculations were used extensively to test the response function
+     piezoelectric tensor by comparison to numerical derivatives of
+     the ground-state polarization.  Using the same k sample in the
+     ground state and response function calculations, excellent
+     agreement has been obtained in a variety of cases (including a
+     better-converged version of this one).  Results using the finite-
+     diffrence d/dk and the analytic d/dk as in the preceeding test
+     agree in the limit of large k sample. The analytic form converges
+     much more rapidly, and is consistent with the slowly converging
+     polarization numerical derivatives. The present version of this
+     calculation uses berryopt = -2 to utilize the routine
+     berryphase_new.f
+
+     The ground-state polarization calculations used to compute the
+     numerical derivatives in such tests should also be computed using
+     berryphase_new.f setting berryopt = -1 and rfdir = 1 1 1 so that the
+     cartesian polarization is automatically generated. This eliminates
+     several issues that needed special attention using berryopt = 1
+     and the original berryphase.f routine.
+
+     The resulting cartesian polarization derivatives represent the
+     "improper" piezoelectric tensor, and have to be corrected to yield
+     the "proper" tensor as described in D. Vanderbilt, J. Phys. Chem.
+     Solids 61, 147 (2000), using Eq.(15).  The response-function calculation
+     gives the proper piezoelectric tensor.  Only the electron response, and
+     not the strain-induced movement of the rigid ions contributes to the
+     proper tensor.
+
+ 67. This is a DDB file generating run which prepares for the calculation #68.
+     The material is GaAs in hypothetical wurzite (hexagonal) structure, with
+     ecut=5 Hartree, kpoint sampling=2,2,2. The response function calculations
+     are with respect to electric field, strain, and displacement. Notice that
+     the result has not converged yet, due to the low cutoff and k point grid.
+     (Contributed by Xifan Wu)
+
+ 68. This is the anaddb calculation for the case #67 ,which uses DDB file
+     generated by previous calculation. In this run, several tensors under
+     different boundary conditions are computed. They are respectly: relaxed ion
+     dielectric tensor, free-stress dielectric tensor; relaxed ion elastic
+     (and compliance) tensors under fixed-electric and under fixed-
+     displacement field boundary conditions; internal strain tensors (
+     force response and displacement response); relaxed ion  piezoelectric
+     tensors of several different definations (e, d, g, h tensors).
+     Please refer to Infos/Theory/vanderbilt-anaddb-notes.pdf for details.
+     In the previous version, only relaxed(clamped) ion dielectric, piezoelectric,
+     elastic tensors and internal strain tensors were computed. In this new version,
+     piezoelectric (d, g, h tensors), free-stress dielectric tensor, elastic
+     tensors at fixed displacement filed and elastic tensor with stress correction
+     are the new abilities of anaddb.
+     (Contributed by Xifan Wu)
+
+ 69. This is a DDB file generating run which prepares for the calculation #70.
+     The material is Crystalline AlAs (face-center cubic), with ecut=3 Hartree.
+     Response function calculations are with respect to electric field, strain,
+     and displacement.
+     (Contributed by Xifan Wu)
+
+ 70. This is the anaddb calculation for the case #69, which uses DDB file
+     generated by previous calculation. In this run, several tensors under
+     different boundary conditions are computed. They are respectly: relaxed ion
+     dielectric tensor, free-stress dielectric tensor; relaxed ion elastic
+     (and compliance) tensors under fixed-electric and under fixed-
+     displacement field boundary conditions; internal strain tensors (
+     force response and displacement response); relaxed ion  piezoelectric
+     tensors of several different definations (e, d, g, h tensors).
+     Please refer to Infos/Theory/vanderbilt-anaddb-notes.pdf for details.
+     In the previous version, only relaxed(clamped) ion dielectric, piezoelectric,
+     elastic tensors and internal strain tensors were computed. In this new version,
+     piezoelectric (d, g, h tensors), free-stress dielectric tensor, elastic
+     tensors at fixed displacement filed and elastic tensor with stress correction
+     are the new abilities of anaddb.
+     (Contributed by Xifan Wu)
+
+
+ 71. Tetragonal PbTiO3
+     Use ANADDB to impose a polarization with fixed in-plane lattice constant
+     (Contributed by MVeithen)
+
+ 72. AlAs, zinc-blende structure
+     Compute the polarization along strings
+     of k-points parallel to the primitive vectors of the reciprocal
+     lattice. The Berry phase calculations are performed
+     in three different datasets. For each datatset, ABINIT writes
+     the polarization in reduced coordinates to a DDB.
+     (Contributed by MVeithen)
+
+ 73. AlAs, zinc-blende structure.
+     Merge the DDB obtained in the previous test
+     (Contributed by MVeithen)
+
+ 74. AlAs, zinc-blende structure.
+     Use ANADDB to compute the polarization of the previous two tests
+     in cartesian coordinates.
+     (Contributed by MVeithen)
+
+ 75. AlAs, zinc-blende structure
+     (Test of Na Sai's technique)
+     To compute the polarization, the finite
+     difference expression of the ddk and the second-order
+     energy derivatives.
+     (Contributed by MVeithen)
+
+ 76. AlAs, zinc-blende structure.
+     (Test of Na Sai's technique)
+     Merge the DDB obtained in the previous test
+     (Contributed by MVeithen)
+
+ 77. AlAs, zinc-blende structure.
+     (Test of Na Sai's technique)
+     To impose a polarization on AlAs:
+     compute new values of the cell parameters and atomic positions.
+     (in practical calculations, these operations must be repeated until convergence
+     is reached)
+     (Contributed by MVeithen)
+
+ 78. AlAs, zinc-blende structure.
+     Finite electric field calculation
+     In order to perform a first-principles calculation in an electric
+     field, the wavefunctions must be initialized properly. Therefore,
+     I do first a GS calculation to obtain the WF in the whole BZ under
+     zero electric field. Then, I increase the electric field slowly in
+     successive datasets. The calculation for each dataset is initialized
+     using the WF of a previous one.
+     I consider both positive and negative electric fields.
+     (Contributed by MVeithen)
+
+ 79. Test of the strain perturbation with spin polarization and metallic
+     occupation of states (contributed by D. R. Hamann).
+     Fe in the bcc structure.  This tests both the introduction of spin
+     polarization into strain response function calculations and an
+     improved treatment of the first-order fermi energy for Q=0 metallic
+     calculations.  Similar data (with much larger cutoffs, tighter
+     convergence tolerances, and larger k sample) was used test the
+     elastic tensor in comparison with numerical derivatives of the
+     stress from GS calculations.
+
+ 80. Test of the phonon calculation at L point in finite electric field.
+     AlAs in Zincblende structure. Technically, the k-point sampling
+     should be Monkhorst-Pack mesh with even number and kshift 0.5 0.5 0.5
+     (important). The choice q should be multiple of the smallest
+     spacing of the k-point mesh. The run takes about 2 minutes
+
+ 81. Code: ABINIS or ABINIP.
+     Highly Strained Si (diamond) structure.
+     Self-consistent and response function calculations with respect to
+     strains and displacements in 3 direction are computed. The structure
+     is obtained from relaxing atoms only, after 5% strains eta_3 and eta_6
+     were applied on purpose. In this run, two DDB files are generated,
+     which are first order and second order derivative data base respectively.
+     (Contributed by Xifan Wu)
+
+ 82. Code: mrgddb.
+     Highly Strained Si (diamond) structure.
+     Two DDB files generated by test1 are merged into one DDB file.
+     (Contributed by Xifan Wu)
+
+ 83. Code: anaddb.
+     Highly Strained Si (diamond) structure.
+     Using the DDB file merged by test2, this test computed the elastic
+     constant (relaxed ion) considering the correction from remaining
+     stresses in the unit cell. Voigt symmetry will be broken.
+     Please refer to: Infos/Theory/elasticity-oganov.pdf.
+     (Contributed by Xifan Wu)
+
+ 84. Si FCC, in primitive cell (2 atoms/cell).
+     Test GW calculation with and without plasmon-pole model.
+     Test contributed by F. Bruneval.
+
+ 85. Al FCC, in primitive cell (1 atom/cell).
+     Test GW calculation with and without plasmon-pole model for a metal.
+     Test contributed by F. Bruneval.
+
+ 86. Si FCC, in primitive cell (2 atoms/cell).
+     Test HF, SEX, and COHSEX calculations.
+     Test contributed by F. Bruneval.
+
+ 87. Si FCC, in primitive cell (2 atoms/cell).
+     Test self-consistent HF (3 iterations).
+     Test contributed by F. Bruneval.
+
+ 88. Si FCC, in primitive cell (2 atoms/cell).
+     Test self-consistent model GW (2 iterations) following Faleev et al. [PRL 93, 126406 (2004)].
+     Test contributed by F. Bruneval.
+
+ 89. Au linear chain. Test the output of a launch.dat file for WanT.
+     Test contributed by C Morari.
+     Note : the file that is produced is not tested,
+     Only the usual output file of ABINIT.
+
+ 90. Si diamond. Test the output of wf for use in QMC CASINO code,
+     obtained with prtwf=2.
+     Test contributed by MTowler and NHines.
+     Note : the text file that is produced is not tested,
+     only the usual output file of ABINIT. This is because
+     the first column is sometimes filled by "meaningful" characters,
+     instead of the symbols or blanks needed to process it
+     and compare it with the reference, thanks to the
+     fldiff.pl script.
+
+ 91. Test of Mg2 molecule chains, in a slab supercell geometry.
+     Symmetries are broken. k point (1/4 1/4 1/4)
+     Use of default values of fftalg and exchn2n3
+     Reference for test #92.
+
+ 92. Test of Mg2 molecule chains, in a slab supercell geometry.
+     Symmetries are broken. k point (1/4 1/4 1/4)
+     Use fftalg 412 and exchn2n3 1.
+     Suitable for tests of space parallelisation.
+
+ 93. Test of Ca, simple cubic , 2  k-point.
+     Testing GS  energy and lobpcg algorithm.
+
+ 94. Test of Ca, simple cubic , 2  k-point.
+     Testing GS  PAW  energy and lobpcg algorithm.
+
+ 95. Al FCC, in conventional cell (4 atoms/cell).
+     Preparation of the positron calculation, test#96.
+
+ 96. Al FCC, in conventional cell (4 atoms/cell).
+     Positron calculation : lifetime and decay rate.
+
+ 97. Test of molecular dynamics of B atoms, in the isokinetic
+     ensemble, based on the Thomas-Fermi functional (very fast,
+     even with 32 atoms).
+     From JF Danel and Luc Kazandjian
+
+ 98. Test a fake H system, with Cm symmetry, that ABINIT
+     is unable to recognize as such (it finds Pm).
+     The problem comes from the very high symmetry of the cell,
+     coupled with the very low symmetry of the atomic positions.
+     Contributed by N. Choudhury (see the mail of 7 Jan 2005).
+
+ 99. Test a fake antiferromagnetic Fe crystal :
+     recognition of symmetries when there is a small set of non-magnetic
+     atoms, and a larger set of antiferromagnetic atoms.
+     There was a bug in pre-4.5.3 versions.
+     Test contributed by A. Dick.
+
+100. Test the creation of a netCDF density file with Cut3d using the density
+     file t38o_DS1_DEN from the first dataset of test 38.
+     The option "-nofld" cancel the call of fldiff. After, ncdump is
+     used to transform the netCDF file into an ASCII file and fldiff check the difference
+     between this file and the reference.
+     (Note : not yet in the standard automatic suite of tests)
+
+101. Test the creation of a netCDF wavefunction file with Cut3d using the
+     wavefunction file t38o_DS1_WFK from the the first dataset of test 38.
+     The option "-nofld" cancel the call of fldiff. After, ncdump is used to transform
+     the netCDF file into an ASCII file and fldiff check the difference between this file and
+     the reference.
+     (Note : not yet in the standard automatic suite of tests)
+</pre>

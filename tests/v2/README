@@ -1,0 +1,886 @@
+<html>
+<head>
+<title>v2 : README</title>
+</head>
+<body>
+
+<h5>Copyright (C) 1997-2008 ABINIT group (DCA, XG)
+<br> This file is distributed under the terms of the GNU General Public License, see
+~abinit/COPYING or <a href="http://www.gnu.org/copyleft/gpl.txt">
+http://www.gnu.org/copyleft/gpl.txt </a>.
+<br> For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+</h5>
+
+<pre>
+This directory, v2, contains tests which exercise parts 
+of the ABINIT package, especially those features acquired
+during the development of the version 2.
+This file gives first a very brief description
+of the tests, then a much longer one.
+
+These tests are designed primarily to exercise parts of the code
+quickly, NOT necessarily to give physically sensible results.
+For tests of correctness, see directory physics (under development).
+For greater speed, some tests are not run to full convergence.
+Also the quality parameters (especially ecut) are sometimes minimal, i.e.
+the calculations are underconverged.
+
+A classification of the tests is provided now. Later, each test is described
+in more detail, with accompanying notes and references (some of the notes
+might have to be updated, due to the small possible drift related to improvement
+of the accuracy of the code).
+
+Tests 1 to 39 as well as 90 to 99 focus on RF features.
+Tests 40 to 89 focus on GS features.
+
+Tests 1 to 8 are simple tests of phonon frequency calculations,
+   reproducing results obtained by using the "old" RESPFN code. 
+Tests 9, 10 and 11 are further simple tests, with a local psp and q/=0,
+   as well as partial occupation numbers 
+Test 12 is also a simple test with q/=0, BCC.
+Tests 13 to 15 treat different DDBs for SiO2 thanks to MRGDDB and ANADDB,
+   reproducing results obtained by using the "old" versions of 
+   these codes.
+Tests 16 and 17 treat a Si DDB, and reproduce IFCs, phonon frequencies
+   zero-point contribution to Helmholtz energy and entropy at 298K,
+   as published in the paper by Rignanese et al, PRB53, 4488 (1996).
+Tests 18 to 21 treat a BaTiO3 DDB, and reproduce the convergence
+   study with sampling of the Brillouin zone for q wavevectors,
+   as done in Ghosez et al, Ferroelectrics 206-207, 205 (1998),
+   as well as the analysis of IFCs in term of dipole-dipole 
+   contributions and short-ranged contributions. Eigenvectors are also
+   analyzed.
+Test 22 deal with a ZrO2 DDB.
+Tests 23 to 24 reconstitute a BaTiO3 DDB for Gamma and X points,
+   and then produce the phonon frequencies at these points, that
+   can be compared with results of test 18.
+Test 25 treats a PbZrO3 DDB.
+Tests 26 to 29 compute phonon band structures for Al.
+Tests 30, 31 and 32 show the complete procedure needed to generate
+   a phonon band structure, from the ground-state calculations to the
+   interpolation of dynamical matrices. In order to keep the CPU time
+   reasonable, the parameters (ecut, nkpt and sampling of q wavevectors)
+   are much too small.
+Test 33 to 36 compute accurately the derivatives of the energy
+   for a H2 or Al2 molecule in a big box, and compare to finite-differences.
+Test 37 compares the frequencies at two different q points, one in a position
+   of high symmetry, and one in a position of low symmetry.
+Test 38 focuses on pseudopotentials with a non-linear core correction.
+Test 39 FCC unit cell. Show how to use only the q Gamma point
+     to obtain symmetric IFCs using Anaddb.
+
+Tests 40 to 89 are related to GS computations. 
+
+Tests 40 and 41 checks the interplay between GGA, 
+   non-linear XC core correction, spin, forces and stresses.
+Test 42 : TDDFT based on xOEP
+Tests 43 and 44 check the k point generator and the input array angdeg
+Tests 45 and 46 check SCF and numeric convergence in the metallic case
+Test 47 checks the generation of charge densities for selected states
+Test 48 and 49 check a modified Broyden algorithm (ionmov=3) and
+   the Verlet algorithm (ionmov=6 and 7)
+Test 50 and 51 test metallic, spin-polarized, non-linear XC core
+   correction, GGA calculation of stress.
+Test 52 to 55 checks the symmetry finder.
+Test 56 tests a FHI pseudopotential with non-linear XC core correction
+Test 57 checks the calculation of frequency dependent susceptibilities.
+Test 58 test the mechanism for vacuum identification
+Tests 59 to 60 checks the correctness of space group symbols to generate
+   conventional as well as primitive cells.
+Tests 61 to 73 test the different sets of k points generated automatically
+   using prtkpt/=0.
+Tests 74 and 75 : the effect of spin-orbit coupling
+Test 76 : conversion of input wavefunctions
+Test 77 to 80 : cut3d
+Test 81 and 82 : Berry phase calculation of the polarization
+Test 83 : FCC Ni ferromagnetic 
+Tests 84, 85 and 86 : again the effect of spin-orbit coupling
+Tests 87 and 88 : Nose thermostat and Langevin dynamics.
+
+Tests 90 and beyond are related to RF computations.
+
+Tests 90 to 97 test carefully metallic RF of phonons: H, Li and Ni in
+   simple cubic structure, with double and quadruple supercells.
+Test 98 present RF for insulator with non-zero ecutsm and dilatmx
+Test 99 RF of Niobium, at a rather large wavelength
+
+
+To run these tests, do the following:
+
+0. Be sure that the perl script "run-standard-tests", in the main directory,
+   has been generated from the primitive file "run-standard-tests.pl",
+   thanks to the command "make perl"
+   issued in ~abinit (see the installation notes on the Web).
+
+1. Submit the "run-standard-tests" script, specifying a machine, and
+   the keyword "v2" (for Tests_v2) and either
+   the index of a test case, i.e.
+   (run-standard-tests name_of_machine v2 22) >& log_file
+   or a whole range of test cases (two indices), i.e.
+   (run-standard-tests name_of_machine v2 02 08) >& log_file
+   or, if you want to run all the test cases of this directory
+   (run-standard-tests name_of_machine v2) >& log_file
+   This will send stdout and stderr to log_file.
+   The script 'run-standard-tests', will create a subdirectory of ~abinit/tests/v2,
+   with the name_of_machine and the
+   date, where all the results will be placed.
+
+2. In that directory, you will find for each test case that you have
+   run, a log file (with the name of the test case), an output
+   file, but also a 'diff.xxx' file, automatically created by making
+   a 'diff' with respect to the "Refs" subdirectory output files.
+   It contains output files from a recent version of the ABINIT code.
+   There may be large differences in timing but there should only
+   be minor differences in the output of physical quantities.
+
+3. There is also a global report file, generated by the use of the
+   fldiff script. Its name is fldiff.report . See the last
+   version of the  ~abinit/doc/install_notes/install** file
+   in the Infos directory for information about the use of this file.
+   This file is the most convenient for a quick look at the correctness
+   of results. When the results are not correct, one has often to
+   rely on the 'diff.xxx' file to understand what was going wrong.
+
+
+**********
+
+Test cases:
+
+  1. Linear chain of Ge2 molecules (2 atoms per unit cell),
+     using a local (Starkloff-Joannopoulos) pseudopotential,
+     and no exchange-correlation (ixc=0). Uses 4 k-points.
+     Computation of the second derivative of the total energy
+     with respect to a atomic displacement along the chain,
+     with q(0 0 0) wavevector.
+     (see test.ge.xc0 of RESPFN)
+     
+  2 and 3. Linear chain of Ge2 molecules (2 atoms per unit cell),
+     using a local (Starkloff-Joannopoulos) pseudopotential,
+     with exchange-correlation (ixc=3). Uses 2 k-points.
+     Computation of the second derivative of the total energy
+     with respect to a atomic displacement along the chain,
+     with q(0 0 0) wavevector.
+     Same as test 1, except ixc and the k-points, and
+     except that it doesn't uses multi-data mode, so GS and RF
+     calculations are separated.
+     (see test.ge.xc5 of RESPFN)
+
+  4. Linear chain of Si2 molecules (2 atoms per unit cell),
+     using a separable pseudopotential, with ixc=3.
+     Computation of the second derivative of the total energy
+     with respect to a atomic displacement perpendicular to 
+     the chain, with q(0 0 1/2) wavevector.
+     (see test.si.chain of RESPFN)
+
+  5. Linear chain of Si2 molecules (2 atoms per unit cell),
+     using a separable pseudopotential, with ixc=3.
+     Computation of the second derivatives of the total energy
+     with respect to a atomic displacement along the chain,
+     with q(0 0 0) wavevector, as well as to an homogeneous
+     electric field. The computed derivatives include the
+     mixed derivative wrt the two perturbations.
+     (see test.si.elfd of RESPFN)
+
+  6. Si crystal (diamond structure), 2 atoms per unit cell. 
+     Computation of responses to atomic displacements
+     and homogeneous electric field at Gamma,
+     giving access to the dynamical matrix at q(0 0 0), including
+     its non-analytical behaviour (effective charges
+     do not vanish completely due to lack of convergence), 
+     the associated phonon frequencies, and the macroscopic 
+     dielectric constant.
+     (see test.si.gamma of RESPFN)
+
+  7. GaAs crystal (zinc-blende structure), 2 atoms per unit cell.
+     Computation of responses to atomic displacements
+     with X-point wavevector, giving the dynamical matrix and
+     the associated phonon frequencies.
+     Can be compared to the test gaas.x of RESPFN, provided
+     the cut-off energy is changed (here 3Ha, in RESPFN, 6Ha).
+
+  8. Linear chain of Si2 molecules (2 atoms per unit cell),
+     using a separable pseudopotential, with ixc=5 
+     and non-linear XC core correction.
+     Computation of the second derivatives of the total energy
+     with respect to a atomic displacement along the chain,
+     with q(0 0 0) wavevector.
+     (see test.si.core0 of RESPFN)
+
+  9. Same as test 2-3 (Germanium linear chain, with a local psp),
+     but at non-zero 0 : q=(0 0 0.5). 
+     Similar to test4, actually, with Si changed to Ge.
+
+ 10. Similar to test 9 (Germanium linear chain, with a local psp),
+     with a badly commensurate q vector : q(0 0 0.21).
+
+ 11. Orthorhombic Al system, q(1/2 0 0), partial occupation numbers.
+     Compares with frozen-phonon calculations. Examine two cases:
+     varying occupation numbers, and fixed occupation numbers.
+     A. Varying occupation numbers (occopt=4): 
+        RF calculation in dataset 5 gives
+        2DE equal to -3.812577 Ha, while finite difference of "TOTAL"
+        energy (datasets 6 and 7, including entropy term) gives -3.812230 Ha
+        (the agreement could be better with better finite difference)
+     B. Fixed occupation numbers (occopt=2): 
+        RF calculation in dataset 8 gives
+        2DE equal to +5.431807 Ha, while finite difference of total
+        energy (no entropy term is present with occopt=2) gives +5.431857 Ha
+        (the agreement could be better with better finite difference)
+
+ 12. BCC Helium q close to Gamma, along Gamma-H
+     There is a problem with kptopt=1 or 3 for the NSC step.
+
+ 13. Analyze a simple DDB for quartz, but do not test interatomic
+     force constants (see test 15 for this). Compute phonon frequencies
+     at gamma with and without LO-TO splitting.
+
+ 14. Generates a DDB for quartz containing the 2DTEs at three 
+     q-points : (0 0 0), (0 0 1/4) and (1/2 0 1/4).
+     This is a standalone test of MRGDDB.
+
+ 15. Analyze the DDB for quartz build in test 14.
+     Compute the interatomic force constants, the phonon Density of States,
+     different thermodynamical functions of temperature,
+     phonon frequencies in the whole Brillouin zone,
+     oscillator strengths and mode effective charges at q(0 0 0),
+     the electronic dielectric tensor, and the (full) dielectric tensor
+     at zero frequency (so including atomic displacements and 
+     related polarization).
+
+ 16. Analyze a DDB for Silicon. Lattice parameter = 10.18 Angstrom.
+     Here, IFCs are obtained, and can be compared to those
+     published in Table I of Rignanese et al, PRB53, 4488 (1996).
+     For example, the atoms numbers for NN=0,1,2,5 in Table I
+     are found as atoms 1,5,17,20. The numbers are equal in the 
+     paper or in the output of the code.
+     The frequencies at X and L points are also computed. They
+     can be compared with those provided in TABLE II (TA(X) mode
+     at 140.466 cm-1) and TABLE III (TA(L) mode at 108.626 cm-1)
+     in the above-mentioned paper. The numbers are equal in the
+     paper or in the output of the code. 
+
+     Thermodynamic quantities are also obtained. The input
+     parameters of the code does not give particularly well
+     converged quantities (one needs reasonable CPU time for testing !),
+     but it is OK for comparison with the paper.
+     In the output of the code, a mole corresponds
+     to the number of Avogadro times one CELL. As a Silicon cell contains
+     2 atoms, caution must be taken in the comparison with experiment !
+     We will refer to the numbers given by the code as being given
+     for a mole-cell (in short a mol-c). The distinction between
+     the usual definition of a mole (Avogadro number times 1
+     Silicon atom) and a mole-cell (Avogadro number times 2 Silicon atom) 
+     was unfortunately the source of errors in the paper by 
+     Rignanese et al (our thanks to Steve Erwin for noticing 
+     this - an errata should be written). From the output of the code 
+     ( zero Kelvin is approximated by results at 1 Kelvin) : 
+     the zero point contribution to the Helmholtz free energy
+     is 11.90 kJ/mol-c , so 5.95 kJ/mole ; the entropy at 298.15K
+     is 38.25 J/(mol-c.K), so 19.12 J/(mole.K) ; the constant-volume
+     specific heat at 298.15K is 39.59 J/(mol-c.K), so 19.80 J/(mole.K) ;
+     the change in F (Helmholtz free energy) from 1 K to 298.15 K is
+     -4.91 kJ/mol-c, so -2.45 kJ/mole ; the change in E (internal energy) 
+     from 1 K to 298.15 K is 6.49 kJ/mol-c, so 3.25 kJ/mole. Supposing 
+     that we take the usual definition of a mole (Avogadro number times 1 
+     Silicon atom), then, in the above-mentioned paper, the FIG. 3, 5 and 8
+     should be rescaled, as well as the zero-point contribution to the
+     Helmholtz free energy (5.95 kJ/mole, and not 12 J/mole - the 'k' was 
+     also missing), that is only 1.25% of the cohesive energy.
+     The output of the code is now more clear than in 1995, and this
+     kind of error should not appear anymore.
+     
+
+ 17. Analyze a DDB for Silicon. Lattice parameter = 10.18 Angstrom.
+     IFCs are computed as in test 16, but by limiting artificially
+     the number of allowed interacting shells to 2. The total number
+     of atoms to be taken into account is 17 (1 for the shell 0,
+     4 for the shell 1, and 12 for the shell 2).
+     The frequencies at X and L points are again computed. They
+     can be compared with those provided in TABLE II (TA(X) mode
+     at 161.684 cm-1) and TABLE III (TA(L) mode at 127.508 cm-1)
+     in the above-mentioned paper. The number are close, with
+     small differences at the level of 0.001 cm-1 .
+     
+ 18. Analyze a DDB for BaTiO3 (see also tests 19 and 20). Here, 
+     no use of IFCs is done. Phonon frequencies at the
+     Gamma, X, M, R and along the Gamma-R line are obtained
+     directly from the DDB. They are to be compared
+     with the data in the TABLE II of Ghosez et al, Ferroelectrics,
+     206-207, 205 (1998), as well as FIGURE I. 
+     At q(1/8 1/8 1/8), the lowest frequency is  i 136.7 cm-1 .
+
+ 19. Analyze a DDB for BaTiO3, same as test18, but IFCs are
+     obtained from a 2x2x2 non-shifted grid (referred to as M1
+     in the above-mentioned paper by Ghosez et al).
+     At q(1/8 1/8 1/8), the lowest frequency is  i 178.8 cm-1 .
+
+ 20. Analyze a DDB for BaTiO3, same as test18, but IFCs are
+     obtained from a 2x2x2 BCC grid (referred to as M2
+     in the above-mentioned paper by Ghosez et al).
+     At q(1/8 1/8 1/8), the lowest mode is  i 153.5 cm-1 .
+     The error, compared with the reference result of test 18,
+     is still 10%, but much less than with the grid of test 19.
+     Also, the IFCs are obtained and can be compared with those
+     provided in TABLE III-V of the Ghosez et al paper.
+     Note the decomposition between dipole-dipole contribution
+     and short-ranged contribution.
+
+ 21. Analyze a DDB for BaTiO3, same as test18.
+     Compute the phonon frequencies at Gamma, and also output
+     the corresponing eigenvectors. These data can be compared
+     with those published by Ghosez et al, Ferroelectrics 194, 39 (1997),
+     TABLE II, although the normalisation factor is different.
+     For example, the z displacement of mode 1 given by the code
+     is ( .25d-4 , .158d-2 , -.261d-2, -.118d-2 , -.118d-2 ), that
+     multiplied by -60.54 and rounded to the third digit, 
+     gives values that appear in the first line of that TABLE II :
+     ( -0.002 , -0.096 , 0.158 , 0.071 , 0.071 )
+
+ 22. Analyze a DDB for ZrO2, containing only the dynamical
+     matrices at Gamma, X and L.
+     Generate the IFC using a rough sampling, based on Gamma and X
+     only, then produces the phonon band structure along Gamma-X,
+     as well as in L.
+     The degeneracies can be compared with those of 
+     Detraux et al, Phys. Rev. Lett. 81, 3297 (1998).
+     The errors produced with this sampling are still large, as can be
+     judged from the comparison at L. The frequencies (in cm-1) from the DDB are
+     128.8 (2-deg), 271.4, 413.7 (2-deg), 518.2, 521.8 (2-deg), 598.1 ;
+     while from the IFCs, using the interpolation, they are
+     152.5 (2-deg), 290.8, 429.6 (2-deg), 434.6 (2-deg), 551.9, 576.0 .
+
+     The same DDB allows to generate a slightly better sampling, by using
+     nqshft=2 and two shifts (0.0 0.0 0.0) and (0.5 0.5 0.5).
+     In this case, the L point is used for the interpolation. The comparison
+     can be done at the level of the mid-point between Gamma and X :
+     from the GX grid, one gets
+     107.0 (2-deg), 260.3, 295.5 (2-deg), 394.3, 577.0 (2-deg), 682.1  ;
+     from the GXL grid, one gets
+     106.3 (2-deg), 262.6, 302.7 (2-deg), 403.8, 582.5 (2-deg), 684.2  ;
+     while directly from the ABINIT code, one gets
+     106.3 (2-deg), 270.0, 277.9 (2-deg), 443.2, 581.6 (2-deg), 681.6  .
+     This is not yet satisfactory.
+     More points are needed for better results, the next interesting grid
+     being obtained by changing ngqpt from 2 2 2 to 4 4 4 in the t22.in file.
+     Two additional dynamical matrices are then needed.
+
+ 23. Generates a DDB for BaTiO3 containing only the 2DTEs at the 
+     (0 0 0) and (1/2 0 0) q-points.
+     This is a standalone test of MRGDDB.
+
+ 24. Analyze the DDB of test23. Uses asr=0. 
+     If asr is set to 1, the results of test 18 are recovered.
+     The effect of asr choice is important in the case
+     of BaTiO3, with the pseudopotentials that were used,
+     see Ph. Ghosez's thesis.
+     The option asr is shown to work on both Gamma and X points :
+     the correction is obtained at Gamma, and transferred to X.
+     Note that a DDB MUST include the Gamma point.
+
+ 25. Analyze a DDB for PbZrO3. It is also a ABO3 compound, like
+     BaTiO3 (see tests 18 to 21), but the DDB contains the q-wavevectors
+     on a 2x2x2 FCC grid, finer than those tested for BaTiO3.
+     Output : analysis of IFCs, as well as a few phonon frequencies.
+
+ 26. Generate first-order responses for FCC Aluminum.
+     Very low cut-off, to keep CPU the lowest possible
+     Aim at a regular sampling of phonon wavevectors, needed to
+     interpolate the dynamical matrix over the whole Brillouin Zone,
+     in test 28. The chosen grid (too coarse, though) is
+     (0 0 0), (1/4 1/4 0), (1/2 1/2 0), (1/2 0 0),
+     (1/2 1/4 1/4), (1/2 -1/4 1/4)  (in reduced coordinates).
+     The ecut and nkpt parameters are really too low (see test 28), 
+     but parameters suitable for physical results (see test 29) 
+     are also provided in the input files.
+
+ 27. Combines the DDBs of test 26.
+
+ 28. Phonon band structure of Al, from DDB of test 27.
+     The parameters were really too low in test 26, so that some 
+     phonon unstabilities are present close to Gamma. These
+     do not appear anymore in test 29.
+
+ 29. Phonon band structure of Al. Similar to test 28,
+     except that the DDB was generated with parameters much better
+     than those of test 26, the better parameters are mentioned 
+     in the t26.in file, for information. The convergence is not complete
+     though, but the frequencies compare already rather well with those
+     in Quong and Klein, PRB 46, 10734 (1992), except
+     close to Gamma (still, no instability is observed, unlike in test 28).
+
+ 30. Generate first-order responses for GaAs (zinc-blende).
+     Aim at a regular sampling of phonon wavevectors, needed to
+     interpolate the dynamical matrix over the whole Brillouin Zone,
+     in test 32. The chosen grid (too coarse, though) has only two 
+     special q points : 1/4 1/4 1/4 and 1/4 1/2 1/2 (in reduced coordinates). 
+     The Gamma point is also needed, especially for the computation of 
+     dielectric matric and effective charges, needed to get the asymptotic
+     behaviour of the interatomic force constants. To generate
+     the different responses, the following steps are followed, 
+     with each of them corresponding to a different dataset (the multi-dataset
+     mode allows to have only one input file) :
+     1) ground state calculation, with a k-point sampling in the irreducible
+       Brillouin zone only; 
+     2) using the density of 1), computation of the wavefunctions for the
+       grid of k-points in the full Brillouin zone; (not really needed in v3.0)
+     3) computation of the ddk response, in preparation to the electric field 
+       response ;
+     4) computation of the dynamical matrix at Gamma, as well as the
+       Born effective charges, and the dielectric tensor ;
+     5) using the density of 1), computation of the GS wavefunctions
+       at k+q where q is 1/4 1/4 1/4 ;
+     6) computation of the dynamical matrix at 1/4 1/4 1/4 ;
+     7) using the density of 1), computation of the GS wavefunctions
+       at k+q where q is 1/4 1/2 1/2 ;
+     8) computation of the dynamical matrix at 1/4 1/2 1/2 .
+   
+ 31. The three derivative databases generated at steps 4, 6 and 8 of test 30
+     are merged, using the MRGDDB utility.
+
+ 32. The derivative database generated by case 31 is now analyzed, and serves
+     to compute a phonon band structure.
+     There is a very small breaking of the symmetry-induced degeneracy
+     of modes along the (x x x) direction. This is due to an incomplete 
+     convergence. Indeed, if one makes tolwfr more stringent 
+     for response calculations (from 1.0d-16 to 1.0d-20), the 
+     lowest acoustic modes at (0.1 0.1 0.1), that are 4.042cm-1 and
+     4.067cm-1, becomes 4.05398 cm-1 and 4.05400 cm-1 . 
+     Of course, this effect cannot be seen for other modes, since only
+     the acoustic modes are sensitive to that level of accuracy ! 
+ 
+ 33. H2 molecule in a big box : compute VERY accurately
+     the derivatives of the energy, by both symmetric finite-differences and
+     direct computation of forces and 2DTE.
+     Also test the interplay between istwfk/=1 in the GS calculation
+     and istwfk==1 in the RF calculation (istwfk/=1 is not yet-991020-
+     allowed for RF, which is a shame)
+     1) Computation of the first-order derivative of the total energy
+     With delta(xred)=0.0002, one gets delta(etot)/delta(xred)=-3.145846551
+     With delta(xred)=0.0001, one gets delta(etot)/delta(xred)=-3.145836932
+     The combination of both results, in a higher-order finite difference
+     formula gives -3.145833726 . The direct computation of forces
+     at the target geometry gives -3.145833725869 . The agreement is perfect,
+     taking into account the "limited" number of digits (10) of the 
+     finite-difference result.
+     2) Computation of the second-order derivative of the total energy
+     With delta(xred)=0.0002, one gets delta(dedt)/delta(xred)=188.73875
+     With delta(xred)=0.0001, one gets delta(dedt)/delta(xred)=188.73837
+     The combination of both results, in a higher-order finite difference
+     formula gives 188.73824613 . The direct computation of 2DTE
+     at the target geometry gives 188.73824613046 . The agreement at the
+     level of 11 digits is also perfect.
+
+ 34. Again H2 molecule in a big box (like test 33). 
+     With the same configuration and parameters as test 33, 
+     investigate the treatment of unoccupied states : 
+     use nband 2 and occopt 1 , causing occ 2.0 1.0 . The same results
+     as with test 33 are obtained.
+
+ 35. Al2 molecule in a big box. Treat 8 bands, with some of them
+     partially occupied. The occupation numbers are fixed, with occopt 0 .
+     Computation of the second-order derivative of the total energy.
+     With delta(xred)=0.0001, one gets delta(etot)/delta(xred)=3.32914893
+     The direct computation of 2DTE at the target geometry 
+     gives 3.3291477145164 . The agreement is good, and can be improved
+     if a higher-order finite difference estimation is used.
+     
+ 36. Al2 molecule in a big box. Treat 8 bands, occupied using occopt=4.
+     For a metallic occopt, the frozen-phonon (finite-difference) approach
+     is strictly equivalent to the RF approach only at q/=Gamma.
+     Here, computes the result at q=(0 0 1/2).
+     With delta(xred)=0.0001 (DATASET 5), one gets 
+     delta(etot)/delta(xred)=0.42807994 .
+     The direct computation of 2DTE at the target geometry
+     gives 0.428080350 .
+
+ 37. MgO FCC crystal, with very low cut-off, and 32 k points. 
+     Pseudopotentials WITHOUT a non-linear core correction.
+     Compute the dynamical matrices at q(0.25 0.5 0.498) and q(0.25 0.5 0.5). 
+     The results should be very close to each other, but were not in pre v2.1
+     versions, because the symmetry was not treated correctly for the
+     highest-symmetry q vector q(0.25 0.5 0.5) (test case found by PTepesch).
+
+ 38. MgO FCC crystal, with very low cut-off, and 32 k points. 
+     Pseudopotentials WITH a non-linear core correction.
+     Compute the dynamical matrix at q(0.5 0.5 0.5) .
+     Also test the non-type-ordering of atoms.
+
+ 39. BaSr(TiO3)2 FCC unit cell. Show how to use only the q Gamma point
+     to obtain symmetric IFCs using Anaddb.
+
+ 40. O2 (nsppol=1, non-linear XC core correction, GGA) 
+     Computation of forces in the GGA, and comparison with a finite
+     difference of energy.
+     The direct computation of force (dataset 2) gives 0.627251486 Ha/Bohr
+     A simple finite-difference estimation (dataset 1 and 3) gives
+      0.627251265 Ha/Bohr. The agreement can be improved if a better
+     finite-difference estimation is used.
+     
+ 41. O2 (nsppol=1, non-linear XC core correction, GGA)
+     Computation of uniaxial stresses in the GGA, 
+     and comparison with a finite difference of energy.
+     The direct computation of sigma(zz) stress (dataset 2) 
+     gives 0.964267876d-3 Ha/Bohr**3
+     A simple finite-difference estimation (dataset 1 and 3) gives
+     a difference in total energy of 0.085048409d-3 Ha,
+     for a difference of volume of 0.0882 Bohr**3 leading
+     to a stress estimation of 0.96426768d-3 Ha/Bohr**3
+     The agreement can be improved if a better finite-difference 
+     estimation is used.
+
+ 42. (HeH)+ in a big box. Computation of excitation energies in TDDFT,
+     in the following approximations : TDxOEP/xOEP, TDLDA/xOEP,
+     BPG hybrid/xOEP.
+
+ 43. BCC Molybdenum. Test the k point generator : Monkhorst-Pack
+     grid, then band structure.
+
+ 44. Arsenic in rhombohedral structure.
+     Optimization of unit cell size and shape.
+     With 4x4x4 k point grid, ecut 3.0, occopt 4 and tsmear 0.06d0,
+     one get acell 3*7.325  angdeg 3*57.36 and xred 0.2277
+     These input parameters are too small, but still give a realistic
+     geometry, since with the much better parameters
+     12x12x12 k point grid, ecut 12.0, occopt 4 and tsmear 0.04d0,
+     one gets acell 3*7.633  angdeg 3*54.95 and xred 0.2296, while
+     the experimental values are
+     acell 3*7.751   angdeg 3*54.554 and xred 0.2276 
+
+ 45. Aluminum in FCC structure.
+     For occopt=4,5,6,7 , determination of the total energy
+     at slightly different tsmear values, and check of the
+     dE/d(tsmear)=-kT.entropy relationship.
+     For example, for occopt=4, the difference between tsmear=0.101 and
+     tsmear=0.099 is -11.149450d-6 Ha , while the value of -kT.entropy
+     is -5.574709d-4Ha, that is about 500 larger, as expected. 
+     
+ 46. Aluminum in FCC structure.
+     At fixed tsmear (=0.04), check the convergence with respect
+     to the number of k points, for different occopt.
+     The grids that are tested have respectively 10, 28, and 60 k points
+     in the IZB (ngkpt values are 4 4 4 4, 6 6 6 4 and 8 8 8 4
+     For occopt=4, the total energy (or the enthalpy) 
+     is -2.079770 Ha, -2.080534 Ha, -2.080672 Ha ;
+     for occopt=5, it is -2.079787 Ha, -2.080563 Ha, -2.080693 Ha ;
+     for occopt=7, it is -2.084211 Ha, -2.084861 Ha, -2.084916 Ha.
+     The latter values can be corrected by computing the mean of the
+     total energy and the internal energy, as described in Marzari's 
+     thesis, for example. Thanks to this procedure, one gets :
+     -2.079732 Ha, -2.080470 Ha, and -2.080626 Ha.
+     For information, with a 12 12 12 4 grid (182 k points) 
+     and occopt=4, one gets -2.080648 Ha.
+ 
+ 47. Si in diamond structure. 2 k points, low ecut.
+     Output the SCF density, then partial densities that
+     correspond to the 1st, 2nd, 3rd and 4th valence bands, 
+     then the density that corresponds to the 1st conduction band,
+     then the density of the lowest conduction state at 1/4 1/4 1/4, then
+     the density of the highest valence state at 0 0 0 .
+     Also test the symmetry finder.
+
+ 48. H2 molecule in a big box.
+     Comparison of the modified Broyden algorithm (ionmov=3) with the
+     original one (ionmov=2). Start with different values 
+     of xcart, from 0.6 to 1.1, by step of 0.1 . The number of Broyden
+     steps needed to reach acceptable residual forces
+     with the ionmov=3 algorithm are : 3, 2, 2, 3, 3, 4, while
+     with the ionmov=2 algorithms, one get : 4, 3, 2, 5, and then,
+     either the algorithm does not converge within 8 steps, or it
+     converges to a saddle point of the energy !
+     This test was hard to make portable. This is why the tolerance
+     for fldiff is very large.
+
+ 49. Si2 molecule, static, spin-polarized.
+     Same system as test 17 of fast, except lower ecut.
+     Test ionmov=6 (Verlet) as well as ionmov=7.
+    
+ 50. O2 (nsppol=2, non-linear XC core correction, GGA)
+     Some similarities with test 41, except that nsppol=2 instead of 1.
+     Computation of uniaxial stresses in the GGA,
+     and comparison with a finite difference of energy.
+     The estimation of sigma(zz) stress  at acell(3)=9.0
+     from acell(3)=8.9991 and 9.0009
+     gives 1.62867d-3 Ha/Bohr**3
+     A simple finite-difference estimation gives
+     a difference in total energy of 0.123861d-3 Ha,
+     for a difference of volume of 0.07605 Bohr**3 leading
+     to a stress estimation of 1.62867d-3 Ha/Bohr**3
+     
+ 51. O2 (nsppol=2, non-linear XC core correction, GGA)    
+     Similar to test50, except use iscf=6 .
+
+ 52. Test the symmetry finder for all the Bravais lattices,
+     with different input formats (rprim or angdeg), and for
+     non-conventional choices of axes as well.
+     Uses only one atom, placed at (0 0 0)
+
+ 53. Test the symmetry finder for all the Bravais lattices,
+     with different input formats (rprim or angdeg), and for
+     non-conventional choices of axes as well.
+     Uses two different atoms, placed at (0 0 0) and (0.1 0 0), thus
+     breaking many symmetries.
+
+ 54. Test the symmetry finder for all the Bravais lattices,
+     with different input formats (rprim or angdeg), and for
+     non-conventional choices of axes as well.
+     Uses two atoms of the same type, placed at (0 0 0) and (0.1 0 0), thus
+     breaking many symmetries, while the inversion needs a non-symmorphic
+     translation.
+
+ 55. Test different additional features of the symmetry finder :
+     - handling non-primitive cells
+     - handling glide planes
+     - handling screw axes
+
+ 56. Test a FHI pseudopotential for Chromium, with non-linear XC 
+     core correction. The ecut is too low, the box is too small.
+     Use metallic occupation numbers.
+     The convergence is not enough to make finite-difference of energy.
+
+ 57. Test the calculation of frequency dependent susceptibility matrix. For a 
+     He atom in a box, calculate the LDA groundstate and then the Kohn-Sham 
+     susceptibility. From that compute the interacting susceptibility
+     within the random phase approximation (RPA). Output the polarizability, 
+     and certain traces over the susceptibility matrix that contribute
+     to the correlation energy. For the RPA, the Coulomb interaction is
+     cutoff at half the maximum box dimension.
+
+ 58. Test the mechanism for checking the presence of vacuum.
+     Use H2 molecule, placed in a big box.
+
+ 59. Space group number 225 : FCC Aluminum, in both conventional and
+     primitive unit cells.
+
+ 60. Space group number 139 : elongated aluminum, BCT
+
+ 61. 2D hexagonal   lattice : test the sets of k points generated automatically
+
+ 62. 2D square      lattice : test the sets of k points generated automatically
+
+ 63. 2D 4 point symmetry    : test the sets of k points generated automatically
+
+ 64. 2D rectangular lattice : test the sets of k points generated automatically
+
+ 65. 2D centered    lattice : test the sets of k points generated automatically
+
+ 66. 2D oblique     lattice : test the sets of k points generated automatically
+
+ 67. 3D cP lattice : test the sets of k points generated automatically
+ 
+ 68. 3D cF lattice : test the sets of k points generated automatically
+ 
+ 69. 3D cI lattice : test the sets of k points generated automatically
+ 
+ 70. 3D tP lattice : test the sets of k points generated automatically
+ 
+ 71. 3D tI lattice : test the sets of k points generated automatically
+ 
+ 72. 3D hR lattice : test the sets of k points generated automatically
+ 
+ 73. 3D hP lattice : test the sets of k points generated automatically
+ 
+ 74. Tin in the diamond structure, with 2 special points
+     Test the effect of spin-orbit coupling, especially the
+     electronic structure.
+     Degeneracies at Gamma are correct ! 
+     (note that ecut and nkpt are too low for quantitative accuracy)
+     Without spin-orbit (in eV), dataset 4:
+      -8.82682  1.26955 (x3) 1.30262 3.45296 (x3)
+     With spin-orbit (in eV), dataset 6:
+      -8.82682  0.75225      1.30262 1.50965 (x2) 3.07128 3.62556 (x2)
+
+ 75. Bismuth, treated as a metal, with 2 special points
+     Test the effect of spin-orbit coupling, especially the forces.
+     The dataset 1 to 3 are related to the nspinor=1 case. The forces
+     are computed from finite differences of energy :
+     abs(etotal3-etotal1)=0.00090461 Ha
+     abs(xcart3-xcart1)=0.089970092 (taking into account both atoms)
+     Their ratio is 0.01005456 Ha/Bohr, to be compared with
+     fcart2=1.0049850156E-02 Ha/Bohr 
+     The dataset 4 checks the case nspinor=2, pspso=1 (no spin-orbit yet)
+     The dataset 5 to 7 try to reproduce the comparison of forces
+     with spin-orbit :
+     abs(etotal7-etotal5)=0.000445155 Ha
+     abs(xcart7-xcart5)=0.089970092 (taking into account both atoms)
+     Their ratio is 3.83633E-03 Ha/Bohr ...
+     A better finite-difference scheme incorporating also data from 
+     half-displacement, lead to 3.81832E-03 Ha/Bohr.
+     This is in excellent agreement with
+     fcart6=3.8183150850E-03 Ha/Bohr
+
+ 76. Silicon, diamond structure.
+     Test the ability to read an input wavefunction and to generate
+     from it any other wavefunction, changing different parameters.
+     One of the _DEN file is also used as starting point of
+     the cut3D tests.
+
+ 77. Cut3d code. Silicon, diamond structure.
+     Using the unformatted density file generated in test #76,
+     compute the density along the diagonal of the primitive cell,
+     accross more than one cell. Also generate a formatted
+     density file, to be read in the next run.
+
+ 78. Cut3d code. Silicon, diamond structure.
+     Using the formatted density file generated in test #77,
+     compute the density along the diagonal of the primitive cell,
+     accross more than one cell. Two other files are used :
+     a "cut.in" file, and a "xyz" file.
+
+ 79. Cut3d code. Silicon, diamond structure.
+     Using the unformatted density file generated in test #76,
+     compute the density in a 2D plane,
+     accross more than one cell.
+
+ 80. Cut3d code. Silicon, diamond structure.
+     Using the unformatted density file generated in test #76,
+     compute the density at two different points.
+
+ 81. Nitrogen atom in a big box, spin-polarized.
+     Compute Berry phase for atom at different positions.
+
+ 82. GaAs, zinc-blende structure.
+     Compute Berry phase along 0 0 1, using a 4x4x10 sampling.
+
+ 83. Ni, FCC structure.
+     Ferromagnetic phase, compute the magnetic moment in GGA.
+     Check the convergence, and make a restart.
+     Note that the pseudopotential is NOT a GGA psp.
+
+ 84. Ta, single atom in a box (1k point). Contributed by FJollet.
+     HGH pseudopotential
+     Ecut and acell are NOT realistic. One would need 20 Ha
+     and a 20x20x20 box, while here we have 5 Ha and a 12x12x12 box.
+     The small box size changes the degeneracy of levels.
+     The all-electron values derived from another code, for comparison, are
+     level  degeneracy       energy (Ha)  spin-orbit splitting
+     6s      2               -0.194573
+     5d3/2   4               -0.141779
+     5d5/2   6               -0.119933       0.0218
+     6p1/2   2               -0.050542
+     6p3/2   4               -0.031281       0.0193
+
+ 85. Ta, single atom in a box (1k point). Contributed by FJollet.
+     Same test as t84, but with a different pseudopotential.
+     HGH semi-core pseudopotential (so more bands than test 84)
+     Ecut (5Ha) and acell (12 Bohr) are NOT realistic.
+     The all-electron values derived from another code, for comparison, are
+     level  degeneracy       energy (Ha)  spin-orbit splitting
+     5s      2               -2.673078
+     5p1/2   2               -1.676933
+     5p3/2   4               -1.352138       0.3248
+     6s      2               -0.194573
+     5d3/2   4               -0.141779
+     5d5/2   6               -0.119933       0.0218
+     6p1/2   2               -0.050542
+     6p3/2   4               -0.031281       0.0193
+
+
+ 86. Ta, single atom in a box (1k point). Contributed by FJollet.
+     Same test as t84, but with a different pseudopotential.
+     Troullier pseudopotential. Same number of bands as test 84.
+     Ecut (5Ha) and acell (12 Bohr) are NOT realistic.
+
+ 
+ 87. Ge liquid. Test of Nose dynamics. 2 atoms in a cell.
+     Allows 4 time steps. Contributed by JY Raty.
+
+
+ 88. Ge liquid. Test of Langevin dynamics. 2 atoms in a cell.
+     Allows 4 time steps. Contributed by JY Raty.
+
+
+ 90. H, compressed simple cubic, to test accurately RF in the metallic case. 
+     No linear XC core correction.
+     The total energy of the 1-atom cell is -.559361014386 Ha
+     The 2DTE with respect to a q(0 0 0) phonon is 4.6E-10 .
+     The 2DTE with respect to a transverse q(1/2 0 0) phonon
+     is 1.75340771040435E-02. The 2DTE with respect to a transverse
+     q(1/4 0 0) phonon is 9.38555654208462E-03.
+ 
+ 91. H, compressed simple cubic, frozen-phonon calculations corresponding
+     to test 90. No linear XC core correction.
+     The total energy of the quadruple cell is -2.237444057546 Ha,
+     in excellent agreement with the result of test 90.
+     The frozen-phonon (from forces) calculation of the 2DTE for the q(1/2 0 0)
+     case gives 1.7535588d-2 . A better finite-difference scheme, using
+     a doubled displacement to cancel the finite-difference error, gives
+     1.7534196d-2. 
+     The frozen-phonon (from forces) calculation of the 2DTE for the q(1/4 0 0)
+     case gives 9.386061d-3 . A better finite-difference scheme, using
+     a half displacement to cancel the finite-difference error, gives
+     9.385565d-3 .
+
+
+ 92. Li, simple cubic, to test accurately RF in the metallic case.
+     With non-linear XC core correction.
+     The total energy of the 1-atom cell is -.29350020247929 Ha
+     The 2DTE with respect to a q(0 0 0) phonon is 1.557063518d-7 .
+     The 2DTE with respect to a transverse q(1/2 0 0) phonon
+     is -0.1426599618 Ha. The 2DTE with respect to a transverse
+     q(1/4 0 0) phonon is -0.6978404630E-01 Ha.
+
+
+ 93. Li, simple cubic, frozen-phonon calculations corresponding
+     to test 92.
+     The total energy of the quadruple cell is -1.1740008099174 Ha,
+     in excellent agreement with the result of test 92.
+     The frozen-phonon (from forces) calculation of the 2DTE for the q(1/2 0 0)
+     case gives -0.142648808 Ha . A better finite-difference scheme, using
+     a doubled displacement to cancel the finite-difference error, gives
+     -0.142653130 Ha . This is a bit better, but not sufficiently.
+     The frozen-phonon (from forces) calculation of the 2DTE for the q(1/4 0 0)
+     case gives -6.9781822d-2 Ha. A better finite-difference scheme, using
+     a half displacement to cancel the finite-difference error, gives
+     -6.9783661d-2 Ha. 
+
+
+ 94. Ni, simple cubic, with a 4x4x4 grid, many bands test RF in the metallic case.
+     With non-linear XC core correction. q(1/2 0 0)
+     The total energy of the 1-atom cell is -41.644007152348 Ha .
+     The 2DTE with respect to a longitudinal q(1/2 0 0) phonon is 1.90867182 Ha .
+    
+
+ 95. Ni, supercell of simple cubic, corresponding to test 94.
+     The total energy of the double cell is -83.288014304694 Ha, 
+     in excellent agreement with the result of test 94.
+     The frozen-phonon (from energies) calculation of the 2DTE for the q(1/2 0 0)
+     case gives 1.903623 Ha . A better finite-difference scheme, using
+     a doubled displacement to cancel the finite-difference error, gives
+     1.908658 Ha .
+     The frozen-phonon (from forces) calculation of the 2DTE gives
+     1.8985 Ha. A better finite-difference scheme, using
+     a doubled displacement to cancel the finite-difference error, gives
+     1.9086 Ha . The agreement is excellent.
+
+ 96. Li, simple cubic, to test accurately RF in the metallic case.
+     With non-linear XC core correction and non-zero ecutsm and dilatmx.
+     Similar to test 92, except ecutsm and dilatmx, and no q(1/4 0 0).
+     The total energy of the 1-atom cell is -.29337493523588 Ha
+     The 2DTE with respect to a q(0 0 0) phonon is 5.5619d-8 .
+     The 2DTE with respect to a transverse q(1/2 0 0) phonon
+     is -0.12068188927 Ha. 
+
+
+ 97. Li, simple cubic, frozen-phonon calculations corresponding
+     to test 96 (with non-zero ecutsm and dilatmx).
+     The total energy of the double cell is -0.58674987047187 Ha,
+     in excellent agreement with the result of test 96.
+     The frozen-phonon (from energy) calculation of the 2DTE for the q(1/2 0 0)
+     case gives -0.1206807 Ha .
+     The frozen-phonon (from forces) calculation of the 2DTE for the q(1/2 0 0)
+     case gives -0.1206794 Ha . Both are in rather good agreement with
+     the result of test 96.
+
+ 98. Generate first-order responses for GaAs (zinc-blende).
+     Compute responses at Gamma, in the presence of a non-zero ecutsm and dilatmx.
+     1) ground state calculation, with a k-point sampling in the irreducible
+       Brillouin zone only;
+     2) computation of the ddk response, in preparation to the electric field
+       response ;
+     3) computation of the dynamical matrix at Gamma, as well as the
+       Born effective charges, and the dielectric tensor ;
+
+ 99. Nb BCC along the Gamma-H direction
+     Remnant of the bug search of winter 2000-2001. 
+
+</pre>

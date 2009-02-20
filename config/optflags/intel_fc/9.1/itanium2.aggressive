@@ -1,0 +1,4 @@
+FCFLAGS_OPT="-O3 -tpp2"
+fcflags_opt_12geometry="-O3 -tpp2"
+fcflags_opt_16response="-O1 -tpp2"
+fcflags_opt_17ddb="-O3 -tpp2"

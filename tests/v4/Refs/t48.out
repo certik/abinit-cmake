@@ -1,0 +1,728 @@
+
+.Version 5.6.3  of CUT3D 
+.(sequential version, prepared for a x86_64_linux_gcc4.3 computer) 
+
+.Copyright (C) 1998-2008 ABINIT group . 
+ CUT3D comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read ~abinit/doc/users/acknowledgments.html for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see http://www.abinit.org .
+
+.Starting date : Thu  6 Nov 2008.
+  
+
+  What is the name of the 3D function (density, potential or wavef) file ?
+  => Your 3D function file is : t47o_DS2_WFK
+
+  Does this file contain formatted 3D ASCII data (=0)  
+   or unformatted binary header + 3D data        (=1) ?
+   or ETSF binary                                (=2) ?
+  1 => Your file contains unformatted binary header + 3D data
+  The information it contains should be sufficient.
+  cut3d : read file t47o_DS2_WFK from unit number 19.
+
+ ===============================================================================
+ ECHO of the ABINIT file header 
+ 
+ First record :
+.codvsn,headform,fform = 5.6.3    56    2
+ 
+ Second record :
+ bantot,intxc,ixc,natom  =   108     0     3     2
+ ngfft(1:3),nkpt         =    15    15    15    27
+ nspden,nspinor          =     1     1
+ nsppol,nsym,npsp,ntypat =     1    48     1     1
+ occopt,pertcase,usepaw  =     1     0     0
+ ecut,ecutdg,ecutsm      =  4.0000000000E+00  4.0000000000E+00  0.0000000000E+00
+ ecut_eff                =  4.0000000000E+00
+ qptn(1:3)               =  0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+ rprimd(1:3,1)           =  0.0000000000E+00  5.1022625650E+00  5.1022625650E+00
+ rprimd(1:3,2)           =  5.1022625650E+00  0.0000000000E+00  5.1022625650E+00
+ rprimd(1:3,3)           =  5.1022625650E+00  5.1022625650E+00  0.0000000000E+00
+ stmbias,tphysel,tsmear  =  0.0000000000E+00  0.0000000000E+00  4.0000000000E-02
+
+ Third record :
+ istwfk=   2   1   1   1   1   1   1   1   1   1   1   1
+   1   1   1   1   1   1   1   1   1   1   1   1
+   1   1   1
+ nband =   4   4   4   4   4   4   4   4   4   4   4   4
+   4   4   4   4   4   4   4   4   4   4   4   4
+   4   4   4
+ npwarr=   57   98   98   98  104  101   98  101  104   98
+  104  101  104   98  101  101  101  101   98  101
+  104  101  101  101  104  101   98
+ so_psp=   1
+ symafm=
+          1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+          1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+ symrel=
+           1   0   0   0   1   0   0   0   1    -1   0   0   0  -1   0   0   0  -1
+           0  -1   1   0  -1   0   1  -1   0     0   1  -1   0   1   0  -1   1   0
+          -1   0   0  -1   0   1  -1   1   0     1   0   0   1   0  -1   1  -1   0
+           0   1  -1   1   0  -1   0   0  -1     0  -1   1  -1   0   1   0   0   1
+          -1   0   0  -1   1   0  -1   0   1     1   0   0   1  -1   0   1   0  -1
+           0  -1   1   1  -1   0   0  -1   0     0   1  -1  -1   1   0   0   1   0
+           1   0   0   0   0   1   0   1   0    -1   0   0   0   0  -1   0  -1   0
+           0   1  -1   0   0  -1   1   0  -1     0  -1   1   0   0   1  -1   0   1
+          -1   0   1  -1   1   0  -1   0   0     1   0  -1   1  -1   0   1   0   0
+           0  -1   0   1  -1   0   0  -1   1     0   1   0  -1   1   0   0   1  -1
+           1   0  -1   0   0  -1   0   1  -1    -1   0   1   0   0   1   0  -1   1
+           0   1   0   0   0   1   1   0   0     0  -1   0   0   0  -1  -1   0   0
+           1   0  -1   0   1  -1   0   0  -1    -1   0   1   0  -1   1   0   0   1
+           0  -1   0   0  -1   1   1  -1   0     0   1   0   0   1  -1  -1   1   0
+          -1   0   1  -1   0   0  -1   1   0     1   0  -1   1   0   0   1  -1   0
+           0   1   0   1   0   0   0   0   1     0  -1   0  -1   0   0   0   0  -1
+           0   0  -1   0   1  -1   1   0  -1     0   0   1   0  -1   1  -1   0   1
+           1  -1   0   0  -1   1   0  -1   0    -1   1   0   0   1  -1   0   1   0
+           0   0   1   1   0   0   0   1   0     0   0  -1  -1   0   0   0  -1   0
+          -1   1   0  -1   0   0  -1   0   1     1  -1   0   1   0   0   1   0  -1
+           0   0   1   0   1   0   1   0   0     0   0  -1   0  -1   0  -1   0   0
+           1  -1   0   0  -1   0   0  -1   1    -1   1   0   0   1   0   0   1  -1
+           0   0  -1   1   0  -1   0   1  -1     0   0   1  -1   0   1   0  -1   1
+          -1   1   0  -1   0   1  -1   0   0     1  -1   0   1   0  -1   1   0   0
+ type  =   1   1
+ kptns =                 (max 50 k-points will be written)
+            0.000000E+00    0.000000E+00    0.000000E+00
+            3.333333E-01    0.000000E+00    0.000000E+00
+           -3.333333E-01    0.000000E+00    0.000000E+00
+            0.000000E+00    3.333333E-01    0.000000E+00
+            3.333333E-01    3.333333E-01    0.000000E+00
+           -3.333333E-01    3.333333E-01    0.000000E+00
+            0.000000E+00   -3.333333E-01    0.000000E+00
+            3.333333E-01   -3.333333E-01    0.000000E+00
+           -3.333333E-01   -3.333333E-01    0.000000E+00
+            0.000000E+00    0.000000E+00    3.333333E-01
+            3.333333E-01    0.000000E+00    3.333333E-01
+           -3.333333E-01    0.000000E+00    3.333333E-01
+            0.000000E+00    3.333333E-01    3.333333E-01
+            3.333333E-01    3.333333E-01    3.333333E-01
+           -3.333333E-01    3.333333E-01    3.333333E-01
+            0.000000E+00   -3.333333E-01    3.333333E-01
+            3.333333E-01   -3.333333E-01    3.333333E-01
+           -3.333333E-01   -3.333333E-01    3.333333E-01
+            0.000000E+00    0.000000E+00   -3.333333E-01
+            3.333333E-01    0.000000E+00   -3.333333E-01
+           -3.333333E-01    0.000000E+00   -3.333333E-01
+            0.000000E+00    3.333333E-01   -3.333333E-01
+            3.333333E-01    3.333333E-01   -3.333333E-01
+           -3.333333E-01    3.333333E-01   -3.333333E-01
+            0.000000E+00   -3.333333E-01   -3.333333E-01
+            3.333333E-01   -3.333333E-01   -3.333333E-01
+           -3.333333E-01   -3.333333E-01   -3.333333E-01
+ wtk =
+          0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04
+          0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04  0.04
+          0.04  0.04  0.04  0.04  0.04  0.04  0.04
+   occ =
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+          2.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+ tnons =
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+          0.000000  0.000000  0.000000    0.250000  0.250000  0.250000
+  znucl= 14.00
+
+ Pseudopotential info :
+ title=2 bohr rc 15 hartree ec psp for silicon 8 November 1991 (new)
+  znuclpsp= 14.00, zionpsp=  4.00, pspso=  0, pspdat=980710, pspcod=  5, pspxc=  3
+  lmnmax  =  4
+ 
+ Last record :
+ residm,etot,fermie=    9.009961E-13   -7.817057267462E+00    0.000000E+00
+ xred =
+            0.000000E+00    0.000000E+00    0.000000E+00
+            2.500000E-01    2.500000E-01    2.500000E-01
+ End the ECHO of the ABINIT file header 
+ ===============================================================================
+
+ ===========================================================
+
+ ECHO important input variables ...
+
+  Dimensional primitive vectors (ABINIT equivalent : rprimd):
+    0.000000E+00    5.102263E+00    5.102263E+00
+    5.102263E+00    0.000000E+00    5.102263E+00
+    5.102263E+00    5.102263E+00    0.000000E+00
+  Grid density (ABINIT equivalent : ngfft):    15   15   15
+  Number of atoms       :           2
+  Number of atomic types:           1
+
+   #    Atomic positions (cartesian coordinates - Bohr)
+   1    0.000000E+00    0.000000E+00    0.000000E+00
+   2    2.551131E+00    2.551131E+00    2.551131E+00
+
+  This file is a WF file. 
+  If you want to analyze one wavefunction,                   type  0 
+  If you want to construct Wannier-type Localized Orbitals,  type  2 
+  You typed            2
+ instrng :    42 lines of input have been read
+
+ Echoing out the read input variables for WLO calculation:
+
+ ncenter        4
+ norb           4
+ supercell      3   3   3
+ wfcell         3   3   3
+ alpha           1.000000E+00
+ lofwrite       1
+ shiftk          0.000000E+00    0.000000E+00    0.000000E+00
+ insmet         1
+ efermi          0.000000E+00
+ tsmear          0.000000E+00
+ For each atom :        rcoord(1:3)                                 numorb
+           1    1.250000E-01    1.250000E-01    1.250000E-01          1
+           2    6.250000E-01    1.250000E-01    1.250000E-01          1
+           3    1.250000E-01    6.250000E-01    1.250000E-01          1
+           4    1.250000E-01    1.250000E-01    6.250000E-01          1
+ For each orbital : spin, ltypeorb     and      rtheta(1:3) 
+           1         1         1        0.000000E+00    0.000000E+00    0.000000E+00
+           2         1         1        0.000000E+00    0.000000E+00    0.000000E+00
+           3         1         1        0.000000E+00    0.000000E+00    0.000000E+00
+           4         1         1        0.000000E+00    0.000000E+00    0.000000E+00
+ wfconstrctn    4
+ They are :
+    1   2   3   4
+ real space grids:    15    15    15
+ k space grids:     3     3     3
+ rlx rly rlz    1.020453E+01    1.020453E+01    1.020453E+01
+ Box width outside which localized template is set to zero:
+          15  x           15  x           15
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   1   1
+ folded to:   3   3   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   1   1
+ folded to:   1   3   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   1   1
+ folded to:   2   3   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   2   1
+ folded to:   3   1   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   2   1
+ folded to:   1   1   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   2   1
+ folded to:   2   1   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   3   1
+ folded to:   3   2   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   3   1
+ folded to:   1   2   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   3   1
+ folded to:   2   2   3
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   1   2
+ folded to:   3   3   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   1   2
+ folded to:   1   3   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   1   2
+ folded to:   2   3   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   2   2
+ folded to:   3   1   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   2   2
+ folded to:   1   1   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   2   2
+ folded to:   2   1   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   3   2
+ folded to:   3   2   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   3   2
+ folded to:   1   2   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   3   2
+ folded to:   2   2   1
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   1   3
+ folded to:   3   3   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   1   3
+ folded to:   1   3   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   1   3
+ folded to:   2   3   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   2   3
+ folded to:   3   1   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   2   3
+ folded to:   1   1   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   2   3
+ folded to:   2   1   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    1   3   3
+ folded to:   3   2   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    2   3   3
+ folded to:   1   2   2
+ Doing : Overlap matrix and its singular value decomposition 
+ kpoint index:    3   3   3
+ folded to:   2   2   2
+  reading
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   1   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   1   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   1   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   2   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   2   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   2   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   3   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   3   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   3   1
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   1   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   1   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   1   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   2   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   2   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   2   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   3   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   3   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   3   2
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   1   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   1   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   1   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   2   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   2   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   2   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    1   3   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    2   3   3
+  Doing : WLO construction.
+  WLO index:           1
+ kpoint index :    3   3   3
+  ========================
+  WLO :            1 csppol:           1
+  normalization:     1.0000000010234547     
+  qo center x   1.2696395046543687     
+  qo center y   1.2696395138184571     
+  qo center z   1.2696395169745938     
+ -----------------------------
+  loclength_x*x   2.0492663383125547     
+  loclength_y*y   2.0492663098269586     
+  loclength_z*z   2.0492662863182995     
+ mid points :   23   23   23
+ center sites :   25   25   25
+ plotting range of LO :
+ plot x :   11   40
+ plot y :   11   40
+ plot z :   11   40
+ ng :   15   15   15
+        45   45   45
+-wanmax:   25   25   25
+ ( 6.03660079989683240E-002,-3.16484924092726844E-010)
+ norm enclosed:  0.98902703946171222     
+  reading
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   1   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   1   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   1   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   2   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   2   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   2   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   3   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   3   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   3   1
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   1   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   1   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   1   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   2   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   2   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   2   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   3   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   3   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   3   2
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   1   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   1   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   1   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   2   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   2   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   2   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    1   3   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    2   3   3
+  Doing : WLO construction.
+  WLO index:           2
+ kpoint index :    3   3   3
+  ========================
+  WLO :            2 csppol:           1
+  normalization:     1.0000000020627500     
+  qo center x   1.2696392265948180     
+  qo center y   3.6702853122589914     
+  qo center z   3.6702853221116536     
+ -----------------------------
+  loclength_x*x   2.0492674448147721     
+  loclength_y*y   3.2464917882935058     
+  loclength_z*z   3.2464917921499854     
+ mid points :   23   23   23
+ center sites :   32   25   25
+ plotting range of LO :
+ plot x :   16   45
+ plot y :   11   40
+ plot z :   11   40
+ ng :   15   15   15
+        45   45   45
+-wanmax:   32   25   25
+ ( 6.03660076917256344E-002, 1.36361180500893136E-009)
+ norm enclosed:  0.98388528485105498     
+  reading
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   1   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   1   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   1   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   2   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   2   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   2   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   3   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   3   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   3   1
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   1   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   1   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   1   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   2   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   2   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   2   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   3   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   3   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   3   2
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   1   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   1   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   1   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   2   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   2   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   2   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    1   3   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    2   3   3
+  Doing : WLO construction.
+  WLO index:           3
+ kpoint index :    3   3   3
+  ========================
+  WLO :            3 csppol:           1
+  normalization:     1.0000000020367175     
+  qo center x   3.6702853160695894     
+  qo center y   1.2696392195727721     
+  qo center z   3.6702853190406310     
+ -----------------------------
+  loclength_x*x   3.2464918555802438     
+  loclength_y*y   2.0492674320706170     
+  loclength_z*z   3.2464918664781912     
+ mid points :   23   23   23
+ center sites :   25   32   25
+ plotting range of LO :
+ plot x :   11   40
+ plot y :   16   45
+ plot z :   11   40
+ ng :   15   15   15
+        45   45   45
+-wanmax:   25   32   25
+ ( 6.03660077511078350E-002, 1.61622913332734700E-009)
+ norm enclosed:  0.98388528420634347     
+  reading
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   1   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   1   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   1   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   2   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   2   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   2   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   3   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   3   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   3   1
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   1   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   1   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   1   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   2   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   2   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   2   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   3   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   3   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   3   2
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   1   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   1   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   1   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   2   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   2   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   2   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    1   3   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    2   3   3
+  Doing : WLO construction.
+  WLO index:           4
+ kpoint index :    3   3   3
+  ========================
+  WLO :            4 csppol:           1
+  normalization:     1.0000000020911675     
+  qo center x   3.6702853233146335     
+  qo center y   3.6702853041434436     
+  qo center z   1.2696392502696636     
+ -----------------------------
+  loclength_x*x   3.2464917236126691     
+  loclength_y*y   3.2464917639897628     
+  loclength_z*z   2.0492673873600662     
+ mid points :   23   23   23
+ center sites :   25   25   32
+ plotting range of LO :
+ plot x :   11   40
+ plot y :   11   40
+ plot z :   16   45
+ ng :   15   15   15
+        45   45   45
+-wanmax:   25   25   32
+ ( 6.03660077195247308E-002, 1.32557805224052776E-009)
+ norm enclosed:  0.98388528452987889     
+  
+  ###################################################### 
+  
+  Localized orbital files fort.1**1 for spin up 
+                      and fort.1**2 for spin dn written.
+  
+  ###################################################### 
+
+  Thank you for using me
+

@@ -1,0 +1,22 @@
+#Driver
+
+surf  1 # build the Bader surface
+crit  2 # determine the critical points
+atom  1 # The basin of attraction of atom 1 will be examined
+gpsurf 1 # output for GNUplot
+irho  1  # drives the integration of the Bader charge
+
+#Parameter
+
+# nsa 2  #  one might gain a bit of cpu time
+# nsb 2  #  by using these values, smaller than the default 
+# nsc 2 
+
+inpt 50     # This value is suitable 
+ntheta 5   # This value is much too small
+nphi 5     # This value is much too small
+thetamax   1.57079632679   # These two variables define an octant
+phimax   1.57079632679     #
+maxatd   14.0   # Important to include enough starting atoms,
+                # in this system with quite large separations between atoms
+

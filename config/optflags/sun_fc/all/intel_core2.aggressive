@@ -1,0 +1,3 @@
+FCFLAGS_OPT="-xO4 -fround=nearest -xtarget=pentium4 -xarch=sse2 -xlibmil -xlibmopt -xvector=simd -xipo -xjobs=3"
+FC_LDFLAGS_OPT="-xvector=simd -xipo"
+fcflags_opt_15common="-xO2 -fround=nearest -xtarget=pentium4 -xarch=sse2"

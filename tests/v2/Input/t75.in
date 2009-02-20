@@ -1,0 +1,69 @@
+# Rhombohedral Bi treated as a metal ; 2 special points
+# Comparison of forces without and with spin-orbit
+# The value of u is not the equilibrium one.
+
+ ndtset 7
+#ndtset 1 jdtset 4  nstep4 1 nline 1    prtvol -10
+
+#Datasets 1-3 : without spin-orbit
+ nband1 6
+ xred1  3*0.230d0
+       3*-0.230d0
+
+ nband2   6
+ xred2    3*0.231d0
+          3*-0.231d0
+ getwfk2 -1
+
+ nband3   6
+ xred3  3*0.232d0
+       3*-0.232d0
+ getwfk3 -1
+
+#Fourth dataset : nspinor=2, without spin-orbit
+ nband4   12
+ nspinor4  2
+ so_psp4   0 
+ xred4  3*0.231d0
+       3*-0.231d0
+ getwfk4   2
+
+
+#Dataset 5-7 : nspinor=2, with spin-orbit
+ nband5   12
+ nspinor5  2
+ xred5  3*0.230d0
+       3*-0.230d0
+ getwfk5   1
+
+ nband6   12
+ nspinor6  2
+ xred6  3*0.231d0
+       3*-0.231d0
+ getwfk6   4
+
+ nband7   12
+ nspinor7  2
+ xred7  3*0.232d0
+       3*-0.232d0
+ getwfk7   6
+
+
+
+
+#Common data
+ acell 3*9.00d0
+ angdeg 3*57.25d0
+ ecut  2.0d0
+ kptopt 1
+ natom  2 
+ ngkpt 2 2 2 
+ nstep 20
+ ntypat  1
+ occopt  4  
+ toldff  1.0d-7 
+ tsmear 0.02d0
+ typat  1 1
+ znucl 83.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,396 @@
+<html><head><title>ABINIT. Elphon tutorial </title></head>
+<body bgcolor="#ffffff">
+
+<hr>
+<h1>ABINIT, Elphon lesson of the tutorial: </h1>
+<h2>Electron-Phonon interaction and superconducting properties of Al. 
+</h2>
+<hr>
+<p>This lesson demonstrates how to obtain
+the following physical properties, for a metal :
+</p><ul>
+<li>the phonon linewidths (lifetimes) due to the electron-phonon interaction</li>
+<li>the Eliashberg spectral function</li>
+<li>the coupling strength</li>
+<li>the McMillan critical temperature</li>
+</ul>
+Here you will learn to use the electron-phonon coupling part of the anaddb
+utility. This implies a preliminary calculation of the electron-phonon matrix
+elements and phonon frequencies and eigenvectors, from a standard ABINIT 
+phonon calculation, which will be reviewed succinctly.
+
+<p>This lesson should take about 1 hour to be done.
+
+</p><h5>Copyright (C) 2005-2008 ABINIT group (MVer)
+<br> This file is distributed under the terms of the GNU General Public License, see
+~abinit/COPYING or <a href="http://www.gnu.org/copyleft/gpl.txt">
+http://www.gnu.org/copyleft/gpl.txt </a>.
+<br> For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+</h5>
+
+<hr align="left">
+Goto :
+<a href="http://www.abinit.org/"><b>ABINIT home Page</b></a>
+<b> | </b>
+<a href="../users/acknowledgments.html"><b>Suggested acknowledgments</b></a>
+<b> | </b>
+<a href="../input_variables/keyhr.html"><b>List of input variables</b></a>
+<b> | </b>
+<a href="welcome.html"><b>Tutorial home page</b></a>
+<b> | </b>
+<a href="../users/bibliography.html"><b>Bibliography</b></a>
+<hr align="left">
+Help files :
+<a href="../users/new_user_guide.html"><b>New user's guide</b></a>
+<b> | </b>
+<a href="../users/abinis_help.html"><b>Abinis (main)</b></a>
+<b> | </b>
+<a href="../users/respfn_help.html"><b>Abinis (respfn)</b></a>
+<b> | </b>
+<a href="../users/mrgddb_help.html"><b>Mrgddb</b></a>
+<b> | </b>
+<a href="../users/anaddb_help.html"><b>Anaddb</b></a>
+<B> | </B>
+<A href="../users/aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="../users/cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="../users/optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="../users/mrgscr_help.html"><B>Mrgscr</B></A>
+<hr align="left">
+
+<br>&nbsp;
+<h3><b>Content of lesson Elphon</b></h3>
+
+<ul>
+	<li><a href="lesson_elphon.html#E1">1</a> Calculation of the ground state and phonon structure of fcc Al.</li>
+	<li><a href="lesson_elphon.html#E2">2</a> Merging of the 2DTE _DDB files using MRGDDB.</li>
+	<li><a href="lesson_elphon.html#E3">3</a> Extraction and merging of the electron-phonon matrix elements using MRGGKK.</li>
+	<li><a href="lesson_elphon.html#E4">4</a> Basic ANADDB calculation of electron-phonon quantities.</li>
+	<li><a href="lesson_elphon.html#E5">5</a> Convergence tests of the integration techniques.</li>
+</ul>
+
+<hr>
+
+<p><a name="E1"></a><br> </p>
+
+<h3><b>1. Calculation of the ground state and phonon structure of fcc Al.</b> </h3>
+<h3>&nbsp;</h3>
+
+<p> <i>Before beginning, you might consider making a different subdirectory to
+	work in. 
+Why not create "Work_elphon" in ~abinit/tests/tutorespfn/Input ?
+</i> <br> </p>
+
+<p> It is presumed that the user has already followed the Tutorials
+      <a href="lesson_rf1.html" target="kwimg">RF1</a> 
+and <a href="lesson_rf2.html" target="kwimg">RF2</a>, and understands the calculation of
+ground state and response function (phonon) properties with ABINIT.</p>
+
+<p> The file ~abinit/tests/tutorespfn/Input/telphon_1.files lists the file names and root names for the first run
+(GS+perturbations). You can copy it to the working directory.
+You can also copy the file ~abinit/tests/tutorespfn/Input/telphon_1.in to your working
+directory.  This is your input file.</p>
+
+<li><i>cp ../telphon_1.files . </i></li>
+<li><i>cp ../telphon_1.in . </i></li>
+
+<p>In order to save time, you should immediately start this run ; the input files
+will be examined later ... </p>
+
+<pre>
+../../abinis < telphon_1.files > ,log &
+</pre>
+
+<p>The calculation is done using minimal values of a number of
+parameters, in order to make it tractable in a time appropriate
+for a tutorial. The results will be completely unconverged, but by the end of
+the lesson you should know how to improve the convergence.  
+<p>Edit the file telphon_1.in. We now examine several variables.
+The kinetic energy cutoff <a
+	href="../input_variables/varbas.html#ecut"
+	target="kwimg">ecut</a> is a bit low, and the number of kpoints
+(determined by <a href="../input_variables/varbas.html#ngkpt"
+	target="kwimg">ngkpt</a>) is much too low. Electron-phonon calculations
+require a very precise determination of the Fermi surface of the metal. This
+implies a very dense kpoint mesh, and the convergence of the grid must be
+checked. In our case, for Al, we will use a 4x4x4 kpoint grid, but a converged
+calculation needs more than 16x16x16 points. This will be re-considered in
+section <a href="lesson_Elphon.html#E5">5</a>. The qpoint grid will be 2x2x2,
+must be a sub-grid of the full kpoint grid, and must contain &Gamma;.</p>
+
+<p> The value of <a
+	href="../input_variables/varbas.html#acell"
+	target="kwimg">acell</a> is fixed to a rounded value from experiment.
+It too should be converged to get physical results (see <a
+	href="lesson_3.html"
+	target="kwimg"> Tutorial 3</a>).</p>
+  
+<p> Note that the value of 1.0E-14 for <a
+	href="../input_variables/varbas.html#tolwfr"
+	target="kwimg">tolwfr</a> is tight, and could be even lower (down to
+1.0E-20). This is because the wavefunctions determined will be included later
+explicitly in the matrix elements used in ANADDB (as opposed to only energy
+values or densities, which are averages of the wavefunctions over kpoints and
+bands). </p>
+  
+<p> Run the first input (a few minutes on a PC), and you should obtain a value
+of <pre> etotal -2.0828579336121 Ha </pre> for the energy at the end of DATASET
+1.  The following datasets calculate the second order energy variations under
+atomic displacement in the three reduced directions of the fcc unit cell. This
+is done for three different phonons, Gamma, (1/2,0,0), and X, which generate
+the 2x2x2 qpoint grid. The whole calculation follows the same lines as <a
+	href="lesson_rf1.html"
+target="kwimg"> Tutorial RF1</a>. As an example, DATASET 6 calculates the
+wavefunctions at k+q for k in the ground state kpoint mesh, and q=(1/2,0,0).
+Then, DATASET 7 calculates <pre> 2DTE 0.80951882353353 </pre> for the
+second-order energy variation for movement of the (unique) atom along the first
+reduced direction for q=(1/2,0,0). The main differences with <a
+	href="lesson_rf1.html"
+	target="kwimg"> Tutorial RF1</a> are that 
+<ul>
+<li>1) given we are dealing with a
+metal, no perturbation wrt electric fields is considered ;</li>
+<li>2) all of the
+perturbations in the three directions (for each atom) must be done explicitly.</li> 
+</ul>
+In the standard case, ABINIT uses symmetry operations and non-stationary
+expressions to calculate a minimal number of 2DTE for different mixed second
+derivatives of the total energy. In our case we use the first derivatives, and
+they must all be calculated explicitly. This is why each perturbation
+is treated in a different dataset.</p>
+
+<p> You are now the proud owner of 9 first-order wavefunction files (suffixed
+_1WFx), corresponding to the three directional perturbations of the atom at
+each of the three qpoints. The _1WF files contain the first-order wavefunctions
+(which we do not need) and the matrix elements of the electron-phonon
+interaction, which we will extract and use in the following. Besides the _1WF
+files there are the _DDB files for each perturbation which contain the 2DTE for
+the different phonons wavevectors q.</p>
+
+<p></p>
+
+<hr>
+<p><a name="E2"></a><br></p>
+
+<h3><b>2. Merging of the 2DTE _DDB files using MRGDDB.</b> </h3>
+<h3>&nbsp;</h3>
+
+<p> You can copy the file ~abinit/tests/tutorespfn/Input/telphon_2.in to your working directory. This is your input
+file for the <a href="../users/mrgddb_help.html"
+	target="kwimg">MRGDDB</a> utility, which will take the different _DDB
+files and merge them into a single one which ANADDB will use to determine the
+phonon frequencies and eigenvectors. telphon_2.in contains the name of the final
+file, a comment line, then the number of _DDB files to be merged and their
+names.</p>
+
+</p><a href="../users/mrgddb_help.html"
+target="kwimg">MRGDDB</a> is run with the command <pre> mrgddb < telphon_2.in </pre>
+It runs in a few seconds.<p>
+
+<p>
+</p><hr>
+
+
+
+<p><a name="E3"></a><br>
+
+</p><h3><b>3. Extraction and merging of the electron-phonon matrix elements using MRGGKK.</b> </h3>
+<h3>&nbsp;</h3>
+
+<p> A merge similar to that in the last section must be carried out for the
+electron-phonon matrix elements. This is done using the MRGGKK utility, and its
+input file is ~abinit/tests/tutorespfn/Input/telphon_3.in, shown below 
+<pre> 
+telphon_3o_GKK.bin   # Name of output file
+0                    # binary (0) or ascii (1) output
+telphon_1o_DS1_WFK   # GS wavefunction file
+9  0 0               # number of 1WF files, of GKK files, and of perturbations in the GKK files
+telphon_1o_DS3_1WF1  # names of the 1WF then the (eventual) GKK files
+telphon_1o_DS4_1WF2
+...</pre>
+The matrix element sections of all the _1WF files will be
+extracted and concatenated into one (binary) file, known as a _GKK file, and
+here named telphon_3o_GKK.bin.  The following lines in telphon_3.in give the output
+format (0 for binary), then the name of the ground state wavefunction file. The
+fourth line contains 3 integers, which give the number of _1WF files, the
+number of _GKK files, and the number of perturbations in the _GKK files. Thus,
+MRGGKK functions like <a
+	href="../users/mrgddb_help.html"
+	target="kwimg">MRGDDB</a>, and can merge a _1WF file with _GKK files
+which already contains several perturbations (qpoints or atomic displacements).
+For the simplest cases, we can keep the bulky _1WF files and merge them all at
+once. Finally, the names of the different _1WF and _GKK files are listed.</p>
+
+<p> MRGGKK will run on this example in a few seconds. In more general cases, the
+runtime will depend on the size of the system, and for a large number of bands or
+kpoints can extend up to 20 minutes or more. </p>
+
+</p><p>
+</p><hr>
+
+
+
+<p><a name="E4"></a><br>
+
+</p><h3><b>4. Basic ANADDB calculation of electron-phonon quantities.</b> </h3>
+<h3>&nbsp;</h3>
+
+<p>The general theory of electron-phonon coupling and Eliashberg
+superconductivity is reviewed in <i>Theory of Superconducting Tc, P.B. Allen
+	and B. Mitrovic in Sol. State Phys. <b>37</b> (1982) ed. Ehrenreich,
+	Seitz, and Turnbull</i>. The first implementations similar to that in
+ABINIT are those in <i>S.Y. Savrasov and D.Y. Savrasov, Phys. Rev. B
+	<b>54</b> 16487 (1996)</i> and <i>A.Y. Liu and A.A. Quong, Phys.
+	Rev. B <b>53</b> R7575-R7579 (1996)</i>.</p>
+
+<p> File ~abinit/tests/tutorespfn/Input/telphon_4.in contains the input needed by ANADDB to carry out the
+calculation of the electron-phonon quantities. ANADDB takes a files file,
+just like ABINIS, which tells it where to find the input, ddb, and gkk files,
+and what to name the output, thermodynamical output, and electron phonon
+output files. ~abinit/tests/tutorespfn/Input/telphon_4.files is your files file for ANADDB. You can
+edit it now.</p>
+
+<p> The new variables are at the head of the file:
+<pre>
+# turn on calculation of the electron-phonon quantities
+elphflag 1
+
+# Path in reciprocal space along which the phonon linewidths
+#  and band structure will be calculated
+nqpath 7
+qpath
+ 0.0 0.0 0.0
+ 1/2 1/2 0.0
+ 1   1   1
+ 1/2 1/2 1/2
+ 1/2 1/2 0.0
+ 1/2 3/4 1/4
+ 1/2 1/2 1/2
+
+# Coulomb pseudopotential parameter
+mustar 0.136</pre> <a
+href="../users/anaddb_help.html#elphflag"
+target="kwimg"> elphflag</a> is a flag to turn on the calculation of the
+electron-phonon quantities. The first quantities which will be calculated are
+the phonon linewidths along a path in reciprocal space (exactly like the band
+structure in <a
+	href="lesson_3.html#35"
+	target="kwimg">Lesson 3.5</a>). The path is specified by the variable
+<a href="../users/anaddb_help.html#qpath"
+	target="kwimg">qpath</a> giving the apexes of the path in reciprocal
+space, which are usually special points of high symmetry. The number of points
+is given by <a href="../users/anaddb_help.html#nqpath"
+	target="kwimg">nqpath</a>. The phonon linewidths are printed to a file
+suffixed _LWD.</p>
+
+<p>The phonon linewidths are proportional to the electron phonon coupling, and
+still depend on the phonon wavevector q. The other electron-phonon calculations
+which are presently implemented in ANADDB, in particular for superconductivity,
+determine isotropic quantities, which are averaged over the Fermi surface.
+Integrating the coupling over reciprocal space, but keeping the resolution in
+the phonon mode's energy, one calculates the Eliashberg spectral function
+&alpha;&#178;F. The &alpha;&#178;F function is similar to the density of states
+of the phonons, but is weighted according to the coupling of the phonons to the
+electrons. It is output to a file with suffix _A2F, which is ready to be
+represented using any graphical software (Xmgr, matlab, OpenDX...). The first
+inverse moment of &alpha;&#178;F gives the global coupling strength, or mass
+renormalization factor, &lambda;. From &lambda;, using the McMillan formula
+(<i>Phys. Rev. <b>167</b> 331-344 (1968)</i>),
+ANADDB calculates the critical temperature for superconductivity. The formula
+contains an adjustable parameter &mu; which approximates the effect of Coulomb
+interactions, and is given by the input variable <a
+	href="../users/anaddb_help.html#mustar"
+	target="kwimg">mustar</a>. For Al with the kpoint grid given and a
+value of &mu;=0.136 the ANADDB output file shows a value of
+<pre>
+ mka2f: isotropic lambda =     1.578052E+01
+ mka2f: omegalog  =     1.779895E-04 (Ha)     5.620458E+01 (Kelvin)
+ mka2f: input mustar =     1.360000E-01
+ mka2f: MacMillan Tc =     4.382426E-05 (Ha)     1.383859E+01 (Kelvin)
+</pre>
+As expected, this is a fairly bad estimation of the experimental value of 1.2
+K. The coupling strength is severely overestimated (experiment gives 0.44), and
+the logarithmic average frequency is too low, but not nearly enough to
+compensate &lambda;. Aluminum is a good case in which things can be improved,
+because its Fermi surface is isotropic (adapted to the approximations in the
+present version of ABINIT) and the coupling is weak.</p>
+
+</p><p>
+</p><hr>
+
+
+
+<p><a name="E5"></a><br>
+
+</p><h3><b>5. Convergence tests of the integration techniques.</b> </h3>
+<h3>&nbsp;</h3>
+
+<p> In section <a href="lesson_elphon.html#E4">4</a>, we used the default
+method for integration on the Fermi surface, which employs a smearing of the
+DOS and attributes Gaussian weights to each kpoint as a function of its
+distance from the Fermi surface.  Another popular method of integration in
+k-space is the tetrahedron method, which is also implemented in ANADDB, and can
+be used by setting <a
+	href="../users/anaddb_help.html#telphint"
+	target="kwimg">telphint</a> = 0. In this case the kpoint grid must be
+specified explicitly in the input, repeating the variable <a
+	href="../users/anaddb_help.html#kptrlatt"
+	target="kwimg">kptrlatt</a> from the ABINIT output, so that ANADDB can
+re-construct the different tetrahedra which fill the reciprocal unit cell. In
+the Gaussian case, the width of the smearing can be controlled using the input
+variable <a href="../users/anaddb_help.html#elphsmear"
+	target="kwimg">elphsmear</a>. </p>
+
+<p> To test our calculations, they should be re-done with a denser kpoint grid
+and a denser qpoint grid, until the results (&alpha;&#178;F or &lambda;) are
+converged. The value of <a
+	href="../users/anaddb_help.html#elphsmear"
+	target="kwimg">elphsmear</a> should also be checked, to make sure that
+it does not affect results. Normally, the limit for <a
+	href="../users/anaddb_help.html#elphsmear"
+	target="kwimg">elphsmear</a> very small and a very dense kpoint grid is
+the same as the value obtained with the tetrahedron method (usually converged
+with a sparser kpoint grid). </p>
+
+<p>Edit input file ~abinit/tests/tutorespfn/Input/telphon_5.in and you will see the main difference with telphon_4.in
+is the choice of the tetrahedron integration method. If you are patient, save
+the output _LWD and _A2F files and run the full lesson again with a denser
+kpoint grid (say, 6x6x6) and you will be able to observe the differences in
+convergence.</p>
+
+<hr align="left">
+Goto :
+<a href="http://www.abinit.org/"><b>ABINIT home Page</b></a>
+<b> | </b>
+<a href="../users/acknowledgments.html"><b>Suggested acknowledgments</b></a>
+<b> | </b>
+<a href="../input_variables/keyhr.html"><b>List of input variables</b></a>
+<b> | </b>
+<a href="welcome.html"><b>Tutorial home page</b></a>
+<b> | </b>
+<a href="../users/bibliography.html"><b>Bibliography</b></a>
+<hr align="left">
+Help files :
+<a href="../users/new_user_guide.html"><b>New user's guide</b></a>
+<b> | </b>
+<a href="../users/abinis_help.html"><b>Abinis (main)</b></a>
+<b> | </b>
+<a href="../users/respfn_help.html"><b>Abinis (respfn)</b></a>
+<b> | </b>
+<a href="../users/mrgddb_help.html"><b>Mrgddb</b></a>
+<b> | </b>
+<a href="../users/anaddb_help.html"><b>Anaddb</b></a>
+<B> | </B>
+<A href="../users/aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="../users/cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="../users/optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="../users/mrgscr_help.html"><B>Mrgscr</B></A>
+<hr align="left">
+
+
+</body></html>

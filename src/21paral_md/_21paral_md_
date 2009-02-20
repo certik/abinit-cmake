@@ -1,0 +1,24 @@
+!!****d* ABINIT/21paral_md
+!! NAME
+!! 21paral_md
+!!
+!! DESCRIPTION
+!! This directory contains upper level routines that
+!! have two versions, one sequential, and one MPI-parallel.
+!! So, they must be handled in a special way.
+!! The unique source present in this directory
+!! for each routine, is preprocessed, and gives
+!! two different binaries. These are gathered in two different
+!! archive files.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2008 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! pstate.F90
+!!
+!!***

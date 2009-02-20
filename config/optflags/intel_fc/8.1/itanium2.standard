@@ -1,0 +1,4 @@
+FCFLAGS_OPT="-O3 -tpp2"
+fcflags_opt_13nonlocal="-O0"
+fcflags_opt_17suscep="-O2"
+fcflags_opt_18seqpar="-O2 -tpp2"

@@ -1,0 +1,49 @@
+# Help
+help:
+	@cat $(top_srcdir)/doc/help_make/help_make_src
+
+# ---------------------------------------------------------------------------- #
+
+# Creation of parent subroutines
+parents:
+	$(PERL) ../util/maintainers/parents.pl -s
+	rm -f *.old */*.old
+
+# ---------------------------------------------------------------------------- #
+# Beautify ABINIT sources (indentation)
+abiauty:
+	@echo 'Reporting possible errors in the abiauty procedure' > ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d lib01cg >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 00basis >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 11util >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 11contract >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 12spacepar >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 12parser >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 12geometry >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 12nlstrain >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13xml >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13xc >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13recipspace >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13paw >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13iovars >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13nonlocal >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13psp >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 13ionetcdf >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 14wfs >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 14wvl_wfs >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 14iowfdenpot >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 14bader >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 14occeig >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 15common >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 15recursion >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 15rsprc >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 16response >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 16geomoptim >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 17suscep >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 17lwf >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 17ddb >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 19cut3d >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 21drive >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d 21rdm >> ,,abiauty.log
+	@$(PERL) ../util/maintainers/abiauty.pl -d main >> ,,abiauty.log
+

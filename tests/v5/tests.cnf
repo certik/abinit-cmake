@@ -1,0 +1,173 @@
+# Title:
+Suite v5 of various tests of abinit
+# This suite of tests has been established during the
+# development of the version 5.x of ABINIT.
+# Before running RunTests.pl with this file, read README in this directory.
+#
+# Copyright (C) 2003-2008 ABINIT group (LSi)
+# This file is distributed under the terms of the
+# GNU General Public License, see ~abinit/COPYING
+# or http://www.gnu.org/copyleft/gpl.txt .
+# For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+#
+# for all the following tests, use unix-style file paths
+# they will be converted by function transpath if necessary
+# file paths may contain a perl variable (e.g. $PSPS)
+#
+#   The following lines describe the tests to be run. The general syntax of
+# these lines is:	[testID | end] [command | program] parameters.
+#
+#   The first word is the test identification. All consecutive lines that begin
+# with the same word will be executed in that order. "testID" can be 'end' to
+# signal the normal end of a tests sequence: multiple 'end's are allowed.
+#   The second word specifies an ABINIT module or system command to be run. The
+# following system commands are available: copy, erase
+# The following keywords refer to ABINIT programs:
+# 	abinis | seq	exercise the sequential version of abinis
+#	aim		exercise the atom-in-molecule Bader analysis
+#	ana | anaddb	exercise anaddb
+#	band2eps	exercise band2eps
+#	cut3d		exercise cut3d
+#	conducti	exercise conducti
+#	lwf		exercise lwf
+#	macroave	exercise macroave
+#	mrg | mrgddb	exercise mrgddb
+#	newsp		exercise newsp
+#
+#   parameters for copy and erase are file or directory names
+#
+#   parameters for mrgddb must comply to the following format:
+#	[fn1] 'short description' (fn2 fn3 ... fnLast)
+#   fn2 ... fnLast can reside in the Test directory as normal or g-zipped files
+# they will be copied, and unzipped if necessary, to the working directory
+# before the test and the copy will be deleted after
+#
+#   parameters for the other programs are either file paths derived from the
+# subroutines 'doseqtest', 'newsptest', ... in the old Run.pl scripts, or
+# options to tailor the flow of results analysis and other operations before
+# or after the tests;
+# format for file paths is: fnI=path
+# format for pseudo-potential file paths is: pspI=path
+# format for the GEO file is: GEO=path
+# format for the DS3_DOS_AT000x file name is: DS3AT=path
+# format for options is: opt=option
+# option can be either a standard option of the fldiff script (-easy , -medium , -ridiculous),
+# options to tailor the analysis of the results after test completion:
+#	-nofld	don't run fldiff
+#	-diflog  apply diff/fldiff to the .log file
+#	-DOS	apply diff/fldiff to the o_DOS file
+#	-DS2	apply diff/fldiff to the o_DS2_DOS file
+#	+xml	also apply diff/fldiff to the CML.xml file
+# or the following options to modify the flow of operations during the test:
+#     -keepfn4
+# default options to call fldiff are: -ignore -ignoreP
+#
+#   Default file names for the test with Id NNN (1 to 3 characters string):
+#
+#
+# 1) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6, psp1 = 79au.1.hgh
+# fn7-fn9,psps2-4=none
+# 2) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6, psp1 = 79au.1.hgh
+# fn7-fn9,psps2-4=none
+# 3) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6, psp1 = 79au.1.hgh
+# fn7-fn9,psps2-4=none
+# 4) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 = tNNN
+# fn6, psp1 = 79au.1.hgh
+# fn7-fn9,psps2-4=none
+
+#
+# 7) abinis/seq
+# fn1 = ../tNNN.in
+# fn2 = tNNN.out
+# fn3 =	tNNNi
+# fn4 = tNNNo
+# fn5 =	tNNN
+# fn6, psp1 = 01h.pspgth
+# fn7-fn9,psps2-4=none
+
+01 seq psp1=79au.1.hgh opt=-medium
+#02 seq psp1=79au.1.hgh opt=-medium # presently can't be done
+03 seq psp1=79au.1.hgh opt=-medium
+04 seq psp1=79au.1.hgh opt=-medium
+08 seq psp1=28ni.paw psp2=8o.2.paw opt=-easy
+09 seq psp1=13al.paw opt=-easy
+10 conducti
+11 seq psp1=28ni.paw psp2=8o.2.paw opt=-easy
+#12 seq psp1=Na.noRSO.9e.pawps psp2=F.noRSO.rc1.4.pawps opt=-medium
+#13 seq psp1=Al.gga.uspp.paw psp2=As_ps.abinit.paw opt=-medium
+14 seq psp1=28ni.paw
+15 seq psp1=28ni.paw
+16 seq psp1=28ni.paw psp2=8o.2.paw opt=-medium
+17 seq psp1=83bi.paw opt=-medium
+18 seq psp1=28ni-gga.paw psp2=08o-gga.paw
+19 seq psp1=64gd.paw opt=-medium
+21 seq psp1=9f.pspnc psp2=17cl.pspnc psp3=82pb.4.hgh opt=-medium
+22 anaddb
+23 seq psp1=13al.pspnc psp2=33as.pspnc opt=-easy
+24 seq psp1=HGH/32ge.4.hgh psp2=HGH/52te.6.hgh opt=-easy
+25 seq psp1=HGH/82pb.4.hgh psp2=HGH/52te.6.hgh opt=-easy
+28 seq psp1=01h_WC.fhi
+31 seq psp1=83bi.psphgh
+32 cut3d opt=-logout
+33 cut3d opt=-logout
+34 seq psp1=si_ps.736.lda psp2=o_ps.736.lda opt=-medium
+35 seq psp1=si_ps.736.lda psp2=o_ps.736.lda opt=-medium
+41 seq psp1=13al.981214.fhi opt=-easy
+42 seq psp1=7n.pspnc psp2=7n.1s.psp_mod psp3=6c.pspnc psp4=1h.pspnc
+44 seq psp1=83bi_halfso.psphgh psp2=83bi.psphgh psp3=83bi.psphgh
+48 seq psp1=01h_WC.fhi
+49 seq psp1=14si_WC.fhi
+51 seq psp1=si_ps.736.lda psp2=o_ps.736.lda opt=-medium
+52 seq psp1=si_ps.736.pbe psp2=o_ps.736.pbe opt=-medium
+53 seq psp1=cu_ps.736.lda psp2=o_ps.736.lda opt=-medium
+54 seq psp1=14Si_pade-q4
+55 seq psp1=51Sb_pbe-q5
+56 seq psp1=dummy_atom
+57 seq psp1=dummy_atom
+58 seq psp1=11na.pspnc
+59 seq psp1=11na.pspnc
+60 seq psp1=14si.pspnc
+61 seq psp1=7n.psphgh
+62 seq psp1=1h.pspnc psp2=4be.pspnc opt=-easy
+63 seq psp1=1h.pspnc opt=-medium
+64 seq psp1=14si.pspnc psp2=08o_001023.pspfhi opt=-medium
+65 seq psp1=14si.pspnc psp2=6c.pspnc opt=-medium
+66 seq psp1=si_ps.736.lda opt=-medium
+67 seq psp1=6c.pspnc psp2=14si.pspnc opt=-medium
+68 seq psp1=1h.pspnc opt=-medium
+69 seq psp1=14si.pspnc psp2=6c.pspnc opt=-medium
+81 seq psp1=13al.981214.fhi
+85 seq psp1=13al.981214.fhi opt=-medium
+86 mrgddb desc='Al DDB file for elphon calculation' files=t85o_DS2_DDB,t85o_DS3_DDB,t85o_DS4_DDB opt=-medium
+87 mrggkk
+88 anaddb fn3=t86o fn5=t87o
+89 anaddb fn3=t86o fn5=t87o
+91 seq psp1=5b.3.hgh
+95 seq psp1=28ni.pspnc opt=-medium
+96 mrgddb desc='Ni DDB file for elphon calculation' files=t95o_DS2_DDB,t95o_DS3_DDB,t95o_DS4_DDB,t95o_DS5_DDB,t95o_DS6_DDB,t95o_DS7_DDB,t95o_DS8_DDB,t95o_DS9_DDB,t95o_DS10_DDB opt=-medium
+97 mrggkk
+98 anaddb fn3=t96o fn5=t97o opt=-easy
+make report

@@ -1,0 +1,38 @@
+#   ----------------------------------------
+#   -     Input file for Abinit            -
+#   - Ca, simple cubic , 2  k-point        -
+#   -     Testing GS  energy and lobpcg    -
+#   ----------------------------------------
+
+# 1-Parameters governing the convergence:
+# ---------------------------------------
+  ecut 3.  nband 6  nline 10  ntime 5  nstep 25
+  toldfe 1.d-8
+
+# 2-Options for the choice of calculation:
+# ----------------------------------------
+  ixc 7  occopt 7  tsmear 0.02
+  iprcch 0  intxc 0  fftalg 400
+  optcell 0  ionmov 0
+  so_psp 1
+  ortalg 1
+  wfoptalg 4
+  nbdblock 2
+
+# 3-Definition of the unit cell:
+# ------------------------------
+  acell 3.0 3.5 4.0
+  rprim  1.4  0.0  0.0
+         0.0  1.4  0.0
+         0.0  0.0  1.4
+  natom 1  ntypat 1
+  typat 1  znucl 20.
+  xred 0.00 0.00 0.00
+
+# 6-Definition of K-points :
+# --------------------------
+  nkpt 2
+  kpt 0  0  0
+     .3 .3 .3
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

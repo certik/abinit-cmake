@@ -1,0 +1,1 @@
+CFLAGS_OPT="-O3 -qarch=auto -qtune=auto -qstrict -qspill=2000"

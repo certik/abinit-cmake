@@ -1,0 +1,21 @@
+# Bidimensional layer of magnesium atoms
+# Hexagonal lattice
+# Examine the list of k points
+
+ prtkpt 1
+ kptopt 1
+ kptrlen 40.0d0
+
+ acell 2*6.0d0  10.0d0
+ angdeg 90.0d0 90.0d0 120.0d0
+
+ ecut 4.5
+ natom 1 
+ nstep 1
+ ntypat  1
+ tolvrs 3.0d-20
+ typat  1 
+ xcart 0.0 0.0 0.0
+ znucl 12.0
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,13 @@
+Case_01             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_02             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_03             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_04             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_05             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_09             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_10             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_11             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_12             tolnlines=    2   tolabs=  1.1e-7      tolrel= 2.0e-6
+Case_13             tolnlines=    2   tolabs=  1.1e-7      tolrel= 2.0e-6
+Case_20             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_21             tolnlines=    0   tolabs=  0.0         tolrel= 0.0
+Case_22             tolnlines=    0   tolabs=  0.0         tolrel= 0.0

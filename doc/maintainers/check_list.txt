@@ -1,0 +1,41 @@
+
+*******************************************************************
+
+Check_list
+
+Copyright (C) 2002-2008 ABINIT group (XG) 
+This file is distributed under the terms of the
+GNU General Public License, see ~abinit/COPYING
+or http://www.gnu.org/copyleft/gpl.txt .
+For the initials of contributors, 
+see ~abinit/doc/developers/contributors.txt .
+
+*******************************************************************
+
+A. For all releases (major, minor and bugfix) : 
+ src/make parents abirules 
+ then recompile and launch local tests
+ check+update release_notes, known_problems, contributors, 
+  also herald.F90 (if not done by abirules).
+ make robodoc infos_html   (only for testing purposes)
+
+B. For major and minor releases : 
+ check+update dirs_and_files, features, planning, 
+              install, presentation, theory
+ doc/make presentation theory
+ tests/make tests_input
+
+C. For all releases (major, minor and bugfix) :
+ make distribution
+ compile on different platforms and make corresponding dist
+
+D. Finalize :
+ check+update release_notes, contributors,
+   known_problems (list, machine list, closing date)
+ make distribution (including splitting)
+ make robodoc infos_html 
+ transfer to disk storage
+ write letter to JMB
+
+*******************************************************************
+

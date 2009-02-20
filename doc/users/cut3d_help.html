@@ -1,0 +1,337 @@
+<html>
+<head>
+<title>Cut3D help file</title>
+<link rel=stylesheet type="text/css" href="formabinit.css">
+</head>
+<body bgcolor="#ffffff">
+
+<h1>Help file for the Cut3D utility of the ABINIT package.</h1>
+
+<h3>This file explains the use and i/o parameters needed for
+the "Cut 3-Dimensional files" code of the ABINIT package.
+</h3>
+
+<p>This code is able to analyse the files produced by ABINIT,
+that contain 3-Dimensional real space data, like all types of potential
+files, density files. Wavefunction files data
+can also be analysed : first, a k-point number, 
+and the band number must be given, then, the corresponding
+wavefunction is transformed to real space.
+<p>
+In all these cases,
+thanks to Cut3D, one can obtain 2-Dimensional data
+corresponding to a cut by a plane, or 1-Dimensional
+data along a line. One can also translate the original
+formatting into many different ones. 
+<p>
+Finally, one can also
+perform angular momenta analysis of wavefunctions
+with respect to any given atom, computation
+of the Hirshfeld atomic charge (starting from a density file).
+Although Wannier functions can also be built, this is a deprecated
+feature. The use of Wannier90 library is to be preferred.
+</h3>
+
+<h5>Copyright (C) 1998-2008 ABINIT group (XG,RC,GMR,JFB,MCote,JBattacharjee)
+<br> This file is distributed under the terms of the GNU General Public License, see
+~abinit/COPYING or <a href="http://www.gnu.org/copyleft/gpl.txt">
+http://www.gnu.org/copyleft/gpl.txt </a>.
+<br> For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+</h5>
+
+<HR ALIGN=left>
+Goto :
+<A href="http://www.abinit.org"><B>ABINIT home Page</B></A>
+<B> | </B>
+<A href="acknowledgments.html"><B>Suggested acknowledgments</B></A>
+<B> | </B>
+<A href="../input_variables/keyhr.html"><B>List of input variables</B></A>
+<B> | </B>
+<A href="../tutorial/welcome.html"><B>Tutorial home page</B></A>
+<B> | </B>
+<A href="bibliography.html"><B>Bibliography</B></A>
+<HR ALIGN=left>
+Help files :
+<A href="new_user_guide.html"><B>New user's guide</B></A>
+<B> | </B>
+<A href="abinis_help.html"><B>Abinis (main)</B></A>
+<B> | </B>
+<A href="respfn_help.html"><B>Abinis (respfn)</B></A>
+<B> | </B>
+<A href="mrgddb_help.html"><B>Mrgddb</B></A>
+<B> | </B>
+<A href="anaddb_help.html"><B>Anaddb</B></A>
+<B> | </B>
+<A href="aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="mrgscr_help.html"><B>Mrgscr</B></A>
+<HR ALIGN=left>
+
+<h3><b>1. Running cut3d to analyse an unformatted file (_DEN, _POT, _WFK ...)</b></h3>
+
+To run cut3d, simply type :
+<pre>	
+     cut3d
+</pre>
+<br>
+     then, provide answer to the questions.
+<br>You will have to give first the name of the unformatted file. For example, t1xo_DEN. 
+<br>You will have to specify whether this file is formatted or unformatted.
+    Unformatted file corresponds to choice 1.
+
+<h4>1.a. Unformatted file, excluding a wavefunction file</h4>
+
+Supposing that you are not treating a wavefunction file, you will have to choose between different possibilities :
+<ul>
+ <li>1) computation of data for a point, to be specified</li>
+ <li>2) computation of data along a line, to be specified</li>
+ <li>3) computation of data on a 2D grid, to be specified</li>
+ <li>4) computation of data on a 3D grid, to be specified</li>
+ <li>5) conversion to formatted file</li>
+ <li>6) conversion to indexed formatted</li>
+ <li>7) conversion to Molekel format</li>
+ <li>8) conversion to 3D data with coordinates (tecplot ASCII format)</li>
+ <li>9) output .xsf file for XCrysDen</li>
+ <li>10) output .dx file for OpenDx</li>
+ <li>11) compute atomic charge using the Hirshfeld method</li>
+
+</ul>
+<p>
+     For option 1) you will have the possibility to specify
+     a point in reduced or cartesian coordinates.
+<p>
+     For option 2) you will have the possibility to specify
+     a line by its two end-points in reduced or 
+     cartesian coordinates, or by it being perpendicular to
+     some plane.
+<p>
+     For option 3) and 4) many possibilities are offered,  
+     including specifications thanks to points defined
+     in reduced coordinates, cartesian coordinates, 
+     or atomic positions.
+<p> 
+     For a wavefunction file, the two forms of outputs are : 
+     the bare data or a Data Explorer form.
+     The option 10 also produce input files to draw the molecules in Data
+     Explorer using modules and macros that JFB and MCote 
+     have developped.  Those modules and macros could be made public.
+<br> To continue the analysis, simply answer the questions of the code, that
+     should be sufficiently self-explanatory.
+
+<h4>1.b. Unformatted wavefunction file</h4>
+
+Instead, supposing that you are treating a wavefunction file, you will have 
+   to choose between the analysis of one wave function, or the construction
+   of Wannier functions (see the bottom of this help file). 
+   In the case in which you want to analyse one wavefunction,
+   you will have to define
+   the k point, the number of the band, and possibly the spin-polarization or the spinor component.
+<br>Then, you will be asked whether you want to perform the angular component analysis.
+   You will have to provide the radius of the sphere(s) around each atom,
+   for which the angular analysis will be performed.
+<br>Finally, you will be given the choice between different formatting
+    of the wavefunction real-space data, including bare files, or XCrysDen
+    or Data Explorer formatted files.
+<p>
+
+<HR ALIGN=left>
+
+<h3><b>2. Starting from a formatted file. </b></h3>
+
+<pre>
+     In the formatted case, one must have three different files :
+
+     - the formatted 3D function (for example mos.densout)
+      density or potential file in ASCII format
+      with nr1 x nr2 x nr3 lines of 1 float
+
+     - a file with complementary informations about the cell, the FFT grid ...
+      (always named cut.in)
+      Here is an example (6 lines):
+
+      mos.xyz
+      11.502384 6.0558159 16.295674  unit cell parameters (=acell)
+      1 0 0 0 1 0 -0.215 0 0.976     orientation of the unit cell axes (=rprim)
+      54 30 75                       grid size (= nr1,nr2,nr3, all three integers)
+      10                             number of atoms in the unit cell (= natom, integer)
+      2                              number of atomic types (=ntypat, integer)
+
+      The first line gives the name of the file with atomic positions (Xmol format) (=filtau)
+      No comment can appear on that line, in contrast with the other lines.
+
+     - the coordinate file
+      (for example mos.xyz)
+      Its format (similar to XMOL) is
+
+      On the first line the number of atoms (=natom) is provided.
+      Blank line
+      A list of natom lines containing :
+      Char (1 or 2 characters, = atom label) + 3 float (X, Y, Z cart. coord.)
+</pre>
+
+<HR ALIGN=left>
+
+<h3><b>3. Wannier type localized orbital calculations </b></h3>
+
+WARNING : This is a deprecated feature of Cut3d.
+Use of Wannier90 is to be preferred.
+<pre>
+In order to obtain Wannier type localized orbitals (WLO), you 
+have to type (or put in your input file) :
+
+ * 1st line : Name of the wavefunction file
+ * 2nd line : Fixed read option "1"
+ * 3rd line : option "2" to do WLO.
+ * 4th line : name of an "auxiliary" input file (name should not be more than 40 charater) file
+   to calculate WLO.
+
+Examples of "auxiliary" input files are given in the automatic tests
+Test_v4 cases 48 and 49.
+
+The subroutine localorb_S.F90 referred from cut3d.F90 constructs
+Wannier type localized orbitals (WLO) described in cond-mat/0509571 titles
+" Localized Orbital Description of Electronic Structure".
+
+Type of calculation
+-------------------
+
+These calculations run as a postprocessing of a wavefunction file
+having wfs at all kpoints in the Brillouin zone (this may be generated
+using kptopt 3 in a nonSCF calculation folloeing an SCF charge density
+calculation).
+
+1. Insulator type calculation with "insmet 1". All resultant WLOs would have
+   normalization 1 in the nkx.nky.nkz supercell where nkx.nky.nkz defines the
+   size of the k-point mesh.
+
+2. Metal type calculation with "insmet 2". Some of the  resultant WLOs might
+   have normalization less than 1.
+
+3. (Not yet included) Maximally localized Wannier function from the WLOs.
+
+NOTE : The code works for nshiftk = 1 only
+
+OUTPUT
+------
+
+1. fort.1***1 : XCRYSDEN plottable WLO fort files.
+   fields:12345
+      field 1   : "1" for XCRYSDEN plottable files
+      field 2-4 : number corresponding to the orbital in the order
+                  in which they are provided in the *.in file under
+                  the variable "orbdetails"
+      field 5   : spin polarization : isppol  1 or  2
+
+   NOTE: To avoide disk space problem these files are not plotted
+         through out the entire supercell mentioned in the *.in file.
+         Instead they are plotted in a 2x2x2 supercell (or 1x1x1 if that
+         is the supercell mentioned in the *.in) with the orbital at the
+         middle.
+
+2. fort.2***1 : Complex data files of WLO in the plotting region of fort.1***1
+                if "lofwrite" is set to 1. Only activate if this files are
+                really required for further quantitative analysis.
+
+   1st line : Location of the first grid point in the supercell of WLO
+              construction.
+   2nd line : The supercell grid point corresponding to the starting grid
+              point here.
+   3rd line : ngx ngy ngz in which the fort files are plotted.
+              WLO is plotted as : (((WLO(i,j,k),i=1,ngx),j=1,ngy),k=1,ngz)
+
+3. singularvalues.dat : Contains singular values of the overlap matrix
+                        between the energy occupied subspace and the auxiliary
+                        subspace obtained by inverse Fourier transform
+                        of the initial localized template described by
+                        "orbdetails" in the input file.
+
+ NOTE: If you find some of the singular values consitently
+       very close to zero (0.00xxx) you may look at the overlap_abs.dat file
+       and exclude orbitals (from under the orbdetails variable
+       in the input file) corresponding to predominantly zero rows of
+       overlap matrix and start a new calculation.
+4. lo_center.dat : position expectation value of the WLOs
+                   column 1    2    3    4      5        6
+                   index  <x>   <y>  <z> <WLO|WLO>  spin
+
+5. lo_loclength.dat : variance of WLO
+                      column 1    2    3    4        5      6
+                      index var_x var_y var_z <WLO|WLO>  spin
+
+           NOTE : Values in the above two data files are meaningfull only
+                  in case of insulator type calculation with sufficiently
+                  large supercell to give WLO normalization close to 1.
+
+6. overlap_abs.dat : Absolute(overlap matrix)
+
+Examples can be found as Test_v4 cases 48 and 49.
+
+Ongoing efforts
+---------------
+
+The second part which is yet to be upgraded is the
+construction of Maximally localized orbitals from the WLOs.
+The code is working but not yet in an efficient presentable
+form. I hope to complete that some times in the
+coming months.
+
+As a disclaimer, I must admit that while interfacing my codes
+with abinit I have really maintained least interference with
+the main abinit procedures just to avoid more work for me!
+
+
+
+Contact information for Wannier functions.
+------------------------------------------
+
+JOYDEEP BHATTACHARJEE
+Research fellow
+Theoretical Sciences Unit.
+Jawaharlal Nehru Centre for
+Advanced Scientific Research.
+Jakkur, Bangalore -560064, India
+Ph :+91-80-22082834-35 (2 lines)
+Fax:+91-80-22082766
+Cel:+91-9341312074
+
+
+</pre>
+
+<HR ALIGN=left>
+Goto :
+<A href="http://www.abinit.org"><B>ABINIT home Page</B></A>
+<B> | </B>
+<A href="acknowledgments.html"><B>Suggested acknowledgments</B></A>
+<B> | </B>
+<A href="../input_variables/keyhr.html"><B>List of input variables</B></A>
+<B> | </B>
+<A "href="../tutorial/welcome.html"><B>Tutorial home page</B></A>
+<B> | </B>
+<A href="bibliography.html"><B>Bibliography</B></A>
+<HR ALIGN=left>
+Help files :
+<A href="new_user_guide.html"><B>New user's guide</B></A>
+<B> | </B>
+<A href="abinis_help.html"><B>Abinis (main)</B></A>
+<B> | </B>
+<A href="respfn_help.html"><B>Abinis (respfn)</B></A>
+<B> | </B>
+<A href="mrgddb_help.html"><B>Mrgddb</B></A>
+<B> | </B>
+<A href="anaddb_help.html"><B>Anaddb</B></A>
+<B> | </B>
+<A href="aim_help.html"><B>AIM (Bader)</B></A>
+<B> | </B>
+<A href="cut3d_help.html"><B>Cut3D</B></A>
+<B> | </B>
+<A href="optic_help.html"><B>Optic</B></A>
+<B> | </B>
+<A href="mrgscr_help.html"><B>Mrgscr</B></A>
+<HR ALIGN=left>
+
+</body>
+</html>

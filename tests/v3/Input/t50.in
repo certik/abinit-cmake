@@ -1,0 +1,45 @@
+# single Mg atom, test of fftalg and istwfk
+# Test many combinations, using the double-loop multi-dataset mode
+# Similar to Tv1#89, except fftalg
+
+ndtset 42   udtset 7 6  
+ 
+kpt1?  0.5 0.0 0.0
+kpt2?  0.0 0.0 0.5
+kpt3?  0.5 0.0 0.5
+kpt4?  0.0 0.5 0.0
+kpt5?  0.5 0.5 0.0
+kpt6?  0.0 0.5 0.5
+kpt7?  0.5 0.5 0.5
+
+getwfk?:  0    getwfk?+ -1
+
+ fftalg?1  400    istwfk?1  0   
+ fftalg?2  400    istwfk?2  1  
+ fftalg?3  401    istwfk?3  1 
+ fftalg?4  401    istwfk?4  0  
+ fftalg?5  402    istwfk?5  1
+ fftalg?6  402    istwfk?6  0
+
+# Common input variables
+acell 3*10
+diemac 1.0d0
+diemix 1.0d0
+ecut 2
+intxc 1
+
+natom 1
+nband 1
+nkpt 1
+nline 3 
+nstep 20 
+nsym 1
+ntypat 1
+occopt 1
+rprim 1 0 0 0 1 0 0 0 1
+tolwfr 1.0d-14
+typat 1 
+xred 0.1  0.15  0.2
+wtk 1 znucl 12
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

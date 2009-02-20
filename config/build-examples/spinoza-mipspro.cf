@@ -1,0 +1,10 @@
+filename			mips-mipspro_spinoza.ac
+CC				gcc
+CXX				g++
+FC				f90
+with_fc_optflags		-mips4 -O3 -OPT:Olimit=7168
+enable_mpi			manual
+with_mpi_fc_optflags		-mips4 -O3 -OPT:Olimit=7168
+with_mpi_fc_libs		-lmpi
+enable_netcdf			no
+enable_etsf_io			no

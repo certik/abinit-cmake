@@ -1,0 +1,1 @@
+CXXFLAGS_OPT="-O2 -march=opteron -msse2"

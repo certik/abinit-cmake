@@ -1,0 +1,1 @@
+CFLAGS_OPT="-O3 -mcpu=pentium4 -msse -msse2 -msse3 -xT"

@@ -1,0 +1,24 @@
+#MgO molecule : prepare the density 
+#for Bader analysis
+
+ ntypat  2
+ typat  1 2
+ znucl  8 12
+
+ acell 8 8 11
+ natom  2
+#xcart 2*0.00d0 -1.81d0
+#      2*0.00d0  1.81d0
+ xcart 2*0.00d0 0.00d0
+       2*0.00d0 3.62d0
+
+  prtden  1
+    nkpt  1
+  toldfe  1.0d-12
+ ecut 30
+ diemac 2.0
+ nstep 25 
+ occopt 7
+
+# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
+  iscf 5

@@ -1,0 +1,132 @@
+!{\src2tex{textfont=tt}}
+!!****m* ABINIT/defs_infos
+!! NAME
+!!  defs_infos
+!!
+!! FUNCTION
+!!  This module contains information about this particular version of ABINIT
+!!  (useful for debugging).
+!!
+!! COPYRIGHT
+!!  Copyright (C) 2005-2008 ABINIT group (YP)
+!!  This file is distributed under the terms of the
+!!  GNU General Public License, see ~abinit/COPYING
+!!  or http://www.gnu.org/copyleft/gpl.txt .
+!!
+!! SOURCE
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+module defs_infos
+
+ use defs_basis
+
+ implicit none
+
+ ! Parameters set-up by Autoconf
+ character(len=6),parameter :: abinit_version = "@VERSION@"
+ character(len=*),parameter :: build_target   = "@ABINIT_TARGET@"
+
+ ! More info on current version
+ character(len=*),parameter :: version_major = "@ABINIT_VERSION_MAJOR@"
+ character(len=*),parameter :: version_minor = "@ABINIT_VERSION_MINOR@"
+ character(len=*),parameter :: version_micro = "@ABINIT_VERSION_MICRO@"
+ character(len=*),parameter :: version_build = "@ABINIT_VERSION_BUILD@"
+
+ ! Info on compilers
+ character(len=*),parameter :: cc_info  = "@cc_type@ @cc_version@"
+ character(len=*),parameter :: cxx_info = "@cxx_type@ @cxx_version@"
+ character(len=*),parameter :: fc_info  = "@fc_type@ @fc_version@"
+
+ ! Info on BLAS and LAPACK (mainly for bug reports)
+ character(len=*),parameter :: build_blas   = "@build_blas@"
+ character(len=*),parameter :: build_lapack = "@build_lapack@"
+
+ ! Info on optional libraries (mainly for bug reports)
+ character(len=*),parameter :: linalg_pkg_string  = "@linalg_pkg_string@"
+ character(len=*),parameter :: netcdf_pkg_string  = "@netcdf_pkg_string@"
+ character(len=*),parameter :: etsf_xc_pkg_string = "@etsf_xc_pkg_string@"
+ character(len=*),parameter :: xmlf90_pkg_string  = "@xmlf90_pkg_string@"
+ character(len=*),parameter :: enable_netcdf      = "@enable_netcdf@"
+ character(len=*),parameter :: enable_etsf_xc     = "@enable_etsf_xc@"
+ character(len=*),parameter :: enable_xmlf90      = "@enable_xmlf90@"
+ character(len=*),parameter :: build_linalg       = "@build_netcdf@"
+ character(len=*),parameter :: build_netcdf       = "@build_netcdf@"
+ character(len=*),parameter :: build_etsf_xc      = "@build_etsf_xc@"
+ character(len=*),parameter :: build_xmlf90       = "@build_xmlf90@"
+
+!£CONTAINS  !===========================================================
+
+
+!!***
+!!****f* ABINIT/print_defs_infos
+!! NAME
+!!  print_defs_infos
+!!
+!! FUNCTION
+!!  Report a printout of the information stored in defs_infos,
+!!  useful for error messages and debugging
+!!
+!! INPUTS
+!!  unit=the fortran unit number (default is std_out)
+!!
+!! OUTPUT
+!!  Only printing
+!!
+!! SOURCE
+
+!£subroutine print_defs_infos(unit)
+!£
+!£!Arguments ------------------------------------
+!£ integer,optional,intent(in) :: unit
+!£
+!£!Local variables-------------------------------
+!£ integer :: unt
+!£ character(len=500) :: msg
+!£ character(len=4) :: mode
+!£! *********************************************************************
+!£ 
+!£ !TODO things that might be added through preprocessing options: date and time of compilation 
+!£
+!£ unt=std_out ; if (PRESENT(unit)) unt=unit
+!£
+!£ write(unt,'(1x,a)')REPEAT('+',80)
+!£ write(unt,'(1x,a)')REPEAT('+',80)
+!£ write(unt,*)
+!£ write(unt,'(a)' )' === Build Information === '
+!£ write(unt,'(2a)')'  Version       : ',TRIM(abinit_version)
+!£ write(unt,'(2a)')'  Build target  : ',TRIM(build_target)
+!£ write(unt,'(2a)')'  Version build : ',TRIM(version_build)
+!£ write(unt,*)
+!£ write(unt,'(a)' )' === Compiler Suite === '
+!£ write(unt,'(2a)')'  C compiler       : ',TRIM(cc_info)
+!£ write(unt,'(2a)')'  C++ compiler     : ',TRIM(cxx_info)
+!£ write(unt,'(2a)')'  Fortran compiler : ',TRIM(fc_info)
+!£ write(unt,*)
+!£ write(unt,'(a) ')' === BLAS and LAPACK === '
+!£ write(unt,'(2a)')'  BLAS   : ',TRIM(build_blas)
+!£ write(unt,'(2a)')'  LAPACK : ',TRIM(build_lapack)
+!£ write(unt,*)
+!£ write(unt,'(a)' )' === Optional Libraries === '
+!£ write(unt,'(2a)')'  linalg_pkg_string  : ',TRIM(linalg_pkg_string)
+!£ write(unt,'(2a)')'  netcdf_pkg_string  : ',TRIM(netcdf_pkg_string)
+!£ write(unt,'(2a)')'  etsf_xc_pkg_string : ',TRIM(etsf_xc_pkg_string)
+!£ write(unt,'(2a)')'  xmlf90_pkg_string  : ',TRIM(xmlf90_pkg_string)
+!£ write(unt,'(2a)')'  enable_netcdf      : ',TRIM(enable_netcdf)
+!£ write(unt,'(2a)')'  enable_etsf_xc     : ',TRIM(enable_etsf_xc)
+!£ write(unt,'(2a)')'  enable_xmlf90      : ',TRIM(enable_xmlf90)
+!£ write(unt,'(2a)')'  build_linalg       : ',TRIM(build_linalg)
+!£ write(unt,'(2a)')'  build_netcdf       : ',TRIM(build_netcdf)
+!£ write(unt,'(2a)')'  build_etsf_xc      : ',TRIM(build_etsf_xc)
+!£ write(unt,'(2a)')'  build_xmlf90       : ',TRIM(build_xmlf90)
+!£ write(unt,*)
+!£ write(unt,'(1x,a)')REPEAT('+',80)
+!£ write(unt,'(1x,a)')REPEAT('+',80)
+!£
+!£end subroutine print_defs_infos
+!£!!***
+
+end module defs_infos
+!!***

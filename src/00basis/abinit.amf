@@ -1,0 +1,5 @@
+EXTRA_DIST += cclock.c cclock_.c etime.c
+
+if DO_BUILD_CCLOCK
+ lib00basis_a_SOURCES += cclock_.c
+endif

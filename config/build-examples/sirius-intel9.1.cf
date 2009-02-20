@@ -1,0 +1,5 @@
+filename		i686-intel9.1_sirius.ac
+CC			gcc
+CXX			g++
+FC			ifort
+enable_all_plugins	yes

@@ -1,0 +1,33 @@
+# Test a dihydrogen molecule with BigDFT
+# Compute forces in addition to ground state.
+
+ nstep 20
+
+ acell 3*10
+ ecut 10
+ kpt   0 0 0
+ natom  5 
+ nband 4
+ nkpt  1
+ nsym  1
+ ntypat  2
+ rprim   1 0 0  0 1 0  0 0 1
+ symrel  1 0 0  0 1 0  0 0 1    
+ toldfe 1.0d-6
+ typat  1 2 2 2 2
+ xcart  5.00 5.00 5.00
+        6.62 6.62 6.62
+        3.38 3.38 6.62
+        3.38 6.62 3.38
+        6.62 3.38 3.38
+ znucl 14 1
+
+ usewvl 1
+ iscf 2
+ optstress 0
+ wvl_hgrid 0.5
+ icoulomb 1
+ nscforder 14
+ wvl_nprccg 5
+
+ prteig 0

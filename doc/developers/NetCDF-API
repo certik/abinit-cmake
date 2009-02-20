@@ -1,0 +1,77 @@
+NetCDF API for ABINIT
+=====================
+
+Introduction
+------------
+
+While the 4.5 version was being developed, it has been decided to group
+NetCDF routines in one directory, mainly to ease further enhancements.
+
+The NetCDF API in ABINIT id divided into two parts:
+
+ * a set of low-level atomic routines, which perform the real I/O
+   operations;
+
+ * high-level interface routines, which make up the visible part
+   of the iceberg.
+
+All are stored in the 03ionetcdf directory.
+
+Some of them are computer-generated, at present those related to datasets.
+
+
+
+Interface routines
+------------------
+
+### create_netcdf_file ###
+
+TODO
+
+
+
+### read_netcdf_data ###
+
+TODO
+
+
+
+### write_netcdf_data ###
+
+TODO
+
+
+
+Low-level routines
+------------------
+
+### Datasets ###
+
+TODO
+
+
+
+### Wavefunctions ###
+
+TODO
+
+
+
+### Density ###
+
+TODO
+
+
+
+### ACFD data ###
+
+TODO
+
+
+
+Maintainer
+----------
+
+The 03ionetcdf directory, as well as this page, are maintained by
+Yann Pouillon. Please contact him for any question.
+

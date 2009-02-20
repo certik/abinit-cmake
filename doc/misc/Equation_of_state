@@ -1,0 +1,8 @@
+(From AOganov 030207)
+EOSFIT : very useful program for fitting P(V) equations of state.
+http://www.crystal.vt.edu/crystal/software.html
+
+EOS: very useful and usually robust program for fitting E(V) equations of state.
+http://physig.uni-graz.at/~kde/eos.html
+I would recommend to decrease steps in fitdata.f by ~10 times for high precision
+

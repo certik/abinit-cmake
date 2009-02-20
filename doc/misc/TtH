@@ -1,0 +1,16 @@
+From MM, on August 21, 2001.
+
+
+The tool (freeware) that
+can convert LaTeX files (including equations) to HTML files:
+
+"TtH" (the TeX to HTML translator)
+http://hutchinson.belmont.ma.us/tth/
+
+(You will find a equation on the WEB page :
+  d                   1
+  -- arcsin x = ------------
+  dx            sqrt (1-x^2)
+ If you could not see it like the above, you might consult with
+ some WEB pages there. If you use a Netscape under X, please take a
+ look at " http://hutchinson.belmont.ma.us/tth/Xfonts.html .")

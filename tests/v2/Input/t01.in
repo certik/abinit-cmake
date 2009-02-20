@@ -1,0 +1,67 @@
+#test germanium linear chain without xc. 
+#Step 1 : ground-state calc.
+#Step 2 : response-function calculation with all wfs in core memory
+#Step 3 : restart response-function calculation from 1wf of previous step, 
+#           and use mffmem 0, mkqmem 0, mkmem 0 and mk1mem 0
+#Note : uses the simple mixing algorithm, not very efficient ...
+#Warning : no mass is input, so do not test frequencies, but 2DTE
+
+ ndtset 3
+ ntypat 1
+ npsp 1
+
+#For the response function calculation step2
+  rfphon2  1  
+    nqpt2  1    
+  getwfk2  1
+    iscf2  2
+  diemix2  0.35
+  diemac2  1.0
+   nstep2  12     # Do a small number a of SCF cycles : the convergence
+                  # will be reached with the next dataset
+
+#For the response function calculation step3
+  rfphon3  1  
+    nqpt3  1    
+  getwfk3  1
+  get1wf3  2
+  diemix3  0.35
+  diemac3  1.0
+  mffmem3  0
+   mkmem3  0
+  mkqmem3  0
+  mk1mem3  0
+    iscf3  2
+
+#Common to response function calculations, and not used by GS
+ rfatpol   2 2
+   rfdir   0 0 1
+     qpt   0.0 0.0 0.0
+
+#Common data
+ acell   3*10.00
+ amu 1.0d0
+ ecut  1.20
+ iscf 3 
+ ixc 0
+ kpt
+   0.00000   0.00000  -0.37500
+   0.00000   0.00000  -0.12500
+   0.00000   0.00000   0.12500
+   0.00000   0.00000   0.37500
+ natom  2 nband 4
+ ngfft  3*16  nkpt  4
+ nstep 30
+ nsym   1  #  ntypat  1  
+ occopt 1
+ rprim   1.0  0.0  0.0    
+         0.0  1.0  0.0   
+         0.0  0.0  1.0
+ symrel  1  0  0   0  1  0   0  0  1
+ xred    0.0  0.0  0.0
+         0.0  0.0  0.3
+ tnons 3*0.0
+ typat  1 1         
+ tolwfr  1.e-15
+ wtk 4*0.25
+ znucl  32
