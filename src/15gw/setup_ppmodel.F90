@@ -120,7 +120,7 @@ subroutine setup_ppmodel(PPm,paral_kgb,Qmesh,Sp,Er,MPI_enreg,&
  if (PRESENT(epsm1q)) then 
   nqiA=1 ; single_q=.TRUE.
   ltest=PRESENT(iqiA)
-  call assert(ltest,'For single q-point mode, also iqiA must be present')
+  call assert(ltest,'For single q-point mode, also iqiA must be present',__FILE__,__LINE__)
  end if
  !
  ! Allocate plasmonpole parameters 
