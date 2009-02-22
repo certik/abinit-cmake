@@ -116,3 +116,7 @@ target_link_libraries(abinetcdf defs)
 add_executable(anascr anascr.F90)
 target_link_libraries(anascr 15gw 14iowfdenpot 13recipspace 13io_mpi 12geometry
     11util 01manage_mpi 00basis lib01hidempi lib00numeric defs)
+
+install(TARGETS abinis abinetcdf aim anaddb anascr band2eps conducti cut3d lwf
+    macroave mrgddb mrggkk mrgscr newsp optic
+    RUNTIME DESTINATION bin)
