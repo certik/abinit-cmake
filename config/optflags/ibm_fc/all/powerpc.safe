@@ -1,1 +1,0 @@
-FCFLAGS_OPT="-O2 -qmaxmem=65536 -qspill=2000 -qarch=auto -qtune=auto -qcache=auto -qstrict -qsuppress=1520-022:1520-031"

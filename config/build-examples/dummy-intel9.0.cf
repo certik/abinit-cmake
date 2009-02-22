@@ -1,7 +1,0 @@
-filename		i686-intel9.0_dummy.ac
-CC			gcc
-CXX			g++
-FC			/opt/intel/fc/9.0/bin/ifort
-with_fc_optflags	-O2
-with_mpi_prefix		/usr/local/mpich-1.2.6-ifort9.0
-enable_etsf_io		no 

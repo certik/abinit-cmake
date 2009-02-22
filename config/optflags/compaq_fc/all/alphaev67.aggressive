@@ -1,2 +1,0 @@
-FCFLAGS_OPT="-O3 -arch host -tune host"
-fcflags_opt_21drive="-O1 -arch host -tune host"

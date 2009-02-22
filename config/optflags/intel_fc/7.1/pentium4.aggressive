@@ -1,1 +1,0 @@
-FCFLAGS_OPT="-O3 -tpp7 -xW"

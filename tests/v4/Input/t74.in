@@ -1,8 +1,0 @@
-# Alas, zinc-blende, analysis of the polarization
-
-polflag 1
-relaxat 0
-relaxstr 0
-# This line added when defaults were changed (v5.3) to keep the previous, old behaviour
-  asr 0
-  symdynmat 0

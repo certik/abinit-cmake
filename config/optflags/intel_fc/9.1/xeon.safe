@@ -1,1 +1,0 @@
-CFLAGS_OPT="-O2 -arch pn4 -tune pn4 -xW"

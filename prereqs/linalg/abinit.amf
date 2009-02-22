@@ -1,6 +1,0 @@
-CLEANFILES += \
-	libblas.a \
-	liblapack.a
-
-EXTRA_DIST += \
-	README.lapack

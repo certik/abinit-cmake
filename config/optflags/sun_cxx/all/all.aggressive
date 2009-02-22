@@ -1,2 +1,0 @@
-CXXFLAGS_OPT="-xO4 -fround=nearest -xtarget=native -xlibmil -xlibmopt -xipo -xjobs=3"
-CXX_LDFLAGS_OPT="-xipo"

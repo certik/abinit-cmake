@@ -1,1 +1,0 @@
-FCFLAGS_OPT="-Of -X9 -Ps -Wv,-md"

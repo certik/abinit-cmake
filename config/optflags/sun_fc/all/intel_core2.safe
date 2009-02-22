@@ -1,1 +1,0 @@
-FCFLAGS_OPT="-xO2 -fround=nearest -xtarget=pentium4 -xarch=sse2"

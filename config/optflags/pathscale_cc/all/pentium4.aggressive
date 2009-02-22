@@ -1,1 +1,0 @@
-CFLAGS_OPT="-O3 -march=pentium4 -msse2"

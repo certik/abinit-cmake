@@ -1,8 +1,0 @@
-filename		powerpc64-ibm_fock.ac
-CC			xlc
-CXX			xlC
-FC			xlf
-with_mpi_prefix		/usr/local/mpich
-enable_64bit_flags	yes
-fcflags_opt_21drive	-O2
-enable_etsf_io		yes

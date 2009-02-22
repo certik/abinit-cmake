@@ -1,8 +1,0 @@
-filename		powerpc-ibm_datastar.ac
-CC			mpcc_r
-CXX			mpCC_r
-FC			mpxlf90_r
-with_fc_optflags	-O3 -q64 -qarch=pwr4 -qstrict -qtune=pwr4
-enable_mpi		yes
-enable_netcdf		no
-enable_etsf_io		no

@@ -1,1 +1,0 @@
-FCFLAGS_OPT="-xO3 -fround=nearest -xarch=sse2 -xchip=native -xcache=native -xvector=lib"

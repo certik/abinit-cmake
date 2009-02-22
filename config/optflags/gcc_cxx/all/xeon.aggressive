@@ -1,1 +1,0 @@
-CXXFLAGS_OPT="-O3 -fschedule-insns2 -march=nocona -mmmx -msse -msse2 -msse3 -mfpmath=sse"

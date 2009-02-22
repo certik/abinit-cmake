@@ -1,2 +1,0 @@
-CFLAGS_OPT="-xO4 -fround=nearest -xtarget=native -xlibmil -xlibmopt -xipo -xjobs=3"
-CC_LDFLAGS_OPT="-xipo"

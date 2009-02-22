@@ -1,7 +1,0 @@
-filename		ia64-intel8.1_chpit.ac
-CC			gcc
-CXX			g++
-FC			ifort
-with_mpi_prefix		/usr/local/mpich
-with_fc_optflags	-O2
-enable_etsf_io		no

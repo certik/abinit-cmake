@@ -1,9 +1,0 @@
-filename		powerpc-ibm_generic.ac
-CC			xlc
-CXX			xlC
-FC			xlf
-enable_64bit_flags	yes
-enable_mpi		yes
-with_mpi_prefix		/usr/lpp/ppe.poe
-enable_netcdf		no
-enable_etsf_io		no

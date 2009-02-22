@@ -1,2 +1,0 @@
-CXXFLAGS_OPT="-xO4 -fround=nearest -xtarget=opteron -xarch=sse2a -m64 -xlibmil -xlibmopt -xvector=simd -xipo -xjobs=3"
-CXX_LDFLAGS_OPT="-xvector=simd -xipo"

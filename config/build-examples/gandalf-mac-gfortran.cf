@@ -1,7 +1,0 @@
-filename		macosx-gfortran_gandalf.ac
-CC			gcc
-CXX			gcc
-FC			/usr/local/bin/gfortran
-enable_mpi		no
-enable_netcdf		no
-enable_etsf_io		no 

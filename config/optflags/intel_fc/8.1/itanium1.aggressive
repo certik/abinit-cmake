@@ -1,3 +1,0 @@
-FCFLAGS_OPT="-O3"
-fcflags_opt_13nonlocal="-O0"
-fcflags_opt_18seqpar="-O3 -tpp1"

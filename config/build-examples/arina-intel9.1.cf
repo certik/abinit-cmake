@@ -1,6 +1,0 @@
-filename		ia64-intel9.1_arina.ac
-CC			icc
-CXX			icpc
-FC			ifort
-enable_mpi		yes
-with_mpi_prefix		/opt/hpmpi

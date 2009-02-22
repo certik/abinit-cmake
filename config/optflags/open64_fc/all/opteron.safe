@@ -1,3 +1,0 @@
-FCFLAGS_OPT="-O2 -march=opteron -msse2"
-fcflags_opt_17ddb="-O1"
-fcflags_opt_21drive="-O1"

@@ -1,1 +1,0 @@
-CXXFLAGS_OPT="-O3 -fforce-addr -march=pentium3 -mmmx -msse"

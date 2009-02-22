@@ -1,1 +1,0 @@
-CXXFLAGS_OPT="-O3 -march=prescott -mmmx -msse -msse2"
