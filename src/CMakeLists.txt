@@ -41,5 +41,6 @@ add_subdirectory(lib01cg)
 add_subdirectory(lib01hidempi)
 add_subdirectory(lib01fftnew)
 add_subdirectory(lib00numeric)
+add_subdirectory(lib00macroav)
 
 add_subdirectory(main)

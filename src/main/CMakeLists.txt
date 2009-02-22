@@ -75,3 +75,7 @@ target_link_libraries(cut3d 19cut3d 15common 14occeig 14iowfdenpot 13recipspace
     lib01hidempi 11contract 11util 01manage_mpi lib00numeric 00basis defs
     ${LAPACK_LIBRARIES}
     )
+
+add_executable(macroave macroave.F90)
+target_link_libraries(macroave 14iowfdenpot 13io_mpi 11util 01manage_mpi
+    lib00macroav 00basis defs)
