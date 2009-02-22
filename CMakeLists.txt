@@ -4,7 +4,11 @@ cmake_minimum_required(VERSION 2.6)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 enable_language(Fortran)
 
-set(CMAKE_Fortran_FLAGS "-ffree-line-length-256")
+if(DEFINED ENV{FCFLAGS})
+    set(CMAKE_Fortran_FLAGS $ENV{FCFLAGS})
+else(DEFINED ENV{FCFLAGS})
+    set(CMAKE_Fortran_FLAGS "-ffree-line-length-256")
+endif(DEFINED ENV{FCFLAGS})
 
 if(NOT DEFINED WITH_MPI)
     set(WITH_MPI NO)
