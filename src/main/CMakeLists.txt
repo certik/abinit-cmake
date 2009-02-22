@@ -68,3 +68,10 @@ target_link_libraries(anaddb  17ddb 16response 15common 14occeig 14wfs
 add_executable(aim aim.F90)
 target_link_libraries(aim 14bader 14iowfdenpot 13io_mpi 12parser 12geometry
     11util 01manage_mpi lib00numeric 00basis lib01hidempi defs)
+
+add_executable(cut3d cut3d.F90)
+target_link_libraries(cut3d 19cut3d 15common 14occeig 14iowfdenpot 13recipspace
+    13nonlocal 13ionetcdf 13io_mpi 12geometry 12ffts 12spacepar 12parser lib01fftnew
+    lib01hidempi 11contract 11util 01manage_mpi lib00numeric 00basis defs
+    ${LAPACK_LIBRARIES}
+    )
