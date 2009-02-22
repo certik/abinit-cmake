@@ -87,3 +87,10 @@ target_link_libraries(newsp 15common 14occeig 14iowfdenpot 14wfs 13ionetcdf
     lib00numeric defs
     ${LAPACK_LIBRARIES}
     )
+
+add_executable(conducti conducti.F90)
+target_link_libraries(conducti 15common 15gw 14occeig 14iowfdenpot 13recipspace
+    13io_mpi 12geometry 11util 01manage_mpi lib00numeric 00basis lib01hidempi
+    lib00numeric defs
+    ${LAPACK_LIBRARIES}
+    )
