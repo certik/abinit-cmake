@@ -46,3 +46,7 @@ add_dependencies(abinis ${ABINIT_LIBS})
 find_package(LAPACK REQUIRED)
 
 target_link_libraries(abinis ${ABINIT_LIBS} ${LAPACK_LIBRARIES})
+
+add_executable(mrgddb mrgddb.F90)
+target_link_libraries(mrgddb 17ddb 16response 13io_mpi 11util 01manage_mpi
+    00basis lib01hidempi defs)
