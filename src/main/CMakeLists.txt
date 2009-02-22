@@ -53,3 +53,7 @@ target_link_libraries(mrgddb 17ddb 16response 13io_mpi 11util 01manage_mpi
 add_executable(mrggkk mrggkk.F90)
 target_link_libraries(mrggkk 14iowfdenpot 13io_mpi 11util 01manage_mpi 00basis
     lib01hidempi defs)
+
+add_executable(mrgscr mrgscr.F90)
+target_link_libraries(mrgscr 15gw 14iowfdenpot 13io_mpi 12geometry 11util
+    01manage_mpi 00basis lib01hidempi lib00numeric defs)
