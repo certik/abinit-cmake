@@ -9,6 +9,11 @@ if(NOT DEFINED WITH_MPI)
     set(WITH_MPI NO)
 endif(NOT DEFINED WITH_MPI)
 
+if(WITH_MPI)
+    set(CMAKE_Fortran_COMPILER mpif90)
+    include_directories(/usr/lib/openmpi/lib)
+endif(WITH_MPI)
+
 add_definitions(-DHAVE_CONFIG_H)
 
 add_subdirectory(src)
