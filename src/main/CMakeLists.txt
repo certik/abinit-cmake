@@ -57,9 +57,14 @@ target_link_libraries(mrggkk 14iowfdenpot 13io_mpi 11util 01manage_mpi 00basis
 add_executable(mrgscr mrgscr.F90)
 target_link_libraries(mrgscr 15gw 14iowfdenpot 13io_mpi 12geometry 11util
     01manage_mpi 00basis lib01hidempi lib00numeric defs)
+
 add_executable(anaddb anaddb.F90)
 target_link_libraries(anaddb  17ddb 16response 15common 14occeig 14wfs
     14iowfdenpot 13recipspace 13nonlocal 13io_mpi 12geometry 12parser 11util
     01manage_mpi lib00numeric 00basis lib01hidempi lib00numeric defs
     ${LAPACK_LIBRARIES}
     )
+
+add_executable(aim aim.F90)
+target_link_libraries(aim 14bader 14iowfdenpot 13io_mpi 12parser 12geometry
+    11util 01manage_mpi lib00numeric 00basis lib01hidempi defs)
