@@ -89,4 +89,14 @@ add_custom_command(
     DEPENDS defs_infos.F90.in
     )
 
+if (WITH_MPI)
+    set(USE_MPI 1)
+else (WITH_MPI)
+    set(USE_MPI 0)
+endif (WITH_MPI)
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/config.h
+    )
+
 add_library(defs STATIC ${SRC})

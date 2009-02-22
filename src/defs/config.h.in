@@ -1,0 +1,4 @@
+#define USE_MPI ${USE_MPI}
+#if USE_MPI
+#define MPI 1
+#endif
