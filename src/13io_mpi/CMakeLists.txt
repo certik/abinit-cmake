@@ -18,9 +18,11 @@ set(SRC
     wffwritedatarec.F90
     wffwritedatarecint.F90
     wffwritenpwrec.F90
-
-    #hdr_comm.F90
 )
+
+if(WITH_MPI)
+    set(SRC ${SRC} hdr_comm.F90)
+endif(WITH_MPI)
 
 include_directories(../defs)
 add_library(13io_mpi ${SRC})
