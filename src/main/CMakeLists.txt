@@ -79,3 +79,11 @@ target_link_libraries(cut3d 19cut3d 15common 14occeig 14iowfdenpot 13recipspace
 add_executable(macroave macroave.F90)
 target_link_libraries(macroave 14iowfdenpot 13io_mpi 11util 01manage_mpi
     lib00macroav 00basis defs)
+
+add_executable(newsp newsp.F90)
+target_link_libraries(newsp 15common 14occeig 14iowfdenpot 14wfs 13ionetcdf
+    13iovars 13ionetcdf 13recipspace 13xml 13nonlocal 13io_mpi 12ffts
+    12geometry 12parser 11contract 11util 01manage_mpi 00basis lib01hidempi
+    lib00numeric defs
+    ${LAPACK_LIBRARIES}
+    )
