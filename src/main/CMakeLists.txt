@@ -94,3 +94,9 @@ target_link_libraries(conducti 15common 15gw 14occeig 14iowfdenpot 13recipspace
     lib00numeric defs
     ${LAPACK_LIBRARIES}
     )
+
+add_executable(optic optic.F90)
+target_link_libraries(optic 15common 14iowfdenpot 13recipspace 13io_mpi
+    12geometry 11util 01manage_mpi 00basis lib01hidempi defs
+    ${LAPACK_LIBRARIES}
+    )
